@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thalès Informatique — Aperçu Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0F172A;
+    --navy2: #1E293B;
+    --slate: #334155;
+    --cta: #0369A1;
+    --cta2: #0284C7;
+    --accent: #38BDF8;
+    --bg: #F8FAFC;
+    --text: #020617;
+    --border: #E2E8F0;
+    --muted: #64748B;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: transparent; transition: all .3s;
+    backdrop-filter: blur(0px);
+  }
+  .navbar.scrolled {
+    background: rgba(255,255,255,.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+  .nav-logo-icon {
+    width: 32px; height: 32px; background: var(--cta); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 800; font-size: 14px;
+  }
+  .nav-logo-text { font-weight: 700; font-size: 16px; color: #fff; transition: color .3s; }
+  .navbar.scrolled .nav-logo-text { color: var(--navy); }
+  .nav-logo-text span { color: var(--accent); transition: color .3s; }
+  .navbar.scrolled .nav-logo-text span { color: var(--cta); }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-links a {
+    padding: 6px 12px; font-size: 13.5px; font-weight: 500; border-radius: 8px;
+    color: rgba(255,255,255,.78); text-decoration: none; transition: all .2s;
+  }
+  .navbar.scrolled .nav-links a { color: var(--slate); }
+  .nav-links a:hover { background: rgba(255,255,255,.1); color: #fff; }
+  .navbar.scrolled .nav-links a:hover { background: #F1F5F9; color: var(--navy); }
+  .nav-cta-wrap { display: flex; gap: 8px; align-items: center; }
+  .btn-ghost {
+    font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 8px;
+    color: rgba(255,255,255,.7); text-decoration: none; transition: all .2s; cursor: pointer;
+  }
+  .navbar.scrolled .btn-ghost { color: var(--slate); }
+  .btn-primary {
+    font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 10px;
+    background: var(--cta); color: #fff; text-decoration: none;
+    transition: background .2s; cursor: pointer; box-shadow: 0 2px 8px rgba(3,105,161,.3);
+  }
+  .btn-primary:hover { background: var(--cta2); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(3,105,161,.18) 0%, transparent 60%),
+                linear-gradient(180deg, #0F172A 0%, #0F172A 65%, #1E293B 100%);
+    position: relative; overflow: hidden; padding-top: 64px;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 35%; left: 50%; transform: translate(-50%,-50%);
+    width: 600px; height: 400px; background: rgba(3,105,161,.22);
+    border-radius: 50%; filter: blur(100px); pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; max-width: 1280px; margin: 0 auto; padding: 60px 24px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+    border-radius: 999px; padding: 6px 14px; margin-bottom: 20px;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .hero-badge span { font-size: 11.5px; color: rgba(255,255,255,.7); font-weight: 500; letter-spacing: .03em; }
+  .hero h1 {
+    font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; color: #fff;
+    line-height: 1.1; letter-spacing: -.02em;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #0369A1, #38BDF8); -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero p { margin-top: 20px; font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.75; max-width: 480px; }
+  .trust-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .trust-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    color: rgba(255,255,255,.6); font-size: 11px; font-weight: 500;
+    padding: 5px 10px; border-radius: 999px;
+  }
+  .trust-badge svg { width: 11px; height: 11px; color: var(--accent); flex-shrink: 0; }
+  .hero-ctas { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .btn-hero-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--cta); color: #fff; font-weight: 600; font-size: 14px;
+    padding: 13px 22px; border-radius: 12px; text-decoration: none;
+    transition: all .2s; box-shadow: 0 6px 20px rgba(3,105,161,.35); cursor: pointer;
+  }
+  .btn-hero-primary:hover { background: var(--cta2); transform: translateY(-1px); }
+  .btn-hero-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+    color: #fff; font-weight: 600; font-size: 14px;
+    padding: 13px 22px; border-radius: 12px; text-decoration: none;
+    transition: all .2s; cursor: pointer;
+  }
+  .btn-hero-secondary:hover { background: rgba(255,255,255,.14); }
+
+  /* Dashboard mockup */
+  .hero-visual { position: relative; }
+  .dashboard-card {
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px; padding: 20px; backdrop-filter: blur(4px);
+  }
+  .dash-titlebar { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+  .dash-dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dash-urlbar { flex: 1; background: rgba(255,255,255,.08); border-radius: 6px; height: 18px; margin-left: 6px; }
+  .dash-chart-area { background: rgba(255,255,255,.04); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+  .dash-chart-label { font-size: 10px; color: rgba(255,255,255,.3); font-weight: 500; margin-bottom: 10px; }
+  .dash-bars { display: flex; align-items: flex-end; gap: 5px; height: 70px; }
+  .dash-bar { flex: 1; border-radius: 3px; background: rgba(255,255,255,.12); min-height: 6px; transition: height .5s; }
+  .dash-bar.highlight { background: rgba(56,189,248,.75); }
+  .dash-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .dash-stat { background: rgba(255,255,255,.04); border-radius: 10px; padding: 10px; }
+  .dash-stat-label { font-size: 9px; color: rgba(255,255,255,.3); margin-bottom: 4px; }
+  .dash-stat-val { font-size: 15px; font-weight: 700; }
+  .dash-stat-val.green { color: #34D399; }
+  .dash-stat-val.blue { color: var(--accent); }
+
+  .float-card {
+    position: absolute; background: #fff; border-radius: 12px;
+    padding: 10px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    display: flex; align-items: center; gap: 10px; border: 1px solid;
+  }
+  .float-card-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .float-card-val { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1; }
+  .float-card-sub { font-size: 9px; color: var(--muted); margin-top: 2px; }
+  .fc-green { border-color: #D1FAE5; top: -14px; left: 10px; }
+  .fc-green .float-card-icon { background: #D1FAE5; color: #059669; }
+  .fc-blue { border-color: #DBEAFE; top: 40%; right: -18px; }
+  .fc-blue .float-card-icon { background: #DBEAFE; color: #2563EB; }
+  .fc-violet { border-color: #EDE9FE; bottom: -14px; left: 10px; }
+  .fc-violet .float-card-icon { background: #EDE9FE; color: #7C3AED; }
+
+  /* ── MARQUEE ── */
+  .marquee-section { padding: 48px 0; background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .marquee-label { text-align: center; font-size: 11px; font-weight: 700; color: rgba(51,65,85,.45); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 28px; }
+  .marquee-wrap { position: relative; }
+  .marquee-fade-l, .marquee-fade-r {
+    position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+  }
+  .marquee-fade-l { left: 0; background: linear-gradient(to right, #fff, transparent); }
+  .marquee-fade-r { right: 0; background: linear-gradient(to left, #fff, transparent); }
+  .marquee-track { display: flex; animation: marqueeAnim 28s linear infinite; width: max-content; }
+  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marqueeAnim { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .logo-chip {
+    flex-shrink: 0; width: 148px; height: 52px; margin: 0 12px;
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    filter: grayscale(1); transition: all .3s; cursor: default;
+  }
+  .logo-chip:hover { filter: grayscale(0); border-color: rgba(3,105,161,.3); box-shadow: 0 4px 12px rgba(0,0,0,.07); }
+  .logo-chip-abbr {
+    width: 26px; height: 26px; background: #F1F5F9; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; font-weight: 800; color: var(--slate); letter-spacing: .05em;
+  }
+  .logo-chip span { font-size: 11.5px; font-weight: 600; color: var(--slate); max-width: 72px; line-height: 1.2; }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 96px 24px; }
+  .section-inner { max-width: 1280px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; color: var(--cta);
+    text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px;
+  }
+  .section-title { font-size: clamp(26px, 3vw, 38px); font-weight: 800; color: var(--navy); letter-spacing: -.02em; line-height: 1.2; }
+  .section-sub { margin-top: 14px; font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 520px; }
+  .section-header-flex { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+  .link-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--cta); font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: gap .2s; }
+  .link-arrow:hover { gap: 10px; }
+
+  /* ── PROBLEM / SOLUTION ── */
+  .ps-section { background: var(--bg); }
+  .ps-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 28px; align-items: start; }
+  .ps-col-label { display: flex; align-items: center; gap: 6px; margin-bottom: 18px; }
+  .ps-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .ps-col-label span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .ps-card {
+    display: flex; align-items: flex-start; gap: 10px;
+    border-radius: 14px; padding: 14px; margin-bottom: 10px;
+    transition: transform .2s;
+  }
+  .ps-card:hover { transform: translateY(-2px); }
+  .ps-card-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+  .ps-card-title { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .ps-card-desc { font-size: 11.5px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .ps-card.bad { background: rgba(254,226,226,.5); border: 1px solid #FECACA; }
+  .ps-card.good { background: rgba(209,250,229,.4); border: 1px solid #A7F3D0; }
+  .ps-arrow {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    align-self: center;
+  }
+  .ps-arrow-circle {
+    width: 44px; height: 44px; background: var(--cta); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 14px rgba(3,105,161,.3);
+    color: #fff; font-size: 18px;
+  }
+
+  /* ── SECTORS ── */
+  .sectors-section { background: #fff; }
+  .sectors-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .sector-card {
+    border-radius: 18px; padding: 20px; cursor: pointer;
+    transition: transform .2s, box-shadow .2s; border: 1px solid;
+    position: relative; overflow: hidden;
+  }
+  .sector-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(15,23,42,.1); }
+  .sector-icon {
+    width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 14px; font-size: 18px;
+    transition: transform .2s;
+  }
+  .sector-card:hover .sector-icon { transform: scale(1.1); }
+  .sector-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .sector-card p { font-size: 11px; color: var(--muted); line-height: 1.55; }
+  .sector-learn { display: none; margin-top: 10px; font-size: 11px; font-weight: 600; align-items: center; gap: 4px; }
+  .sector-card:hover .sector-learn { display: flex; }
+
+  /* ── KEY STATS ── */
+  .stats-section { background: var(--navy); }
+  .stats-section .section-tag { color: var(--accent); }
+  .stats-section .section-title { color: #fff; }
+  .stats-section .section-sub { color: rgba(255,255,255,.45); max-width: 480px; margin: 14px auto 0; text-align: center; }
+  .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,.07); border-radius: 20px; overflow: hidden; margin-top: 52px; }
+  .stat-cell {
+    background: rgba(255,255,255,.03); padding: 32px 20px; text-align: center;
+    transition: background .2s; cursor: default;
+  }
+  .stat-cell:hover { background: rgba(255,255,255,.07); }
+  .stat-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 18px; }
+  .stat-value { font-size: 38px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12.5px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .stat-sub { font-size: 11px; color: rgba(255,255,255,.28); }
+
+  /* ── SOLUTIONS ── */
+  .solutions-section { background: var(--bg); }
+  .solutions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .sol-card {
+    background: #fff; border-radius: 18px; padding: 20px; border: 1px solid var(--border);
+    cursor: pointer; transition: all .2s; position: relative; overflow: hidden;
+  }
+  .sol-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(15,23,42,.09); }
+  .sol-tag { display: inline-block; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; padding: 3px 8px; border-radius: 999px; margin-bottom: 14px; }
+  .sol-icon { width: 38px; height: 38px; border-radius: 11px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 17px; transition: transform .2s; }
+  .sol-card:hover .sol-icon { transform: scale(1.1); }
+  .sol-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .sol-card p { font-size: 11px; color: var(--muted); line-height: 1.6; }
+  .sol-learn { display: none; margin-top: 12px; font-size: 11px; font-weight: 600; align-items: center; gap: 4px; }
+  .sol-card:hover .sol-learn { display: flex; }
+  .solutions-cta { text-align: center; margin-top: 44px; }
+
+  /* ── AWARDS ── */
+  .awards-section { background: #fff; }
+  .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .award-card {
+    border-radius: 20px; padding: 22px; border: 1px solid; cursor: default;
+    transition: transform .2s, box-shadow .2s; position: relative;
+  }
+  .award-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(15,23,42,.08); }
+  .award-year { position: absolute; top: 14px; right: 14px; font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,.8); background: rgba(15,23,42,.75); padding: 2px 7px; border-radius: 999px; }
+  .award-icon-wrap {
+    width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 14px; font-size: 20px;
+    transition: transform .2s;
+  }
+  .award-card:hover .award-icon-wrap { transform: scale(1.1); }
+  .award-org { font-size: 9.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+  .award-title { font-size: 13.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .award-desc { font-size: 11.5px; color: var(--muted); line-height: 1.55; }
+
+  /* ── EVENTS ── */
+  .events-section { background: var(--bg); }
+  .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .event-card {
+    background: #fff; border-radius: 20px; border: 1px solid var(--border);
+    overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s;
+  }
+  .event-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(15,23,42,.09); }
+  .event-header { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .event-date-day { font-size: 32px; font-weight: 800; color: #fff; line-height: 1; }
+  .event-date-month { font-size: 13px; color: rgba(255,255,255,.75); font-weight: 500; }
+  .event-tag { font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; padding: 4px 9px; border-radius: 999px; }
+  .event-body { padding: 16px 20px; }
+  .event-title { font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 12px; }
+  .event-meta { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+  .event-meta-row { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--muted); }
+  .event-meta-icon { width: 13px; flex-shrink: 0; opacity: .55; }
+  .btn-event {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 11.5px; font-weight: 700; color: var(--cta);
+    border: 1px solid rgba(3,105,161,.3); border-radius: 10px; padding: 9px;
+    transition: all .2s; cursor: pointer; text-decoration: none;
+  }
+  .btn-event:hover { background: var(--cta); color: #fff; }
+
+  /* ── BLOG ── */
+  .blog-section { background: #fff; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .article-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 20px;
+    overflow: hidden; cursor: pointer; transition: transform .2s, box-shadow .2s;
+  }
+  .article-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(15,23,42,.09); }
+  .article-img {
+    height: 168px; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .article-img-badge {
+    position: relative; display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.15); backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.2); border-radius: 12px; padding: 8px 14px;
+  }
+  .article-img-badge span { color: #fff; font-size: 13px; font-weight: 600; }
+  .article-body { padding: 16px 18px; }
+  .article-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .article-cat { font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; padding: 3px 8px; border-radius: 999px; }
+  .article-time { font-size: 10.5px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .article-title { font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.45; margin-bottom: 8px; }
+  .article-card:hover .article-title { color: var(--cta); }
+  .article-excerpt { font-size: 11.5px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .article-footer { display: flex; align-items: center; justify-content: space-between; }
+  .article-date { font-size: 10.5px; color: rgba(100,116,139,.5); }
+  .article-cta { font-size: 11px; font-weight: 700; color: var(--cta); display: none; align-items: center; gap: 4px; }
+  .article-card:hover .article-cta { display: flex; }
+
+  /* ── CTA SECTION ── */
+  .cta-section { background: var(--bg); padding: 96px 24px; }
+  .cta-box {
+    max-width: 900px; margin: 0 auto;
+    background: var(--navy); border-radius: 28px; padding: 64px 56px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-glow {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 200px; background: rgba(3,105,161,.25);
+    border-radius: 50%; filter: blur(80px); pointer-events: none;
+  }
+  .cta-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 0);
+    background-size: 30px 30px;
+  }
+  .cta-box .section-tag { color: var(--accent); }
+  .cta-box .section-title { color: #fff; max-width: 600px; margin: 0 auto; }
+  .cta-box .section-sub { color: rgba(255,255,255,.45); margin: 14px auto 0; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+  .cta-btn-p {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--cta); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 13px 22px; border-radius: 12px; text-decoration: none;
+    transition: all .2s; box-shadow: 0 6px 20px rgba(3,105,161,.4); cursor: pointer;
+  }
+  .cta-btn-p:hover { background: var(--cta2); transform: translateY(-1px); }
+  .cta-btn-s {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+    color: #fff; font-weight: 600; font-size: 14px;
+    padding: 13px 22px; border-radius: 12px; text-decoration: none;
+    transition: all .2s; cursor: pointer;
+  }
+  .cta-btn-s:hover { background: rgba(255,255,255,.14); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.05); padding: 64px 24px 32px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand-name { font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .footer-brand-name span { color: var(--accent); }
+  .footer-desc { font-size: 11.5px; color: rgba(255,255,255,.35); line-height: 1.7; margin-bottom: 18px; max-width: 190px; }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 7px; font-size: 11.5px; color: rgba(255,255,255,.35); margin-bottom: 7px; text-decoration: none; transition: color .2s; }
+  .footer-contact-item:hover { color: rgba(255,255,255,.7); }
+  .footer-contact-item svg { width: 12px; flex-shrink: 0; margin-top: 1px; }
+  .footer-social { display: flex; gap: 7px; margin-top: 16px; }
+  .footer-social-btn {
+    width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,.06);
+    display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,.4);
+    text-decoration: none; transition: all .2s; cursor: pointer;
+  }
+  .footer-social-btn:hover { background: rgba(3,105,161,.7); color: #fff; }
+  .footer-col-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #fff; margin-bottom: 18px; }
+  .footer-col-link { display: block; font-size: 11.5px; color: rgba(255,255,255,.35); text-decoration: none; margin-bottom: 9px; transition: color .2s; }
+  .footer-col-link:hover { color: rgba(255,255,255,.75); }
+  .footer-form input {
+    width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    color: #fff; font-family: inherit; font-size: 11.5px; padding: 9px 12px; border-radius: 9px;
+    margin-bottom: 8px; outline: none; transition: border-color .2s;
+  }
+  .footer-form input::placeholder { color: rgba(255,255,255,.28); }
+  .footer-form input:focus { border-color: rgba(3,105,161,.5); }
+  .footer-form button {
+    width: 100%; background: var(--cta); border: none; color: #fff;
+    font-family: inherit; font-size: 11.5px; font-weight: 700; padding: 9px;
+    border-radius: 9px; cursor: pointer; transition: background .2s;
+  }
+  .footer-form button:hover { background: var(--cta2); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,.2); }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal a { font-size: 11px; color: rgba(255,255,255,.2); text-decoration: none; transition: color .2s; }
+  .footer-legal a:hover { color: rgba(255,255,255,.55); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .sectors-grid { grid-template-columns: repeat(3, 1fr); }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .ps-grid { grid-template-columns: 1fr; }
+    .ps-arrow { transform: rotate(90deg); }
+    .awards-grid, .events-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links, .nav-cta-wrap { display: none; }
+    .sectors-grid, .solutions-grid, .awards-grid, .events-grid, .blog-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .section { padding: 64px 16px; }
+    .cta-box { padding: 36px 22px; }
+  }
+
+  /* ── ENTRANCE ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-down {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .scroll-down span { font-size: 9.5px; color: rgba(255,255,255,.25); font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+  .scroll-line { width: 1px; height: 30px; background: linear-gradient(to bottom, rgba(255,255,255,.25), transparent); animation: scrollAnim 2s ease-in-out infinite; }
+  @keyframes scrollAnim { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(.5);opacity:.4} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">T</div>
+      <span class="nav-logo-text">Thalès <span>Informatique</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#solutions">Solutions</a>
+      <a href="#secteurs">Secteurs</a>
+      <a href="#trophees">Trophées</a>
+      <a href="#evenements">Événements</a>
+      <a href="#blog">Blog</a>
+      <a href="#chiffres">À propos</a>
+    </nav>
+    <div class="nav-cta-wrap">
+      <a class="btn-ghost" href="#contact">Parler à un expert</a>
+      <a class="btn-primary" href="#contact">Demander une démo</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div>
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Partenaire de confiance depuis 1994</span>
+      </div>
+      <h1>Votre partenaire de confiance pour réussir votre <span class="gradient-text">transformation digitale</span></h1>
+      <p>Depuis plus de 30 ans, nous accompagnons les entreprises dans l'optimisation de leur gestion, l'automatisation de leurs processus et l'amélioration de leurs performances.</p>
+      <div class="trust-badges">
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Microsoft Partner
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Sage Platinum
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          ISO Certified
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          30+ ans d'expérience
+        </span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn-hero-primary" href="#contact">
+          Demander une démonstration
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn-hero-secondary" href="#contact">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Parler à un expert
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Dashboard -->
+    <div class="hero-visual">
+      <div class="dashboard-card">
+        <div class="dash-titlebar">
+          <div class="dash-dot" style="background:#EF4444;opacity:.6"></div>
+          <div class="dash-dot" style="background:#F59E0B;opacity:.6"></div>
+          <div class="dash-dot" style="background:#10B981;opacity:.6"></div>
+          <div class="dash-urlbar"></div>
+        </div>
+        <div class="dash-chart-area">
+          <div class="dash-chart-label">Performance opérationnelle</div>
+          <div class="dash-bars" id="dashBars">
+            <!-- Generated by JS -->
+          </div>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><div class="dash-stat-label">Revenus</div><div class="dash-stat-val blue">+24%</div></div>
+          <div class="dash-stat"><div class="dash-stat-label">Efficacité</div><div class="dash-stat-val blue">+41%</div></div>
+          <div class="dash-stat"><div class="dash-stat-label">Coûts</div><div class="dash-stat-val green">-18%</div></div>
+        </div>
+      </div>
+
+      <!-- Float cards -->
+      <div class="float-card fc-green">
+        <div class="float-card-icon">📈</div>
+        <div><div class="float-card-val">+34%</div><div class="float-card-sub">productivité</div></div>
+      </div>
+      <div class="float-card fc-blue">
+        <div class="float-card-icon" style="background:#DBEAFE;color:#2563EB">👥</div>
+        <div><div class="float-card-val">500+</div><div class="float-card-sub">entreprises</div></div>
+      </div>
+      <div class="float-card fc-violet">
+        <div class="float-card-icon" style="background:#EDE9FE;color:#7C3AED">🛡</div>
+        <div><div class="float-card-val">99.9%</div><div class="float-card-sub">disponibilité</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ LOGO MARQUEE ═══════════════════════ -->
+<section class="marquee-section">
+  <p class="marquee-label">Ils nous font confiance</p>
+  <div class="marquee-wrap">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROBLEM / SOLUTION ═══════════════════════ -->
+<section class="section ps-section reveal" id="transformation">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:52px">
+      <span class="section-tag">Transformation</span>
+      <h2 class="section-title">De vos défis à vos succès</h2>
+      <p class="section-sub" style="margin:14px auto 0">Nous comprenons vos enjeux métiers. Voici comment Thalès Informatique transforme vos problèmes en leviers de croissance.</p>
+    </div>
+    <div class="ps-grid">
+      <!-- Problems -->
+      <div>
+        <div class="ps-col-label">
+          <div class="ps-dot" style="background:#F87171"></div>
+          <span style="color:#EF4444">Vos défis actuels</span>
+        </div>
+        <div class="ps-card bad reveal reveal-delay-1">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div><div class="ps-card-title">Processus manuels</div><div class="ps-card-desc">Saisies répétitives, erreurs humaines et perte de temps au quotidien.</div></div>
+        </div>
+        <div class="ps-card bad reveal reveal-delay-2">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div><div class="ps-card-title">Manque de visibilité</div><div class="ps-card-desc">Décisions prises sans données fiables ni indicateurs en temps réel.</div></div>
+        </div>
+        <div class="ps-card bad reveal reveal-delay-3">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div><div class="ps-card-title">Données dispersées</div><div class="ps-card-desc">Informations fragmentées entre Excel, emails et outils non connectés.</div></div>
+        </div>
+        <div class="ps-card bad reveal reveal-delay-4">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div><div class="ps-card-title">Pilotage difficile</div><div class="ps-card-desc">Impossible d'avoir une vue consolidée de l'activité et des performances.</div></div>
+        </div>
+      </div>
+      <!-- Arrow -->
+      <div class="ps-arrow" style="padding-top:60px">
+        <div class="ps-arrow-circle">→</div>
+      </div>
+      <!-- Solutions -->
+      <div>
+        <div class="ps-col-label">
+          <div class="ps-dot" style="background:#34D399"></div>
+          <span style="color:#059669">Avec Thalès Informatique</span>
+        </div>
+        <div class="ps-card good reveal reveal-delay-1">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div><div class="ps-card-title">Processus automatisés</div><div class="ps-card-desc">Workflows intelligents qui éliminent les tâches répétitives et réduisent les erreurs.</div></div>
+        </div>
+        <div class="ps-card good reveal reveal-delay-2">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div><div class="ps-card-title">Vision en temps réel</div><div class="ps-card-desc">Tableaux de bord live pour des décisions rapides et éclairées.</div></div>
+        </div>
+        <div class="ps-card good reveal reveal-delay-3">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div><div class="ps-card-title">Données centralisées</div><div class="ps-card-desc">Une source unique de vérité accessible à toutes vos équipes, partout.</div></div>
+        </div>
+        <div class="ps-card good reveal reveal-delay-4">
+          <svg class="ps-card-icon" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div><div class="ps-card-title">Pilotage performant</div><div class="ps-card-desc">KPIs et reporting avancé pour mesurer et améliorer vos performances.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTORS ═══════════════════════ -->
+<section class="section sectors-section reveal" id="secteurs">
+  <div class="section-inner">
+    <div class="section-header-flex">
+      <div>
+        <span class="section-tag">Expertises métiers</span>
+        <h2 class="section-title">Secteurs d'activité</h2>
+        <p class="section-sub">Des solutions adaptées aux spécificités de chaque secteur pour répondre précisément à vos besoins métiers.</p>
+      </div>
+      <a class="link-arrow" href="#">Découvrir nos expertises métiers <span>→</span></a>
+    </div>
+    <div class="sectors-grid">
+      <div class="sector-card" style="background:#EFF6FF;border-color:#BFDBFE">
+        <div class="sector-icon" style="background:#DBEAFE;color:#2563EB">🏭</div>
+        <h3>Industrie</h3>
+        <p>Optimisez votre production, gérez vos stocks et pilotez vos performances industrielles en temps réel.</p>
+        <div class="sector-learn" style="color:#2563EB">En savoir plus <span>→</span></div>
+      </div>
+      <div class="sector-card" style="background:#F5F3FF;border-color:#DDD6FE">
+        <div class="sector-icon" style="background:#EDE9FE;color:#7C3AED">🛒</div>
+        <h3>Négoce & Distribution</h3>
+        <p>Gérez vos achats, ventes, stocks et livraisons avec une solution intégrée et performante.</p>
+        <div class="sector-learn" style="color:#7C3AED">En savoir plus <span>→</span></div>
+      </div>
+      <div class="sector-card" style="background:#FFFBEB;border-color:#FDE68A">
+        <div class="sector-icon" style="background:#FEF3C7;color:#D97706">💼</div>
+        <h3>Services</h3>
+        <p>Pilotez vos projets, facturation et ressources humaines avec précision et efficacité.</p>
+        <div class="sector-learn" style="color:#D97706">En savoir plus <span>→</span></div>
+      </div>
+      <div class="sector-card" style="background:#FFF7ED;border-color:#FED7AA">
+        <div class="sector-icon" style="background:#FFEDD5;color:#EA580C">⛏️</div>
+        <h3>BTP</h3>
+        <p>Suivez vos chantiers, budgets, sous-traitants et équipements depuis une plateforme unique.</p>
+        <div class="sector-learn" style="color:#EA580C">En savoir plus <span>→</span></div>
+      </div>
+      <div class="sector-card" style="background:#ECFDF5;border-color:#A7F3D0">
+        <div class="sector-icon" style="background:#D1FAE5;color:#059669">🌾</div>
+        <h3>Agroalimentaire</h3>
+        <p>Maîtrisez vos processus de fabrication, traçabilité et conformité réglementaire.</p>
+        <div class="sector-learn" style="color:#059669">En savoir plus <span>→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ KEY STATS ═══════════════════════ -->
+<section class="section stats-section reveal" id="chiffres">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="section-tag">Notre impact</span>
+      <h2 class="section-title">Des chiffres qui parlent d'eux-mêmes</h2>
+      <p class="section-sub">Trois décennies d'excellence au service de la transformation digitale des entreprises marocaines.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-icon" style="background:#FEF3C7">🏆</div>
+        <div class="stat-value" style="color:#D97706" data-target="30" data-suffix="+">0+</div>
+        <div class="stat-label">Années d'expérience</div>
+        <div class="stat-sub">Depuis 1994</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-icon" style="background:#DBEAFE">👥</div>
+        <div class="stat-value" style="color:#2563EB" data-target="500" data-suffix="+">0+</div>
+        <div class="stat-label">Clients accompagnés</div>
+        <div class="stat-sub">Entreprises marocaines</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-icon" style="background:#EDE9FE">📁</div>
+        <div class="stat-value" style="color:#7C3AED" data-target="1200" data-suffix="+">0+</div>
+        <div class="stat-label">Projets réalisés</div>
+        <div class="stat-sub">Implémentations réussies</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-icon" style="background:#D1FAE5">🤝</div>
+        <div class="stat-value" style="color:#059669" data-target="80" data-suffix="+">0+</div>
+        <div class="stat-label">Consultants experts</div>
+        <div class="stat-sub">Équipes certifiées</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-icon" style="background:#FFEDD5">⭐</div>
+        <div class="stat-value" style="color:#EA580C" data-target="97" data-suffix="%">0%</div>
+        <div class="stat-label">Taux de satisfaction</div>
+        <div class="stat-sub">Clients recommandent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SOLUTIONS ═══════════════════════ -->
+<section class="section solutions-section reveal" id="solutions">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:52px">
+      <span class="section-tag">Nos solutions</span>
+      <h2 class="section-title">Des outils pensés pour vos besoins métiers</h2>
+      <p class="section-sub" style="margin:14px auto 0">Chaque solution est conçue pour répondre aux défis spécifiques de votre métier et s'intègre parfaitement dans votre écosystème existant.</p>
+    </div>
+    <div class="solutions-grid">
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#DBEAFE;color:#1D4ED8">Finance</span>
+        <div class="sol-icon" style="background:#DBEAFE;color:#2563EB">📊</div>
+        <h3>Gestion financière</h3>
+        <p>Pilotez vos finances avec précision : comptabilité générale, budgets, clôtures et consolidation.</p>
+        <div class="sol-learn" style="color:#2563EB">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#E0E7FF;color:#4338CA">Comptabilité</span>
+        <div class="sol-icon" style="background:#E0E7FF;color:#4F46E5">🧮</div>
+        <h3>Comptabilité & fiscalité</h3>
+        <p>Conformité fiscale totale, déclarations automatisées et gestion des taxes en temps réel.</p>
+        <div class="sol-learn" style="color:#4F46E5">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#EDE9FE;color:#6D28D9">Ressources humaines</span>
+        <div class="sol-icon" style="background:#EDE9FE;color:#7C3AED">👤</div>
+        <h3>Gestion RH & paie</h3>
+        <p>Recrutement, carrières, évaluations et paie multi-conventions sur une seule plateforme.</p>
+        <div class="sol-learn" style="color:#7C3AED">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#D1FAE5;color:#065F46">Trésorerie</span>
+        <div class="sol-icon" style="background:#D1FAE5;color:#059669">💰</div>
+        <h3>Gestion de trésorerie</h3>
+        <p>Prévisions de cash-flow, rapprochements bancaires et gestion des flux financiers en temps réel.</p>
+        <div class="sol-learn" style="color:#059669">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#FEF3C7;color:#92400E">Production</span>
+        <div class="sol-icon" style="background:#FEF3C7;color:#D97706">⚙️</div>
+        <h3>Gestion de production</h3>
+        <p>Planification, ordres de fabrication, suivi des coûts et gestion des capacités de production.</p>
+        <div class="sol-learn" style="color:#D97706">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#FFEDD5;color:#9A3412">Maintenance</span>
+        <div class="sol-icon" style="background:#FFEDD5;color:#EA580C">🔧</div>
+        <h3>Maintenance des équipements</h3>
+        <p>GMAO complète : interventions préventives, correctives, suivi des actifs et gestion des techniciens.</p>
+        <div class="sol-learn" style="color:#EA580C">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#FFE4E6;color:#9F1239">CRM</span>
+        <div class="sol-icon" style="background:#FFE4E6;color:#E11D48">💬</div>
+        <h3>Gestion de la relation client</h3>
+        <p>Suivi des opportunités, historique client, devis et fidélisation pour maximiser vos revenus.</p>
+        <div class="sol-learn" style="color:#E11D48">Découvrir <span>→</span></div>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag" style="background:#CFFAFE;color:#164E63">Business Intelligence</span>
+        <div class="sol-icon" style="background:#CFFAFE;color:#0891B2">📈</div>
+        <h3>Reporting & pilotage</h3>
+        <p>Tableaux de bord personnalisables, KPIs et analyses décisionnelles pour piloter votre activité.</p>
+        <div class="sol-learn" style="color:#0891B2">Découvrir <span>→</span></div>
+      </div>
+    </div>
+    <div class="solutions-cta">
+      <a class="btn-hero-primary" href="#contact">
+        Demander une démonstration personnalisée
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ AWARDS ═══════════════════════ -->
+<section class="section awards-section reveal" id="trophees">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:52px">
+      <span class="section-tag">Reconnaissance</span>
+      <h2 class="section-title">Nos trophées & distinctions</h2>
+      <p class="section-sub" style="margin:14px auto 0">Trois décennies d'engagement récompensées par les plus hautes distinctions du secteur.</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card" style="background:#FFFBEB;border-color:#FDE68A">
+        <span class="award-year">2024</span>
+        <div class="award-icon-wrap" style="background:linear-gradient(135deg,#F59E0B,#FCD34D)">🏆</div>
+        <div class="award-org">Sage Software</div>
+        <div class="award-title">Partenaire Platinum</div>
+        <div class="award-desc">Certification Platinum Partner pour l'excellence en implémentation et support.</div>
+      </div>
+      <div class="award-card" style="background:#F8FAFC;border-color:#CBD5E1">
+        <span class="award-year">2023</span>
+        <div class="award-icon-wrap" style="background:linear-gradient(135deg,#64748B,#94A3B8)">🥇</div>
+        <div class="award-org">IT Awards Maroc</div>
+        <div class="award-title">Meilleur Partenaire ERP</div>
+        <div class="award-desc">Récompensé pour l'innovation et l'excellence dans le déploiement de solutions ERP.</div>
+      </div>
+      <div class="award-card" style="background:#EFF6FF;border-color:#BFDBFE">
+        <span class="award-year">2023</span>
+        <div class="award-icon-wrap" style="background:linear-gradient(135deg,#3B82F6,#60A5FA)">🛡️</div>
+        <div class="award-org">Microsoft Corporation</div>
+        <div class="award-title">Microsoft Partner</div>
+        <div class="award-desc">Partenaire certifié Microsoft pour les solutions Cloud et infrastructure d'entreprise.</div>
+      </div>
+      <div class="award-card" style="background:#F5F3FF;border-color:#DDD6FE">
+        <span class="award-year">2022</span>
+        <div class="award-icon-wrap" style="background:linear-gradient(135deg,#8B5CF6,#A78BFA)">⭐</div>
+        <div class="award-org">Digital Morocco Awards</div>
+        <div class="award-title">Top 10 IT Consulting</div>
+        <div class="award-desc">Classé parmi les 10 meilleures sociétés de conseil IT au Maroc.</div>
+      </div>
+      <div class="award-card" style="background:#ECFDF5;border-color:#A7F3D0">
+        <span class="award-year">2022</span>
+        <div class="award-icon-wrap" style="background:linear-gradient(135deg,#10B981,#34D399)">📚</div>
+        <div class="award-org">OFPPT Partenariat</div>
+        <div class="award-title">Excellence Formation</div>
+        <div class="award-desc">Distinction pour la qualité des formations dispensées aux équipes métiers.</div>
+      </div>
+      <div class="award-card" style="background:#FFF7ED;border-color:#FED7AA">
+        <span class="award-year">2021</span>
+        <div class="award-icon-wrap" style="background:linear-gradient(135deg,#F97316,#FB923C)">✅</div>
+        <div class="award-org">Bureau Veritas</div>
+        <div class="award-title">Certification ISO 9001</div>
+        <div class="award-desc">Management de la qualité certifié ISO 9001 pour l'ensemble de nos prestations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EVENTS ═══════════════════════ -->
+<section class="section events-section reveal" id="evenements">
+  <div class="section-inner">
+    <div class="section-header-flex">
+      <div>
+        <span class="section-tag">Agenda</span>
+        <h2 class="section-title">Événements & webinaires</h2>
+        <p class="section-sub">Participez à nos événements pour rester à la pointe de l'innovation et échanger avec nos experts.</p>
+      </div>
+      <a class="link-arrow" href="#">Voir tous les événements <span>→</span></a>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-header" style="background:#2563EB">
+          <div><div class="event-date-day">18</div><div class="event-date-month">Juin 2025</div></div>
+          <span class="event-tag" style="background:#EFF6FF;color:#1D4ED8">Finance</span>
+        </div>
+        <div class="event-body">
+          <div class="event-title">Webinaire : Optimisez votre clôture comptable avec l'IA</div>
+          <div class="event-meta">
+            <div class="event-meta-row">📹 <span>Webinaire en ligne</span></div>
+            <div class="event-meta-row">📍 <span>Zoom</span></div>
+            <div class="event-meta-row">👥 <span>120 places disponibles</span></div>
+          </div>
+          <a class="btn-event" href="#">S'inscrire →</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-header" style="background:#7C3AED">
+          <div><div class="event-date-day">25</div><div class="event-date-month">Juin 2025</div></div>
+          <span class="event-tag" style="background:#F5F3FF;color:#6D28D9">ERP</span>
+        </div>
+        <div class="event-body">
+          <div class="event-title">Forum ERP Casablanca : L'avenir de la gestion d'entreprise</div>
+          <div class="event-meta">
+            <div class="event-meta-row">🏛 <span>Événement présentiel</span></div>
+            <div class="event-meta-row">📍 <span>Hôtel Sofitel, Casablanca</span></div>
+            <div class="event-meta-row">👥 <span>250 places</span></div>
+          </div>
+          <a class="btn-event" href="#">S'inscrire →</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-header" style="background:#059669">
+          <div><div class="event-date-day">10</div><div class="event-date-month">Juil 2025</div></div>
+          <span class="event-tag" style="background:#ECFDF5;color:#065F46">BI</span>
+        </div>
+        <div class="event-body">
+          <div class="event-title">Atelier : Pilotage de la performance avec les tableaux de bord BI</div>
+          <div class="event-meta">
+            <div class="event-meta-row">🎓 <span>Atelier interactif</span></div>
+            <div class="event-meta-row">📍 <span>Thalès Informatique, Casablanca</span></div>
+            <div class="event-meta-row">👥 <span>30 places limitées</span></div>
+          </div>
+          <a class="btn-event" href="#">S'inscrire →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ BLOG ═══════════════════════ -->
+<section class="section blog-section reveal" id="blog">
+  <div class="section-inner">
+    <div class="section-header-flex">
+      <div>
+        <span class="section-tag">Actualités</span>
+        <h2 class="section-title">Blog & ressources</h2>
+        <p class="section-sub">Nos experts partagent leurs connaissances pour vous aider à mieux piloter votre transformation digitale.</p>
+      </div>
+      <a class="link-arrow" href="#">Voir toutes les actualités <span>→</span></a>
+    </div>
+    <div class="blog-grid">
+      <article class="article-card">
+        <div class="article-img" style="background:linear-gradient(135deg,#1D4ED8,#0891B2)">
+          <div class="article-img-badge"><span>📊 ERP & Digital</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat" style="background:#DBEAFE;color:#1D4ED8">Transformation digitale</span>
+            <span class="article-time">⏱ 5 min</span>
+          </div>
+          <h3 class="article-title">Comment l'ERP accélère la transformation digitale des PME marocaines</h3>
+          <p class="article-excerpt">Découvrez comment les entreprises marocaines utilisent les solutions ERP pour gagner en compétitivité sur le marché africain.</p>
+          <div class="article-footer">
+            <span class="article-date">2 juin 2025</span>
+            <span class="article-cta">Lire l'article →</span>
+          </div>
+        </div>
+      </article>
+      <article class="article-card">
+        <div class="article-img" style="background:linear-gradient(135deg,#059669,#0D9488)">
+          <div class="article-img-badge"><span>💰 Finance & KPIs</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat" style="background:#D1FAE5;color:#065F46">Gestion financière</span>
+            <span class="article-time">⏱ 4 min</span>
+          </div>
+          <h3 class="article-title">Les 7 indicateurs financiers essentiels à surveiller en temps réel</h3>
+          <p class="article-excerpt">Un pilotage financier efficace repose sur le suivi de KPIs précis. Découvrez les indicateurs indispensables à votre tableau de bord.</p>
+          <div class="article-footer">
+            <span class="article-date">28 mai 2025</span>
+            <span class="article-cta">Lire l'article →</span>
+          </div>
+        </div>
+      </article>
+      <article class="article-card">
+        <div class="article-img" style="background:linear-gradient(135deg,#7C3AED,#A855F7)">
+          <div class="article-img-badge"><span>👤 RH & Paie</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat" style="background:#EDE9FE;color:#6D28D9">Ressources humaines</span>
+            <span class="article-time">⏱ 6 min</span>
+          </div>
+          <h3 class="article-title">Automatisation de la paie : enjeux et bonnes pratiques au Maroc</h3>
+          <p class="article-excerpt">La gestion de la paie est souvent chronophage et source d'erreurs. Voici comment l'automatisation transforme les RH au Maroc.</p>
+          <div class="article-footer">
+            <span class="article-date">20 mai 2025</span>
+            <span class="article-cta">Lire l'article →</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CTA ═══════════════════════ -->
+<section class="cta-section reveal" id="contact">
+  <div class="cta-box">
+    <div class="cta-glow"></div>
+    <div class="cta-dots"></div>
+    <div style="position:relative">
+      <span class="section-tag">Commencez votre transformation</span>
+      <h2 class="section-title">Prêt à franchir le cap de la transformation digitale ?</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.45);margin:14px auto 0">Nos experts sont disponibles pour analyser vos besoins et vous proposer la solution la mieux adaptée à votre secteur et vos objectifs.</p>
+      <div class="cta-btns">
+        <a class="cta-btn-p" href="#">
+          📅 Demander une démonstration
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="cta-btn-s" href="tel:+212522000000">📞 +212 5 22 00 00 00</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">
+          <div style="width:26px;height:26px;background:var(--cta);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12px">T</div>
+          Thalès <span>Informatique</span>
+        </div>
+        <p class="footer-desc">Votre partenaire de confiance pour la transformation digitale des entreprises depuis 1994.</p>
+        <a class="footer-contact-item" href="tel:+212522000000">📞 +212 5 22 00 00 00</a>
+        <a class="footer-contact-item" href="mailto:contact@thales-info.ma">✉️ contact@thales-info.ma</a>
+        <div class="footer-contact-item">📍 Casablanca, Maroc</div>
+        <div class="footer-social">
+          <a class="footer-social-btn" href="#" title="LinkedIn">in</a>
+          <a class="footer-social-btn" href="#" title="YouTube">▶</a>
+          <a class="footer-social-btn" href="#" title="Twitter">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Solutions</div>
+        <a class="footer-col-link" href="#">Gestion financière</a>
+        <a class="footer-col-link" href="#">Comptabilité & fiscalité</a>
+        <a class="footer-col-link" href="#">Gestion RH & paie</a>
+        <a class="footer-col-link" href="#">Gestion de trésorerie</a>
+        <a class="footer-col-link" href="#">Gestion de production</a>
+        <a class="footer-col-link" href="#">Maintenance équipements</a>
+        <a class="footer-col-link" href="#">CRM</a>
+        <a class="footer-col-link" href="#">Reporting & BI</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <a class="footer-col-link" href="#">Conseil & audit</a>
+        <a class="footer-col-link" href="#">Implémentation ERP</a>
+        <a class="footer-col-link" href="#">Migration de données</a>
+        <a class="footer-col-link" href="#">Formation & support</a>
+        <a class="footer-col-link" href="#">Maintenance applicative</a>
+        <a class="footer-col-link" href="#">Cloud & hébergement</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Ressources</div>
+        <a class="footer-col-link" href="#">Blog & actualités</a>
+        <a class="footer-col-link" href="#">Webinaires</a>
+        <a class="footer-col-link" href="#">Livres blancs</a>
+        <a class="footer-col-link" href="#">Études de cas</a>
+        <a class="footer-col-link" href="#">Documentation</a>
+        <a class="footer-col-link" href="#">FAQ</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Contactez-nous</div>
+        <div class="footer-form">
+          <input type="text" placeholder="Votre nom">
+          <input type="email" placeholder="Email professionnel">
+          <button>Envoyer</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Thalès Informatique. Tous droits réservés.</span>
+      <div class="footer-legal">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">CGU</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+// Dashboard bars
+const barHeights = [40,62,44,78,55,88,68,94,73,100,84,87];
+const barsEl = document.getElementById('dashBars');
+barHeights.forEach((h, i) => {
+  const bar = document.createElement('div');
+  bar.className = 'dash-bar' + (i >= 9 ? ' highlight' : '');
+  bar.style.cssText = `height:${h}%;transition:height .5s ${i*50}ms`;
+  barsEl.appendChild(bar);
+});
+
+// Logo marquee
+const logos = [
+  ['OCP','OCP Group'],['IAM','Maroc Telecom'],['AWB','Attijariwafa Bank'],
+  ['BMCE','BMCE Bank'],['LFG','Lafarge Maroc'],['CSM','Cosumar'],
+  ['CDN','Centrale Danone'],['ALL','Alliances Group'],['SND','Sonasid'],
+  ['MGS','Maghreb Steel'],['YNN','Ynna Holding'],['LBV','Label Vie']
+];
+const track = document.getElementById('marqueeTrack');
+const doubled = [...logos, ...logos];
+doubled.forEach(([abbr, name]) => {
+  track.innerHTML += `<div class="logo-chip"><div class="logo-chip-abbr">${abbr}</div><span>${name}</span></div>`;
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObs.observe(el));
+
+// Counter animation
+const counters = document.querySelectorAll('[data-target]');
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix;
+      const duration = 1800;
+      const steps = 60;
+      let current = 0;
+      const increment = target / steps;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          el.textContent = target.toLocaleString('fr-MA') + suffix;
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current).toLocaleString('fr-MA') + suffix;
+        }
+      }, duration / steps);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObs.observe(c));
+</script>
+</body>
+</html>
