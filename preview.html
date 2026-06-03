@@ -69,61 +69,129 @@
   }
   .btn-primary:hover { background: var(--cta2); }
 
-  /* ── HERO ── */
+  /* ══════════════════════════════════════════
+     HERO — CSS 3D animated background (no external video needed)
+     ══════════════════════════════════════════ */
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    background: #0F172A; position: relative; overflow: hidden;
+    background: #060E1E; position: relative; overflow: hidden;
   }
 
-  /* Video background */
-  .hero-video {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 0;
+  /* ── Animated gradient mesh ── */
+  .hero-mesh {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 110% 70% at 20% 20%, rgba(3,105,161,.22) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 80% 80%, rgba(14,165,233,.14) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(2,132,199,.10) 0%, transparent 60%),
+      linear-gradient(160deg, #060E1E 0%, #0A1628 40%, #0D1F38 70%, #060E1E 100%);
+    animation: meshShift 12s ease-in-out infinite alternate;
+  }
+  @keyframes meshShift {
+    0%   { filter: hue-rotate(0deg) brightness(1); }
+    50%  { filter: hue-rotate(8deg) brightness(1.06); }
+    100% { filter: hue-rotate(-4deg) brightness(.97); }
   }
 
-  /* CSS 3D fallback + overlay layers */
-  .hero-overlay-dark {
+  /* ── Perspective grid floor ── */
+  .hero-grid-3d {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 55%; z-index: 1;
+    background-image:
+      linear-gradient(rgba(56,189,248,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,.08) 1px, transparent 1px);
+    background-size: 80px 80px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: bottom center;
+    mask-image: linear-gradient(to top, rgba(0,0,0,.4) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.4) 0%, transparent 100%);
+  }
+
+  /* ── Top horizontal grid ── */
+  .hero-grid-top {
     position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to bottom,
-      rgba(15,23,42,.86) 0%,
-      rgba(15,23,42,.78) 50%,
-      rgba(15,23,42,.92) 100%);
-  }
-  .hero-overlay-blue {
-    position: absolute; inset: 0; z-index: 2;
-    background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(3,105,161,.18) 0%, transparent 70%);
-  }
-  .hero-grid-lines {
-    position: absolute; inset: 0; z-index: 3;
-    background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px);
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
     background-size: 64px 64px;
   }
+
+  /* ── Radial glow center ── */
+  .hero-glow-center {
+    position: absolute; top: 40%; left: 50%; z-index: 2;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(3,105,161,.28) 0%, transparent 65%);
+    filter: blur(20px); pointer-events: none;
+    animation: glowPulse 5s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%,100% { opacity: .85; transform: translate(-50%,-50%) scale(1); }
+    50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.08); }
+  }
+
+  /* ── Accent orbs ── */
+  .hero-orb {
+    position: absolute; border-radius: 50%; filter: blur(60px);
+    pointer-events: none; z-index: 2;
+  }
+  .orb-1 { width:320px; height:320px; top:-60px;   left:-40px;  background: rgba(56,189,248,.09); animation: orbDrift1 18s ease-in-out infinite; }
+  .orb-2 { width:260px; height:260px; bottom:-50px; right:-30px; background: rgba(3,105,161,.13);  animation: orbDrift2 14s ease-in-out infinite; }
+  .orb-3 { width:200px; height:200px; top:30%;     right:10%;   background: rgba(99,102,241,.07); animation: orbDrift3 20s ease-in-out infinite; }
+  @keyframes orbDrift1 { 0%,100%{transform:translate(0,0)}   50%{transform:translate(30px,20px)} }
+  @keyframes orbDrift2 { 0%,100%{transform:translate(0,0)}   50%{transform:translate(-20px,-25px)} }
+  @keyframes orbDrift3 { 0%,100%{transform:translate(0,0)}   50%{transform:translate(15px,-30px)} }
+
+  /* ── Floating 3D cubes (decorative) ── */
+  .hero-cubes { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .cube {
+    position: absolute;
+    border: 1px solid rgba(56,189,248,.18);
+    border-radius: 4px;
+    background: rgba(56,189,248,.03);
+    animation: cubeFloat linear infinite;
+  }
+  @keyframes cubeFloat {
+    0%   { opacity:0; transform: translateY(0)   rotate(0deg)   scale(.6); }
+    15%  { opacity:.6; }
+    85%  { opacity:.2; }
+    100% { opacity:0; transform: translateY(-90vh) rotate(180deg) scale(1.1); }
+  }
+
+  /* ── Moving data lines (horizontal scan) ── */
+  .hero-scanline {
+    position: absolute; left: 0; right: 0; height: 1px; z-index: 3;
+    background: linear-gradient(90deg, transparent 0%, rgba(56,189,248,.4) 30%, rgba(56,189,248,.7) 50%, rgba(56,189,248,.4) 70%, transparent 100%);
+    animation: scanline 7s linear infinite;
+    pointer-events: none;
+  }
+  .hero-scanline:nth-child(2) { animation-delay: 3.5s; opacity: .5; }
+  @keyframes scanline {
+    0%   { top: 100%; opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: .3; }
+    100% { top: 0%;   opacity: 0; }
+  }
+
+  /* ── Node constellation (SVG-like dots + lines) ── */
+  .hero-nodes { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .node-dot {
+    position: absolute; width: 4px; height: 4px; border-radius: 50%;
+    background: rgba(56,189,248,.55);
+    animation: nodePulse 3s ease-in-out infinite;
+  }
+  .node-dot::after {
+    content:''; position:absolute; inset:-4px; border-radius:50%;
+    border: 1px solid rgba(56,189,248,.2);
+    animation: nodeRing 3s ease-in-out infinite;
+  }
+  @keyframes nodePulse { 0%,100%{opacity:.55; transform:scale(1)} 50%{opacity:1; transform:scale(1.4)} }
+  @keyframes nodeRing  { 0%,100%{transform:scale(1); opacity:.4} 50%{transform:scale(2.5); opacity:0} }
+
+  /* ── Bottom fade ── */
   .hero-bottom-fade {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 120px; z-index: 4;
-    background: linear-gradient(to top, #0F172A, transparent);
+    position: absolute; bottom: 0; left: 0; right: 0; height: 160px; z-index: 4;
+    background: linear-gradient(to top, #060E1E 0%, transparent 100%);
   }
-
-  /* Animated floating particles */
-  .hero-particles { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
-  .particle {
-    position: absolute; border-radius: 50%; opacity: 0;
-    animation: floatParticle linear infinite;
-  }
-  @keyframes floatParticle {
-    0%   { opacity: 0; transform: translateY(0) scale(0); }
-    10%  { opacity: .35; }
-    90%  { opacity: .15; }
-    100% { opacity: 0; transform: translateY(-100vh) scale(1); }
-  }
-
-  /* Corner decorations */
-  .hero-corner-tl, .hero-corner-br {
-    position: absolute; width: 340px; height: 340px; border-radius: 50%;
-    filter: blur(90px); pointer-events: none; z-index: 3;
-  }
-  .hero-corner-tl { top: -80px; left: -80px; background: rgba(56,189,248,.07); }
-  .hero-corner-br { bottom: -80px; right: -80px; background: rgba(3,105,161,.10); }
 
   /* Centered content */
   .hero-inner {
@@ -537,20 +605,25 @@
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero" id="top">
 
-  <!-- VIDEO BACKGROUND -->
-  <video class="hero-video" autoplay muted loop playsinline
-    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%230F172A' width='100%25' height='100%25'/%3E%3C/svg%3E">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-business-team-in-a-modern-office-working-42774-large.mp4" type="video/mp4">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-people-working-in-a-meeting-room-4835-large.mp4" type="video/mp4">
-  </video>
-
-  <!-- OVERLAY LAYERS -->
-  <div class="hero-overlay-dark"></div>
-  <div class="hero-overlay-blue"></div>
-  <div class="hero-grid-lines"></div>
+  <!-- CSS 3D ANIMATED BACKGROUND -->
+  <div class="hero-mesh"></div>
+  <div class="hero-grid-3d"></div>
+  <div class="hero-grid-top"></div>
+  <div class="hero-glow-center"></div>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-orb orb-3"></div>
   <div class="hero-bottom-fade"></div>
-  <div class="hero-corner-tl"></div>
-  <div class="hero-corner-br"></div>
+
+  <!-- Scan lines -->
+  <div class="hero-scanline"></div>
+  <div class="hero-scanline"></div>
+
+  <!-- Node constellation -->
+  <div class="hero-nodes" id="heroNodes"></div>
+
+  <!-- 3D floating cubes -->
+  <div class="hero-cubes" id="heroCubes"></div>
 
   <!-- FLOATING PARTICLES -->
   <div class="hero-particles" id="heroParticles"></div>
@@ -1131,24 +1204,45 @@
 </footer>
 
 <script>
-// Hero particles
+// ── Hero 3D background elements ──
 (function() {
-  const container = document.getElementById('heroParticles');
-  if (!container) return;
-  const colors = ['rgba(56,189,248,.6)', 'rgba(3,105,161,.5)', 'rgba(255,255,255,.35)', 'rgba(14,165,233,.5)'];
-  for (let i = 0; i < 28; i++) {
-    const p = document.createElement('div');
-    const size = Math.random() * 4 + 2;
-    p.className = 'particle';
-    p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${Math.random()*100}%;
-      bottom:${Math.random()*20}%;
-      background:${colors[Math.floor(Math.random()*colors.length)]};
-      animation-duration:${8 + Math.random()*14}s;
-      animation-delay:${Math.random()*8}s;
-    `;
-    container.appendChild(p);
+  // Floating particles
+  const pContainer = document.getElementById('heroParticles');
+  if (pContainer) {
+    const colors = ['rgba(56,189,248,.7)','rgba(3,105,161,.6)','rgba(255,255,255,.4)','rgba(14,165,233,.6)','rgba(99,102,241,.5)'];
+    for (let i = 0; i < 32; i++) {
+      const p = document.createElement('div');
+      const size = Math.random() * 3.5 + 1.5;
+      p.className = 'particle';
+      p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;bottom:${Math.random()*15}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${9+Math.random()*16}s;animation-delay:${Math.random()*10}s;`;
+      pContainer.appendChild(p);
+    }
+  }
+
+  // 3D floating cubes
+  const cContainer = document.getElementById('heroCubes');
+  if (cContainer) {
+    for (let i = 0; i < 12; i++) {
+      const c = document.createElement('div');
+      const size = Math.random() * 24 + 10;
+      c.className = 'cube';
+      c.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*95}%;bottom:${Math.random()*20}%;animation-duration:${14+Math.random()*18}s;animation-delay:${Math.random()*12}s;`;
+      cContainer.appendChild(c);
+    }
+  }
+
+  // Node constellation dots
+  const nContainer = document.getElementById('heroNodes');
+  const nodePositions = [
+    [8,25],[15,60],[25,15],[35,72],[48,18],[55,65],[65,30],[72,78],[80,22],[88,55],[92,38],[20,88],[60,88],[78,10]
+  ];
+  if (nContainer) {
+    nodePositions.forEach(([left, top], i) => {
+      const d = document.createElement('div');
+      d.className = 'node-dot';
+      d.style.cssText = `left:${left}%;top:${top}%;animation-delay:${i*0.4}s;`;
+      nContainer.appendChild(d);
+    });
   }
 })();
 

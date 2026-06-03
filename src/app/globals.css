@@ -95,6 +95,25 @@ body {
   border-radius: 3px;
 }
 
+@keyframes cubeFloat {
+  0%   { opacity: 0; transform: translateY(0)    rotate(0deg)   scale(.6); }
+  15%  { opacity: .6; }
+  85%  { opacity: .2; }
+  100% { opacity: 0; transform: translateY(-90vh) rotate(180deg) scale(1.1); }
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.5); }
+}
+
+@keyframes floatParticle {
+  0%   { opacity: 0; transform: translateY(0) scale(0); }
+  10%  { opacity: .4; }
+  90%  { opacity: .15; }
+  100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none;
