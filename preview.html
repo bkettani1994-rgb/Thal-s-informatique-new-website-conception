@@ -71,103 +71,131 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(3,105,161,.18) 0%, transparent 60%),
-                linear-gradient(180deg, #0F172A 0%, #0F172A 65%, #1E293B 100%);
-    position: relative; overflow: hidden; padding-top: 64px;
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #0F172A; position: relative; overflow: hidden;
   }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-    background-size: 60px 60px;
+
+  /* Video background */
+  .hero-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0;
   }
-  .hero-glow {
-    position: absolute; top: 35%; left: 50%; transform: translate(-50%,-50%);
-    width: 600px; height: 400px; background: rgba(3,105,161,.22);
-    border-radius: 50%; filter: blur(100px); pointer-events: none;
+
+  /* CSS 3D fallback + overlay layers */
+  .hero-overlay-dark {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to bottom,
+      rgba(15,23,42,.86) 0%,
+      rgba(15,23,42,.78) 50%,
+      rgba(15,23,42,.92) 100%);
   }
+  .hero-overlay-blue {
+    position: absolute; inset: 0; z-index: 2;
+    background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(3,105,161,.18) 0%, transparent 70%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; z-index: 3;
+    background-image: linear-gradient(rgba(255,255,255,.032) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.032) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .hero-bottom-fade {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 120px; z-index: 4;
+    background: linear-gradient(to top, #0F172A, transparent);
+  }
+
+  /* Animated floating particles */
+  .hero-particles { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+  .particle {
+    position: absolute; border-radius: 50%; opacity: 0;
+    animation: floatParticle linear infinite;
+  }
+  @keyframes floatParticle {
+    0%   { opacity: 0; transform: translateY(0) scale(0); }
+    10%  { opacity: .35; }
+    90%  { opacity: .15; }
+    100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+  }
+
+  /* Corner decorations */
+  .hero-corner-tl, .hero-corner-br {
+    position: absolute; width: 340px; height: 340px; border-radius: 50%;
+    filter: blur(90px); pointer-events: none; z-index: 3;
+  }
+  .hero-corner-tl { top: -80px; left: -80px; background: rgba(56,189,248,.07); }
+  .hero-corner-br { bottom: -80px; right: -80px; background: rgba(3,105,161,.10); }
+
+  /* Centered content */
   .hero-inner {
-    position: relative; max-width: 1280px; margin: 0 auto; padding: 60px 24px 80px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    position: relative; z-index: 10;
+    max-width: 860px; margin: 0 auto;
+    padding: 100px 24px 100px;
+    text-align: center;
   }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
-    border-radius: 999px; padding: 6px 14px; margin-bottom: 20px;
+    border-radius: 999px; padding: 6px 16px; margin-bottom: 24px;
+    backdrop-filter: blur(6px);
   }
   .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-  .hero-badge span { font-size: 11.5px; color: rgba(255,255,255,.7); font-weight: 500; letter-spacing: .03em; }
+  .hero-badge span { font-size: 11.5px; color: rgba(255,255,255,.75); font-weight: 500; letter-spacing: .04em; }
   .hero h1 {
-    font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; color: #fff;
-    line-height: 1.1; letter-spacing: -.02em;
+    font-size: clamp(34px, 5.5vw, 66px); font-weight: 800; color: #fff;
+    line-height: 1.1; letter-spacing: -.025em;
   }
   .gradient-text {
-    background: linear-gradient(135deg, #0369A1, #38BDF8); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; background-clip: text;
+    background: linear-gradient(135deg, #38BDF8, #0EA5E9, #0369A1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .hero p { margin-top: 20px; font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.75; max-width: 480px; }
-  .trust-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .hero p {
+    margin: 24px auto 0; font-size: 16.5px; color: rgba(255,255,255,.52);
+    line-height: 1.78; max-width: 600px;
+  }
+  .trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 24px; }
   .trust-badge {
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
     color: rgba(255,255,255,.6); font-size: 11px; font-weight: 500;
-    padding: 5px 10px; border-radius: 999px;
+    padding: 5px 12px; border-radius: 999px; backdrop-filter: blur(4px);
   }
-  .trust-badge svg { width: 11px; height: 11px; color: var(--accent); flex-shrink: 0; }
-  .hero-ctas { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .trust-badge svg { width: 11px; height: 11px; flex-shrink: 0; color: var(--accent); }
+  .hero-ctas { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; justify-content: center; }
   .btn-hero-primary {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--cta); color: #fff; font-weight: 600; font-size: 14px;
-    padding: 13px 22px; border-radius: 12px; text-decoration: none;
-    transition: all .2s; box-shadow: 0 6px 20px rgba(3,105,161,.35); cursor: pointer;
+    background: var(--cta); color: #fff; font-weight: 700; font-size: 14.5px;
+    padding: 15px 26px; border-radius: 14px; text-decoration: none;
+    transition: all .2s; box-shadow: 0 8px 28px rgba(3,105,161,.45); cursor: pointer;
   }
-  .btn-hero-primary:hover { background: var(--cta2); transform: translateY(-1px); }
+  .btn-hero-primary:hover { background: var(--cta2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(3,105,161,.5); }
   .btn-hero-secondary {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
-    color: #fff; font-weight: 600; font-size: 14px;
-    padding: 13px 22px; border-radius: 12px; text-decoration: none;
-    transition: all .2s; cursor: pointer;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+    color: #fff; font-weight: 600; font-size: 14.5px;
+    padding: 15px 26px; border-radius: 14px; text-decoration: none;
+    transition: all .2s; cursor: pointer; backdrop-filter: blur(6px);
   }
-  .btn-hero-secondary:hover { background: rgba(255,255,255,.14); }
+  .btn-hero-secondary:hover { background: rgba(255,255,255,.15); transform: translateY(-1px); }
 
-  /* Dashboard mockup */
-  .hero-visual { position: relative; }
-  .dashboard-card {
-    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-    border-radius: 20px; padding: 20px; backdrop-filter: blur(4px);
+  /* 4 floating stat cards around hero content */
+  .hero-stat-cards { position: absolute; inset: 0; z-index: 9; pointer-events: none; }
+  .hero-stat {
+    position: absolute; background: rgba(255,255,255,.09); backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.18); border-radius: 16px;
+    padding: 12px 18px; pointer-events: none;
+    animation: floatStat 6s ease-in-out infinite;
   }
-  .dash-titlebar { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
-  .dash-dot { width: 11px; height: 11px; border-radius: 50%; }
-  .dash-urlbar { flex: 1; background: rgba(255,255,255,.08); border-radius: 6px; height: 18px; margin-left: 6px; }
-  .dash-chart-area { background: rgba(255,255,255,.04); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
-  .dash-chart-label { font-size: 10px; color: rgba(255,255,255,.3); font-weight: 500; margin-bottom: 10px; }
-  .dash-bars { display: flex; align-items: flex-end; gap: 5px; height: 70px; }
-  .dash-bar { flex: 1; border-radius: 3px; background: rgba(255,255,255,.12); min-height: 6px; transition: height .5s; }
-  .dash-bar.highlight { background: rgba(56,189,248,.75); }
-  .dash-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-  .dash-stat { background: rgba(255,255,255,.04); border-radius: 10px; padding: 10px; }
-  .dash-stat-label { font-size: 9px; color: rgba(255,255,255,.3); margin-bottom: 4px; }
-  .dash-stat-val { font-size: 15px; font-weight: 700; }
-  .dash-stat-val.green { color: #34D399; }
-  .dash-stat-val.blue { color: var(--accent); }
-
-  .float-card {
-    position: absolute; background: #fff; border-radius: 12px;
-    padding: 10px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.12);
-    display: flex; align-items: center; gap: 10px; border: 1px solid;
+  .hero-stat:nth-child(1) { top: 28%; left: 5%; animation-delay: 0s; }
+  .hero-stat:nth-child(2) { top: 28%; right: 5%; animation-delay: 1.5s; }
+  .hero-stat:nth-child(3) { bottom: 24%; left: 5%; animation-delay: 3s; }
+  .hero-stat:nth-child(4) { bottom: 24%; right: 5%; animation-delay: 4.5s; }
+  @keyframes floatStat {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
   }
-  .float-card-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
-  .float-card-val { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1; }
-  .float-card-sub { font-size: 9px; color: var(--muted); margin-top: 2px; }
-  .fc-green { border-color: #D1FAE5; top: -14px; left: 10px; }
-  .fc-green .float-card-icon { background: #D1FAE5; color: #059669; }
-  .fc-blue { border-color: #DBEAFE; top: 40%; right: -18px; }
-  .fc-blue .float-card-icon { background: #DBEAFE; color: #2563EB; }
-  .fc-violet { border-color: #EDE9FE; bottom: -14px; left: 10px; }
-  .fc-violet .float-card-icon { background: #EDE9FE; color: #7C3AED; }
+  .hero-stat-val { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; }
+  .hero-stat-label { font-size: 10.5px; color: rgba(255,255,255,.5); margin-top: 3px; font-weight: 500; }
 
   /* ── MARQUEE ── */
   .marquee-section { padding: 48px 0; background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
@@ -508,84 +536,86 @@
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero" id="top">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <!-- LEFT -->
-    <div>
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        <span>Partenaire de confiance depuis 1994</span>
-      </div>
-      <h1>Votre partenaire de confiance pour réussir votre <span class="gradient-text">transformation digitale</span></h1>
-      <p>Depuis plus de 30 ans, nous accompagnons les entreprises dans l'optimisation de leur gestion, l'automatisation de leurs processus et l'amélioration de leurs performances.</p>
-      <div class="trust-badges">
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Microsoft Partner
-        </span>
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Sage Platinum
-        </span>
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          ISO Certified
-        </span>
-        <span class="trust-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          30+ ans d'expérience
-        </span>
-      </div>
-      <div class="hero-ctas">
-        <a class="btn-hero-primary" href="#contact">
-          Demander une démonstration
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a class="btn-hero-secondary" href="#contact">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Parler à un expert
-        </a>
-      </div>
+
+  <!-- VIDEO BACKGROUND -->
+  <video class="hero-video" autoplay muted loop playsinline
+    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%230F172A' width='100%25' height='100%25'/%3E%3C/svg%3E">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-business-team-in-a-modern-office-working-42774-large.mp4" type="video/mp4">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-people-working-in-a-meeting-room-4835-large.mp4" type="video/mp4">
+  </video>
+
+  <!-- OVERLAY LAYERS -->
+  <div class="hero-overlay-dark"></div>
+  <div class="hero-overlay-blue"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-bottom-fade"></div>
+  <div class="hero-corner-tl"></div>
+  <div class="hero-corner-br"></div>
+
+  <!-- FLOATING PARTICLES -->
+  <div class="hero-particles" id="heroParticles"></div>
+
+  <!-- FLOATING STAT CARDS -->
+  <div class="hero-stat-cards">
+    <div class="hero-stat">
+      <div class="hero-stat-val">+34%</div>
+      <div class="hero-stat-label">Productivité</div>
     </div>
-
-    <!-- RIGHT: Dashboard -->
-    <div class="hero-visual">
-      <div class="dashboard-card">
-        <div class="dash-titlebar">
-          <div class="dash-dot" style="background:#EF4444;opacity:.6"></div>
-          <div class="dash-dot" style="background:#F59E0B;opacity:.6"></div>
-          <div class="dash-dot" style="background:#10B981;opacity:.6"></div>
-          <div class="dash-urlbar"></div>
-        </div>
-        <div class="dash-chart-area">
-          <div class="dash-chart-label">Performance opérationnelle</div>
-          <div class="dash-bars" id="dashBars">
-            <!-- Generated by JS -->
-          </div>
-        </div>
-        <div class="dash-stats">
-          <div class="dash-stat"><div class="dash-stat-label">Revenus</div><div class="dash-stat-val blue">+24%</div></div>
-          <div class="dash-stat"><div class="dash-stat-label">Efficacité</div><div class="dash-stat-val blue">+41%</div></div>
-          <div class="dash-stat"><div class="dash-stat-label">Coûts</div><div class="dash-stat-val green">-18%</div></div>
-        </div>
-      </div>
-
-      <!-- Float cards -->
-      <div class="float-card fc-green">
-        <div class="float-card-icon">📈</div>
-        <div><div class="float-card-val">+34%</div><div class="float-card-sub">productivité</div></div>
-      </div>
-      <div class="float-card fc-blue">
-        <div class="float-card-icon" style="background:#DBEAFE;color:#2563EB">👥</div>
-        <div><div class="float-card-val">500+</div><div class="float-card-sub">entreprises</div></div>
-      </div>
-      <div class="float-card fc-violet">
-        <div class="float-card-icon" style="background:#EDE9FE;color:#7C3AED">🛡</div>
-        <div><div class="float-card-val">99.9%</div><div class="float-card-sub">disponibilité</div></div>
-      </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">500+</div>
+      <div class="hero-stat-label">Entreprises</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">99.9%</div>
+      <div class="hero-stat-label">Disponibilité</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">30 ans</div>
+      <div class="hero-stat-label">D'expérience</div>
     </div>
   </div>
+
+  <!-- CENTERED CONTENT -->
+  <div class="hero-inner" id="heroContent">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>Partenaire de confiance depuis 1994</span>
+    </div>
+    <h1>
+      Votre partenaire de confiance<br>
+      pour réussir votre <span class="gradient-text">transformation digitale</span>
+    </h1>
+    <p>Depuis plus de 30 ans, nous accompagnons les entreprises dans l'optimisation de leur gestion, l'automatisation de leurs processus et l'amélioration de leurs performances.</p>
+    <div class="trust-badges">
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Microsoft Partner
+      </span>
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Sage Platinum
+      </span>
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        ISO Certified
+      </span>
+      <span class="trust-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        30+ ans d'expérience
+      </span>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn-hero-primary" href="#contact">
+        Demander une démonstration
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn-hero-secondary" href="#contact">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Parler à un expert
+      </a>
+    </div>
+  </div>
+
   <div class="scroll-down">
     <span>Découvrir</span>
     <div class="scroll-line"></div>
@@ -1101,21 +1131,45 @@
 </footer>
 
 <script>
+// Hero particles
+(function() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const colors = ['rgba(56,189,248,.6)', 'rgba(3,105,161,.5)', 'rgba(255,255,255,.35)', 'rgba(14,165,233,.5)'];
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    const size = Math.random() * 4 + 2;
+    p.className = 'particle';
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      bottom:${Math.random()*20}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${8 + Math.random()*14}s;
+      animation-delay:${Math.random()*8}s;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// Hero content fade-in on load
+(function() {
+  const content = document.getElementById('heroContent');
+  if (!content) return;
+  content.style.cssText = 'opacity:0; transform:translateY(28px); transition: opacity .9s ease, transform .9s ease;';
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      content.style.opacity = '1';
+      content.style.transform = 'translateY(0)';
+    }, 200);
+  });
+})();
+
 // Navbar scroll
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
-
-// Dashboard bars
-const barHeights = [40,62,44,78,55,88,68,94,73,100,84,87];
-const barsEl = document.getElementById('dashBars');
-barHeights.forEach((h, i) => {
-  const bar = document.createElement('div');
-  bar.className = 'dash-bar' + (i >= 9 ? ' highlight' : '');
-  bar.style.cssText = `height:${h}%;transition:height .5s ${i*50}ms`;
-  barsEl.appendChild(bar);
-});
 
 // Logo marquee
 const logos = [
