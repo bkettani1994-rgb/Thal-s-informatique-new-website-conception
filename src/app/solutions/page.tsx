@@ -3,264 +3,257 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { BarChart3, Users, Factory, PieChart, CheckCircle2, ArrowRight, Shield, Clock, Globe } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import { ArrowRight, LayoutGrid, Wrench, BadgeDollarSign, Users } from "lucide-react";
 
-const solutions = [
+const categories = [
   {
-    icon: BarChart3,
-    title: "Gestion Financière",
-    description: "Pilotez vos finances en temps réel avec une comptabilité générale, analytique et une trésorerie maîtrisée.",
-    features: ["Comptabilité générale & analytique", "Rapports fiscaux TVA/IS/IR", "Tableau de bord financier"],
-    href: "/solutions/gestion-financiere",
-    color: "blue",
+    heading: "ERP & Gestion",
+    icon: LayoutGrid,
+    color: "text-cta",
     bg: "bg-blue-50",
-    border: "border-blue-200",
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600",
-    ctaColor: "text-blue-600 hover:text-blue-700",
+    border: "border-blue-100",
+    products: [
+      {
+        title: "Sage X3",
+        sub: "Grandes entreprises & industries",
+        badge: "SOLUTION PHARE",
+        href: "/solutions/sage-x3",
+        desc: "L'ERP de référence pour les groupes industriels et entreprises de taille intermédiaire. Partenariat Gold Sage.",
+      },
+      {
+        title: "Sage 100",
+        sub: "Gestion intégrée pour PME agiles",
+        badge: "PME & ETI",
+        href: "/solutions/sage-100",
+        desc: "L'ERP idéal pour les PME marocaines qui veulent digitaliser leur gestion sans complexité.",
+      },
+      {
+        title: "Sage FRP 1000",
+        sub: "Plateforme financière de groupe",
+        badge: "GROUPES",
+        href: "/solutions/sage-frp-1000",
+        desc: "Consolidation automatique, reporting groupe, multi-entités pour holdings et filiales.",
+      },
+    ],
   },
   {
-    icon: Users,
-    title: "Gestion RH & Paie",
-    description: "Gérez vos collaborateurs, automatisez la paie et assurez la conformité CNSS/AMO/IR en toute sérénité.",
-    features: ["Calcul automatique de la paie", "Déclarations CNSS / AMO / IR", "Congés & absences"],
-    href: "/solutions/gestion-rh-paie",
-    color: "violet",
-    bg: "bg-violet-50",
-    border: "border-violet-200",
-    iconBg: "bg-violet-100",
-    iconColor: "text-violet-600",
-    ctaColor: "text-violet-600 hover:text-violet-700",
-  },
-  {
-    icon: Factory,
-    title: "Gestion de Production",
-    description: "Optimisez votre chaîne de production avec la planification MRP, le suivi des ordres et le contrôle qualité.",
-    features: ["Planification MRP", "Suivi des ordres de fabrication", "Gestion des stocks & entrepôts"],
-    href: "/solutions/gestion-production",
-    color: "emerald",
+    heading: "Maintenance & Industrie",
+    icon: Wrench,
+    color: "text-emerald-600",
     bg: "bg-emerald-50",
-    border: "border-emerald-200",
-    iconBg: "bg-emerald-100",
-    iconColor: "text-emerald-600",
-    ctaColor: "text-emerald-600 hover:text-emerald-700",
+    border: "border-emerald-100",
+    products: [
+      {
+        title: "DimoMaint GMAO",
+        sub: "Gestion de maintenance préventive",
+        badge: "MAINTENANCE",
+        href: "/solutions/dimomaint-gmao",
+        desc: "GMAO complète pour optimiser la disponibilité des équipements industriels et réduire les coûts.",
+      },
+    ],
   },
   {
-    icon: PieChart,
-    title: "Reporting & Pilotage",
-    description: "Décidez avec confiance grâce à des tableaux de bord interactifs, des KPIs en temps réel et des alertes automatiques.",
-    features: ["Tableaux de bord interactifs", "200+ KPIs préconfigurés", "Export Excel / PDF"],
-    href: "/solutions/reporting-pilotage",
-    color: "amber",
+    heading: "Gestion Financière",
+    icon: BadgeDollarSign,
+    color: "text-amber-600",
     bg: "bg-amber-50",
-    border: "border-amber-200",
-    iconBg: "bg-amber-100",
-    iconColor: "text-amber-600",
-    ctaColor: "text-amber-600 hover:text-amber-700",
+    border: "border-amber-100",
+    products: [
+      {
+        title: "Eloficash",
+        sub: "Recouvrement & Crédit client",
+        badge: "RECOUVREMENT",
+        href: "/solutions/eloficash",
+        desc: "Scoring client, relances automatiques et suivi des encours pour sécuriser votre trésorerie.",
+      },
+    ],
+  },
+  {
+    heading: "Ressources Humaines",
+    icon: Users,
+    color: "text-violet-600",
+    bg: "bg-violet-50",
+    border: "border-violet-100",
+    products: [
+      {
+        title: "Factorial",
+        sub: "Espace Collaborateur & SIRH Cloud",
+        badge: "SIRH CLOUD",
+        href: "/solutions/factorial",
+        desc: "SIRH Cloud moderne : congés, fiches de paie, recrutement, formations — accessible partout.",
+      },
+    ],
   },
 ];
 
-const features = [
-  "Architecture modulaire et scalable",
-  "100% conforme à la réglementation marocaine",
-  "Intégration native entre tous les modules",
-  "Support local et formation incluse",
-  "Déploiement Cloud ou On-Premise",
-  "Mises à jour automatiques incluses",
-  "API ouverte pour connexions tierces",
-  "Tableau de bord exécutif temps réel",
+const partners = [
+  "Sage Gold Partner",
+  "DimoMaint Partner",
+  "Eloficash Certified",
+  "Factorial Partner",
 ];
-
-const whyChoose = [
-  {
-    icon: Clock,
-    title: "30 ans d'expertise",
-    desc: "Fondée en 1993, Thalès Informatique cumule trois décennies d'expérience dans la digitalisation des entreprises marocaines.",
-  },
-  {
-    icon: Shield,
-    title: "Support local 24/7",
-    desc: "Une équipe d'experts basée à Casablanca, Rabat, Fès et Marrakech, disponible pour vous accompagner à chaque étape.",
-  },
-  {
-    icon: Globe,
-    title: "Intégration complète",
-    desc: "Tous nos modules communiquent entre eux nativement. Une seule solution pour toute votre gestion d'entreprise.",
-  },
-];
-
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 export default function SolutionsPage() {
+  const introRef = useRef(null);
+  const categoriesRef = useRef(null);
+  const partnersRef = useRef(null);
+
+  const introInView = useInView(introRef, { once: true, margin: "-80px" });
+  const categoriesInView = useInView(categoriesRef, { once: true, margin: "-80px" });
+  const partnersInView = useInView(partnersRef, { once: true, margin: "-80px" });
+
   return (
     <>
       <Navbar />
-
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-cta/10 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 text-accent/70 text-sm mb-4">
-              <Link href="/" className="hover:text-accent transition-colors">Accueil</Link>
-              <span>/</span>
-              <span className="text-accent">Solutions</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Nos Solutions <span className="text-accent">ERP</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-              Des solutions intégrées pour digitaliser et piloter votre entreprise — conçues pour le marché marocain, adaptées à votre secteur.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-24 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <FadeIn>
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
-                Un ERP pensé pour les entreprises marocaines
-              </h2>
-              <p className="text-secondary text-lg leading-relaxed mb-6">
-                Depuis 1993, Thalès Informatique développe des solutions ERP modulaires, évolutives et parfaitement adaptées aux réalités du marché marocain. Chaque module peut être déployé indépendamment ou dans une suite intégrée.
-              </p>
-              <p className="text-secondary leading-relaxed">
-                Nos solutions couvrent l'intégralité du cycle de gestion d'entreprise : finances, ressources humaines, production, et pilotage stratégique — avec une conformité totale à la législation marocaine (CNSS, TVA, IS, IR).
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                <h3 className="text-lg font-semibold text-primary mb-6">Ce que nos solutions vous apportent</h3>
-                <div className="grid grid-cols-1 gap-3">
-                  {features.map((f, i) => (
-                    <motion.div
-                      key={f}
-                      initial={{ opacity: 0, x: -16 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.06 }}
-                      className="flex items-center gap-3"
-                    >
-                      <CheckCircle2 size={18} className="text-cta shrink-0" />
-                      <span className="text-secondary text-sm">{f}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Cards */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Explorez nos modules</h2>
-              <p className="text-secondary text-lg max-w-2xl mx-auto">Chaque module est autonome et s'intègre parfaitement aux autres pour une vision globale de votre activité.</p>
-            </div>
-          </FadeIn>
-          <div className="grid md:grid-cols-2 gap-8">
-            {solutions.map((sol, i) => {
-              const Icon = sol.icon;
-              return (
-                <FadeIn key={sol.title} delay={i * 0.1}>
-                  <div className={`${sol.bg} ${sol.border} border rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 cursor-pointer group h-full flex flex-col`}>
-                    <div className={`${sol.iconBg} w-14 h-14 rounded-xl flex items-center justify-center mb-6`}>
-                      <Icon size={28} className={sol.iconColor} />
-                    </div>
-                    <h3 className="text-xl font-bold text-primary mb-3">{sol.title}</h3>
-                    <p className="text-secondary leading-relaxed mb-6 flex-1">{sol.description}</p>
-                    <ul className="space-y-2 mb-6">
-                      {sol.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-secondary">
-                          <CheckCircle2 size={15} className={sol.iconColor} />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href={sol.href} className={`flex items-center gap-2 text-sm font-semibold ${sol.ctaColor} transition-colors duration-200`}>
-                      Découvrir <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-                    </Link>
-                  </div>
-                </FadeIn>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Why choose */}
-      <section className="py-24 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">Pourquoi choisir Thalès Informatique ?</h2>
-            </div>
-          </FadeIn>
-          <div className="grid md:grid-cols-3 gap-8">
-            {whyChoose.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <FadeIn key={item.title} delay={i * 0.1}>
-                  <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
-                    <div className="w-14 h-14 bg-cta/10 rounded-xl flex items-center justify-center mx-auto mb-5">
-                      <Icon size={28} className="text-cta" />
-                    </div>
-                    <h3 className="text-lg font-bold text-primary mb-3">{item.title}</h3>
-                    <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </FadeIn>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Band */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <FadeIn>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Prêt à transformer votre entreprise ?
-            </h2>
-            <p className="text-white/70 text-lg mb-8">
-              Discutez avec un expert Thalès Informatique et obtenez une démo personnalisée de notre ERP.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-accent text-primary font-semibold px-8 py-4 rounded-xl hover:bg-sky-300 transition-colors duration-200 cursor-pointer text-lg"
+      <main className="bg-bg min-h-screen">
+        {/* Hero */}
+        <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              Demander une démo gratuite <ArrowRight size={20} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+              <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
+                NOS PROGICIELS
+              </span>
+              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
+                Nos Solutions
+              </h1>
+              <p className="text-xl text-white/70 max-w-3xl leading-relaxed">
+                Un portfolio de progiciels de référence, intégrés et supportés par Thalès Informatique
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
+        {/* Intro */}
+        <section ref={introRef} className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={introInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-xs font-bold text-cta tracking-widest uppercase">INTÉGRATEUR DE RÉFÉRENCE</span>
+                <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
+                  Leader de l&apos;intégration ERP au Maroc
+                </h2>
+                <p className="text-secondary leading-relaxed mb-4">
+                  Thalès Informatique est intégrateur de solutions ERP et métier leader au Maroc depuis plus de 20 ans. Notre portfolio couvre tous les besoins des entreprises marocaines, des PME aux grands groupes.
+                </p>
+                <p className="text-secondary leading-relaxed">
+                  Chaque solution est sélectionnée, déployée et supportée par nos équipes certifiées, avec un accompagnement local et une connaissance approfondie du contexte réglementaire marocain.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Categories */}
+        <section ref={categoriesRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            {categories.map((cat, catIdx) => {
+              const IconComponent = cat.icon;
+              return (
+                <motion.div
+                  key={cat.heading}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={categoriesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: catIdx * 0.1 }}
+                >
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className={`w-9 h-9 rounded-xl ${cat.bg} ${cat.border} border flex items-center justify-center`}>
+                      <IconComponent size={18} className={cat.color} />
+                    </div>
+                    <h2 className={`text-2xl font-bold text-primary`}>{cat.heading}</h2>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {cat.products.map((product) => (
+                      <Link
+                        key={product.title}
+                        href={product.href}
+                        className="group bg-white rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200 flex flex-col"
+                      >
+                        <div className="mb-4">
+                          <span className={`text-xs font-bold tracking-widest ${cat.color}`}>{product.badge}</span>
+                          <h3 className="text-lg font-bold text-primary mt-1 group-hover:text-cta transition-colors">
+                            {product.title}
+                          </h3>
+                          <p className="text-sm text-secondary mt-0.5">{product.sub}</p>
+                        </div>
+                        <p className="text-sm text-secondary leading-relaxed flex-1">{product.desc}</p>
+                        <div className="mt-4 flex items-center gap-1 text-cta text-sm font-semibold">
+                          En savoir plus <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Partner Logos */}
+        <section ref={partnersRef} className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={partnersInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-10"
+            >
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">NOS PARTENARIATS</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">Certifications &amp; Partenariats officiels</h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={partnersInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-wrap justify-center gap-4"
+            >
+              {partners.map((partner) => (
+                <span
+                  key={partner}
+                  className="px-6 py-3 bg-bg border-2 border-border rounded-xl text-sm font-bold text-primary tracking-wide hover:border-cta hover:text-cta transition-colors duration-200"
+                >
+                  {partner}
+                </span>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 bg-primary">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                Quelle solution correspond à vos besoins ?
+              </h2>
+              <p className="text-white/70 mb-8 max-w-xl mx-auto">
+                Nos experts Thalès Informatique vous orientent vers la solution la plus adaptée à votre secteur et à votre taille.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
+              >
+                Parler à un expert <ArrowRight size={18} />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   );

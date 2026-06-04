@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, LayoutGrid, Wrench, BadgeDollarSign, Users } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type NavChild = { label: string; href: string };
 type MegaItem = { label: string; sub: string; href: string };
-type MegaColumn = { heading: string; items: MegaItem[] };
+type MegaColumn = { heading: string; icon?: string; items: MegaItem[] };
 type FeaturedPanel = {
   badge: string;
   title: string;
@@ -23,6 +24,13 @@ type NavLink = {
   megaMenu?: boolean;
   featured?: FeaturedPanel;
   columns?: MegaColumn[];
+};
+
+const iconMap: Record<string, LucideIcon> = {
+  LayoutGrid,
+  Wrench,
+  BadgeDollarSign,
+  Users,
 };
 
 const navLinks: NavLink[] = [
@@ -73,12 +81,45 @@ const navLinks: NavLink[] = [
   {
     label: "Solutions",
     href: "/solutions",
-    children: [
-      { label: "ERP intégré", href: "/solutions/erp-integre" },
-      { label: "Solution Cloud", href: "/solutions/cloud" },
-      { label: "Solution On-Premise", href: "/solutions/on-premise" },
-      { label: "Application mobile", href: "/solutions/application-mobile" },
-      { label: "Business Intelligence", href: "/solutions/business-intelligence" },
+    megaMenu: true,
+    featured: {
+      badge: "NOS PROGICIELS",
+      title: "NOTRE PORTFOLIO",
+      desc: "Des configurations adaptées pour simplifier vos processus métiers quotidiens au Maroc.",
+      cta: "VOIR LE HUB",
+      href: "/solutions",
+    },
+    columns: [
+      {
+        heading: "ERP & GESTION",
+        icon: "LayoutGrid",
+        items: [
+          { label: "Sage X3",       sub: "Grandes entreprises & industries",     href: "/solutions/sage-x3" },
+          { label: "Sage 100",      sub: "Gestion intégrée pour PME agiles",     href: "/solutions/sage-100" },
+          { label: "Sage FRP 1000", sub: "Plateforme financière de groupe",      href: "/solutions/sage-frp-1000" },
+        ],
+      },
+      {
+        heading: "MAINTENANCE & INDUSTRIE",
+        icon: "Wrench",
+        items: [
+          { label: "DimoMaint GMAO", sub: "Gestion de maintenance préventive",  href: "/solutions/dimomaint-gmao" },
+        ],
+      },
+      {
+        heading: "GESTION FINANCIÈRE",
+        icon: "BadgeDollarSign",
+        items: [
+          { label: "Eloficash", sub: "Recouvrement & Crédit client",             href: "/solutions/eloficash" },
+        ],
+      },
+      {
+        heading: "RESSOURCES HUMAINES",
+        icon: "Users",
+        items: [
+          { label: "Factorial", sub: "Espace Collaborateur & SIRH Cloud",        href: "/solutions/factorial" },
+        ],
+      },
     ],
   },
   {
@@ -156,26 +197,32 @@ function MegaMenu({ link }: { link: NavLink }) {
 
         {/* Columns */}
         <div className="flex-1 grid grid-cols-3 gap-0 p-8">
-          {link.columns.map((col) => (
-            <div key={col.heading} className="px-4 first:pl-0">
-              <h4 className="text-xs font-bold text-cta tracking-widest mb-4">{col.heading}</h4>
-              <ul className="space-y-1">
-                {col.items.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="group block px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors duration-150"
-                    >
-                      <span className="block text-sm font-semibold text-primary group-hover:text-cta transition-colors duration-150">
-                        {item.label}
-                      </span>
-                      <span className="block text-xs text-slate-400 mt-0.5">{item.sub}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {link.columns.map((col) => {
+            const IconComponent = col.icon ? iconMap[col.icon] : null;
+            return (
+              <div key={col.heading} className="px-4 first:pl-0">
+                <h4 className="flex items-center gap-1.5 text-xs font-bold text-cta tracking-widest mb-4 uppercase">
+                  {IconComponent && <IconComponent size={14} className="text-cta shrink-0" />}
+                  {col.heading}
+                </h4>
+                <ul className="space-y-1">
+                  {col.items.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="group block px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors duration-150"
+                      >
+                        <span className="block text-sm font-semibold text-primary group-hover:text-cta transition-colors duration-150">
+                          {item.label}
+                        </span>
+                        <span className="block text-xs text-slate-400 mt-0.5">{item.sub}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </motion.div>
