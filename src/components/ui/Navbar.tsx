@@ -1,25 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const navLinks = [
   {
     label: "Solutions",
-    href: "#solutions",
+    href: "/solutions",
     children: [
-      { label: "Gestion financière", href: "#solutions" },
-      { label: "Gestion RH & paie", href: "#solutions" },
-      { label: "Gestion de production", href: "#solutions" },
-      { label: "Reporting & pilotage", href: "#solutions" },
+      { label: "Gestion financière", href: "/solutions/gestion-financiere" },
+      { label: "Gestion RH & paie", href: "/solutions/gestion-rh-paie" },
+      { label: "Gestion de production", href: "/solutions/gestion-production" },
+      { label: "Reporting & pilotage", href: "/solutions/reporting-pilotage" },
     ],
   },
-  { label: "Secteurs", href: "#secteurs" },
-  { label: "Trophées", href: "#trophees" },
-  { label: "Événements", href: "#evenements" },
-  { label: "Blog", href: "#blog" },
-  { label: "À propos", href: "#chiffres" },
+  { label: "Secteurs", href: "/secteurs" },
+  { label: "Trophées", href: "/trophees" },
+  { label: "Événements", href: "/evenements" },
+  { label: "Blog", href: "/blog" },
+  { label: "À propos", href: "/a-propos" },
 ];
 
 export default function Navbar() {
@@ -47,7 +48,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 shrink-0">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="w-8 h-8 bg-cta rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">T</span>
             </div>
@@ -58,7 +59,7 @@ export default function Navbar() {
             >
               Thalès <span className={scrolled ? "text-cta" : "text-accent"}>Informatique</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -69,7 +70,7 @@ export default function Navbar() {
                 onMouseEnter={() => link.children && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <a
+                <Link
                   href={link.href}
                   className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 cursor-pointer ${
                     scrolled
@@ -86,7 +87,7 @@ export default function Navbar() {
                       }`}
                     />
                   )}
-                </a>
+                </Link>
 
                 {/* Dropdown */}
                 {link.children && (
@@ -100,13 +101,13 @@ export default function Navbar() {
                         className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-border overflow-hidden"
                       >
                         {link.children.map((child) => (
-                          <a
+                          <Link
                             key={child.label}
                             href={child.href}
                             className="block px-4 py-2.5 text-sm text-secondary hover:text-primary hover:bg-slate-50 transition-colors duration-150 cursor-pointer"
                           >
                             {child.label}
-                          </a>
+                          </Link>
                         ))}
                       </motion.div>
                     )}
@@ -118,8 +119,8 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className={`text-sm font-medium px-4 py-2 rounded-md transition-colors duration-200 cursor-pointer ${
                 scrolled
                   ? "text-secondary hover:text-primary"
@@ -127,13 +128,13 @@ export default function Navbar() {
               }`}
             >
               Parler à un expert
-            </a>
-            <a
-              href="#contact"
-              className="text-sm font-semibold px-4 py-2 bg-cta text-white rounded-lg hover:bg-cta-hover transition-colors duration-200 cursor-pointer shadow-sm"
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-semibold px-4 py-2 bg-cta text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer shadow-sm"
             >
               Demander une démo
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu toggle */}
@@ -161,22 +162,38 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2.5 text-sm font-medium text-secondary hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
-                >
-                  {link.label}
-                </a>
+                <div key={link.label}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-3 py-2.5 text-sm font-medium text-secondary hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                  >
+                    {link.label}
+                  </Link>
+                  {link.children && (
+                    <div className="pl-4 space-y-1 mt-1">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block px-3 py-2 text-xs text-slate-500 hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="pt-3 border-t border-border space-y-2">
-                <a
-                  href="#contact"
-                  className="block w-full text-center text-sm font-semibold px-4 py-2.5 bg-cta text-white rounded-lg hover:bg-cta-hover transition-colors duration-200 cursor-pointer"
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full text-center text-sm font-semibold px-4 py-2.5 bg-cta text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer"
                 >
                   Demander une démo
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
