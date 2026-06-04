@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 type NavLink = {
   label: string;
   href: string;
+  heading?: string;
   children?: { label: string; href: string }[];
 };
 
@@ -59,11 +60,12 @@ const navLinks: NavLink[] = [
   {
     label: "Secteurs",
     href: "/secteurs",
+    heading: "VERTICALITÉ INDUSTRIELLE",
     children: [
       { label: "Industrie", href: "/secteurs/industrie" },
       { label: "Négoce & Distribution", href: "/secteurs/negoce-distribution" },
-      { label: "Services & Conseil", href: "/secteurs/services-conseil" },
-      { label: "BTP & Construction", href: "/secteurs/btp-construction" },
+      { label: "Services", href: "/secteurs/services" },
+      { label: "BTP", href: "/secteurs/btp" },
       { label: "Agroalimentaire", href: "/secteurs/agroalimentaire" },
     ],
   },
@@ -169,6 +171,11 @@ export default function Navbar() {
                         transition={{ duration: 0.15 }}
                         className="absolute top-full left-0 mt-1 w-60 bg-white rounded-xl shadow-xl border border-border overflow-hidden"
                       >
+                        {link.heading && (
+                          <div className="px-4 pt-3 pb-1 text-[10px] font-bold text-cta uppercase tracking-widest">
+                            {link.heading}
+                          </div>
+                        )}
                         {link.children.map((child) => (
                           <Link
                             key={child.label}
@@ -231,6 +238,11 @@ export default function Navbar() {
                   </Link>
                   {link.children && (
                     <div className="pl-4 space-y-1 mt-1">
+                      {link.heading && (
+                        <div className="px-3 pt-1 pb-0.5 text-[10px] font-bold text-cta uppercase tracking-widest">
+                          {link.heading}
+                        </div>
+                      )}
                       {link.children.map((child) => (
                         <Link
                           key={child.label}

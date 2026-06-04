@@ -19,47 +19,57 @@ const sectors = [
   {
     icon: Factory,
     title: "Industrie",
+    href: "/secteurs/industrie",
+    subtitle: "Ordonnanciers & bilans GPAO — pilotage de votre production industrielle",
     color: "emerald",
     challenges: ["Gestion complexe de la production et des nomenclatures", "Traçabilité des lots et matières premières", "Maintenance des équipements industriels"],
     solutions: ["Module MRP/planification de production", "Gestion des stocks multi-entrepôts", "GMAO intégrée"],
     kpis: ["TRS & OEE", "Taux de rebut", "Coût de revient industriel"],
-    clients: "80+ industriels",
+    clients: "150+ industriels",
   },
   {
     icon: ShoppingCart,
     title: "Négoce & Distribution",
+    href: "/secteurs/negoce-distribution",
+    subtitle: "Logistique multi-sociétés & gestion des stocks",
     color: "blue",
-    challenges: ["Gestion des commandes multi-canaux", "Logistique et tournées de livraison", "Politiques de prix et remises complexes"],
-    solutions: ["CRM & gestion des commandes", "Gestion des tournées et expéditions", "Moteur de tarification avancé"],
+    challenges: ["Gestion multi-entités et consolidation inter-sociétés", "Optimisation des stocks et réduction des ruptures", "Traçabilité des lots et dates de péremption"],
+    solutions: ["Gestion commerciale complète order-to-cash", "Multi-dépôts & entrepôts intégrés", "EDI fournisseurs & e-commerce"],
     kpis: ["Taux de service", "Rotation des stocks", "Délai de livraison"],
-    clients: "60+ distributeurs",
+    clients: "120+ distributeurs",
   },
   {
     icon: Briefcase,
     title: "Services & Conseil",
+    href: "/secteurs/services",
+    subtitle: "Taux de charge des consultants & gestion de projets",
     color: "violet",
-    challenges: ["Facturation à l'avancement des projets", "Suivi des temps & matières", "Gestion de la relation client"],
-    solutions: ["Gestion de projets intégrée", "Saisie des temps en ligne", "CRM & pipeline commercial"],
-    kpis: ["Taux d'utilisation", "Rentabilité projet", "Satisfaction client NPS"],
-    clients: "50+ cabinets",
+    challenges: ["Suivi du taux de charge et disponibilité des consultants", "Facturation complexe (régie, forfait, abonnement)", "Pilotage de la rentabilité par projet"],
+    solutions: ["Gestion des temps & activités", "Facturation projet automatisée", "Reporting rentabilité par consultant"],
+    kpis: ["Taux d'utilisation", "Rentabilité projet", "DSO & trésorerie"],
+    clients: "80+ cabinets",
   },
   {
     icon: Building2,
     title: "BTP & Construction",
+    href: "/secteurs/btp",
+    subtitle: "Chantiers & déboursés d'ouvrages — pilotage financier",
     color: "orange",
-    challenges: ["Suivi multi-chantiers et budgets", "Gestion des équipements et matériaux", "Facturation avancement travaux"],
-    solutions: ["Gestion des chantiers & WBS", "Suivi des budgets en temps réel", "Gestion du matériel et de la flotte"],
+    challenges: ["Dépassements budgétaires et manque de visibilité", "Gestion complexe des sous-traitants", "Suivi des immobilisations et du parc matériel"],
+    solutions: ["Suivi des chantiers budget/réalisé", "Situations de travaux et retenues", "Paie chantier CNSS BTP"],
     kpis: ["Écart budget/réalisé", "Taux d'avancement", "Coût par chantier"],
-    clients: "40+ entreprises BTP",
+    clients: "60+ entreprises BTP",
   },
   {
     icon: Leaf,
     title: "Agroalimentaire",
+    href: "/secteurs/agroalimentaire",
+    subtitle: "Normes ONSSA & traçabilité HACCP — conformité totale",
     color: "green",
-    challenges: ["Traçabilité totale des lots et DLC", "Normes HACCP et sécurité alimentaire", "Gestion des coûts de production variables"],
-    solutions: ["Traçabilité lot/DLC/DLU", "Contrôle qualité HACCP intégré", "Calcul des coûts de revient recettes"],
+    challenges: ["Traçabilité amont/aval des matières et produits", "Conformité ONSSA, HACCP et normes sanitaires", "Gestion des DLC/DLUO et retraits de lots"],
+    solutions: ["Traçabilité lot complète", "Contrôle qualité HACCP intégré", "Gestion DLC/retrait automatisée"],
     kpis: ["Taux de pertes", "Non-conformités qualité", "Délai de traçabilité"],
-    clients: "35+ entreprises agro",
+    clients: "40+ industriels IAA",
   },
 ];
 
@@ -72,11 +82,11 @@ const colorMap: Record<string, { bg: string; text: string; border: string; dot: 
 };
 
 const stats = [
-  { value: "265+", label: "Clients accompagnés" },
-  { value: "5", label: "Secteurs d'activité" },
-  { value: "30+", label: "Années d'expérience" },
-  { value: "98%", label: "Taux de satisfaction" },
-  { value: "24h", label: "Support réactif" },
+  { value: "30+", label: "Ans d'expérience" },
+  { value: "500+", label: "Clients accompagnés" },
+  { value: "5", label: "Secteurs couverts" },
+  { value: "1200+", label: "Projets réalisés" },
+  { value: "97%", label: "Satisfaction client" },
 ];
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -145,6 +155,7 @@ export default function SecteursPage() {
                         <span className={`text-xs font-semibold ${colors.text}`}>{sector.clients}</span>
                       </div>
                     </div>
+                    <p className="text-secondary text-sm mb-6 leading-relaxed">{sector.subtitle}</p>
 
                     <div className="space-y-6">
                       <div>
@@ -172,10 +183,10 @@ export default function SecteursPage() {
                     </div>
 
                     <Link
-                      href="/contact"
+                      href={sector.href}
                       className={`mt-8 inline-flex items-center gap-2 px-5 py-2.5 ${colors.badge} text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-opacity`}
                     >
-                      Demander une démo
+                      Découvrir
                       <ChevronRight size={16} />
                     </Link>
                   </div>
