@@ -385,6 +385,115 @@
   .sol-card:hover .sol-learn { display: flex; }
   .solutions-cta { text-align: center; margin-top: 44px; }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials-section {
+    background: var(--navy); padding: 96px 24px; position: relative; overflow: hidden;
+  }
+  .testimonials-section::before {
+    content:''; position:absolute; inset:0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.04) 1px, transparent 0);
+    background-size: 36px 36px;
+  }
+  .testimonials-section::after {
+    content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:800px; height:300px;
+    background: radial-gradient(ellipse, rgba(3,105,161,.12) 0%, transparent 65%);
+    filter: blur(40px); pointer-events:none;
+  }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .testi-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 22px; overflow: hidden; cursor: default;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+    position: relative;
+  }
+  .testi-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,.22); box-shadow: 0 20px 48px rgba(0,0,0,.35); }
+
+  /* Video thumbnail area */
+  .testi-thumb {
+    position: relative; height: 192px; overflow: hidden; cursor: pointer;
+  }
+  .testi-thumb img { width:100%; height:100%; object-fit:cover; transition: transform .5s; }
+  .testi-card:hover .testi-thumb img { transform: scale(1.06); }
+  .testi-thumb-overlay { position:absolute; inset:0; }
+  .testi-thumb-overlay-dark { position:absolute; inset:0; background:rgba(15,23,42,.35); }
+  .testi-sector-badge {
+    position:absolute; top:12px; left:12px;
+    background:rgba(255,255,255,.15); backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.2); color:#fff;
+    font-size:10px; font-weight:700; padding:3px 10px; border-radius:999px;
+  }
+  .testi-metric {
+    position:absolute; top:12px; right:12px;
+    background:rgba(255,255,255,.15); backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.2); border-radius:12px;
+    padding:6px 10px; text-align:center;
+  }
+  .testi-metric-val { font-size:15px; font-weight:800; color:#fff; line-height:1; }
+  .testi-metric-label { font-size:8px; color:rgba(255,255,255,.65); margin-top:2px; }
+  .testi-play-btn {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  }
+  .testi-play-circle {
+    width:54px; height:54px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .testi-card:hover .testi-play-circle { transform: scale(1.12); box-shadow: 0 12px 32px rgba(0,0,0,.5); }
+  .testi-yt-label {
+    position:absolute; bottom:10px; right:10px;
+    background:rgba(0,0,0,.6); color:#fff; font-size:10px;
+    font-weight:600; padding:3px 8px; border-radius:6px;
+  }
+
+  /* Card body */
+  .testi-body { padding: 18px 18px 20px; }
+  .testi-stars { display:flex; gap:2px; margin-bottom:12px; }
+  .testi-stars span { color:#FBBF24; font-size:12px; }
+  .testi-quote {
+    font-size: 12.5px; color: rgba(255,255,255,.6); line-height: 1.7;
+    font-style: italic; margin-bottom: 16px;
+    display: -webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .testi-divider { height:1px; background:rgba(255,255,255,.08); margin-bottom:14px; }
+  .testi-person { display:flex; align-items:center; gap:10px; }
+  .testi-avatar {
+    width:36px; height:36px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; font-size:11px; font-weight:800; color:#fff;
+  }
+  .testi-name { font-size:12.5px; font-weight:700; color:#fff; }
+  .testi-role { font-size:10.5px; color:rgba(255,255,255,.38); margin-top:1px; }
+  .testi-bottom-cta { text-align:center; margin-top:44px; }
+  .testi-bottom-text { font-size:13px; color:rgba(255,255,255,.35); margin-bottom:14px; }
+  .testi-bottom-text strong { color:rgba(255,255,255,.7); }
+
+  /* YouTube modal */
+  .yt-modal-backdrop {
+    position:fixed; inset:0; z-index:500;
+    background:rgba(15,23,42,.92); backdrop-filter:blur(10px);
+    display:flex; align-items:center; justify-content:center; padding:20px;
+    opacity:0; pointer-events:none; transition: opacity .2s;
+  }
+  .yt-modal-backdrop.open { opacity:1; pointer-events:all; }
+  .yt-modal-inner {
+    position:relative; width:100%; max-width:900px; aspect-ratio:16/9;
+    border-radius:18px; overflow:hidden;
+    transform:scale(.9); transition: transform .25s ease;
+    box-shadow: 0 40px 80px rgba(0,0,0,.6);
+  }
+  .yt-modal-backdrop.open .yt-modal-inner { transform:scale(1); }
+  .yt-modal-inner iframe { width:100%; height:100%; border:0; }
+  .yt-close {
+    position:absolute; top:16px; right:16px; z-index:10;
+    width:38px; height:38px; border-radius:50%;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+    color:#fff; font-size:18px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition: background .2s;
+  }
+  .yt-close:hover { background:rgba(255,255,255,.25); }
+
   /* ── AWARDS ── */
   .awards-section { background: #fff; }
   .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -932,6 +1041,126 @@
   </div>
 </section>
 
+<!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+<div class="yt-modal-backdrop" id="ytModal">
+  <div class="yt-modal-inner">
+    <iframe id="ytFrame" src="" title="Témoignage client" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <button class="yt-close" onclick="closeYT()">✕</button>
+</div>
+
+<section class="testimonials-section reveal" id="temoignages">
+  <div class="section-inner" style="position:relative;z-index:2">
+    <div style="text-align:center;margin-bottom:52px">
+      <span class="section-tag" style="color:var(--accent)">Témoignages clients</span>
+      <h2 class="section-title" style="color:#fff">Ils ont transformé leur entreprise</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.45);margin:14px auto 0">
+        Écoutez directement nos clients partager leur expérience et les résultats concrets obtenus avec Thalès Informatique.
+      </p>
+    </div>
+    <div class="testimonials-grid">
+
+      <!-- Card 1 -->
+      <div class="testi-card">
+        <div class="testi-thumb" onclick="openYT('VOTRE_ID_YOUTUBE_1')">
+          <img src="https://img.youtube.com/vi/VOTRE_ID_YOUTUBE_1/maxresdefault.jpg"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#1D4ED8,#0891B2)'"
+               alt="Témoignage Karim Benali">
+          <div class="testi-thumb-overlay-dark"></div>
+          <div class="testi-thumb-overlay" style="background:linear-gradient(135deg,rgba(29,78,216,.55),rgba(8,145,178,.55))"></div>
+          <span class="testi-sector-badge">Industrie</span>
+          <div class="testi-metric"><div class="testi-metric-val">-75%</div><div class="testi-metric-label">Temps de clôture</div></div>
+          <div class="testi-play-btn">
+            <div class="testi-play-circle" style="background:linear-gradient(135deg,#2563EB,#0EA5E9)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-left:3px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="testi-yt-label">▶ Voir le témoignage</div>
+        </div>
+        <div class="testi-body">
+          <div class="testi-stars"><span>★★★★★</span></div>
+          <p class="testi-quote">"Grâce à Thalès Informatique, nous avons réduit notre cycle de clôture comptable de 12 à 3 jours. Un accompagnement exceptionnel de bout en bout."</p>
+          <div class="testi-divider"></div>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#2563EB,#0EA5E9)">KB</div>
+            <div>
+              <div class="testi-name">Karim Benali</div>
+              <div class="testi-role">Directeur Financier · Groupe Industriel XYZ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="testi-card">
+        <div class="testi-thumb" onclick="openYT('VOTRE_ID_YOUTUBE_2')">
+          <img src="https://img.youtube.com/vi/VOTRE_ID_YOUTUBE_2/maxresdefault.jpg"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#6D28D9,#A855F7)'"
+               alt="Témoignage Fatima Zahra Alami">
+          <div class="testi-thumb-overlay-dark"></div>
+          <div class="testi-thumb-overlay" style="background:linear-gradient(135deg,rgba(109,40,217,.55),rgba(168,85,247,.55))"></div>
+          <span class="testi-sector-badge">Négoce & Distribution</span>
+          <div class="testi-metric"><div class="testi-metric-val">400</div><div class="testi-metric-label">Collaborateurs gérés</div></div>
+          <div class="testi-play-btn">
+            <div class="testi-play-circle" style="background:linear-gradient(135deg,#7C3AED,#A855F7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-left:3px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="testi-yt-label">▶ Voir le témoignage</div>
+        </div>
+        <div class="testi-body">
+          <div class="testi-stars"><span>★★★★★</span></div>
+          <p class="testi-quote">"La gestion de notre paie pour 400 collaborateurs est devenue un vrai plaisir. Fiabilité totale, zéro erreur depuis 2 ans de déploiement."</p>
+          <div class="testi-divider"></div>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#7C3AED,#A855F7)">FZ</div>
+            <div>
+              <div class="testi-name">Fatima Zahra Alami</div>
+              <div class="testi-role">DRH · Distribution Maroc Sud</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="testi-card">
+        <div class="testi-thumb" onclick="openYT('VOTRE_ID_YOUTUBE_3')">
+          <img src="https://img.youtube.com/vi/VOTRE_ID_YOUTUBE_3/maxresdefault.jpg"
+               onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#059669,#0D9488)'"
+               alt="Témoignage Mohamed Tazi">
+          <div class="testi-thumb-overlay-dark"></div>
+          <div class="testi-thumb-overlay" style="background:linear-gradient(135deg,rgba(5,150,105,.55),rgba(13,148,136,.55))"></div>
+          <span class="testi-sector-badge">BTP</span>
+          <div class="testi-metric"><div class="testi-metric-val">+40%</div><div class="testi-metric-label">Productivité chantiers</div></div>
+          <div class="testi-play-btn">
+            <div class="testi-play-circle" style="background:linear-gradient(135deg,#059669,#0D9488)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-left:3px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="testi-yt-label">▶ Voir le témoignage</div>
+        </div>
+        <div class="testi-body">
+          <div class="testi-stars"><span>★★★★★</span></div>
+          <p class="testi-quote">"Nous avons enfin une vision en temps réel de nos chantiers, budgets et équipes. La transformation a été rapide et l'équipe toujours disponible."</p>
+          <div class="testi-divider"></div>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#059669,#0D9488)">MT</div>
+            <div>
+              <div class="testi-name">Mohamed Tazi</div>
+              <div class="testi-role">Directeur Général · BTP Construct</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="testi-bottom-cta">
+      <p class="testi-bottom-text">Rejoignez plus de <strong>500 entreprises</strong> qui nous font confiance</p>
+      <a href="#contact" class="link-arrow" style="justify-content:center">Lire toutes les études de cas <span>→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════ AWARDS ═══════════════════════ -->
 <section class="section awards-section reveal" id="trophees">
   <div class="section-inner">
@@ -1204,6 +1433,28 @@
 </footer>
 
 <script>
+// ── YouTube modal ──
+function openYT(videoId) {
+  const modal = document.getElementById('ytModal');
+  const frame = document.getElementById('ytFrame');
+  frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeYT() {
+  const modal = document.getElementById('ytModal');
+  const frame = document.getElementById('ytFrame');
+  modal.classList.remove('open');
+  frame.src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('ytModal').addEventListener('click', function(e) {
+  if (e.target === this) closeYT();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeYT();
+});
+
 // ── Hero 3D background elements ──
 (function() {
   // Floating particles
