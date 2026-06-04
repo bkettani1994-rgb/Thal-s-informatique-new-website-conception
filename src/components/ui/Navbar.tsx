@@ -6,21 +6,75 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const navLinks = [
+  { label: "Accueil", href: "/" },
+  {
+    label: "Métiers",
+    href: "/metiers",
+    children: [
+      { label: "Gestion financière & comptable", href: "/metiers/gestion-financiere" },
+      { label: "Gestion RH & paie", href: "/metiers/gestion-rh-paie" },
+      { label: "Gestion de production", href: "/metiers/gestion-production" },
+      { label: "Gestion commerciale & CRM", href: "/metiers/gestion-commerciale" },
+      { label: "Gestion des achats", href: "/metiers/gestion-achats" },
+      { label: "Reporting & pilotage", href: "/metiers/reporting-pilotage" },
+    ],
+  },
   {
     label: "Solutions",
     href: "/solutions",
     children: [
-      { label: "Gestion financière", href: "/solutions/gestion-financiere" },
-      { label: "Gestion RH & paie", href: "/solutions/gestion-rh-paie" },
-      { label: "Gestion de production", href: "/solutions/gestion-production" },
-      { label: "Reporting & pilotage", href: "/solutions/reporting-pilotage" },
+      { label: "ERP intégré", href: "/solutions/erp-integre" },
+      { label: "Solution Cloud", href: "/solutions/cloud" },
+      { label: "Solution On-Premise", href: "/solutions/on-premise" },
+      { label: "Application mobile", href: "/solutions/application-mobile" },
+      { label: "Business Intelligence", href: "/solutions/business-intelligence" },
     ],
   },
-  { label: "Secteurs", href: "/secteurs" },
-  { label: "Trophées", href: "/trophees" },
-  { label: "Événements", href: "/evenements" },
-  { label: "Blog", href: "/blog" },
-  { label: "À propos", href: "/a-propos" },
+  {
+    label: "Services",
+    href: "/services",
+    children: [
+      { label: "Conseil & audit", href: "/services/conseil-audit" },
+      { label: "Implémentation ERP", href: "/services/implementation" },
+      { label: "Migration de données", href: "/services/migration" },
+      { label: "Formation & support", href: "/services/formation-support" },
+      { label: "Maintenance applicative", href: "/services/maintenance" },
+      { label: "Cloud & hébergement", href: "/services/cloud-hebergement" },
+    ],
+  },
+  {
+    label: "Secteurs",
+    href: "/secteurs",
+    children: [
+      { label: "Industrie", href: "/secteurs/industrie" },
+      { label: "Négoce & Distribution", href: "/secteurs/negoce-distribution" },
+      { label: "Services & Conseil", href: "/secteurs/services-conseil" },
+      { label: "BTP & Construction", href: "/secteurs/btp-construction" },
+      { label: "Agroalimentaire", href: "/secteurs/agroalimentaire" },
+    ],
+  },
+  {
+    label: "Références",
+    href: "/references",
+    children: [
+      { label: "Témoignages clients", href: "/references/temoignages" },
+      { label: "Études de cas", href: "/references/etudes-de-cas" },
+      { label: "Trophées & distinctions", href: "/trophees" },
+      { label: "Nos partenaires", href: "/references/partenaires" },
+    ],
+  },
+  {
+    label: "Ressources",
+    href: "/ressources",
+    children: [
+      { label: "Blog & actualités", href: "/blog" },
+      { label: "Webinaires & événements", href: "/evenements" },
+      { label: "Livres blancs", href: "/ressources/livres-blancs" },
+      { label: "Documentation", href: "/ressources/documentation" },
+      { label: "FAQ", href: "/ressources/faq" },
+    ],
+  },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -117,21 +171,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTAs */}
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className={`text-sm font-medium px-4 py-2 rounded-md transition-colors duration-200 cursor-pointer ${
-                scrolled
-                  ? "text-secondary hover:text-primary"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              Parler à un expert
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm font-semibold px-4 py-2 bg-cta text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer shadow-sm"
+              className="text-sm font-semibold px-5 py-2.5 bg-cta text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer shadow-sm"
             >
               Demander une démo
             </Link>
