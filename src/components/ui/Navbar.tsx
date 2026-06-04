@@ -3,34 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, ArrowRight, LayoutGrid, Wrench, BadgeDollarSign, Users } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
-type NavChild = { label: string; href: string };
-type MegaItem = { label: string; sub: string; href: string };
-type MegaColumn = { heading: string; icon?: string; items: MegaItem[] };
-type FeaturedPanel = {
-  badge: string;
-  title: string;
-  desc: string;
-  cta: string;
-  href: string;
-};
+import { Menu, X, ChevronDown } from "lucide-react";
 
 type NavLink = {
   label: string;
   href: string;
-  children?: NavChild[];
-  megaMenu?: boolean;
-  featured?: FeaturedPanel;
-  columns?: MegaColumn[];
-};
-
-const iconMap: Record<string, LucideIcon> = {
-  LayoutGrid,
-  Wrench,
-  BadgeDollarSign,
-  Users,
+  children?: { label: string; href: string }[];
 };
 
 const navLinks: NavLink[] = [
@@ -38,88 +16,33 @@ const navLinks: NavLink[] = [
   {
     label: "Métiers",
     href: "/metiers",
-    megaMenu: true,
-    featured: {
-      badge: "CONFORMITÉ MAROC",
-      title: "NOS MÉTIERS",
-      desc: "Des configurations adaptées pour simplifier vos processus métiers quotidiens.",
-      cta: "VOIR LE HUB",
-      href: "/metiers",
-    },
-    columns: [
-      {
-        heading: "FINANCE",
-        items: [
-          { label: "Comptabilité & Finance", sub: "Générale, analytique & budgétaire", href: "/metiers/comptabilite-finance" },
-          { label: "États Comptables & Fiscaux", sub: "Liasse fiscale & EDI Simpl-IS", href: "/metiers/etats-comptables-fiscaux" },
-          { label: "Expertise Comptable", sub: "Multi-dossiers & productivité", href: "/metiers/expertise-comptable" },
-          { label: "Immobilisations", sub: "Amortissements & d'actifs", href: "/metiers/immobilisations" },
-          { label: "Trésorerie", sub: "Liquidités & prévisions", href: "/metiers/tresorerie" },
-          { label: "TVA", sub: "Taxe encaissements & débits", href: "/metiers/tva" },
-        ],
-      },
-      {
-        heading: "OPÉRATIONS & ERP",
-        items: [
-          { label: "ERP", sub: "Gestion flux intégrée PME", href: "/metiers/erp" },
-          { label: "Gestion de Production", sub: "Nomenclatures & GPAO ateliers", href: "/metiers/gestion-production" },
-          { label: "CRM", sub: "Relation client & support SAV", href: "/metiers/crm" },
-          { label: "Reporting", sub: "Tableaux décisionnels Excel & BI", href: "/metiers/reporting" },
-        ],
-      },
-      {
-        heading: "RESSOURCES HUMAINES",
-        items: [
-          { label: "Paie & RH", sub: "Fiches payes & carrières", href: "/metiers/paie-rh" },
-          { label: "Démat RH", sub: "Coffre-fort & dématérialisation", href: "/metiers/demat-rh" },
-          { label: "Paie", sub: "Moteur fiscal IR & CNSS", href: "/metiers/paie" },
-          { label: "SIRH", sub: "Compétences GPEC & formations", href: "/metiers/sirh" },
-        ],
-      },
+    children: [
+      { label: "Comptabilité & Finance", href: "/metiers/comptabilite-finance" },
+      { label: "États Comptables & Fiscaux", href: "/metiers/etats-comptables-fiscaux" },
+      { label: "Expertise Comptable", href: "/metiers/expertise-comptable" },
+      { label: "Immobilisations", href: "/metiers/immobilisations" },
+      { label: "Trésorerie", href: "/metiers/tresorerie" },
+      { label: "TVA", href: "/metiers/tva" },
+      { label: "ERP", href: "/metiers/erp" },
+      { label: "Gestion de Production", href: "/metiers/gestion-production" },
+      { label: "CRM", href: "/metiers/crm" },
+      { label: "Reporting", href: "/metiers/reporting" },
+      { label: "Paie & RH", href: "/metiers/paie-rh" },
+      { label: "Démat RH", href: "/metiers/demat-rh" },
+      { label: "Paie", href: "/metiers/paie" },
+      { label: "SIRH", href: "/metiers/sirh" },
     ],
   },
   {
     label: "Solutions",
     href: "/solutions",
-    megaMenu: true,
-    featured: {
-      badge: "NOS PROGICIELS",
-      title: "NOTRE PORTFOLIO",
-      desc: "Des configurations adaptées pour simplifier vos processus métiers quotidiens au Maroc.",
-      cta: "VOIR LE HUB",
-      href: "/solutions",
-    },
-    columns: [
-      {
-        heading: "ERP & GESTION",
-        icon: "LayoutGrid",
-        items: [
-          { label: "Sage X3",       sub: "Grandes entreprises & industries",     href: "/solutions/sage-x3" },
-          { label: "Sage 100",      sub: "Gestion intégrée pour PME agiles",     href: "/solutions/sage-100" },
-          { label: "Sage FRP 1000", sub: "Plateforme financière de groupe",      href: "/solutions/sage-frp-1000" },
-        ],
-      },
-      {
-        heading: "MAINTENANCE & INDUSTRIE",
-        icon: "Wrench",
-        items: [
-          { label: "DimoMaint GMAO", sub: "Gestion de maintenance préventive",  href: "/solutions/dimomaint-gmao" },
-        ],
-      },
-      {
-        heading: "GESTION FINANCIÈRE",
-        icon: "BadgeDollarSign",
-        items: [
-          { label: "Eloficash", sub: "Recouvrement & Crédit client",             href: "/solutions/eloficash" },
-        ],
-      },
-      {
-        heading: "RESSOURCES HUMAINES",
-        icon: "Users",
-        items: [
-          { label: "Factorial", sub: "Espace Collaborateur & SIRH Cloud",        href: "/solutions/factorial" },
-        ],
-      },
+    children: [
+      { label: "Sage X3", href: "/solutions/sage-x3" },
+      { label: "Sage 100", href: "/solutions/sage-100" },
+      { label: "Sage FRP 1000", href: "/solutions/sage-frp-1000" },
+      { label: "DimoMaint GMAO", href: "/solutions/dimomaint-gmao" },
+      { label: "Eloficash", href: "/solutions/eloficash" },
+      { label: "Factorial", href: "/solutions/factorial" },
     ],
   },
   {
@@ -169,65 +92,6 @@ const navLinks: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-function MegaMenu({ link }: { link: NavLink }) {
-  if (!link.featured || !link.columns) return null;
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 8 }}
-      transition={{ duration: 0.15 }}
-      className="fixed left-0 right-0 top-[64px] bg-white shadow-2xl border-t border-border z-50"
-    >
-      <div className="max-w-7xl mx-auto flex">
-        {/* Featured panel */}
-        <div className="w-64 shrink-0 bg-primary p-8 flex flex-col justify-between">
-          <div>
-            <span className="text-xs font-bold text-accent tracking-widest">{link.featured.badge}</span>
-            <h3 className="text-white font-bold text-2xl mt-3 leading-tight">{link.featured.title}</h3>
-            <p className="text-white/70 text-sm mt-3 leading-relaxed">{link.featured.desc}</p>
-          </div>
-          <Link
-            href={link.featured.href}
-            className="mt-6 flex items-center gap-2 text-accent text-sm font-bold hover:gap-3 transition-all duration-200"
-          >
-            {link.featured.cta} <ArrowRight size={14} />
-          </Link>
-        </div>
-
-        {/* Columns */}
-        <div className="flex-1 grid grid-cols-3 gap-0 p-8">
-          {link.columns.map((col) => {
-            const IconComponent = col.icon ? iconMap[col.icon] : null;
-            return (
-              <div key={col.heading} className="px-4 first:pl-0">
-                <h4 className="flex items-center gap-1.5 text-xs font-bold text-cta tracking-widest mb-4 uppercase">
-                  {IconComponent && <IconComponent size={14} className="text-cta shrink-0" />}
-                  {col.heading}
-                </h4>
-                <ul className="space-y-1">
-                  {col.items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="group block px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors duration-150"
-                      >
-                        <span className="block text-sm font-semibold text-primary group-hover:text-cta transition-colors duration-150">
-                          {item.label}
-                        </span>
-                        <span className="block text-xs text-slate-400 mt-0.5">{item.sub}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -273,7 +137,7 @@ export default function Navbar() {
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => (link.children || link.megaMenu) && setActiveDropdown(link.label)}
+                onMouseEnter={() => link.children && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
@@ -285,7 +149,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  {(link.children || link.megaMenu) && (
+                  {link.children && (
                     <ChevronDown
                       size={14}
                       className={`transition-transform duration-200 ${
@@ -295,17 +159,8 @@ export default function Navbar() {
                   )}
                 </Link>
 
-                {/* Mega Menu */}
-                {link.megaMenu && (
-                  <AnimatePresence>
-                    {activeDropdown === link.label && (
-                      <MegaMenu link={link} />
-                    )}
-                  </AnimatePresence>
-                )}
-
-                {/* Regular Dropdown */}
-                {link.children && !link.megaMenu && (
+                {/* Dropdown */}
+                {link.children && (
                   <AnimatePresence>
                     {activeDropdown === link.label && (
                       <motion.div
@@ -313,7 +168,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-border overflow-hidden"
+                        className="absolute top-full left-0 mt-1 w-60 bg-white rounded-xl shadow-xl border border-border overflow-hidden"
                       >
                         {link.children.map((child) => (
                           <Link
@@ -387,22 +242,6 @@ export default function Navbar() {
                           {child.label}
                         </Link>
                       ))}
-                    </div>
-                  )}
-                  {link.megaMenu && link.columns && (
-                    <div className="pl-4 space-y-1 mt-1">
-                      {link.columns.map((col) =>
-                        col.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="block px-3 py-2 text-xs text-slate-500 hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
-                          >
-                            {item.label}
-                          </Link>
-                        ))
-                      )}
                     </div>
                   )}
                 </div>
