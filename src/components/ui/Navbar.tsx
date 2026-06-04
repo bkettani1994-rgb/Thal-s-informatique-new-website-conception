@@ -72,11 +72,11 @@ const navLinks: NavLink[] = [
   {
     label: "Références",
     href: "/references",
+    heading: "RÉFÉRENCES",
     children: [
-      { label: "Témoignages clients", href: "/references/temoignages" },
+      { label: "Nos Clients", href: "/references/clients" },
       { label: "Études de cas", href: "/references/etudes-de-cas" },
-      { label: "Trophées & distinctions", href: "/trophees" },
-      { label: "Nos partenaires", href: "/references/partenaires" },
+      { label: "Témoignages", href: "/references/temoignages" },
     ],
   },
   {
