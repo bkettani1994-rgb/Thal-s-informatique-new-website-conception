@@ -357,102 +357,31 @@
   .stats-section .section-tag { color: var(--accent); }
   .stats-section .section-title { color: #fff; }
   .stats-section .section-sub { color: rgba(255,255,255,.45); max-width: 480px; margin: 14px auto 0; text-align: center; }
-  /* ── KEY STATS — Bento Grid Redesign ── */
-  .stats-section {
-    background: linear-gradient(160deg,#060E1E 0%,#0A1628 50%,#060E1E 100%);
-    position: relative; overflow: hidden;
+  /* ── KEY STATS — 1 ligne simple ── */
+  .stats-section { background: var(--navy); }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: rgba(255,255,255,.07);
+    border-radius: 20px; overflow: hidden; margin-top: 52px;
   }
-  .stats-section::before {
-    content:''; position:absolute; inset:0; pointer-events:none;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.03) 1px, transparent 0);
-    background-size: 40px 40px;
+  .stat-cell {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; padding: 44px 16px; text-align: center;
+    background: rgba(255,255,255,.03); transition: background .25s; cursor: default;
   }
-  .stats-section::after {
-    content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
-    width:900px; height:400px; pointer-events:none;
-    background: radial-gradient(ellipse, rgba(3,105,161,.12) 0%, transparent 65%);
-    filter: blur(40px);
+  .stat-cell:hover { background: rgba(255,255,255,.07); }
+  .stat-num {
+    font-size: 48px; font-weight: 900; line-height: 1;
+    letter-spacing: -.04em; transition: opacity .3s;
   }
-  .stats-bento {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 210px 210px;
-    gap: 14px;
-    margin-top: 52px;
-    position: relative; z-index: 1;
+  .stat-lbl { font-size: 11.5px; color: rgba(255,255,255,.42); font-weight: 500; }
+  .stat-line {
+    height: 2px; border-radius: 9px; width: 0;
+    transition: width .6s ease-out;
   }
-  .bento-card {
-    border-radius: 20px; padding: 24px; position: relative; overflow: hidden;
-    background: rgba(255,255,255,.03); backdrop-filter: blur(8px);
-    border: 1px solid; transition: background .3s, transform .25s;
-    cursor: default;
-  }
-  .bento-card:hover { background: rgba(255,255,255,.06); transform: translateY(-3px); }
-
-  /* Shimmer animation */
-  @keyframes shimmerBorder {
-    0%   { background-position: 0% 0%; }
-    100% { background-position: 200% 200%; }
-  }
-  .bento-card::before {
-    content:''; position:absolute; inset:0; border-radius:20px; pointer-events:none;
-    background-size:200% 200%;
-    animation: shimmerBorder 5s linear infinite;
-  }
-
-  /* Glow on hover */
-  .bento-card::after {
-    content:''; position:absolute; inset:0; border-radius:20px; pointer-events:none;
-    opacity:0; transition: opacity .4s;
-  }
-  .bento-card:hover::after { opacity:1; }
-
-  /* Layouts */
-  .bento-featured { grid-row: span 2; display:flex; flex-direction:column; justify-content:space-between; }
-  .bento-wide { grid-column: span 2; }
-  .bento-normal { display:flex; flex-direction:column; justify-content:space-between; }
-  .bento-ring-card { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; }
-
-  /* Numbers */
-  .bento-number-xl { font-size: 88px; font-weight: 900; line-height:1; letter-spacing:-.04em; tabular-nums; }
-  .bento-number-lg { font-size: 58px; font-weight: 900; line-height:1; letter-spacing:-.04em; }
-  .bento-number-md { font-size: 46px; font-weight: 900; line-height:1; letter-spacing:-.03em; }
-  .bento-label { font-size: 13px; font-weight: 700; color:#fff; margin-top:8px; }
-  .bento-sub { font-size: 11px; color:rgba(255,255,255,.35); margin-top:3px; }
-
-  /* Glow line */
-  .bento-line {
-    height: 2px; border-radius:9px; margin-top:12px;
-    width: 0; transition: width 1s .4s ease-out;
-  }
-  .bento-line.visible { width: 52px; }
-
-  /* Sparkline */
-  .bento-sparkline { display:flex; align-items:flex-end; gap:3px; height:32px; margin-top:14px; }
-  .bento-spark-bar { flex:1; border-radius:3px; opacity:.75; transform:scaleY(0); transform-origin:bottom; transition:transform .5s ease-out; }
-  .bento-spark-bar.visible { transform:scaleY(1); }
-
-  /* Ring SVG */
-  .ring-svg { transform:rotate(-90deg); }
-  .ring-track { fill:none; stroke:rgba(255,255,255,.06); stroke-width:8; }
-  .ring-progress {
-    fill:none; stroke-width:8; stroke-linecap:round;
-    stroke-dasharray: 339.3;
-    stroke-dashoffset: 339.3;
-    transition: stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1) .3s;
-    filter: drop-shadow(0 0 6px currentColor);
-  }
-  .ring-progress.visible { stroke-dashoffset: 10.2; } /* 97% = 339.3*(1-.97) */
-  .ring-label { font-size:36px; font-weight:900; line-height:1; }
-
-  /* Wide card bars */
-  .wide-grid { display:flex; align-items:center; gap:28px; height:100%; }
-  .bar-group { flex:1; }
-  .bar-row { margin-bottom:10px; }
-  .bar-row-header { display:flex; justify-content:space-between; font-size:10px; color:rgba(255,255,255,.38); margin-bottom:5px; }
-  .bar-track { height:5px; background:rgba(255,255,255,.07); border-radius:9px; overflow:hidden; }
-  .bar-fill { height:100%; border-radius:9px; width:0; transition:width 1.2s .5s ease-out; }
-  .bar-fill.visible { width:var(--pct); }
+  .stat-line.visible { width: 28px; }
+  @media (max-width:900px) { .stats-row { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width:540px) { .stats-row { grid-template-columns: repeat(2,1fr); } .stat-num { font-size: 36px; } }
 
   /* ── SOLUTIONS ── */
   .solutions-section { background: var(--bg); }
@@ -1009,104 +938,40 @@
   </div>
 </section>
 
-<!-- ═══════════════════════ KEY STATS — BENTO GRID ═══════════════════════ -->
+<!-- ═══════════════════════ KEY STATS ═══════════════════════ -->
 <section class="section stats-section reveal" id="chiffres">
-  <div class="section-inner" style="position:relative;z-index:1">
+  <div class="section-inner">
     <div style="text-align:center">
       <span class="section-tag" style="color:#38BDF8">Notre impact</span>
       <h2 class="section-title" style="color:#fff">Des chiffres qui parlent d'eux-mêmes</h2>
       <p class="section-sub" style="color:rgba(255,255,255,.42);margin:14px auto 0">Trois décennies d'excellence au service de la transformation digitale des entreprises marocaines.</p>
     </div>
-
-    <div class="stats-bento" id="statsBento">
-
-      <!-- ── CARD 1: FEATURED — 30 ans (span 2 rows) ── -->
-      <div class="bento-card bento-featured" style="border-color:rgba(245,158,11,.35)">
-        <div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#F59E0B;margin-bottom:14px">Fondée en 1994</div>
-          <div class="bento-number-xl" style="color:#F59E0B;text-shadow:0 0 40px rgba(245,158,11,.35)" data-target="30" data-suffix="+">0+</div>
-          <div class="bento-label">Années d'expérience</div>
-          <div class="bento-sub">Depuis 1994 — 3 décennies</div>
-        </div>
-        <!-- sparkline -->
-        <div>
-          <div style="font-size:10px;color:rgba(255,255,255,.25);margin-bottom:8px;font-weight:500">Croissance du portefeuille clients</div>
-          <div class="bento-sparkline" id="sparkline1">
-            <!-- generated by JS -->
-          </div>
-        </div>
-        <div style="position:absolute;bottom:0;right:0;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.18) 0%,transparent 70%);filter:blur(30px);pointer-events:none"></div>
+    <div class="stats-row" id="statsRow">
+      <div class="stat-cell">
+        <div class="stat-num" style="color:#F59E0B" data-target="30" data-suffix="+">0+</div>
+        <div class="stat-lbl">Années d'expérience</div>
+        <div class="stat-line" style="background:#F59E0B;box-shadow:0 0 8px #F59E0B"></div>
       </div>
-
-      <!-- ── CARD 2: Clients ── -->
-      <div class="bento-card bento-normal" style="border-color:rgba(56,189,248,.3)">
-        <div>
-          <div class="bento-number-lg" style="color:#38BDF8;text-shadow:0 0 28px rgba(56,189,248,.35)" data-target="500" data-suffix="+">0+</div>
-          <div class="bento-line" id="line-clients" style="background:linear-gradient(90deg,#38BDF8,transparent);box-shadow:0 0 8px #38BDF8"></div>
-        </div>
-        <div>
-          <div class="bento-label">Clients accompagnés</div>
-          <div class="bento-sub">Entreprises marocaines</div>
-        </div>
+      <div class="stat-cell">
+        <div class="stat-num" style="color:#38BDF8" data-target="500" data-suffix="+">0+</div>
+        <div class="stat-lbl">Clients accompagnés</div>
+        <div class="stat-line" style="background:#38BDF8;box-shadow:0 0 8px #38BDF8"></div>
       </div>
-
-      <!-- ── CARD 3: Projets ── -->
-      <div class="bento-card bento-normal" style="border-color:rgba(167,139,250,.3)">
-        <div>
-          <div class="bento-number-lg" style="color:#A78BFA;text-shadow:0 0 28px rgba(167,139,250,.3)" data-target="1200" data-suffix="+">0+</div>
-          <div class="bento-line" id="line-projects" style="background:linear-gradient(90deg,#A78BFA,transparent);box-shadow:0 0 8px #A78BFA"></div>
-        </div>
-        <div>
-          <div class="bento-label">Projets réalisés</div>
-          <div class="bento-sub">Implémentations réussies</div>
-        </div>
+      <div class="stat-cell">
+        <div class="stat-num" style="color:#A78BFA" data-target="1200" data-suffix="+">0+</div>
+        <div class="stat-lbl">Projets réalisés</div>
+        <div class="stat-line" style="background:#A78BFA;box-shadow:0 0 8px #A78BFA"></div>
       </div>
-
-      <!-- ── CARD 4: Consultants (wide) ── -->
-      <div class="bento-card bento-wide" style="border-color:rgba(52,211,153,.3)">
-        <div class="wide-grid">
-          <div style="flex-shrink:0">
-            <div class="bento-number-lg" style="color:#34D399;text-shadow:0 0 28px rgba(52,211,153,.3)" data-target="80" data-suffix="+">0+</div>
-            <div class="bento-label">Consultants experts</div>
-            <div class="bento-sub">Équipes certifiées</div>
-          </div>
-          <div class="bar-group">
-            <div class="bar-row">
-              <div class="bar-row-header"><span>Certifiés Microsoft</span><span>95%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="--pct:95%;background:#34D399;box-shadow:0 0 6px #34D399"></div></div>
-            </div>
-            <div class="bar-row">
-              <div class="bar-row-header"><span>Certifiés Sage</span><span>88%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="--pct:88%;background:#34D399;box-shadow:0 0 6px #34D399"></div></div>
-            </div>
-            <div class="bar-row">
-              <div class="bar-row-header"><span>Ancienneté &gt; 5 ans</span><span>72%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="--pct:72%;background:#34D399;box-shadow:0 0 6px #34D399"></div></div>
-            </div>
-          </div>
-        </div>
+      <div class="stat-cell">
+        <div class="stat-num" style="color:#34D399" data-target="80" data-suffix="+">0+</div>
+        <div class="stat-lbl">Consultants experts</div>
+        <div class="stat-line" style="background:#34D399;box-shadow:0 0 8px #34D399"></div>
       </div>
-
-      <!-- ── CARD 5: Satisfaction — SVG Ring ── -->
-      <div class="bento-card bento-ring-card" style="border-color:rgba(251,146,60,.32)">
-        <!-- SVG ring -->
-        <div style="position:relative;width:120px;height:120px">
-          <svg class="ring-svg" width="120" height="120" viewBox="0 0 120 120">
-            <circle class="ring-track" cx="60" cy="60" r="50"/>
-            <circle class="ring-progress" id="satisfRing" cx="60" cy="60" r="50" stroke="#FB923C"/>
-          </svg>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column">
-            <div class="ring-label" style="color:#FB923C;text-shadow:0 0 20px rgba(251,146,60,.4)" data-target="97" data-suffix="%">0%</div>
-          </div>
-          <!-- glow dot -->
-          <div style="position:absolute;top:2px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:#FB923C;box-shadow:0 0 12px 3px rgba(251,146,60,.6)"></div>
-        </div>
-        <div style="text-align:center">
-          <div class="bento-label">Taux de satisfaction</div>
-          <div class="bento-sub">Clients recommandent</div>
-        </div>
+      <div class="stat-cell">
+        <div class="stat-num" style="color:#FB923C" data-target="97" data-suffix="%">0%</div>
+        <div class="stat-lbl">Taux de satisfaction</div>
+        <div class="stat-line" style="background:#FB923C;box-shadow:0 0 8px #FB923C"></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1681,72 +1546,33 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => revealObs.observe(el));
 
-// ── Bento Stats animations ──
+// ── Stats row animations ──
 (function() {
-  // Sparkline bars
-  const sparkData = [60,55,70,65,80,75,90,85,100];
-  const sparkEl = document.getElementById('sparkline1');
-  if (sparkEl) {
-    sparkData.forEach((v, i) => {
-      const b = document.createElement('div');
-      b.className = 'bento-spark-bar';
-      b.style.cssText = `height:${v}%;background:#F59E0B;opacity:.75;transition-delay:${0.6+i*0.06}s;`;
-      sparkEl.appendChild(b);
-    });
-  }
-
-  // Easing function
-  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
-
-  // Counter + glow line + ring animation triggered by IntersectionObserver
-  const bento = document.getElementById('statsBento');
-  if (!bento) return;
-
-  let animated = false;
-  const statsObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && !animated) {
-      animated = true;
-      statsObs.disconnect();
-
-      // Activate glow lines
+  const row = document.getElementById('statsRow');
+  if (!row) return;
+  let done = false;
+  const obs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting || done) return;
+    done = true; obs.disconnect();
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    // Counters
+    row.querySelectorAll('[data-target]').forEach((el, i) => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix;
+      let frame = 0; const total = 80;
       setTimeout(() => {
-        document.querySelectorAll('.bento-line').forEach(l => l.classList.add('visible'));
-      }, 400);
-
-      // Activate sparkline bars
-      setTimeout(() => {
-        document.querySelectorAll('.bento-spark-bar').forEach(b => b.classList.add('visible'));
-      }, 500);
-
-      // Activate bar fills
-      setTimeout(() => {
-        document.querySelectorAll('.bar-fill').forEach(b => b.classList.add('visible'));
-      }, 500);
-
-      // SVG ring — 97% of circumference (r=50 → circ=314.16, 97% offset = 9.42)
-      setTimeout(() => {
-        const ring = document.getElementById('satisfRing');
-        if (ring) ring.style.strokeDashoffset = '9.42';
-      }, 300);
-
-      // Counters
-      document.querySelectorAll('[data-target]').forEach(el => {
-        const target = parseInt(el.dataset.target);
-        const suffix = el.dataset.suffix;
-        const frames = 90;
-        const duration = 2000;
-        let frame = 0;
         const tick = () => {
           frame++;
-          const val = Math.round(easeOutCubic(frame / frames) * target);
-          el.textContent = val.toLocaleString('fr-MA') + suffix;
-          if (frame < frames) requestAnimationFrame(tick);
+          el.textContent = Math.round(ease(Math.min(frame/total,1))*target).toLocaleString('fr-MA') + suffix;
+          if (frame < total) requestAnimationFrame(tick);
         };
-        setTimeout(() => requestAnimationFrame(tick), 200);
-      });
-    }
-  }, { threshold: 0.3 });
-  statsObs.observe(bento);
+        requestAnimationFrame(tick);
+      }, i * 80);
+    });
+    // Glow lines
+    setTimeout(() => row.querySelectorAll('.stat-line').forEach(l => l.classList.add('visible')), 400);
+  }, { threshold: 0.4 });
+  obs.observe(row);
 })();
 </script>
 </body>
