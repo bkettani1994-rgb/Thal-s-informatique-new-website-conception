@@ -3,20 +3,71 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
-const navLinks = [
+type NavChild = { label: string; href: string };
+type MegaItem = { label: string; sub: string; href: string };
+type MegaColumn = { heading: string; items: MegaItem[] };
+type FeaturedPanel = {
+  badge: string;
+  title: string;
+  desc: string;
+  cta: string;
+  href: string;
+};
+
+type NavLink = {
+  label: string;
+  href: string;
+  children?: NavChild[];
+  megaMenu?: boolean;
+  featured?: FeaturedPanel;
+  columns?: MegaColumn[];
+};
+
+const navLinks: NavLink[] = [
   { label: "Accueil", href: "/" },
   {
     label: "Métiers",
     href: "/metiers",
-    children: [
-      { label: "Gestion financière & comptable", href: "/metiers/gestion-financiere" },
-      { label: "Gestion RH & paie", href: "/metiers/gestion-rh-paie" },
-      { label: "Gestion de production", href: "/metiers/gestion-production" },
-      { label: "Gestion commerciale & CRM", href: "/metiers/gestion-commerciale" },
-      { label: "Gestion des achats", href: "/metiers/gestion-achats" },
-      { label: "Reporting & pilotage", href: "/metiers/reporting-pilotage" },
+    megaMenu: true,
+    featured: {
+      badge: "CONFORMITÉ MAROC",
+      title: "NOS MÉTIERS",
+      desc: "Des configurations adaptées pour simplifier vos processus métiers quotidiens.",
+      cta: "VOIR LE HUB",
+      href: "/metiers",
+    },
+    columns: [
+      {
+        heading: "FINANCE",
+        items: [
+          { label: "Comptabilité & Finance", sub: "Générale, analytique & budgétaire", href: "/metiers/comptabilite-finance" },
+          { label: "États Comptables & Fiscaux", sub: "Liasse fiscale & EDI Simpl-IS", href: "/metiers/etats-comptables-fiscaux" },
+          { label: "Expertise Comptable", sub: "Multi-dossiers & productivité", href: "/metiers/expertise-comptable" },
+          { label: "Immobilisations", sub: "Amortissements & d'actifs", href: "/metiers/immobilisations" },
+          { label: "Trésorerie", sub: "Liquidités & prévisions", href: "/metiers/tresorerie" },
+          { label: "TVA", sub: "Taxe encaissements & débits", href: "/metiers/tva" },
+        ],
+      },
+      {
+        heading: "OPÉRATIONS & ERP",
+        items: [
+          { label: "ERP", sub: "Gestion flux intégrée PME", href: "/metiers/erp" },
+          { label: "Gestion de Production", sub: "Nomenclatures & GPAO ateliers", href: "/metiers/gestion-production" },
+          { label: "CRM", sub: "Relation client & support SAV", href: "/metiers/crm" },
+          { label: "Reporting", sub: "Tableaux décisionnels Excel & BI", href: "/metiers/reporting" },
+        ],
+      },
+      {
+        heading: "RESSOURCES HUMAINES",
+        items: [
+          { label: "Paie & RH", sub: "Fiches payes & carrières", href: "/metiers/paie-rh" },
+          { label: "Démat RH", sub: "Coffre-fort & dématérialisation", href: "/metiers/demat-rh" },
+          { label: "Paie", sub: "Moteur fiscal IR & CNSS", href: "/metiers/paie" },
+          { label: "SIRH", sub: "Compétences GPEC & formations", href: "/metiers/sirh" },
+        ],
+      },
     ],
   },
   {
@@ -77,6 +128,60 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+function MegaMenu({ link }: { link: NavLink }) {
+  if (!link.featured || !link.columns) return null;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 8 }}
+      transition={{ duration: 0.15 }}
+      className="fixed left-0 right-0 top-[64px] bg-white shadow-2xl border-t border-border z-50"
+    >
+      <div className="max-w-7xl mx-auto flex">
+        {/* Featured panel */}
+        <div className="w-64 shrink-0 bg-primary p-8 flex flex-col justify-between">
+          <div>
+            <span className="text-xs font-bold text-accent tracking-widest">{link.featured.badge}</span>
+            <h3 className="text-white font-bold text-2xl mt-3 leading-tight">{link.featured.title}</h3>
+            <p className="text-white/70 text-sm mt-3 leading-relaxed">{link.featured.desc}</p>
+          </div>
+          <Link
+            href={link.featured.href}
+            className="mt-6 flex items-center gap-2 text-accent text-sm font-bold hover:gap-3 transition-all duration-200"
+          >
+            {link.featured.cta} <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        {/* Columns */}
+        <div className="flex-1 grid grid-cols-3 gap-0 p-8">
+          {link.columns.map((col) => (
+            <div key={col.heading} className="px-4 first:pl-0">
+              <h4 className="text-xs font-bold text-cta tracking-widest mb-4">{col.heading}</h4>
+              <ul className="space-y-1">
+                {col.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="group block px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors duration-150"
+                    >
+                      <span className="block text-sm font-semibold text-primary group-hover:text-cta transition-colors duration-150">
+                        {item.label}
+                      </span>
+                      <span className="block text-xs text-slate-400 mt-0.5">{item.sub}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -121,7 +226,7 @@ export default function Navbar() {
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => link.children && setActiveDropdown(link.label)}
+                onMouseEnter={() => (link.children || link.megaMenu) && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
@@ -133,7 +238,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  {link.children && (
+                  {(link.children || link.megaMenu) && (
                     <ChevronDown
                       size={14}
                       className={`transition-transform duration-200 ${
@@ -143,8 +248,17 @@ export default function Navbar() {
                   )}
                 </Link>
 
-                {/* Dropdown */}
-                {link.children && (
+                {/* Mega Menu */}
+                {link.megaMenu && (
+                  <AnimatePresence>
+                    {activeDropdown === link.label && (
+                      <MegaMenu link={link} />
+                    )}
+                  </AnimatePresence>
+                )}
+
+                {/* Regular Dropdown */}
+                {link.children && !link.megaMenu && (
                   <AnimatePresence>
                     {activeDropdown === link.label && (
                       <motion.div
@@ -226,6 +340,22 @@ export default function Navbar() {
                           {child.label}
                         </Link>
                       ))}
+                    </div>
+                  )}
+                  {link.megaMenu && link.columns && (
+                    <div className="pl-4 space-y-1 mt-1">
+                      {link.columns.map((col) =>
+                        col.items.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-3 py-2 text-xs text-slate-500 hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                          >
+                            {item.label}
+                          </Link>
+                        ))
+                      )}
                     </div>
                   )}
                 </div>
