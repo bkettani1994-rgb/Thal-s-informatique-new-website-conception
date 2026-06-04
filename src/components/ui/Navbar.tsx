@@ -49,12 +49,11 @@ const navLinks: NavLink[] = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Conseil & audit", href: "/services/conseil-audit" },
-      { label: "Implémentation ERP", href: "/services/implementation" },
-      { label: "Migration de données", href: "/services/migration" },
-      { label: "Formation & support", href: "/services/formation-support" },
-      { label: "Maintenance applicative", href: "/services/maintenance" },
-      { label: "Cloud & hébergement", href: "/services/cloud-hebergement" },
+      { label: "Audit & Conseil", href: "/services/audit-conseil" },
+      { label: "Intégration ERP", href: "/services/integration-erp" },
+      { label: "Formation Utilisateurs", href: "/services/formation-utilisateurs" },
+      { label: "Support & Maintenance", href: "/services/support-maintenance" },
+      { label: "Assistance Utilisateurs", href: "/services/assistance-utilisateurs" },
     ],
   },
   {
