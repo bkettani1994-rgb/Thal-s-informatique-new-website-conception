@@ -16,10 +16,10 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 const offices = [
-  { city: "Casablanca", tag: "Siège social", address: "20 Rue Abou Inane, Maarif, Casablanca 20100", phone: "+212 5 22 00 00 00", email: "contact@thales-info.ma" },
-  { city: "Rabat", tag: "Agence Centre", address: "15 Avenue Hassan II, Agdal, Rabat", phone: "+212 5 37 00 00 00", email: "rabat@thales-info.ma" },
-  { city: "Fès", tag: "Agence Nord", address: "8 Boulevard Mohammed V, Fès", phone: "+212 5 35 00 00 00", email: "fes@thales-info.ma" },
-  { city: "Marrakech", tag: "Agence Sud", address: "12 Rue de la Liberté, Guéliz, Marrakech", phone: "+212 5 24 00 00 00", email: "marrakech@thales-info.ma" },
+  { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "05 22 54 87 80", email: "contact@thales.ma" },
+  { city: "Rabat", tag: "Agence Centre", address: "15 Avenue Hassan II, Agdal, Rabat", phone: "+212 5 37 00 00 00", email: "rabat@thales.ma" },
+  { city: "Fès", tag: "Agence Nord", address: "8 Boulevard Mohammed V, Fès", phone: "+212 5 35 00 00 00", email: "fes@thales.ma" },
+  { city: "Marrakech", tag: "Agence Sud", address: "12 Rue de la Liberté, Guéliz, Marrakech", phone: "+212 5 24 00 00 00", email: "marrakech@thales.ma" },
 ];
 
 const secteurs = ["Industrie", "Négoce & Distribution", "Services & Conseil", "BTP & Construction", "Agroalimentaire", "Autre"];
@@ -240,10 +240,11 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="space-y-2 text-sm text-secondary">
-                    <div>20 Rue Abou Inane, Maarif</div>
-                    <div>Casablanca 20100, Maroc</div>
-                    <a href="tel:+212522000000" className="block text-primary hover:text-cta transition-colors font-medium">+212 5 22 00 00 00</a>
-                    <a href="mailto:contact@thales-info.ma" className="block text-primary hover:text-cta transition-colors font-medium">contact@thales-info.ma</a>
+                    <div>310 Rue Hadj Omar Riffi</div>
+                    <div>Casablanca 20120, Maroc</div>
+                    <a href="tel:+212522548780" className="block text-primary hover:text-cta transition-colors font-medium">05 22 54 87 80</a>
+                    <a href="mailto:contact@thales.ma" className="block text-primary hover:text-cta transition-colors font-medium">contact@thales.ma</a>
+                    <a href="https://www.thales.ma" target="_blank" rel="noopener noreferrer" className="block text-cta hover:text-primary transition-colors font-medium">www.thales.ma</a>
                   </div>
                 </div>
               </FadeIn>
@@ -283,13 +284,13 @@ export default function ContactPage() {
                   </div>
                   <p className="text-secondary text-sm mb-3">Pour les demandes urgentes, contactez-nous directement par WhatsApp.</p>
                   <a
-                    href="https://wa.me/212600000000"
+                    href="https://wa.me/212661168354"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-700 transition-colors duration-200"
                   >
                     <MessageCircle size={14} />
-                    +212 6XX XXX XXX
+                    +212 6 61 16 83 54
                   </a>
                 </div>
               </FadeIn>
@@ -316,9 +317,9 @@ export default function ContactPage() {
               <div className="relative text-center">
                 <MapPin size={32} className="text-accent mx-auto mb-3" />
                 <h3 className="text-white font-bold text-lg mb-1">Retrouvez-nous à Casablanca</h3>
-                <p className="text-white/50 text-sm">20 Rue Abou Inane, Maarif — Casablanca</p>
+                <p className="text-white/50 text-sm">310 Rue Hadj Omar Riffi — Casablanca 20120</p>
                 <a
-                  href="https://maps.google.com"
+                  href="https://maps.app.goo.gl/XK8BzRFH58aUSTnU6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 text-white text-sm rounded-xl hover:bg-white/20 transition-colors duration-200"

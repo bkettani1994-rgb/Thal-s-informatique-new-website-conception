@@ -68,10 +68,10 @@ const stats = [
 ];
 
 const offices = [
-  { city: "Casablanca", tag: "Siège social", address: "20 Rue Abou Inane, Maarif", phone: "+212 5 22 00 00 00", email: "contact@thales-info.ma" },
-  { city: "Rabat", tag: "Agence Centre", address: "15 Avenue Hassan II, Agdal", phone: "+212 5 37 00 00 00", email: "rabat@thales-info.ma" },
-  { city: "Fès", tag: "Agence Nord", address: "8 Boulevard Mohammed V", phone: "+212 5 35 00 00 00", email: "fes@thales-info.ma" },
-  { city: "Marrakech", tag: "Agence Sud", address: "12 Rue de la Liberté, Guéliz", phone: "+212 5 24 00 00 00", email: "marrakech@thales-info.ma" },
+  { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "05 22 54 87 80", email: "contact@thales.ma" },
+  { city: "Rabat", tag: "Agence Centre", address: "15 Avenue Hassan II, Agdal", phone: "+212 5 37 00 00 00", email: "rabat@thales.ma" },
+  { city: "Fès", tag: "Agence Nord", address: "8 Boulevard Mohammed V", phone: "+212 5 35 00 00 00", email: "fes@thales.ma" },
+  { city: "Marrakech", tag: "Agence Sud", address: "12 Rue de la Liberté, Guéliz", phone: "+212 5 24 00 00 00", email: "marrakech@thales.ma" },
 ];
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {

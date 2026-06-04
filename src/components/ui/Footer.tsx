@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MapPin, Phone, Mail, Link2, PlayCircle, Share2 } from "lucide-react";
 
 const footerLinks = {
@@ -52,33 +53,40 @@ export default function Footer() {
             </p>
             <div className="space-y-2 mb-6">
               <a
-                href="tel:+212522000000"
+                href="tel:+212522548780"
                 className="flex items-center gap-2 text-white/40 hover:text-white text-xs transition-colors duration-200 cursor-pointer"
               >
                 <Phone size={12} className="shrink-0" />
-                +212 5 22 00 00 00
+                05 22 54 87 80
               </a>
               <a
-                href="mailto:contact@thales-info.ma"
+                href="mailto:contact@thales.ma"
                 className="flex items-center gap-2 text-white/40 hover:text-white text-xs transition-colors duration-200 cursor-pointer"
               >
                 <Mail size={12} className="shrink-0" />
-                contact@thales-info.ma
+                contact@thales.ma
               </a>
-              <div className="flex items-start gap-2 text-white/40 text-xs">
+              <a
+                href="https://maps.app.goo.gl/XK8BzRFH58aUSTnU6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 text-white/40 hover:text-white text-xs transition-colors duration-200 cursor-pointer"
+              >
                 <MapPin size={12} className="shrink-0 mt-0.5" />
-                <span>Casablanca, Maroc</span>
-              </div>
+                <span>310 Rue Hadj Omar Riffi, Casablanca 20120</span>
+              </a>
             </div>
             <div className="flex gap-2">
               {[
-                { icon: Link2, label: "LinkedIn" },
-                { icon: PlayCircle, label: "YouTube" },
-                { icon: Share2, label: "Twitter" },
-              ].map(({ icon: Icon, label }) => (
+                { icon: Link2, label: "LinkedIn", href: "https://www.linkedin.com/company/thalesinformatique/" },
+                { icon: PlayCircle, label: "YouTube", href: "https://www.youtube.com/@thalesinformatique1033" },
+                { icon: Share2, label: "Twitter / X", href: "https://x.com/ThalesInfo" },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-8 h-8 rounded-lg bg-white/5 hover:bg-cta/80 flex items-center justify-center text-white/40 hover:text-white transition-all duration-200 cursor-pointer"
                 >
