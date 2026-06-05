@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Factory, ShoppingCart, Briefcase, HardHat, Wheat, ArrowRight } from "lucide-react";
 
 const sectors = [
   {
     icon: Factory,
     label: "Industrie",
+    href: "/secteurs/industrie",
     description:
       "Optimisez votre production, gérez vos stocks et pilotez vos performances industrielles en temps réel.",
     color: "from-blue-500 to-cyan-500",
@@ -18,6 +20,7 @@ const sectors = [
   {
     icon: ShoppingCart,
     label: "Négoce & Distribution",
+    href: "/secteurs/negoce-distribution",
     description:
       "Gérez vos achats, ventes, stocks et livraisons avec une solution intégrée et performante.",
     color: "from-violet-500 to-purple-500",
@@ -29,6 +32,7 @@ const sectors = [
   {
     icon: Briefcase,
     label: "Services",
+    href: "/secteurs/services",
     description:
       "Pilotez vos projets, facturation et ressources humaines avec précision et efficacité.",
     color: "from-amber-500 to-orange-500",
@@ -40,6 +44,7 @@ const sectors = [
   {
     icon: HardHat,
     label: "BTP",
+    href: "/secteurs/btp",
     description:
       "Suivez vos chantiers, budgets, sous-traitants et équipements depuis une plateforme unique.",
     color: "from-orange-500 to-red-500",
@@ -51,6 +56,7 @@ const sectors = [
   {
     icon: Wheat,
     label: "Agroalimentaire",
+    href: "/secteurs/agroalimentaire",
     description:
       "Maîtrisez vos processus de fabrication, traçabilité et conformité réglementaire.",
     color: "from-emerald-500 to-teal-500",
@@ -85,13 +91,13 @@ export default function Sectors() {
               répondre précisément à vos besoins métiers.
             </p>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/secteurs"
             className="group inline-flex items-center gap-2 text-cta font-semibold text-sm hover:text-cta-hover transition-colors duration-200 cursor-pointer shrink-0"
           >
             Découvrir nos expertises métiers
             <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
-          </a>
+          </Link>
         </motion.div>
 
         {/* Cards grid */}
@@ -103,35 +109,39 @@ export default function Sectors() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5, ease: "easeOut" }}
-              className={`group relative ${sector.bgLight} border ${sector.borderColor} rounded-2xl p-5 cursor-pointer card-hover overflow-hidden`}
             >
-              {/* Gradient overlay on hover */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${sector.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}
-              />
-
-              {/* Icon */}
-              <div
-                className={`${sector.iconBg} w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}
+              <Link
+                href={sector.href}
+                className={`group relative ${sector.bgLight} border ${sector.borderColor} rounded-2xl p-5 card-hover overflow-hidden flex flex-col h-full`}
               >
-                <sector.icon size={20} className={sector.iconColor} />
-              </div>
+                {/* Gradient overlay on hover */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${sector.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}
+                />
 
-              {/* Content */}
-              <h3 className="text-sm font-bold text-primary mb-2 leading-tight">
-                {sector.label}
-              </h3>
-              <p className="text-xs text-secondary leading-relaxed">
-                {sector.description}
-              </p>
+                {/* Icon */}
+                <div
+                  className={`${sector.iconBg} w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200`}
+                >
+                  <sector.icon size={20} className={sector.iconColor} />
+                </div>
 
-              {/* Arrow */}
-              <div className="mt-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <span className={`text-xs font-semibold ${sector.iconColor}`}>
-                  En savoir plus
-                </span>
-                <ArrowRight size={11} className={sector.iconColor} />
-              </div>
+                {/* Content */}
+                <h3 className="text-sm font-bold text-primary mb-2 leading-tight">
+                  {sector.label}
+                </h3>
+                <p className="text-xs text-secondary leading-relaxed">
+                  {sector.description}
+                </p>
+
+                {/* Arrow */}
+                <div className="mt-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className={`text-xs font-semibold ${sector.iconColor}`}>
+                    En savoir plus
+                  </span>
+                  <ArrowRight size={11} className={sector.iconColor} />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
