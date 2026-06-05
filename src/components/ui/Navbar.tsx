@@ -105,6 +105,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -216,28 +222,28 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — fixed overlay so page doesn't scroll behind */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="lg:hidden bg-white border-t border-border overflow-hidden"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden fixed inset-0 top-16 z-40 bg-white overflow-y-auto"
           >
-            <div className="px-4 py-4 space-y-1">
+            <div className="px-4 py-4 space-y-1 pb-24">
               {navLinks.map((link) => (
                 <div key={link.label}>
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-3 py-2.5 text-sm font-medium text-secondary hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                    className="block px-3 py-2.5 text-sm font-semibold text-primary hover:text-cta hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
                   >
                     {link.label}
                   </Link>
                   {link.children && (
-                    <div className="pl-4 space-y-1 mt-1">
+                    <div className="pl-4 space-y-0.5 mt-0.5 mb-2">
                       {link.heading && (
                         <div className="px-3 pt-1 pb-0.5 text-[10px] font-bold text-cta uppercase tracking-widest">
                           {link.heading}
@@ -248,7 +254,7 @@ export default function Navbar() {
                           key={child.label}
                           href={child.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block px-3 py-2 text-xs text-slate-500 hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                          className="block px-3 py-2 text-sm text-secondary hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
                         >
                           {child.label}
                         </Link>
@@ -257,11 +263,11 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              <div className="pt-3 border-t border-border space-y-2">
+              <div className="pt-4 border-t border-border">
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center text-sm font-semibold px-4 py-2.5 bg-cta text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer"
+                  className="block w-full text-center text-sm font-semibold px-4 py-3 bg-cta text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 cursor-pointer"
                 >
                   Demander une démo
                 </Link>
