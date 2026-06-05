@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ChatBot from "@/components/ui/ChatBot";
 
 export const metadata: Metadata = {
   title: "Thalès Informatique | Votre partenaire de transformation digitale",
@@ -21,6 +22,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-bg-base text-primary">
         {children}
+        <ChatBot />
       </body>
     </html>
   );
