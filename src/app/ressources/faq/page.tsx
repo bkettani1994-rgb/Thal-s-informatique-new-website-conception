@@ -40,7 +40,7 @@ const faqGroups: { label: string; items: FAQItem[] }[] = [
     items: [
       {
         q: "Quelles sont vos heures de support ?",
-        a: "Notre hotline est disponible du lundi au vendredi de 9h à 18h (05 22 54 87 80). Pour les contrats Premium, nous assurons une astreinte 24h/24 et 7j/7. WhatsApp disponible pour les urgences : +212 6 61 16 83 54.",
+        a: "Notre hotline est disponible du lundi au vendredi de 8h30 à 17h30 (05 22 54 87 80). Pour les contrats Premium, nous assurons une astreinte 24h/24 et 7j/7. WhatsApp disponible pour les urgences : +212 6 61 16 83 54.",
       },
       {
         q: "Comment soumettre un ticket de support ?",

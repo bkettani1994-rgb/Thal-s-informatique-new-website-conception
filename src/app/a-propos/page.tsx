@@ -31,7 +31,7 @@ const timeline = [
   {
     year: "2010",
     title: "Expansion nationale",
-    desc: "Ouverture de nos agences régionales à Rabat, Fès et Marrakech pour être au plus près de nos clients et accélérer notre croissance à l'échelle nationale.",
+    desc: "Renforcement de notre présence nationale avec une équipe de consultants terrain intervenant dans toutes les régions du Maroc.",
   },
   {
     year: "2018",
@@ -48,7 +48,7 @@ const timeline = [
 const values = [
   { icon: Lightbulb, title: "Innovation", desc: "Nous investissons 15% de notre CA en R&D pour anticiper les évolutions technologiques et réglementaires." },
   { icon: Award, title: "Excellence", desc: "Chaque projet est mené avec rigueur et expertise. Notre taux de satisfaction client est de 98%." },
-  { icon: MapPin, title: "Proximité", desc: "4 agences au Maroc, des consultants terrain, un support en arabe et français disponible 6j/7." },
+  { icon: MapPin, title: "Proximité", desc: "Basés à Casablanca, nos consultants terrain interviennent dans tout le Maroc. Support en arabe et français." },
   { icon: Heart, title: "Intégrité", desc: "Des relations fondées sur la transparence, le respect des engagements et l'honnêteté intellectuelle." },
 ];
 
@@ -69,9 +69,6 @@ const stats = [
 
 const offices = [
   { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "05 22 54 87 80", email: "contact@thales.ma" },
-  { city: "Rabat", tag: "Agence Centre", address: "15 Avenue Hassan II, Agdal", phone: "+212 5 37 00 00 00", email: "rabat@thales.ma" },
-  { city: "Fès", tag: "Agence Nord", address: "8 Boulevard Mohammed V", phone: "+212 5 35 00 00 00", email: "fes@thales.ma" },
-  { city: "Marrakech", tag: "Agence Sud", address: "12 Rue de la Liberté, Guéliz", phone: "+212 5 24 00 00 00", email: "marrakech@thales.ma" },
 ];
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {

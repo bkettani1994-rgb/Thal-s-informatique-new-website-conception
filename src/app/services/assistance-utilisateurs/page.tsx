@@ -22,7 +22,7 @@ const channels = [
     icon: Phone,
     title: "Téléphone",
     contact: "05 22 54 87 80",
-    hours: "Lun–Ven 9h–18h",
+    hours: "Lun–Ven 8h30–17h30",
   },
   {
     icon: MessageCircle,

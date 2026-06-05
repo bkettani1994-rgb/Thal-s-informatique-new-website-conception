@@ -27,7 +27,7 @@ const catalog = [
 ];
 
 const formats = [
-  { icon: Monitor, title: "Présentiel", subtitle: "Sur site", desc: "Nos formateurs se déplacent dans vos locaux à Casablanca, Rabat, Fès ou Marrakech pour une formation 100% adaptée à votre environnement." },
+  { icon: Monitor, title: "Présentiel", subtitle: "Sur site", desc: "Nos formateurs se déplacent dans vos locaux à Casablanca et dans tout le Maroc pour une formation 100% adaptée à votre environnement." },
   { icon: Laptop, title: "Classe virtuelle", subtitle: "En ligne", desc: "Sessions interactives en visioconférence avec partage d'écran, exercices pratiques et support en temps réel." },
   { icon: Clock, title: "E-learning", subtitle: "À votre rythme", desc: "Modules vidéo disponibles 24h/24, quiz de validation et suivi de progression pour chaque apprenant." },
 ];
@@ -97,7 +97,7 @@ export default function FormationUtilisateursPage() {
               <p className="text-lg text-secondary leading-relaxed">
                 Thalès Informatique propose des programmes de formation adaptés à chaque profil utilisateur — dirigeants,
                 comptables, RH, magasiniers, commerciaux. Nos formateurs certifiés Sage interviennent directement dans vos
-                locaux à Casablanca, Rabat, Fès et Marrakech, garantissant une approche pédagogique ancrée dans votre réalité
+                locaux à Casablanca et dans tout le Maroc, garantissant une approche pédagogique ancrée dans votre réalité
                 opérationnelle.
               </p>
             </motion.div>

@@ -17,9 +17,6 @@ import Footer from "@/components/ui/Footer";
 
 const offices = [
   { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "05 22 54 87 80", email: "contact@thales.ma" },
-  { city: "Rabat", tag: "Agence Centre", address: "15 Avenue Hassan II, Agdal, Rabat", phone: "+212 5 37 00 00 00", email: "rabat@thales.ma" },
-  { city: "Fès", tag: "Agence Nord", address: "8 Boulevard Mohammed V, Fès", phone: "+212 5 35 00 00 00", email: "fes@thales.ma" },
-  { city: "Marrakech", tag: "Agence Sud", address: "12 Rue de la Liberté, Guéliz, Marrakech", phone: "+212 5 24 00 00 00", email: "marrakech@thales.ma" },
 ];
 
 const secteurs = ["Industrie", "Négoce & Distribution", "Services & Conseil", "BTP & Construction", "Agroalimentaire", "Autre"];
@@ -260,11 +257,11 @@ export default function ContactPage() {
                   <div className="space-y-2 text-sm text-secondary">
                     <div className="flex justify-between">
                       <span>Lundi – Vendredi</span>
-                      <span className="font-semibold text-primary">9h00 – 18h00</span>
+                      <span className="font-semibold text-primary">8h30 – 17h30</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Samedi</span>
-                      <span className="font-semibold text-primary">9h00 – 13h00</span>
+                      <span className="text-slate-400">Fermé</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Dimanche</span>
@@ -337,7 +334,7 @@ export default function ContactPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <h2 className="text-2xl font-bold text-primary mb-8 text-center">Nos 4 bureaux au Maroc</h2>
+            <h2 className="text-2xl font-bold text-primary mb-8 text-center">Notre bureau</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {offices.map((office, i) => (

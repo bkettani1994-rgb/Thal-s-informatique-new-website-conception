@@ -22,7 +22,7 @@ const slaPlans = [
     name: "Essentiel",
     highlight: false,
     features: [
-      "Jours ouvrés 9h–18h",
+      "Jours ouvrés 8h30–17h30",
       "Délai intervention 48h",
       "Mises à jour incluses",
       "Support email & téléphone",
@@ -32,7 +32,7 @@ const slaPlans = [
     name: "Business",
     highlight: false,
     features: [
-      "Jours ouvrés 8h–20h",
+      "Jours ouvrés 8h30–17h30+",
       "Délai intervention 4h",
       "Mises à jour + correctifs prioritaires",
       "Email, téléphone & chat",
