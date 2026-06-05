@@ -89,13 +89,12 @@ export default function Footer() {
 
           {/* Col 1: Brand — spans 2 cols on desktop */}
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 bg-cta rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs">T</span>
-              </div>
-              <span className="font-bold text-white text-base">
-                Thalès <span className="text-accent">Informatique</span>
-              </span>
+            <Link href="/" className="inline-flex mb-4">
+              <img
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771338339/Logo_Thales_White_3_l4ut7h.png"
+                alt="Thalès Informatique"
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="text-white/40 text-xs leading-relaxed mb-5 max-w-[220px]">
               Votre partenaire de confiance pour la transformation digitale des entreprises marocaines depuis 1993.

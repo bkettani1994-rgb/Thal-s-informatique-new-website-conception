@@ -125,17 +125,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-cta rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">T</span>
-            </div>
-            <span
-              className={`font-bold text-lg tracking-tight transition-colors duration-300 ${
-                scrolled ? "text-primary" : "text-white"
-              }`}
-            >
-              Thalès <span className={scrolled ? "text-cta" : "text-accent"}>Informatique</span>
-            </span>
+          <Link href="/" className="flex items-center shrink-0">
+            {/* Blue logo on white/scrolled bg, white logo on dark/transparent bg */}
+            <img
+              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1772030743/logo_thal%C3%A8s_1_tkhzkc.png"
+              alt="Thalès Informatique"
+              className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0 absolute"}`}
+            />
+            <img
+              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771338339/Logo_Thales_White_3_l4ut7h.png"
+              alt="Thalès Informatique"
+              className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? "opacity-0 absolute" : "opacity-100"}`}
+            />
           </Link>
 
           {/* Desktop Nav */}
