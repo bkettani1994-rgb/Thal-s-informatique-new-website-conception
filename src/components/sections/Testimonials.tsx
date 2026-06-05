@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -104,9 +104,19 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
 export default function Testimonials() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [current, setCurrent] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const prev = () => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
-  const next = () => setCurrent((c) => (c + 1) % testimonials.length);
+  const scrollToIndex = (index: number) => {
+    setCurrent(index);
+    if (!trackRef.current) return;
+    const card = trackRef.current.children[index] as HTMLElement;
+    if (card) {
+      trackRef.current.scrollTo({ left: card.offsetLeft, behavior: "smooth" });
+    }
+  };
+
+  const prev = () => scrollToIndex((current - 1 + testimonials.length) % testimonials.length);
+  const next = () => scrollToIndex((current + 1) % testimonials.length);
 
   return (
     <>
@@ -144,90 +154,84 @@ export default function Testimonials() {
             </p>
           </motion.div>
 
-          {/* Carousel — 1 card visible on mobile, 3 on desktop */}
+          {/* Carousel track */}
           <div className="relative">
+            <div
+              ref={trackRef}
+              className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {testimonials.map((t) => (
+                <div
+                  key={t.videoId}
+                  className="group relative bg-white/[0.04] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 flex-shrink-0 snap-start
+                    w-[80vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
+                >
+                  {/* Accent glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                    style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${t.accentLight} 0%, transparent 70%)` }}
+                  />
 
-            {/* Cards row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {testimonials.map((t, i) => {
-                // On desktop show 3 cards starting from current; on mobile/tablet handle via CSS
-                const visibleOnDesktop = [current % testimonials.length, (current + 1) % testimonials.length, (current + 2) % testimonials.length];
-                const isVisible = visibleOnDesktop.includes(i);
-                return (
-                  <motion.div
-                    key={t.videoId}
-                    initial={{ opacity: 0, y: 28 }}
-                    animate={{ opacity: isVisible ? 1 : 0, display: isVisible ? "block" : "none" }}
-                    transition={{ duration: 0.4 }}
-                    className={`group relative bg-white/[0.04] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 ${!isVisible ? "hidden lg:hidden" : ""}`}
-                    whileHover={{ y: -4 }}
+                  {/* Video thumbnail */}
+                  <div
+                    className="relative h-48 overflow-hidden cursor-pointer"
+                    onClick={() => setActiveVideo(t.videoId)}
                   >
-                    {/* Accent glow */}
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
-                      style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${t.accentLight} 0%, transparent 70%)` }}
+                    <img
+                      src={`https://img.youtube.com/vi/${t.videoId}/maxresdefault.jpg`}
+                      alt={`Témoignage ${t.name}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                     />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${t.accent} opacity-60`} />
+                    <div className="absolute inset-0 bg-primary/30" />
 
-                    {/* Video thumbnail */}
-                    <div
-                      className="relative h-48 overflow-hidden cursor-pointer"
-                      onClick={() => setActiveVideo(t.videoId)}
-                    >
-                      <img
-                        src={`https://img.youtube.com/vi/${t.videoId}/maxresdefault.jpg`}
-                        alt={`Témoignage ${t.name}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-br ${t.accent} opacity-60`} />
-                      <div className="absolute inset-0 bg-primary/30" />
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                        {t.sector}
+                      </span>
+                    </div>
 
-                      <div className="absolute top-3 left-3">
-                        <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
-                          {t.sector}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`w-14 h-14 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center shadow-2xl cursor-pointer`}
+                      >
+                        <Play size={20} className="fill-white text-white ml-1" />
+                      </motion.div>
+                    </div>
+
+                    <div className="absolute bottom-3 right-3 bg-black/60 text-white text-[10px] font-medium px-2 py-0.5 rounded">
+                      ▶ Voir le témoignage
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <StarRating count={t.rating} />
+                      <Quote size={18} className="text-white/15" />
+                    </div>
+                    <p className="text-white/65 text-sm leading-relaxed mb-4 line-clamp-3 italic">
+                      "{t.quote}"
+                    </p>
+                    <div className="h-px bg-white/8 mb-4" />
+                    <div className="flex items-center gap-3">
+                      <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center flex-shrink-0`}>
+                        <span className="text-white font-bold text-xs">
+                          {t.name.replace("M. ", "").replace("Mme ", "").split(" ").map((n) => n[0]).join("").slice(0, 2)}
                         </span>
                       </div>
-
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className={`w-14 h-14 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center shadow-2xl cursor-pointer`}
-                        >
-                          <Play size={20} className="fill-white text-white ml-1" />
-                        </motion.div>
-                      </div>
-
-                      <div className="absolute bottom-3 right-3 bg-black/60 text-white text-[10px] font-medium px-2 py-0.5 rounded">
-                        ▶ Voir le témoignage
+                      <div className="min-w-0">
+                        <div className="text-white text-sm font-semibold leading-tight truncate">{t.name}</div>
+                        <div className="text-white/40 text-xs leading-tight truncate">{t.role} · {t.company}</div>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="p-5">
-                      <div className="flex items-center justify-between mb-3">
-                        <StarRating count={t.rating} />
-                        <Quote size={18} className="text-white/15" />
-                      </div>
-                      <p className="text-white/65 text-sm leading-relaxed mb-4 line-clamp-3 italic">
-                        "{t.quote}"
-                      </p>
-                      <div className="h-px bg-white/8 mb-4" />
-                      <div className="flex items-center gap-3">
-                        <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center flex-shrink-0`}>
-                          <span className="text-white font-bold text-xs">
-                            {t.name.replace("M. ", "").replace("Mme ", "").split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                          </span>
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-white text-sm font-semibold leading-tight truncate">{t.name}</div>
-                          <div className="text-white/40 text-xs leading-tight truncate">{t.role} · {t.company}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Pagination controls */}
@@ -245,9 +249,9 @@ export default function Testimonials() {
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => setCurrent(i)}
+                    onClick={() => scrollToIndex(i)}
                     className={`transition-all duration-300 rounded-full cursor-pointer ${
-                      i === current % testimonials.length
+                      i === current
                         ? "w-6 h-2 bg-accent"
                         : "w-2 h-2 bg-white/25 hover:bg-white/50"
                     }`}
