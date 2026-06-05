@@ -125,17 +125,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
-            {/* Blue logo on white/scrolled bg, white logo on dark/transparent bg */}
+          <Link href="/" className="relative shrink-0 h-9 flex items-center">
             <img
               src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1772030743/logo_thal%C3%A8s_1_tkhzkc.png"
               alt="Thalès Informatique"
-              className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0 absolute"}`}
+              className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"}`}
             />
             <img
               src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771338339/Logo_Thales_White_3_l4ut7h.png"
               alt="Thalès Informatique"
-              className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? "opacity-0 absolute" : "opacity-100"}`}
+              className={`h-9 w-auto absolute inset-0 transition-opacity duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`}
             />
           </Link>
 
