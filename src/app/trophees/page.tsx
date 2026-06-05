@@ -3,58 +3,50 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { Trophy, ChevronRight, Award, Star, Shield, Users, CheckCircle2 } from "lucide-react";
+import { Trophy, ChevronRight, Award, Star, CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 const awards = [
   {
-    year: "2024",
-    icon: Trophy,
-    title: "Meilleur Éditeur ERP Maroc",
-    org: "APEBI — Association des Professionnels des Technologies de l'Information",
-    color: "amber",
-    desc: "Thalès Informatique a été reconnu comme le meilleur éditeur ERP au Maroc par l'APEBI pour la quatrième année consécutive, saluant l'innovation produit, la qualité du support et l'impact client.",
-  },
-  {
-    year: "2023",
-    icon: Star,
-    title: "Prix Innovation Digitale",
-    org: "CGEM — Confédération Générale des Entreprises du Maroc",
-    color: "violet",
-    desc: "Ce prix récompense notre approche innovante de la transformation digitale des PME marocaines, notamment notre solution Cloud ERP lancée en 2018 et adoptée par plus de 150 entreprises.",
-  },
-  {
-    year: "2023",
-    icon: Award,
-    title: "Partenaire Gold Microsoft",
-    org: "Microsoft Partner Network",
-    color: "blue",
-    desc: "Le statut Gold Microsoft atteste de notre expertise technique sur l'écosystème Microsoft, notre force commerciale et la satisfaction de nos clients dans les solutions intégrées Microsoft Dynamics.",
-  },
-  {
     year: "2022",
-    icon: Users,
-    title: "Top Employeur Maroc",
-    org: "Top Employers Institute — Certification internationale",
-    color: "emerald",
-    desc: "Cette certification internationale reconnaît nos pratiques RH exemplaires : formation continue, équilibre vie pro/perso, parcours de carrière et culture d'entreprise inclusive.",
-  },
-  {
-    year: "2021",
-    icon: Shield,
-    title: "Certification ISO 9001:2015",
-    org: "Bureau Veritas Certification",
-    color: "indigo",
-    desc: "Notre système de management de la qualité répond aux plus hautes exigences internationales. La certification couvre l'intégralité de nos processus : développement, implémentation et support.",
-  },
-  {
-    year: "2021",
     icon: Trophy,
-    title: "Trophée Export Numérique",
-    org: "Maroc Export — Centre Marocain de Promotion des Exportations",
+    title: "Top League — Zone Export",
+    org: "Top League 2022",
+    color: "amber",
+    desc: "Cette distinction récompense les performances de Thalès Informatique sur les marchés export et confirme son rayonnement au-delà du Maroc.",
+  },
+  {
+    year: "2019",
+    icon: Star,
+    title: "Meilleure Croissance Sage",
+    org: "Sage Partner Sessions — Tanger 2019",
+    color: "violet",
+    desc: "Cette récompense distingue la forte croissance de Thalès Informatique dans le développement et l'intégration des solutions Sage.",
+  },
+  {
+    year: "2019",
+    icon: Award,
+    title: "Customer Migration Journey",
+    org: "Sage Partner Sessions — Bordeaux 2019",
+    color: "blue",
+    desc: "Cette distinction récompense l'excellence de Thalès Informatique dans l'accompagnement des clients lors de leurs projets de migration et de transformation digitale.",
+  },
+  {
+    year: "2018",
+    icon: Star,
+    title: "Meilleure Performance Sage",
+    org: "Sage Partner Sessions — Tunis 2018",
+    color: "emerald",
+    desc: "Cette récompense met en avant les performances commerciales et opérationnelles exceptionnelles de Thalès Informatique au sein de l'écosystème Sage.",
+  },
+  {
+    year: "2017",
+    icon: Trophy,
+    title: "Premier Partenaire North Africa",
+    org: "Sage Partner Sessions — Marrakech 2017",
     color: "orange",
-    desc: "Thalès Informatique est lauréat du Trophée Export Numérique pour le déploiement de ses solutions ERP dans 4 pays africains : Sénégal, Côte d'Ivoire, Tunisie et Cameroun.",
+    desc: "Cette distinction positionne Thalès Informatique comme le partenaire Sage de référence en Afrique du Nord.",
   },
 ];
 
