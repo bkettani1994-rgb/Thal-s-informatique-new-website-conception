@@ -5,6 +5,32 @@ import { Calendar, MapPin, Video, Users, ArrowRight } from "lucide-react";
 
 const events = [
   {
+    date: { day: "07", month: "Avr", year: "2025" },
+    title: "Gitex Africa Morocco 2025",
+    format: "Salon international",
+    formatIcon: Users,
+    seats: "3 jours — 07 au 09 avril 2025",
+    location: "Marrakech",
+    color: "bg-slate-500",
+    tag: "Tech & Innovation",
+    tagColor: "bg-slate-100 text-slate-600",
+    past: true,
+    partners: [],
+  },
+  {
+    date: { day: "13", month: "Mai", year: "2025" },
+    title: "Comment la stratégie RH et le SIRH soutiennent la croissance des entreprises",
+    format: "Conférence & networking",
+    formatIcon: Users,
+    seats: "En partenariat avec Sage · Factorial · Héliolys",
+    location: "Hotel Onomo Bd Al Massira, Casablanca",
+    color: "bg-teal-600",
+    tag: "RH & SIRH",
+    tagColor: "bg-teal-50 text-teal-700",
+    past: true,
+    partners: ["Sage", "Factorial", "Héliolys"],
+  },
+  {
     date: { day: "18", month: "Jun", year: "2025" },
     title: "Webinaire : Optimisez votre clôture comptable avec l'IA",
     format: "Webinaire en ligne",
@@ -14,6 +40,8 @@ const events = [
     color: "bg-blue-600",
     tag: "Finance",
     tagColor: "bg-blue-50 text-blue-700",
+    past: false,
+    partners: [],
   },
   {
     date: { day: "25", month: "Jun", year: "2025" },
@@ -25,6 +53,8 @@ const events = [
     color: "bg-violet-600",
     tag: "ERP",
     tagColor: "bg-violet-50 text-violet-700",
+    past: false,
+    partners: [],
   },
   {
     date: { day: "10", month: "Jul", year: "2025" },
@@ -36,6 +66,8 @@ const events = [
     color: "bg-emerald-600",
     tag: "Business Intelligence",
     tagColor: "bg-emerald-50 text-emerald-700",
+    past: false,
+    partners: [],
   },
 ];
 
@@ -81,26 +113,31 @@ export default function Events() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group bg-white border border-border rounded-2xl overflow-hidden cursor-pointer card-hover"
+              className={`group bg-white border rounded-2xl overflow-hidden ${event.past ? "border-border opacity-80" : "border-border cursor-pointer card-hover"}`}
             >
               {/* Color bar + date */}
-              <div className={`${event.color} px-5 py-4 flex items-center justify-between`}>
+              <div className={`${event.color} ${event.past ? "opacity-70" : ""} px-5 py-4 flex items-center justify-between`}>
                 <div className="text-white">
                   <div className="text-3xl font-bold leading-none">{event.date.day}</div>
                   <div className="text-sm text-white/80 font-medium">
                     {event.date.month} {event.date.year}
                   </div>
                 </div>
-                <span
-                  className={`${event.tagColor} text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full`}
-                >
-                  {event.tag}
-                </span>
+                <div className="flex flex-col items-end gap-1.5">
+                  {event.past && (
+                    <span className="bg-white/20 text-white text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                      Passé
+                    </span>
+                  )}
+                  <span className={`${event.tagColor} text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full`}>
+                    {event.tag}
+                  </span>
+                </div>
               </div>
 
               {/* Content */}
               <div className="p-5">
-                <h3 className="text-sm font-bold text-primary leading-snug mb-3 group-hover:text-cta transition-colors duration-200">
+                <h3 className={`text-sm font-bold text-primary leading-snug mb-3 ${!event.past ? "group-hover:text-cta transition-colors duration-200" : ""}`}>
                   {event.title}
                 </h3>
 
@@ -119,13 +156,19 @@ export default function Events() {
                   </div>
                 </div>
 
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-cta border border-cta/30 rounded-lg py-2.5 hover:bg-cta hover:text-white transition-all duration-200 cursor-pointer"
-                >
-                  S'inscrire
-                  <ArrowRight size={13} />
-                </a>
+                {event.past ? (
+                  <div className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-secondary/60 border border-border rounded-lg py-2.5 bg-bg-base select-none">
+                    Événement terminé
+                  </div>
+                ) : (
+                  <a
+                    href="#"
+                    className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-cta border border-cta/30 rounded-lg py-2.5 hover:bg-cta hover:text-white transition-all duration-200 cursor-pointer"
+                  >
+                    S'inscrire
+                    <ArrowRight size={13} />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
