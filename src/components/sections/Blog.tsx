@@ -12,7 +12,8 @@ const articles = [
     excerpt: "Pourquoi la facturation électronique devient incontournable, les bénéfices pour les PME et les risques de ne pas anticiper. Comment Sage facilite la transition.",
     readTime: "6 min",
     date: "5 juin 2026",
-    gradient: "from-blue-600 to-cyan-500",
+    gradient: "from-blue-600/70 to-cyan-500/60",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=700&q=80",
     imageContent: "Facturation Électronique",
     href: "/ressources/blog/facturation-electronique-maroc",
   },
@@ -23,7 +24,8 @@ const articles = [
     excerpt: "Congés, notes de frais, pointage, recrutement, évaluations, dossiers collaborateurs, reporting RH — découvrez comment automatiser ces processus avec un SIRH moderne.",
     readTime: "5 min",
     date: "28 mai 2026",
-    gradient: "from-violet-600 to-purple-500",
+    gradient: "from-violet-600/70 to-purple-500/60",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80",
     imageContent: "SIRH & Automatisation",
     href: "/ressources/blog/sirh-7-taches-automatisees",
   },
@@ -34,7 +36,8 @@ const articles = [
     excerpt: "Multiplication des fichiers, erreurs de saisie, manque de visibilité, processus manuels, difficulté à piloter — il est temps de passer à un ERP.",
     readTime: "4 min",
     date: "20 mai 2026",
-    gradient: "from-emerald-600 to-teal-500",
+    gradient: "from-emerald-600/70 to-teal-500/60",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80",
     imageContent: "ERP vs Excel",
     href: "/ressources/blog/erp-sage-depasse-excel",
   },
@@ -85,29 +88,20 @@ export default function Blog() {
                 className="group bg-white border border-border rounded-2xl overflow-hidden card-hover"
               >
                 {/* Image area */}
-                <div
-                  className={`h-44 bg-gradient-to-br ${article.gradient} flex items-center justify-center relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 opacity-10">
-                    {Array.from({ length: 6 }).map((_, j) => (
-                      <div
-                        key={j}
-                        className="absolute rounded-full bg-white"
-                        style={{
-                          width: `${40 + j * 20}px`,
-                          height: `${40 + j * 20}px`,
-                          top: `${-10 + j * 15}%`,
-                          left: `${j * 15}%`,
-                          opacity: 0.3,
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="relative flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-2">
-                    <BookOpen size={16} className="text-white" />
-                    <span className="text-white font-semibold text-sm">
-                      {article.imageContent}
-                    </span>
+                <div className="h-44 relative overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${article.gradient}`} />
+                  <div className="absolute bottom-3 left-3">
+                    <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-xl px-3 py-1.5">
+                      <BookOpen size={13} className="text-white" />
+                      <span className="text-white font-semibold text-xs">
+                        {article.imageContent}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
