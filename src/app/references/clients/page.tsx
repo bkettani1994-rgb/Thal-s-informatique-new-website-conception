@@ -9,18 +9,79 @@ import Footer from "@/components/ui/Footer";
 
 const stats = [
   { value: "500+", label: "Clients actifs", icon: Users },
-  { value: "30+", label: "Ans d'expertise", icon: Clock },
-  { value: "5", label: "Secteurs couverts", icon: Layers },
-  { value: "97%", label: "Taux de satisfaction", icon: ThumbsUp },
+  { value: "30+",  label: "Ans d'expertise", icon: Clock },
+  { value: "7",    label: "Secteurs couverts", icon: Layers },
+  { value: "92%",  label: "Taux de fidélisation", icon: ThumbsUp },
 ];
 
-const clients = [
-  "OCP Group", "Lafarge Maroc", "Maghreb Steel", "Sonasid",
-  "BMCE Bank", "Attijariwafa Bank", "Lydec", "Redal",
-  "Amendis", "CIH Bank", "Label Vie", "Marjane",
-  "Cosumar", "Centrale Danone", "Brasseries du Maroc", "Unilever Maroc",
-  "Lesieur Cristal", "Fromageries Bel Maroc", "Ynna Holding", "Alliances",
-  "Colorado", "Stroc Industrie", "Auto Nejma", "Afriquia SMDC",
+const clientsByCategory = [
+  {
+    category: "Banques & Assurances",
+    color: "bg-blue-50 border-blue-200 text-blue-800",
+    dot: "bg-blue-500",
+    clients: [
+      "Crédit Agricole", "Chaabi", "Attijari", "Saham",
+      "Saham Bank", "Bourse de Casablanca", "CDG", "Africa",
+    ],
+  },
+  {
+    category: "Services & Autres",
+    color: "bg-violet-50 border-violet-200 text-violet-800",
+    dot: "bg-violet-500",
+    clients: [
+      "Deloitte", "EY", "SCOMM by Rostal", "Novec",
+      "Moqadir", "Sapress", "Air France", "Cap Advisory",
+      "Maroc Clear", "Brinks", "Polluclean",
+    ],
+  },
+  {
+    category: "Secteur public",
+    color: "bg-emerald-50 border-emerald-200 text-emerald-800",
+    dot: "bg-emerald-500",
+    clients: [
+      "CNSS", "MAP", "onMt", "SDTM",
+      "Fonds Mondial", "SOREC", "AMDIE", "Morocco Foodex",
+      "Marsa Maroc", "ONSSA",
+    ],
+  },
+  {
+    category: "Industrie",
+    color: "bg-orange-50 border-orange-200 text-orange-800",
+    dot: "bg-orange-500",
+    clients: [
+      "Saint-Gobain", "Safran", "Atlas", "Daher Socata",
+      "Hikma", "AVON", "Triumph", "Marquee",
+    ],
+  },
+  {
+    category: "Éducation & Santé",
+    color: "bg-pink-50 border-pink-200 text-pink-800",
+    dot: "bg-pink-500",
+    clients: [
+      "UEMF", "Université Internationale de Casablanca",
+      "UR", "Groupe Test", "HEM", "IMA",
+    ],
+  },
+  {
+    category: "Holding",
+    color: "bg-slate-50 border-slate-200 text-slate-800",
+    dot: "bg-slate-500",
+    clients: [
+      "Al Mada", "Soremar Group", "Holding C",
+      "Zinelec Group", "ARMA",
+    ],
+  },
+  {
+    category: "Négoce & Distribution",
+    color: "bg-amber-50 border-amber-200 text-amber-800",
+    dot: "bg-amber-500",
+    clients: [
+      "Bodor", "Beko", "Label Vie", "General Tech",
+      "CASEM", "Alumetaux", "Legrand", "ARCOL",
+      "Suptours", "MAN", "TAREC", "McDonald's",
+      "Umuluf", "Le Comptoir",
+    ],
+  },
 ];
 
 const sectors = [
@@ -126,7 +187,7 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      {/* Client logo grid */}
+      {/* Client grid by category */}
       <section className="py-20 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -134,21 +195,37 @@ export default function ClientsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
             <h2 className="text-3xl font-bold text-primary mb-4">Ils nous font confiance</h2>
             <p className="text-secondary max-w-xl mx-auto">Des leaders de chaque secteur de l&apos;économie marocaine ont choisi Thalès Informatique.</p>
           </motion.div>
-          <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {clients.map((client, i) => (
+          <div ref={gridRef} className="space-y-10">
+            {clientsByCategory.map((cat, ci) => (
               <motion.div
-                key={client}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={gridInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="bg-white rounded-xl border border-border px-3 py-4 text-center hover:border-cta hover:shadow-md transition-all duration-200 cursor-default"
+                key={cat.category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={gridInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: ci * 0.08 }}
               >
-                <span className="text-xs font-semibold text-secondary leading-tight block">{client}</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className={`w-2.5 h-2.5 rounded-full ${cat.dot} flex-shrink-0`} />
+                  <h3 className="text-sm font-bold text-primary uppercase tracking-widest">{cat.category}</h3>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                  {cat.clients.map((client, i) => (
+                    <motion.div
+                      key={client}
+                      initial={{ opacity: 0, scale: 0.92 }}
+                      animate={gridInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.35, delay: ci * 0.06 + i * 0.03 }}
+                      className={`rounded-xl border px-3 py-3.5 text-center hover:shadow-md transition-all duration-200 cursor-default ${cat.color}`}
+                    >
+                      <span className="text-xs font-semibold leading-tight block">{client}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
