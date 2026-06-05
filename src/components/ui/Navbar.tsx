@@ -98,6 +98,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+
+  const toggleMobileSection = (label: string) =>
+    setMobileExpanded((prev) => (prev === label ? null : label));
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -235,32 +239,68 @@ export default function Navbar() {
             <div className="px-4 py-4 space-y-1 pb-24">
               {navLinks.map((link) => (
                 <div key={link.label}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block px-3 py-2.5 text-sm font-semibold text-primary hover:text-cta hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
-                  >
-                    {link.label}
-                  </Link>
-                  {link.children && (
-                    <div className="pl-4 space-y-0.5 mt-0.5 mb-2">
-                      {link.heading && (
-                        <div className="px-3 pt-1 pb-0.5 text-[10px] font-bold text-cta uppercase tracking-widest">
-                          {link.heading}
-                        </div>
-                      )}
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block px-3 py-2 text-sm text-secondary hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
+                  {link.children ? (
+                    /* Accordion trigger */
+                    <button
+                      onClick={() => toggleMobileSection(link.label)}
+                      className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-primary hover:text-cta hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                    >
+                      <span>{link.label}</span>
+                      <motion.span
+                        animate={{ rotate: mobileExpanded === link.label ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ChevronDown size={16} className="text-slate-400" />
+                      </motion.span>
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-3 py-2.5 text-sm font-semibold text-primary hover:text-cta hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                    >
+                      {link.label}
+                    </Link>
                   )}
+
+                  {/* Accordion content */}
+                  <AnimatePresence initial={false}>
+                    {link.children && mobileExpanded === link.label && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-3 pb-2 pt-1 space-y-0.5 border-l-2 border-cta/20 ml-3 mt-1">
+                          {link.heading && (
+                            <div className="px-3 pt-1 pb-1 text-[10px] font-bold text-cta uppercase tracking-widest">
+                              {link.heading}
+                            </div>
+                          )}
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                              className="block px-3 py-2 text-sm text-secondary hover:text-primary hover:bg-slate-50 rounded-md transition-colors duration-150 cursor-pointer"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                          {/* Link to section hub */}
+                          <Link
+                            href={link.href}
+                            onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                            className="block px-3 py-2 text-xs font-semibold text-cta hover:bg-cta/5 rounded-md transition-colors duration-150 cursor-pointer"
+                          >
+                            Voir tout → {link.label}
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
               <div className="pt-4 border-t border-border">
