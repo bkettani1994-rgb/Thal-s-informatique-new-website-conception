@@ -40,48 +40,54 @@ const articles = [
     title: "5 indicateurs financiers que tout DAF marocain doit suivre",
     excerpt: "Les KPIs essentiels pour piloter la performance financière de votre entreprise.",
     author: "Équipe Thalès Informatique",
-    date: "Mai 2025",
+    date: "Avril 2026",
     readTime: "5 min",
+    href: "/ressources/blog/indicateurs-financiers-daf",
   },
   {
     category: "RH & Paie",
-    title: "CNSS & AMO 2025 : les nouveaux taux et déclarations",
+    title: "CNSS & AMO 2026 : les nouveaux taux et déclarations",
     excerpt: "Tout ce que vous devez savoir sur les changements réglementaires RH au Maroc.",
     author: "Équipe Thalès Informatique",
-    date: "Avril 2025",
+    date: "Mars 2026",
     readTime: "4 min",
+    href: "/ressources/blog/cnss-amo-2026",
   },
   {
     category: "Production",
     title: "Lean manufacturing et ERP : le duo gagnant pour l'industrie marocaine",
     excerpt: "Comment combiner les principes Lean avec un ERP pour maximiser la productivité.",
     author: "Équipe Thalès Informatique",
-    date: "Avril 2025",
+    date: "Mars 2026",
     readTime: "6 min",
+    href: "/ressources/blog/lean-manufacturing-erp",
   },
   {
     category: "Technologie",
-    title: "ERP Cloud vs On-Premise : que choisir en 2025 ?",
+    title: "ERP Cloud vs On-Premise : que choisir en 2026 ?",
     excerpt: "Analyse comparative des deux approches pour les entreprises marocaines.",
     author: "Équipe Thalès Informatique",
-    date: "Mars 2025",
+    date: "Février 2026",
     readTime: "7 min",
+    href: "/ressources/blog/erp-cloud-vs-on-premise",
   },
   {
     category: "Stratégie",
-    title: "La digitalisation des PME marocaines : état des lieux 2025",
+    title: "La digitalisation des PME marocaines : état des lieux 2026",
     excerpt: "Baromètre annuel de la transformation digitale des entreprises au Maroc.",
     author: "Équipe Thalès Informatique",
-    date: "Février 2025",
+    date: "Janvier 2026",
     readTime: "10 min",
+    href: "/ressources/blog/digitalisation-pme-maroc-2026",
   },
   {
     category: "Réglementation",
-    title: "Loi de finances 2025 : impacts sur votre ERP",
+    title: "Loi de finances 2026 : impacts sur votre ERP",
     excerpt: "Les modifications fiscales et leur implémentation dans votre système d'information.",
     author: "Équipe Thalès Informatique",
-    date: "Janvier 2025",
+    date: "Janvier 2026",
     readTime: "5 min",
+    href: "/ressources/blog/loi-finances-2026-erp",
   },
 ];
 
@@ -161,7 +167,7 @@ export default function BlogPage() {
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-white/50 mb-6">
                 <span className="flex items-center gap-1"><User size={14} /> Équipe Thalès Informatique</span>
-                <span className="flex items-center gap-1"><Tag size={14} /> Juin 2025</span>
+                <span className="flex items-center gap-1"><Tag size={14} /> Janvier 2026</span>
                 <span className="flex items-center gap-1"><Clock size={14} /> 8 min de lecture</span>
               </div>
               <Link
