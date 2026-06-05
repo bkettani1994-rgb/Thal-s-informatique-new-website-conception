@@ -19,7 +19,7 @@ import Footer from "@/components/ui/Footer";
 
 const timeline = [
   {
-    year: "1993",
+    year: "1996",
     title: "Fondation à Casablanca",
     desc: "Création de Thalès Informatique par une équipe d'ingénieurs passionnés, avec la vision de digitaliser les entreprises marocaines grâce à des logiciels de gestion sur mesure.",
   },

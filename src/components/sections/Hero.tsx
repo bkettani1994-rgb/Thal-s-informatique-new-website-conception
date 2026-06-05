@@ -166,7 +166,7 @@ export default function Hero() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
           <span className="text-white/78 text-xs font-medium tracking-wide">
-            Partenaire de confiance depuis 1994
+            Partenaire de confiance depuis 1996
           </span>
         </motion.div>
 

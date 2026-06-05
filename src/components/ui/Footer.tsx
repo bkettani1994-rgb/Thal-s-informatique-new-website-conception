@@ -97,7 +97,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/40 text-xs leading-relaxed mb-5 max-w-[220px]">
-              Votre partenaire de confiance pour la transformation digitale des entreprises marocaines depuis 1993.
+              Votre partenaire de confiance pour la transformation digitale des entreprises marocaines depuis 1996.
             </p>
 
             {/* Contact */}
