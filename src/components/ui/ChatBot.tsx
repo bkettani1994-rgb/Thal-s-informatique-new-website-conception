@@ -105,7 +105,7 @@ export default function ChatBot() {
     {
       id: 1,
       from: "bot",
-      text: "Bonjour ! 👋 Je suis **Thalès Assistant**, votre guide digital. Posez-moi vos questions sur nos solutions ERP, nos services ou nos coordonnées.",
+      text: "Bonjour ! 👋 Je suis **Thalès Informatique Assistant**, votre guide digital. Posez-moi vos questions sur nos solutions ERP, nos services ou nos coordonnées.",
       time: getTime(),
     },
   ]);
@@ -210,7 +210,7 @@ export default function ChatBot() {
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 rounded-full border-2 border-cta" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-white font-semibold text-sm leading-tight">Thalès Assistant</div>
+                <div className="text-white font-semibold text-sm leading-tight">Thalès Informatique Assistant</div>
                 <div className="text-white/70 text-xs">Réponse en quelques secondes</div>
               </div>
               <div className="flex gap-1">
