@@ -91,9 +91,9 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="inline-flex mb-4">
               <img
-                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780657694/logo_thales_blanc_png_f4d5o0.png"
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_blanc_petit_abarsy.png"
                 alt="Thalès Informatique"
-                className="h-28 w-auto"
+                className="h-12 w-auto object-contain"
               />
             </Link>
             <p className="text-white/40 text-xs leading-relaxed mb-5 max-w-[220px]">
