@@ -5,7 +5,7 @@ import { Calendar, MapPin, Video, Users, ArrowRight } from "lucide-react";
 
 const events = [
   {
-    date: { day: "07", month: "Avr", year: "2025" },
+    date: { day: "07", month: "Avr", year: "2026" },
     title: "Gitex Africa Morocco 2025",
     format: "Salon international",
     formatIcon: Users,
@@ -18,7 +18,7 @@ const events = [
     partners: [],
   },
   {
-    date: { day: "13", month: "Mai", year: "2025" },
+    date: { day: "13", month: "Mai", year: "2026" },
     title: "Comment la stratégie RH et le SIRH soutiennent la croissance des entreprises",
     format: "Conférence & networking",
     formatIcon: Users,
@@ -31,7 +31,7 @@ const events = [
     partners: ["Sage", "Factorial", "Héliolys"],
   },
   {
-    date: { day: "18", month: "Jun", year: "2025" },
+    date: { day: "18", month: "Jun", year: "2026" },
     title: "Webinaire : Optimisez votre clôture comptable avec l'IA",
     format: "Webinaire en ligne",
     formatIcon: Video,
@@ -44,7 +44,7 @@ const events = [
     partners: [],
   },
   {
-    date: { day: "25", month: "Jun", year: "2025" },
+    date: { day: "25", month: "Jun", year: "2026" },
     title: "Forum ERP Casablanca : L'avenir de la gestion d'entreprise",
     format: "Événement présentiel",
     formatIcon: Users,
@@ -57,7 +57,7 @@ const events = [
     partners: [],
   },
   {
-    date: { day: "10", month: "Jul", year: "2025" },
+    date: { day: "10", month: "Jul", year: "2026" },
     title: "Atelier : Pilotage de la performance avec les tableaux de bord BI",
     format: "Atelier interactif",
     formatIcon: Calendar,
