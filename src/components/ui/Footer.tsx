@@ -93,7 +93,7 @@ export default function Footer() {
               <img
                 src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780657694/logo_thales_blanc_png_f4d5o0.png"
                 alt="Thalès Informatique"
-                className="h-9 w-auto"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="text-white/40 text-xs leading-relaxed mb-5 max-w-[220px]">
