@@ -127,12 +127,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="relative shrink-0 h-9 flex items-center">
             <img
-              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1772030743/logo_thal%C3%A8s_1_tkhzkc.png"
+              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780657693/logo_thales_bleu_png_kcunok.png"
               alt="Thalès Informatique"
               className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"}`}
             />
             <img
-              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771338339/Logo_Thales_White_3_l4ut7h.png"
+              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780657694/logo_thales_blanc_png_f4d5o0.png"
               alt="Thalès Informatique"
               className={`h-9 w-auto absolute inset-0 transition-opacity duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`}
             />
