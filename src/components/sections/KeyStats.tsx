@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 30,   suffix: "+", label: "Années d'expérience", color: "#F59E0B" },
-  { value: 500,  suffix: "+", label: "Clients accompagnés",  color: "#38BDF8" },
-  { value: 1200, suffix: "+", label: "Projets réalisés",     color: "#A78BFA" },
-  { value: 80,   suffix: "+", label: "Consultants experts",  color: "#34D399" },
-  { value: 97,   suffix: "%", label: "Taux de satisfaction", color: "#FB923C" },
+  { value: 30,  suffix: "+", label: "Ans d'expertise",             color: "#F59E0B" },
+  { value: 35,  suffix: "+", label: "Collaborateurs",               color: "#38BDF8" },
+  { value: 20,  suffix: "+", label: "Consultants certifiés",        color: "#A78BFA" },
+  { value: 500, suffix: "+", label: "Clients actifs",               color: "#34D399" },
+  { value: 100, suffix: "%", label: "Service dédié au support",     color: "#FB923C" },
+  { value: 92,  suffix: "%", label: "Taux de fidélisation clients", color: "#F472B6" },
 ];
 
 function Counter({ target, suffix, color, running }: { target: number; suffix: string; color: string; running: boolean }) {
@@ -43,7 +44,24 @@ export default function KeyStats() {
   return (
     <section ref={ref} className="py-20 bg-primary" id="chiffres">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/6 rounded-2xl overflow-hidden">
+
+        {/* Section title */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <span className="inline-block text-xs font-semibold text-accent uppercase tracking-widest mb-3">
+            Chiffres clés
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Des résultats qui parlent{" "}
+            <span className="text-accent">d'eux-mêmes</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/6 rounded-2xl overflow-hidden">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
