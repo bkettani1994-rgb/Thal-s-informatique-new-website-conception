@@ -82,11 +82,11 @@ const navLinks: NavLink[] = [
   {
     label: "Ressources",
     href: "/ressources",
+    heading: "DOSSIERS DOCUMENTAIRES",
     children: [
-      { label: "Blog & actualités", href: "/blog" },
-      { label: "Webinaires & événements", href: "/evenements" },
-      { label: "Livres blancs", href: "/ressources/livres-blancs" },
-      { label: "Documentation", href: "/ressources/documentation" },
+      { label: "Blog Décisionnel", href: "/ressources/blog" },
+      { label: "Guides ERP", href: "/ressources/guides-erp" },
+      { label: "Actualités", href: "/ressources/actualites" },
       { label: "FAQ", href: "/ressources/faq" },
     ],
   },
