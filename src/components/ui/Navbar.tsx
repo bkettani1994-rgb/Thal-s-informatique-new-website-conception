@@ -88,10 +88,10 @@ const navLinks: NavLink[] = [
       { label: "Blog Décisionnel", href: "/ressources/blog" },
       { label: "Guides ERP", href: "/ressources/guides-erp" },
       { label: "Actualités", href: "/ressources/actualites" },
+      { label: "Événements & Webinaires", href: "/evenements" },
       { label: "FAQ", href: "/ressources/faq" },
     ],
   },
-  { label: "Événements", href: "/evenements" },
   { label: "Contact", href: "/contact" },
 ];
 
