@@ -55,6 +55,7 @@ const navLinks: NavLink[] = [
       { label: "Formation Utilisateurs", href: "/services/formation-utilisateurs" },
       { label: "Support & Maintenance", href: "/services/support-maintenance" },
       { label: "Assistance Utilisateurs", href: "/services/assistance-utilisateurs" },
+      { label: "Infogérance", href: "/services/infogerance" },
     ],
   },
   {

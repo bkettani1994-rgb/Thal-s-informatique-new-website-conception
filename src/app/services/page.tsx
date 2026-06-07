@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Search, GitMerge, BookOpen, Shield, Headphones, Award, MapPin, Zap } from "lucide-react";
+import { ChevronRight, Search, GitMerge, BookOpen, Shield, Headphones, Server, Award, MapPin, Zap } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -79,6 +79,14 @@ const categories = [
         title: "Assistance Utilisateurs",
         desc: "Hotline Casablanca, téléassistance TeamViewer, WhatsApp 24/7 — déblocages en temps réel.",
         href: "/services/assistance-utilisateurs",
+      },
+      {
+        icon: Server,
+        iconBg: "bg-cyan-100",
+        iconColor: "text-cyan-600",
+        title: "Infogérance",
+        desc: "Gestion externalisée de votre infrastructure — supervision proactive, sécurité, sauvegardes et hotline dédiée.",
+        href: "/services/infogerance",
       },
     ],
   },
