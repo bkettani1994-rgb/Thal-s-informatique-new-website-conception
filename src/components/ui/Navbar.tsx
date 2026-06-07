@@ -91,6 +91,7 @@ const navLinks: NavLink[] = [
       { label: "FAQ", href: "/ressources/faq" },
     ],
   },
+  { label: "Événements", href: "/evenements" },
   { label: "Contact", href: "/contact" },
 ];
 

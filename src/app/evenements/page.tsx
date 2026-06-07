@@ -1,321 +1,240 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import {
-  Calendar,
-  ChevronRight,
-  MapPin,
-  Video,
-  Users,
-  Zap,
-  GraduationCap,
-  Play,
-} from "lucide-react";
+import { ChevronRight, Calendar, MapPin, Video, Users, ArrowRight } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
-const upcomingEvents = [
+const events = [
   {
-    id: 1,
-    date: "15 Jan 2025",
-    dateShort: "15 JAN",
-    title: "Journée Portes Ouvertes ERP 2025",
-    desc: "Venez découvrir en exclusivité nos dernières solutions ERP, rencontrer nos experts et assister à des démonstrations live personnalisées selon votre secteur d'activité.",
-    format: "Présentiel",
+    date: { day: "07", month: "Avr", year: "2026" },
+    title: "Gitex Africa Morocco 2026",
+    format: "Salon international",
     formatIcon: Users,
-    lieu: "Casablanca — Hôtel Sofitel Tour Blanche",
-    color: "blue",
-    featured: true,
+    seats: "3 jours — 07 au 09 avril 2026",
+    location: "Marrakech",
+    color: "bg-slate-500",
+    tag: "Tech & Innovation",
+    tagColor: "bg-slate-100 text-slate-600",
+    past: true,
+    href: "/evenements/gitex-africa-morocco-2026",
   },
   {
-    id: 2,
-    date: "22 Jan 2025",
-    dateShort: "22 JAN",
-    title: "Webinaire : Clôture comptable en 3 jours",
-    desc: "Découvrez comment automatiser votre processus de clôture comptable et passer de 2 semaines à 3 jours grâce aux outils Thalès Informatique.",
-    format: "En ligne",
-    formatIcon: Video,
-    lieu: "Zoom — Lien envoyé après inscription",
-    color: "violet",
-    featured: false,
-  },
-  {
-    id: 3,
-    date: "5 Fév 2025",
-    dateShort: "5 FÉV",
-    title: "Forum RH & Digital Maroc",
-    desc: "La conférence annuelle dédiée à la transformation digitale des RH au Maroc. Tables rondes, retours d'expérience clients et présentation des nouvelles réglementations CNSS/AMO 2025.",
-    format: "Présentiel",
+    date: { day: "13", month: "Mai", year: "2026" },
+    title: "Comment la stratégie RH et le SIRH soutiennent la croissance des entreprises",
+    format: "Conférence & networking",
     formatIcon: Users,
-    lieu: "Rabat — Mohammed VI Polytechnic University",
-    color: "emerald",
-    featured: false,
+    seats: "En partenariat avec Sage · Factorial · Héliolys",
+    location: "Hotel Onomo Bd Al Massira, Casablanca",
+    color: "bg-teal-600",
+    tag: "RH & SIRH",
+    tagColor: "bg-teal-50 text-teal-700",
+    past: true,
+    href: "/evenements/strategie-rh-sirh-croissance",
   },
   {
-    id: 4,
-    date: "12 Fév 2025",
-    dateShort: "12 FÉV",
-    title: "Atelier Reporting & BI pour dirigeants",
-    desc: "Atelier pratique de 2h pour apprendre à construire vos tableaux de bord de pilotage et identifier les 10 KPIs essentiels pour votre business.",
-    format: "En ligne",
+    date: { day: "18", month: "Jun", year: "2026" },
+    title: "Webinaire : Optimisez votre clôture comptable avec l'IA",
+    format: "Webinaire en ligne",
     formatIcon: Video,
-    lieu: "Teams — Accès envoyé après inscription",
-    color: "amber",
-    featured: false,
+    seats: "120 places disponibles",
+    location: "Zoom",
+    color: "bg-blue-600",
+    tag: "Finance",
+    tagColor: "bg-blue-50 text-blue-700",
+    past: false,
+    href: "/evenements/webinaire-cloture-comptable-ia",
+  },
+  {
+    date: { day: "25", month: "Jun", year: "2026" },
+    title: "Forum ERP Casablanca : L'avenir de la gestion d'entreprise",
+    format: "Événement présentiel",
+    formatIcon: Users,
+    seats: "250 places",
+    location: "Hôtel Sofitel, Casablanca",
+    color: "bg-violet-600",
+    tag: "ERP",
+    tagColor: "bg-violet-50 text-violet-700",
+    past: false,
+    href: "/evenements/forum-erp-casablanca",
+  },
+  {
+    date: { day: "10", month: "Jul", year: "2026" },
+    title: "Atelier : Pilotage de la performance avec les tableaux de bord BI",
+    format: "Atelier interactif",
+    formatIcon: Calendar,
+    seats: "30 places limitées",
+    location: "Thalès Informatique, Casablanca",
+    color: "bg-emerald-600",
+    tag: "Business Intelligence",
+    tagColor: "bg-emerald-50 text-emerald-700",
+    past: false,
+    href: "/evenements/atelier-pilotage-performance-bi",
   },
 ];
-
-const pastEvents = [
-  {
-    title: "Webinaire : Fiscalité et ERP — Quelles nouvelles obligations ?",
-    date: "Nov 2024",
-    replay: true,
-  },
-  {
-    title: "Salon de l'Entreprise Marocaine — Stand Thalès Informatique",
-    date: "Oct 2024",
-    replay: false,
-  },
-  {
-    title: "Atelier : Migration ERP — Retour d'expérience industrie",
-    date: "Sep 2024",
-    replay: true,
-  },
-];
-
-const reasons = [
-  {
-    icon: Users,
-    title: "Networking de qualité",
-    desc: "Rencontrez des directeurs financiers, DRH et DSI marocains qui font face aux mêmes défis que vous.",
-  },
-  {
-    icon: Zap,
-    title: "Démos exclusives",
-    desc: "Soyez les premiers à découvrir nos nouvelles fonctionnalités en avant-première lors de nos événements.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Formations offertes",
-    desc: "Chaque événement inclut des sessions de formation pratiques animées par nos experts certifiés.",
-  },
-];
-
-const colorMap: Record<string, { bg: string; text: string; border: string; badge: string; btn: string }> = {
-  blue: { bg: "bg-blue-50", text: "text-blue-700", border: "border-blue-200", badge: "bg-blue-100 text-blue-800", btn: "bg-cta hover:bg-blue-700" },
-  violet: { bg: "bg-violet-50", text: "text-violet-700", border: "border-violet-200", badge: "bg-violet-100 text-violet-800", btn: "bg-violet-600 hover:bg-violet-700" },
-  emerald: { bg: "bg-emerald-50", text: "text-emerald-700", border: "border-emerald-200", badge: "bg-emerald-100 text-emerald-800", btn: "bg-emerald-600 hover:bg-emerald-700" },
-  amber: { bg: "bg-amber-50", text: "text-amber-700", border: "border-amber-200", badge: "bg-amber-100 text-amber-800", btn: "bg-amber-600 hover:bg-amber-700" },
-};
-
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 export default function EvenementsPage() {
-  const [email, setEmail] = useState("");
+  const heroRef = useRef(null);
+  const upcomingRef = useRef(null);
+  const pastRef = useRef(null);
+  const heroInView = useInView(heroRef, { once: true });
+  const upcomingInView = useInView(upcomingRef, { once: true, margin: "-100px" });
+  const pastInView = useInView(pastRef, { once: true, margin: "-100px" });
+
+  const upcoming = events.filter((e) => !e.past);
+  const past = events.filter((e) => e.past);
 
   return (
-    <>
+    <main className="overflow-x-hidden bg-bg">
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-primary to-primary" />
-        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-20 bg-primary" ref={heroRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-2 text-white/40 text-sm mb-6">
+            <div className="flex items-center gap-2 text-sm text-white/50 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
               <ChevronRight size={14} />
-              <span className="text-white/70">Événements</span>
+              <span className="text-accent">Événements & Webinaires</span>
             </div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center">
-                <Calendar size={20} className="text-accent" />
-              </div>
-              <span className="text-accent text-sm font-semibold uppercase tracking-widest">Agenda 2025</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Événements<br />
-              <span className="text-accent">& Webinaires</span>
+            <span className="inline-block text-xs font-bold text-accent uppercase tracking-widest border border-accent/30 rounded-full px-3 py-1 mb-4">
+              AGENDA
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Événements & Webinaires
             </h1>
-            <p className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Rencontrez nos experts, découvrez nos solutions en live et rejoignez la communauté des décideurs digitaux du Maroc.
+            <p className="text-lg text-white/70 max-w-2xl">
+              Salons, conférences, webinaires et ateliers — participez à nos rendez-vous pour rester
+              à la pointe de l'innovation et échanger avec nos experts.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      <section className="py-24 bg-bg">
+      {/* Upcoming events */}
+      <section className="py-16" ref={upcomingRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="mb-12">
-              <span className="text-cta text-sm font-semibold uppercase tracking-widest">Prochains événements</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">À venir</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={upcomingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-primary mb-8">À venir</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-4">
+              {upcoming.map((event, i) => (
+                <Link href={event.href} key={event.title}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={upcomingInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    className="group bg-white border border-border rounded-2xl overflow-hidden cursor-pointer card-hover h-full"
+                  >
+                    <div className={`${event.color} px-5 py-4 flex items-center justify-between`}>
+                      <div className="text-white">
+                        <div className="text-3xl font-bold leading-none">{event.date.day}</div>
+                        <div className="text-sm text-white/80 font-medium">{event.date.month} {event.date.year}</div>
+                      </div>
+                      <span className={`${event.tagColor} text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full`}>
+                        {event.tag}
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-sm font-bold text-primary leading-snug mb-3 group-hover:text-cta transition-colors duration-200">
+                        {event.title}
+                      </h3>
+                      <div className="space-y-1.5 mb-4">
+                        <div className="flex items-center gap-2 text-xs text-secondary">
+                          <event.formatIcon size={13} className="text-slate-400 shrink-0" />
+                          <span>{event.format}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-secondary">
+                          <MapPin size={13} className="text-slate-400 shrink-0" />
+                          <span>{event.location}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-secondary">
+                          <Users size={13} className="text-slate-400 shrink-0" />
+                          <span>{event.seats}</span>
+                        </div>
+                      </div>
+                      <span className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-cta border border-cta/30 rounded-lg py-2.5 group-hover:bg-cta group-hover:text-white transition-all duration-200">
+                        En savoir plus
+                        <ArrowRight size={13} />
+                      </span>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
             </div>
-          </FadeIn>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="space-y-6">
-            {upcomingEvents.map((event, i) => {
-              const colors = colorMap[event.color];
-              return (
-                <FadeIn key={event.id} delay={i * 0.08}>
-                  <div className={`bg-white border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300 ${event.featured ? "ring-2 ring-cta/30" : ""}`}>
-                    {event.featured && (
-                      <div className="bg-cta px-4 py-1.5 flex items-center gap-2">
-                        <Zap size={12} className="text-white" />
-                        <span className="text-white text-xs font-semibold">Événement phare 2025</span>
+      {/* Past events */}
+      <section className="py-16 bg-white" ref={pastRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={pastInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-primary mb-8">Événements passés</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {past.map((event, i) => (
+                <Link href={event.href} key={event.title}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={pastInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    className="group bg-bg-base border border-border rounded-2xl overflow-hidden cursor-pointer card-hover h-full"
+                  >
+                    <div className={`${event.color} opacity-70 px-5 py-4 flex items-center justify-between`}>
+                      <div className="text-white">
+                        <div className="text-3xl font-bold leading-none">{event.date.day}</div>
+                        <div className="text-sm text-white/80 font-medium">{event.date.month} {event.date.year}</div>
                       </div>
-                    )}
-                    <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
-                      {/* Date */}
-                      <div className={`shrink-0 w-20 h-20 ${colors.bg} border ${colors.border} rounded-2xl flex flex-col items-center justify-center`}>
-                        <span className={`text-xs font-bold ${colors.text} uppercase`}>{event.dateShort.split(" ")[1]}</span>
-                        <span className={`text-2xl font-black ${colors.text}`}>{event.dateShort.split(" ")[0]}</span>
-                      </div>
-                      {/* Content */}
-                      <div className="flex-grow">
-                        <div className="flex flex-wrap items-start gap-2 mb-2">
-                          <h3 className="text-xl font-bold text-primary">{event.title}</h3>
-                          <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full ${colors.badge}`}>
-                            {event.format}
-                          </span>
-                        </div>
-                        <p className="text-secondary text-sm leading-relaxed mb-3">{event.desc}</p>
-                        <div className="flex items-center gap-2 text-sm text-secondary">
-                          <MapPin size={14} className={colors.text} />
-                          {event.lieu}
-                        </div>
-                      </div>
-                      {/* CTA */}
-                      <div className="shrink-0 flex items-center">
-                        <Link
-                          href="/contact"
-                          className={`px-5 py-3 ${colors.btn} text-white text-sm font-semibold rounded-xl transition-colors duration-200 whitespace-nowrap flex items-center gap-2`}
-                        >
-                          S'inscrire
-                          <ChevronRight size={16} />
-                        </Link>
+                      <div className="flex flex-col items-end gap-1.5">
+                        <span className="bg-white/20 text-white text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                          Passé
+                        </span>
+                        <span className={`${event.tagColor} text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full`}>
+                          {event.tag}
+                        </span>
                       </div>
                     </div>
-                  </div>
-                </FadeIn>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Past Events */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="mb-10">
-              <span className="text-secondary text-sm font-semibold uppercase tracking-widest">Replays disponibles</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mt-2">Événements passés</h2>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {pastEvents.map((event, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
-                <div className="bg-bg border border-border rounded-2xl p-6 opacity-75 hover:opacity-100 transition-opacity duration-200">
-                  <div className="flex justify-between items-start mb-3">
-                    <span className="text-xs text-secondary bg-slate-100 px-2.5 py-1 rounded-full">{event.date}</span>
-                    {event.replay && (
-                      <span className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full flex items-center gap-1">
-                        <Play size={10} />
-                        Replay
+                    <div className="p-5">
+                      <h3 className="text-sm font-bold text-primary leading-snug mb-3 group-hover:text-cta transition-colors duration-200">
+                        {event.title}
+                      </h3>
+                      <div className="space-y-1.5 mb-4">
+                        <div className="flex items-center gap-2 text-xs text-secondary">
+                          <event.formatIcon size={13} className="text-slate-400 shrink-0" />
+                          <span>{event.format}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-secondary">
+                          <MapPin size={13} className="text-slate-400 shrink-0" />
+                          <span>{event.location}</span>
+                        </div>
+                      </div>
+                      <span className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-secondary border border-border rounded-lg py-2.5 group-hover:bg-primary group-hover:text-white transition-all duration-200">
+                        Voir le compte-rendu
+                        <ArrowRight size={13} />
                       </span>
-                    )}
-                  </div>
-                  <h3 className="font-semibold text-primary text-sm mb-4 leading-tight">{event.title}</h3>
-                  {event.replay && (
-                    <Link href="/contact" className="text-cta text-sm font-medium hover:underline flex items-center gap-1">
-                      Voir le replay <ChevronRight size={14} />
-                    </Link>
-                  )}
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-3xl font-bold text-white mb-3">Ne manquez aucun événement</h2>
-            <p className="text-white/60 mb-8">Recevez nos invitations en avant-première directement dans votre boîte mail.</p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="votre@email.com"
-                className="flex-1 px-4 py-3 bg-white/5 border border-white/20 text-white placeholder-white/30 rounded-xl focus:outline-none focus:border-accent/60 text-sm"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-accent text-primary font-semibold rounded-xl hover:bg-sky-300 transition-colors duration-200 text-sm whitespace-nowrap"
-              >
-                Je m'inscris
-              </button>
-            </form>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Why Attend */}
-      <section className="py-24 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Pourquoi participer ?</h2>
-              <p className="text-secondary max-w-xl mx-auto">
-                Nos événements sont conçus pour vous apporter une valeur concrète et actionnable.
-              </p>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
             </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reasons.map((reason, i) => (
-              <FadeIn key={reason.title} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-cta/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                    <reason.icon size={24} className="text-cta" />
-                  </div>
-                  <h3 className="text-lg font-bold text-primary mb-3">{reason.title}</h3>
-                  <p className="text-secondary text-sm leading-relaxed">{reason.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <Footer />
-    </>
+    </main>
   );
 }
