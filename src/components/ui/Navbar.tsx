@@ -104,15 +104,37 @@ export default function Navbar() {
     setMobileExpanded((prev) => (prev === label ? null : label));
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 20);
+        ticking = false;
+      });
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open (iOS-safe: position: fixed avoids rubber-band scroll)
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (mobileOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
   }, [mobileOpen]);
 
   return (
@@ -125,6 +147,7 @@ export default function Navbar() {
           ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
       }`}
+      style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
@@ -215,10 +238,11 @@ export default function Navbar() {
 
           {/* Mobile menu toggle */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 rounded-md transition-colors duration-200 cursor-pointer ${
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className={`lg:hidden relative z-[60] p-2 rounded-md transition-colors duration-200 cursor-pointer ${
               scrolled ? "text-primary hover:bg-slate-100" : "text-white hover:bg-white/10"
             }`}
+            style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
             aria-label="Menu"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
