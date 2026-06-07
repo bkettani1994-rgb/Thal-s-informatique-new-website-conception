@@ -5,6 +5,7 @@ import ProblemSolution from "@/components/sections/ProblemSolution";
 import Sectors from "@/components/sections/Sectors";
 import KeyStats from "@/components/sections/KeyStats";
 import Solutions from "@/components/sections/Solutions";
+import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
 import Awards from "@/components/sections/Awards";
 import Events from "@/components/sections/Events";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Sectors />
       <KeyStats />
       <Solutions />
+      <Process />
       <Testimonials />
       <Awards />
       <Events />
