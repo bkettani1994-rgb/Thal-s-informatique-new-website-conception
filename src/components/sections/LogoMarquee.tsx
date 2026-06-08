@@ -4,18 +4,17 @@ import { motion } from "framer-motion";
 
 const clients = [
   // Banques & Assurances
-  { name: "Crédit Agricole",       abbr: "CA"  },
-  { name: "Chaabi",                abbr: "CHB" },
-  { name: "Saham",                 abbr: "SAH" },
-  { name: "Saham Bank",            abbr: "SHB" },
-  { name: "Bourse de Casablanca",  abbr: "BDC" },
-  { name: "CDG",                   abbr: "CDG" },
+  { name: "Crédit Agricole",       abbr: "CA",  logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/10_fu6rms.png" },
+  { name: "Chaabi",                abbr: "CHB", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/8_odr2fc.png" },
+  { name: "Saham",                 abbr: "SAH", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/9_ehas1y.png" },
+  { name: "Bourse de Casablanca",  abbr: "BDC", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/7_lronef.png" },
+  { name: "CDG",                   abbr: "CDG", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/1_cqrp5u.png" },
   // Services & Autres
-  { name: "Deloitte",              abbr: "DLT" },
-  { name: "EY",                    abbr: "EY"  },
-  { name: "Novec",                 abbr: "NVC" },
-  { name: "Sapress",               abbr: "SPR" },
-  { name: "Air France",            abbr: "AF"  },
+  { name: "Deloitte",              abbr: "DLT", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/2_a3jrva.png" },
+  { name: "EY",                    abbr: "EY",  logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/3_urfjbo.png" },
+  { name: "Novec",                 abbr: "NVC", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/4_hnzcvk.png" },
+  { name: "Sapress",               abbr: "SPR", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/5_dwolfq.png" },
+  { name: "Air France",            abbr: "AF",  logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/6_k7xsc0.png" },
   { name: "Brinks",                abbr: "BRK" },
   { name: "Maroc Clear",           abbr: "MC"  },
   // Secteur public
@@ -49,10 +48,24 @@ const clients = [
   { name: "MAN",                   abbr: "MAN" },
   { name: "CASEM",                 abbr: "CSM" },
   { name: "Alumetaux",             abbr: "ALX" },
-  { name: "McDonald's",            abbr: "MCD" },
+  { name: "McDonald's",            abbr: "MCD", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/11_hdgv43.png" },
 ];
 
-function LogoCard({ name, abbr }: { name: string; abbr: string }) {
+function LogoCard({ name, abbr, logo }: { name: string; abbr: string; logo?: string }) {
+  if (logo) {
+    return (
+      <div className="flex-shrink-0 w-36 h-14 mx-4 flex items-center justify-center bg-white border border-border rounded-xl shadow-sm grayscale hover:grayscale-0 hover:border-cta/30 hover:shadow-md transition-all duration-300 cursor-default p-3">
+        <img
+          src={logo}
+          alt={name}
+          className="max-w-full max-h-full w-auto h-auto object-contain"
+          loading="lazy"
+          draggable={false}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="flex-shrink-0 w-36 h-14 mx-4 flex items-center justify-center bg-white border border-border rounded-xl shadow-sm grayscale hover:grayscale-0 hover:border-cta/30 hover:shadow-md transition-all duration-300 cursor-default group">
       <div className="flex items-center gap-2">
@@ -91,7 +104,7 @@ export default function LogoMarquee() {
         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-        <div className="flex animate-marquee">
+        <div className="flex w-max animate-marquee">
           {doubled.map((client, i) => (
             <LogoCard key={`${client.abbr}-${i}`} {...client} />
           ))}
