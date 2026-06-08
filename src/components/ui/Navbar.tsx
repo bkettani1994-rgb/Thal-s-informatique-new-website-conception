@@ -158,12 +158,12 @@ export default function Navbar() {
             <img
               src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png"
               alt="Thalès Informatique"
-              className={`h-full w-auto object-contain transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"}`}
+              className={`h-9 w-auto object-contain transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"}`}
             />
             <img
               src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_blanc_petit_abarsy.png"
               alt="Thalès Informatique"
-              className={`h-full w-auto object-contain absolute inset-0 transition-opacity duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`}
+              className={`h-9 w-auto object-contain absolute inset-y-0 left-0 my-auto transition-opacity duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`}
             />
           </Link>
 
