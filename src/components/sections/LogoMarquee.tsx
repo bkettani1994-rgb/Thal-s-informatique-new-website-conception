@@ -3,17 +3,17 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  { name: "Crédit Agricole",       logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/10_fu6rms.png" },
-  { name: "Chaabi",                logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/8_odr2fc.png" },
-  { name: "Saham",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/9_ehas1y.png" },
-  { name: "Bourse de Casablanca",  logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/7_lronef.png" },
+  { name: "Crédit Agricole",       logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909524/10_qp4uic.png" },
+  { name: "Chaabi",                logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/8_hvhgkv.png" },
+  { name: "Saham",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909524/9_wd26xi.png" },
+  { name: "Bourse de Casablanca",  logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/7_rrmyvm.png" },
   { name: "CDG",                   logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780908989/logos_they_trust_us_800_x_400_px_fyqedc.png", cover: true },
-  { name: "Deloitte",              logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/2_a3jrva.png" },
-  { name: "EY",                    logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/3_urfjbo.png" },
-  { name: "Novec",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/4_hnzcvk.png" },
-  { name: "Sapress",               logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/5_dwolfq.png" },
-  { name: "Air France",            logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/6_k7xsc0.png" },
-  { name: "McDonald's",            logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/11_hdgv43.png" },
+  { name: "Deloitte",              logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/2_oolghe.png" },
+  { name: "EY",                    logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/3_ej6004.png" },
+  { name: "Novec",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/4_jzzurl.png" },
+  { name: "Sapress",               logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/5_z2smhi.png" },
+  { name: "Air France",            logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909523/6_v1p15c.png" },
+  { name: "McDonald's",            logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780909524/11_wd41j4.png" },
 ];
 
 function LogoCard({ name, logo, cover }: { name: string; logo: string; cover?: boolean }) {
