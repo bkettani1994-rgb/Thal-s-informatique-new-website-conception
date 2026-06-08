@@ -16,6 +16,8 @@ const quickReplies = [
   "Nos solutions ERP",
   "Support & assistance",
   "Nous contacter",
+  "Nos secteurs d'activité",
+  "Événements & webinaires",
 ];
 
 const botResponses: { keywords: string[]; response: string }[] = [
@@ -62,6 +64,110 @@ const botResponses: { keywords: string[]; response: string }[] = [
   {
     keywords: ["facturation", "facture", "electronique", "dématérialisation"],
     response: "La **facturation électronique** devient obligatoire au Maroc ! 📋\n\nThalès Informatique vous accompagne dans cette transition avec :\n• Intégration native dans Sage\n• Conformité DGI garantie\n• Archivage légal des factures\n\nLisez notre article : [Facturation Électronique au Maroc](/ressources/blog/facturation-electronique-maroc)",
+  },
+  {
+    keywords: ["sage frp", "frp 1000", "frp1000", "consolidation", "groupe"],
+    response: "**Sage FRP 1000** est notre solution de référence pour la finance et la comptabilité des groupes et grandes entreprises ! 💼\n\n• Comptabilité multi-sociétés et multi-devises\n• Consolidation et reporting financier\n• Gestion budgétaire avancée\n\n[Découvrir Sage FRP 1000](/solutions/sage-frp-1000)",
+  },
+  {
+    keywords: ["dimomaint", "gmao", "maintenance", "panne", "équipement"],
+    response: "**DimoMaint GMAO** optimise la gestion de votre maintenance industrielle ! 🔧\n\n• Suivi des interventions et équipements\n• Maintenance préventive et curative\n• Réduction des temps d'arrêt\n\n[En savoir plus sur DimoMaint GMAO](/solutions/dimomaint-gmao)",
+  },
+  {
+    keywords: ["eloficash", "trésorerie", "tresorerie", "banque", "flux financier", "cash"],
+    response: "**Eloficash** est notre solution de gestion de trésorerie nouvelle génération ! 💰\n\n• Connexion directe aux banques\n• Prévisionnel de trésorerie\n• Gestion centralisée multi-comptes\n\n[Découvrir Eloficash](/solutions/eloficash) ou notre page [Trésorerie](/metiers/tresorerie)",
+  },
+  {
+    keywords: ["factorial", "recrutement", "pointage", "absence"],
+    response: "**Factorial** est notre SIRH moderne pour piloter vos ressources humaines ! 👥\n\n• Gestion des congés et absences\n• Suivi du temps et pointage\n• Recrutement et onboarding\n\n[Découvrir Factorial](/solutions/factorial)",
+  },
+  {
+    keywords: ["audit", "conseil", "diagnostic", "accompagnement stratégique"],
+    response: "Notre offre **Audit & Conseil** vous aide à faire les bons choix technologiques ! 🔍\n\n• Diagnostic de votre système d'information\n• Recommandations stratégiques personnalisées\n• Accompagnement au changement\n\n[En savoir plus](/services/audit-conseil)",
+  },
+  {
+    keywords: ["intégration", "integration erp", "déploiement", "implémentation", "mise en place"],
+    response: "Notre service **Intégration ERP** garantit le succès de votre projet de transformation digitale ! 🚀\n\n• Analyse de vos besoins métiers\n• Paramétrage et configuration sur mesure\n• Migration de données et formation\n\n[Découvrir notre méthodologie](/services/integration-erp)",
+  },
+  {
+    keywords: ["infogérance", "infogerance", "supervision", "infrastructure", "monitoring", "réseau"],
+    response: "Notre service **Infogérance** prend en charge la gestion proactive de votre informatique ! 🖥️\n\n• Audit et supervision de votre infrastructure\n• Surveillance continue et sécurité\n• Assistance utilisateurs au quotidien\n\n[En savoir plus sur l'Infogérance](/services/infogerance)",
+  },
+  {
+    keywords: ["assistance utilisateur", "helpdesk", "utilisateurs au quotidien"],
+    response: "Notre **Assistance Utilisateurs** accompagne vos équipes au quotidien ! 🎧\n\n• Support technique réactif et personnalisé\n• Résolution rapide des incidents\n• Suivi de la satisfaction utilisateur\n\n[En savoir plus](/services/assistance-utilisateurs)",
+  },
+  {
+    keywords: ["crm", "client", "vente", "commercial", "prospect"],
+    response: "Nos solutions **CRM** vous aident à mieux gérer la relation client ! 🤝\n\n• Suivi des prospects et opportunités\n• Pilotage de l'activité commerciale\n• Intégration native avec votre ERP\n\n[Découvrir nos solutions CRM](/metiers/crm)",
+  },
+  {
+    keywords: ["reporting", "tableau de bord", "indicateur", "kpi", "pilotage"],
+    response: "Nos outils de **Reporting** vous donnent une vision claire de votre activité ! 📈\n\n• Tableaux de bord personnalisables\n• Indicateurs de performance en temps réel\n• Aide à la décision stratégique\n\n[En savoir plus](/metiers/reporting)",
+  },
+  {
+    keywords: ["immobilisation", "amortissement", "actif", "patrimoine"],
+    response: "Notre module **Immobilisations** simplifie la gestion de vos actifs ! 🏗️\n\n• Suivi des immobilisations et amortissements\n• Conformité fiscale et comptable\n• Inventaires et valorisation\n\n[En savoir plus](/metiers/immobilisations)",
+  },
+  {
+    keywords: ["tva", "déclaration fiscale", "impôt", "fiscal"],
+    response: "Nos solutions facilitent la gestion de la **TVA** et vos obligations fiscales ! 🧾\n\n• Calcul et déclaration automatisés\n• Conformité avec la réglementation marocaine\n• Réduction des risques d'erreurs\n\n[En savoir plus](/metiers/tva)",
+  },
+  {
+    keywords: ["expertise comptable", "cabinet comptable", "expert-comptable"],
+    response: "Nous accompagnons les **cabinets d'expertise comptable** avec des outils adaptés ! 📚\n\n• Gestion multi-dossiers clients\n• Production des états comptables et fiscaux\n• Gain de temps et fiabilité accrue\n\n[En savoir plus](/metiers/expertise-comptable)",
+  },
+  {
+    keywords: ["négoce", "negoce", "distribution", "grossiste", "logistique commerciale"],
+    response: "Pour le secteur **Négoce & Distribution**, nous proposons des solutions adaptées à vos enjeux logistiques et commerciaux ! 📦\n\n• Gestion des stocks multi-sites\n• Optimisation des achats et ventes\n• Traçabilité de bout en bout\n\n[Découvrir nos références](/secteurs/negoce-distribution)",
+  },
+  {
+    keywords: ["btp", "construction", "chantier", "bâtiment"],
+    response: "Pour le secteur **BTP**, nous accompagnons les entreprises de construction avec des outils de gestion de chantiers et de suivi de projets ! 🏗️\n\n[Découvrir nos solutions BTP](/secteurs/btp)",
+  },
+  {
+    keywords: ["agroalimentaire", "agroalim", "agro", "alimentaire"],
+    response: "Pour le secteur **Agroalimentaire**, nos solutions garantissent traçabilité, gestion des stocks et conformité aux normes sanitaires ! 🌾\n\n[Découvrir nos solutions Agroalimentaire](/secteurs/agroalimentaire)",
+  },
+  {
+    keywords: ["secteur", "verticalité", "domaine d'activité"],
+    response: "Nous accompagnons des entreprises dans de nombreux secteurs : ⚙️\n\n🔹 **Industrie**\n🔹 **Négoce & Distribution**\n🔹 **Services**\n🔹 **BTP**\n🔹 **Agroalimentaire**\n\nQuel est votre secteur d'activité ?",
+  },
+  {
+    keywords: ["événement", "evenement", "webinaire", "webinar", "salon", "conférence"],
+    response: "Retrouvez toutes nos prochaines rencontres dans notre rubrique **Événements & Webinaires** ! 🎤\n\n• Webinaires thématiques sur l'ERP et la transformation digitale\n• Salons professionnels\n• Sessions de démonstration en direct\n\n[Voir nos événements](/evenements)",
+  },
+  {
+    keywords: ["blog", "actualité", "actualites", "article", "ressource", "guide"],
+    response: "Découvrez nos contenus pour aller plus loin ! 📰\n\n🔹 [Blog Décisionnel](/ressources/blog)\n🔹 [Guides ERP](/ressources/guides-erp)\n🔹 [Actualités](/ressources/actualites)\n🔹 [FAQ](/ressources/faq)",
+  },
+  {
+    keywords: ["référence", "reference", "client", "témoignage", "temoignage", "étude de cas", "cas client"],
+    response: "Nous sommes fiers de la confiance de nos clients ! 🌟\n\n🔹 [Nos Clients](/references/clients)\n🔹 [Études de cas](/references/etudes-de-cas)\n🔹 [Témoignages](/references/temoignages)\n\nDes entreprises de tous secteurs nous font confiance pour leur transformation digitale.",
+  },
+  {
+    keywords: ["à propos", "a propos", "qui êtes-vous", "histoire", "entreprise", "présentation", "1996"],
+    response: "**Thalès Informatique** accompagne les entreprises marocaines dans leur transformation digitale depuis **1996** ! 🏢\n\nBasés à Casablanca, nous sommes spécialisés dans l'intégration de solutions ERP, CRM et RH (Sage, DimoMaint, Eloficash, Factorial), ainsi que dans le conseil, la formation et l'infogérance.\n\nPlus de 25 ans d'expertise au service de votre croissance ! 🚀",
+  },
+  {
+    keywords: ["horaire", "ouvert", "ouverture", "heure", "fermeture", "disponib"],
+    response: "Nos horaires d'ouverture : 🕐\n\n**Lundi – Vendredi : 8h30 – 17h30**\n\nNotre équipe est à votre écoute par téléphone, email ou WhatsApp durant ces horaires. En dehors, n'hésitez pas à laisser un message, nous vous répondrons rapidement !",
+  },
+  {
+    keywords: ["whatsapp", "wtsap", "what's app"],
+    response: "Vous pouvez nous contacter directement sur **WhatsApp** ! 💬\n\n📱 **+212 6 61 16 83 54**\n\nNotre équipe vous répond rapidement pour toute question sur nos solutions ou nos services.",
+  },
+  {
+    keywords: ["localisation", "où êtes-vous", "où se trouve", "casablanca", "siège", "plan"],
+    response: "Nous sommes situés au cœur de **Casablanca** 📍\n\n🏢 **310 Rue Hadj Omar Riffi, Casablanca 20120**\n\n[Voir l'itinéraire sur Google Maps](https://maps.app.goo.gl/XK8BzRFH58aUSTnU6)",
+  },
+  {
+    keywords: ["merci", "super", "parfait", "génial", "top"],
+    response: "Avec plaisir ! 😊 N'hésitez pas si vous avez d'autres questions sur nos solutions ERP, nos services ou pour planifier une démonstration. Nous sommes là pour vous accompagner !",
+  },
+  {
+    keywords: ["au revoir", "bye", "à bientôt", "a bientot", "ciao"],
+    response: "Au revoir et à bientôt ! 👋 N'hésitez pas à revenir si vous avez besoin d'informations supplémentaires. Bonne continuation avec vos projets digitaux !",
   },
 ];
 
@@ -145,21 +251,6 @@ export default function ChatBot() {
     <>
       {/* Floating button */}
       <div className="fixed bottom-6 right-6 z-[300] flex flex-col items-end gap-3">
-        <AnimatePresence>
-          {!open && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.8 }}
-              transition={{ delay: 1.5, duration: 0.4 }}
-              className="bg-white border border-border shadow-lg rounded-2xl px-4 py-2.5 text-sm font-medium text-primary max-w-[200px] text-center"
-            >
-              💬 Besoin d'aide ?
-              <div className="absolute -bottom-2 right-6 w-3 h-3 bg-white border-r border-b border-border rotate-45" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         <motion.button
           onClick={() => setOpen((v) => !v)}
           whileHover={{ scale: 1.08 }}
