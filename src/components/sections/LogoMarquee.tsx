@@ -7,7 +7,7 @@ const clients = [
   { name: "Chaabi",                logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/8_odr2fc.png" },
   { name: "Saham",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/9_ehas1y.png" },
   { name: "Bourse de Casablanca",  logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/7_lronef.png" },
-  { name: "CDG",                   logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/1_cqrp5u.png" },
+  { name: "CDG",                   logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780908989/logos_they_trust_us_800_x_400_px_fyqedc.png", cover: true },
   { name: "Deloitte",              logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/2_a3jrva.png" },
   { name: "EY",                    logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/3_urfjbo.png" },
   { name: "Novec",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907848/4_hnzcvk.png" },
@@ -16,13 +16,13 @@ const clients = [
   { name: "McDonald's",            logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780907847/11_hdgv43.png" },
 ];
 
-function LogoCard({ name, logo }: { name: string; logo: string }) {
+function LogoCard({ name, logo, cover }: { name: string; logo: string; cover?: boolean }) {
   return (
-    <div className="flex-shrink-0 w-36 h-14 mx-4 flex items-center justify-center bg-white border border-border rounded-xl shadow-sm grayscale hover:grayscale-0 hover:border-cta/30 hover:shadow-md transition-all duration-300 cursor-default p-3">
+    <div className={`flex-shrink-0 w-36 h-14 mx-4 flex items-center justify-center bg-white border border-border rounded-xl shadow-sm grayscale hover:grayscale-0 hover:border-cta/30 hover:shadow-md transition-all duration-300 cursor-default overflow-hidden ${cover ? "" : "p-3"}`}>
       <img
         src={logo}
         alt={name}
-        className="max-w-full max-h-full w-auto h-auto object-contain"
+        className={cover ? "w-full h-full object-cover rounded-xl" : "max-w-full max-h-full w-auto h-auto object-contain"}
         loading="lazy"
         draggable={false}
       />
