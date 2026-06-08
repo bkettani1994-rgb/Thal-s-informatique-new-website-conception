@@ -186,14 +186,18 @@ export default function Footer() {
             © {new Date().getFullYear()} Thalès Informatique. Tous droits réservés.
           </p>
           <div className="flex gap-6">
-            {["Politique de confidentialité", "Mentions légales", "CGU"].map((item) => (
-              <a
-                key={item}
-                href="#"
+            {[
+              { label: "Politique de confidentialité", href: "/politique-de-confidentialite" },
+              { label: "Mentions légales", href: "/mentions-legales" },
+              { label: "CGU", href: "/cgu" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
                 className="text-white/25 hover:text-white/60 text-xs transition-colors duration-200"
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
