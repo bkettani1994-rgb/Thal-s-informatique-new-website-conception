@@ -55,7 +55,7 @@ export default function ReferencesPage() {
   const statsInView = useInView(statsRef, { once: true, margin: "-80px" });
 
   return (
-    <div className="min-h-screen bg-bg font-['Plus_Jakarta_Sans',sans-serif]">
+    <div className="min-h-screen bg-bg">
       <Navbar />
 
       {/* Hero */}
