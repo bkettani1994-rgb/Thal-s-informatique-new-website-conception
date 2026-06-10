@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -104,7 +104,26 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
 export default function Testimonials() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [current, setCurrent] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(1);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) setItemsPerView(3);
+      else if (w >= 640) setItemsPerView(2);
+      else setItemsPerView(1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const pages = Math.max(1, testimonials.length - itemsPerView + 1);
+
+  useEffect(() => {
+    if (current > pages - 1) setCurrent(pages - 1);
+  }, [pages, current]);
 
   const scrollToIndex = (index: number) => {
     setCurrent(index);
@@ -115,8 +134,8 @@ export default function Testimonials() {
     }
   };
 
-  const prev = () => scrollToIndex((current - 1 + testimonials.length) % testimonials.length);
-  const next = () => scrollToIndex((current + 1) % testimonials.length);
+  const prev = () => scrollToIndex((current - 1 + pages) % pages);
+  const next = () => scrollToIndex((current + 1) % pages);
 
   return (
     <>
@@ -246,7 +265,7 @@ export default function Testimonials() {
 
               {/* Dots */}
               <div className="flex gap-2">
-                {testimonials.map((_, i) => (
+                {Array.from({ length: pages }).map((_, i) => (
                   <button
                     key={i}
                     onClick={() => scrollToIndex(i)}
