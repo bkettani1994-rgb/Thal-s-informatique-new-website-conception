@@ -115,9 +115,9 @@ export default function Process() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="flex justify-center mb-16"
         >
-          <div className="relative inline-flex p-1.5 bg-bg-base border border-border rounded-full">
+          <div className="relative grid grid-cols-2 w-full max-w-md sm:max-w-xl mx-auto p-1.5 bg-bg-base border border-border rounded-2xl sm:rounded-full shadow-sm">
             <motion.div
-              className={`absolute top-1.5 bottom-1.5 rounded-full ${isInfogerance ? "bg-cyan-600" : "bg-cta"}`}
+              className={`absolute top-1.5 bottom-1.5 rounded-xl sm:rounded-full shadow-md ${isInfogerance ? "bg-cyan-600" : "bg-cta"}`}
               initial={false}
               animate={{
                 left: isInfogerance ? "50%" : "0.375rem",
@@ -125,17 +125,21 @@ export default function Process() {
               }}
               transition={{ type: "spring", stiffness: 350, damping: 32 }}
             />
-            {journeys.map((j) => (
-              <button
-                key={j.key}
-                onClick={() => setActive(j.key as "integration" | "infogerance")}
-                className={`relative z-10 px-5 sm:px-8 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-colors duration-300 cursor-pointer whitespace-nowrap ${
-                  active === j.key ? "text-white" : "text-secondary hover:text-primary"
-                }`}
-              >
-                {j.label}
-              </button>
-            ))}
+            {journeys.map((j) => {
+              const Icon = j.key === "infogerance" ? ShieldCheck : Settings;
+              return (
+                <button
+                  key={j.key}
+                  onClick={() => setActive(j.key as "integration" | "infogerance")}
+                  className={`relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 px-2 sm:px-8 py-3 text-[11px] sm:text-sm font-semibold rounded-xl sm:rounded-full transition-colors duration-300 cursor-pointer text-center leading-snug ${
+                    active === j.key ? "text-white" : "text-secondary hover:text-primary"
+                  }`}
+                >
+                  <Icon size={15} className="shrink-0" />
+                  <span>{j.label}</span>
+                </button>
+              );
+            })}
           </div>
         </motion.div>
 
