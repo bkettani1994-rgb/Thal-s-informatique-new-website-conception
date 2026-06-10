@@ -144,10 +144,10 @@ export default function Testimonials() {
             className="text-center mb-12"
           >
             <span className="inline-block text-xs font-semibold text-accent uppercase tracking-widest mb-3">
-              Témoignages clients
+              Témoignages vidéo
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Ils nous font confiance
+              Nos clients témoignent en vidéo
             </h2>
             <p className="mt-4 text-base text-white/45 max-w-xl mx-auto leading-relaxed">
               Écoutez directement nos clients partager leur expérience avec Thalès Informatique.
