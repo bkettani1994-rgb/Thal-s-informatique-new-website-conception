@@ -56,6 +56,15 @@ export default function LogoMarquee() {
         >
           Ils nous font confiance
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center text-xs text-secondary/40 mt-2"
+        >
+          Un échantillon de nos success stories.
+        </motion.p>
       </div>
 
       <div className="marquee-container relative">
