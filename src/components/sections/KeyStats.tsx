@@ -42,7 +42,7 @@ export default function KeyStats() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-20 bg-primary" id="chiffres">
+    <section ref={ref} className="py-20 bg-cta" id="chiffres">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section title */}
