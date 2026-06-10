@@ -124,14 +124,14 @@ export default function Testimonials() {
         <VideoModal videoId={activeVideo} onClose={() => setActiveVideo(null)} />
       )}
 
-      <section className="py-24 bg-primary relative overflow-hidden" id="temoignages">
+      <section className="py-24 bg-cta relative overflow-hidden" id="temoignages">
         <div className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: "36px 36px",
           }}
         />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-cta/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -149,7 +149,7 @@ export default function Testimonials() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Nos clients témoignent en vidéo
             </h2>
-            <p className="mt-4 text-base text-white/45 max-w-xl mx-auto leading-relaxed">
+            <p className="mt-4 text-base text-white/65 max-w-xl mx-auto leading-relaxed">
               Écoutez directement nos clients partager leur expérience avec Thalès Informatique.
             </p>
           </motion.div>
@@ -164,7 +164,7 @@ export default function Testimonials() {
               {testimonials.map((t) => (
                 <div
                   key={t.videoId}
-                  className="group relative bg-white/[0.04] border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 flex-shrink-0 snap-start
+                  className="group relative bg-primary/20 border border-white/15 rounded-2xl overflow-hidden hover:border-white/30 transition-all duration-300 flex-shrink-0 snap-start
                     w-[80vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]"
                 >
                   {/* Accent glow */}
@@ -212,12 +212,12 @@ export default function Testimonials() {
                   <div className="p-5">
                     <div className="flex items-center justify-between mb-3">
                       <StarRating count={t.rating} />
-                      <Quote size={18} className="text-white/15" />
+                      <Quote size={18} className="text-white/25" />
                     </div>
-                    <p className="text-white/65 text-sm leading-relaxed mb-4 line-clamp-3 italic">
+                    <p className="text-white/80 text-sm leading-relaxed mb-4 line-clamp-3 italic">
                       "{t.quote}"
                     </p>
-                    <div className="h-px bg-white/8 mb-4" />
+                    <div className="h-px bg-white/15 mb-4" />
                     <div className="flex items-center gap-3">
                       <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center flex-shrink-0`}>
                         <span className="text-white font-bold text-xs">
@@ -226,7 +226,7 @@ export default function Testimonials() {
                       </div>
                       <div className="min-w-0">
                         <div className="text-white text-sm font-semibold leading-tight truncate">{t.name}</div>
-                        <div className="text-white/40 text-xs leading-tight truncate">{t.role} · {t.company}</div>
+                        <div className="text-white/60 text-xs leading-tight truncate">{t.role} · {t.company}</div>
                       </div>
                     </div>
                   </div>
@@ -238,7 +238,7 @@ export default function Testimonials() {
             <div className="flex items-center justify-center gap-4 mt-10">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transition-all duration-200 cursor-pointer"
+                className="w-10 h-10 rounded-full border border-white/25 hover:border-white/50 bg-primary/15 hover:bg-primary/30 flex items-center justify-center text-white transition-all duration-200 cursor-pointer"
                 aria-label="Précédent"
               >
                 <ChevronLeft size={18} />
@@ -252,8 +252,8 @@ export default function Testimonials() {
                     onClick={() => scrollToIndex(i)}
                     className={`transition-all duration-300 rounded-full cursor-pointer ${
                       i === current
-                        ? "w-6 h-2 bg-accent"
-                        : "w-2 h-2 bg-white/25 hover:bg-white/50"
+                        ? "w-6 h-2 bg-white"
+                        : "w-2 h-2 bg-white/35 hover:bg-white/60"
                     }`}
                     aria-label={`Témoignage ${i + 1}`}
                   />
@@ -262,7 +262,7 @@ export default function Testimonials() {
 
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transition-all duration-200 cursor-pointer"
+                className="w-10 h-10 rounded-full border border-white/25 hover:border-white/50 bg-primary/15 hover:bg-primary/30 flex items-center justify-center text-white transition-all duration-200 cursor-pointer"
                 aria-label="Suivant"
               >
                 <ChevronRight size={18} />
@@ -278,12 +278,12 @@ export default function Testimonials() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-center mt-10"
           >
-            <p className="text-white/35 text-sm mb-4">
-              Rejoignez plus de <span className="text-white/70 font-semibold">500 entreprises</span> qui nous font confiance
+            <p className="text-white/55 text-sm mb-4">
+              Rejoignez plus de <span className="text-white font-semibold">500 entreprises</span> qui nous font confiance
             </p>
             <a
               href="/references/temoignages"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/70 hover:text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-200 cursor-pointer hover:bg-white/5"
+              className="inline-flex items-center gap-2 border border-white/25 hover:border-white/50 text-white/85 hover:text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-200 cursor-pointer hover:bg-primary/15"
             >
               Voir tous les témoignages →
             </a>
