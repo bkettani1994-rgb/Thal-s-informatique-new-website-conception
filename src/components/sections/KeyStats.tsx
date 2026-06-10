@@ -56,8 +56,7 @@ export default function KeyStats() {
             Chiffres clés
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Des résultats qui parlent{" "}
-            <span className="text-accent">d'eux-mêmes</span>
+            Un partenaire de <span className="text-accent">confiance</span>
           </h2>
         </motion.div>
 
