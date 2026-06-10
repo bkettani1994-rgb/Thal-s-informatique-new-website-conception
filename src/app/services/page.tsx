@@ -77,7 +77,7 @@ const categories = [
         iconBg: "bg-rose-100",
         iconColor: "text-rose-600",
         title: "Assistance Utilisateurs",
-        desc: "Hotline Casablanca, téléassistance TeamViewer, WhatsApp 24/7 — déblocages en temps réel.",
+        desc: "Hotline Casablanca, téléassistance AnyDesk, WhatsApp 24/7 — déblocages en temps réel.",
         href: "/services/assistance-utilisateurs",
       },
       {

@@ -40,7 +40,7 @@ const channels = [
     icon: Monitor,
     title: "Téléassistance",
     contact: "Prise en main à distance",
-    hours: "Via TeamViewer",
+    hours: "Via AnyDesk",
   },
 ];
 
