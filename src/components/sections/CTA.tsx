@@ -12,10 +12,10 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative bg-primary rounded-3xl overflow-hidden px-8 sm:px-14 py-14 text-center"
+          className="relative bg-cta rounded-3xl overflow-hidden px-8 sm:px-14 py-14 text-center"
         >
           {/* Background decoration */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cta/20 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/25 rounded-full blur-[100px] pointer-events-none" />
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
@@ -31,7 +31,7 @@ export default function CTA() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4 text-balance">
               Prêt à franchir le cap de la transformation digitale ?
             </h2>
-            <p className="text-base text-white/50 max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="text-base text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
               Nos experts sont disponibles pour analyser vos besoins et vous
               proposer la solution la mieux adaptée à votre secteur et vos
               objectifs.
@@ -40,7 +40,7 @@ export default function CTA() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="tel:+212522000000"
-                className="group inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-cta/30 cursor-pointer"
+                className="group inline-flex items-center gap-2 bg-white hover:bg-white/90 text-cta font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-primary/20 cursor-pointer"
               >
                 <Calendar size={17} />
                 Demander une démonstration
@@ -48,7 +48,7 @@ export default function CTA() {
               </a>
               <a
                 href="tel:+212522000000"
-                className="group inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/20 transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/25 transition-all duration-200 cursor-pointer"
               >
                 <Phone size={17} />
                 +212 5 22 00 00 00
