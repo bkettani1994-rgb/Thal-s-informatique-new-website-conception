@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-const BG_COLOR = "#00111D";
-const DOT_COLOR = "0, 191, 255";
+const BG_COLOR = "#FFFFFF";
+const DOT_COLOR = "3, 105, 161";
 const PARTICLE_COUNT = 70;
 const MAX_DIST = 140;
 const MOUSE_RADIUS = 160;
