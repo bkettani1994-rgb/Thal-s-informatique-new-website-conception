@@ -90,6 +90,7 @@ const navLinks: NavLink[] = [
       { label: "Actualités", href: "/ressources/actualites" },
       { label: "Événements & Webinaires", href: "/evenements" },
       { label: "FAQ", href: "/ressources/faq" },
+      { label: "30 ans d'expertise", href: "/ressources/30-ans" },
     ],
   },
   { label: "Contact", href: "/contact" },

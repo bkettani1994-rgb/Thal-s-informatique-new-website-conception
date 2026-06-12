@@ -1,0 +1,273 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Link from "next/link";
+import {
+  ChevronRight,
+  Sparkles,
+  Award,
+  Users,
+  TrendingUp,
+  Heart,
+  Quote,
+  Rocket,
+} from "lucide-react";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
+
+const milestones = [
+  {
+    year: "1996",
+    title: "La naissance d'une vision",
+    desc: "Création de Thalès Informatique à Casablanca par une équipe d'ingénieurs passionnés, avec une ambition claire : digitaliser la gestion des entreprises marocaines.",
+  },
+  {
+    year: "2000",
+    title: "Premier grand projet ERP industriel",
+    desc: "Déploiement de notre première solution ERP complète chez un groupe agroalimentaire de référence, posant les fondations de notre expertise sectorielle.",
+  },
+  {
+    year: "2010",
+    title: "Une couverture nationale",
+    desc: "Notre équipe de consultants terrain s'étend à travers le Maroc pour accompagner nos clients où qu'ils se trouvent.",
+  },
+  {
+    year: "2018",
+    title: "Le virage Cloud",
+    desc: "Lancement de notre offre Cloud ERP, une première pour un éditeur marocain, ouvrant l'accès à des solutions de classe mondiale pour les PME.",
+  },
+  {
+    year: "2023",
+    title: "500ème client accompagné",
+    desc: "Un cap symbolique : 500 entreprises marocaines nous font confiance pour piloter leur transformation digitale au quotidien.",
+  },
+  {
+    year: "2026",
+    title: "30 ans, et toujours en mouvement",
+    desc: "Trois décennies d'expertise, un nouveau site, une nouvelle expérience client et des ambitions renouvelées pour les 30 prochaines années.",
+  },
+];
+
+const stats = [
+  { value: "30", label: "Ans d'expertise" },
+  { value: "500+", label: "Clients accompagnés" },
+  { value: "120+", label: "Experts dédiés" },
+  { value: "4", label: "Villes au Maroc" },
+  { value: "98%", label: "Taux de satisfaction" },
+];
+
+const highlights = [
+  {
+    icon: Award,
+    title: "Une expertise reconnue",
+    desc: "Trois décennies d'expérience cumulée sur les solutions Sage et la transformation digitale des entreprises marocaines.",
+  },
+  {
+    icon: Users,
+    title: "Une relation de confiance",
+    desc: "Plus de 500 entreprises nous accompagnent depuis des années, certaines depuis nos débuts en 1996.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Une croissance continue",
+    desc: "Une équipe qui n'a cessé de grandir pour répondre aux besoins évolutifs de nos clients, partout au Maroc.",
+  },
+  {
+    icon: Rocket,
+    title: "Une vision tournée vers l'avenir",
+    desc: "Cloud, intelligence artificielle, conformité réglementaire : nous continuons d'innover pour préparer les 30 prochaines années.",
+  },
+];
+
+function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export default function TrenteAnsClient() {
+  return (
+    <>
+      <Navbar />
+
+      {/* Hero */}
+      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-primary to-primary" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2 text-white/40 text-sm mb-6">
+              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+              <ChevronRight size={14} />
+              <Link href="/ressources" className="hover:text-white transition-colors">Ressources</Link>
+              <ChevronRight size={14} />
+              <span className="text-white/70">30 ans d'expertise</span>
+            </div>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold tracking-widest uppercase mb-6">
+              <Sparkles size={14} />
+              Anniversaire
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              30 ans d'expertise<br />
+              <span className="text-accent">au service de votre réussite</span>
+            </h1>
+            <p className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed">
+              Depuis 1996, Thalès Informatique accompagne les entreprises marocaines dans leur
+              transformation digitale. Trois décennies de passion, d'expertise et de confiance —
+              et ce n'est que le début.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-16 bg-white border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-cta mb-2">{stat.value}</div>
+                  <div className="text-secondary text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-24 bg-bg">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center mb-14">
+              <span className="text-cta text-sm font-semibold uppercase tracking-widest">Notre histoire</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">30 ans de milestones</h2>
+              <p className="text-secondary max-w-2xl mx-auto">
+                Retour sur les grandes étapes qui ont façonné Thalès Informatique depuis sa création.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="relative">
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+            <div className="space-y-10">
+              {milestones.map((item, i) => (
+                <FadeIn key={item.year} delay={i * 0.1}>
+                  <div className="flex gap-6">
+                    <div className="relative shrink-0">
+                      <div className="w-16 h-16 bg-white border-2 border-cta rounded-2xl flex items-center justify-center z-10 relative">
+                        <span className="text-cta font-black text-xs text-center leading-tight">{item.year}</span>
+                      </div>
+                    </div>
+                    <div className="bg-white border border-border rounded-2xl p-6 flex-grow hover:shadow-md transition-shadow duration-300">
+                      <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                      <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center mb-14">
+              <span className="text-cta text-sm font-semibold uppercase tracking-widest">30 ans en chiffres et en valeurs</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">Pourquoi 30 ans, ça compte</h2>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {highlights.map((item, i) => (
+              <FadeIn key={item.title} delay={i * 0.1}>
+                <div className="text-center p-6">
+                  <div className="w-12 h-12 bg-cta/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <item.icon size={20} className="text-cta" />
+                  </div>
+                  <h4 className="font-bold text-primary mb-2">{item.title}</h4>
+                  <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="py-24 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-primary to-primary" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <FadeIn>
+            <Quote size={36} className="text-accent mx-auto mb-6" />
+            <p className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-6">
+              « Depuis 30 ans, chaque projet que nous menons est porté par la même conviction :
+              la technologie doit servir les entreprises, pas l'inverse. Merci à nos clients,
+              nos équipes et nos partenaires qui écrivent cette histoire avec nous. »
+            </p>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-cta to-blue-700 rounded-2xl flex items-center justify-center">
+                <span className="text-white font-bold text-sm">HA</span>
+              </div>
+              <div className="text-left">
+                <div className="text-white font-semibold text-sm">Hassan El Alami</div>
+                <div className="text-white/50 text-xs">Président Directeur Général, fondateur</div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <FadeIn>
+            <div className="w-14 h-14 bg-cta/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Heart size={24} className="text-cta" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Écrivons les 30 prochaines années ensemble
+            </h2>
+            <p className="text-secondary mb-8 text-lg">
+              Que vous soyez client depuis nos débuts ou que vous découvriez Thalès Informatique
+              aujourd'hui, notre équipe est prête à vous accompagner dans votre transformation digitale.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
+              >
+                Parler à un expert
+                <ChevronRight size={18} />
+              </Link>
+              <Link
+                href="/a-propos"
+                className="px-8 py-4 bg-bg border border-border text-secondary font-semibold rounded-xl hover:bg-slate-50 transition-colors duration-200 flex items-center justify-center gap-2"
+              >
+                Découvrir notre histoire
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}
