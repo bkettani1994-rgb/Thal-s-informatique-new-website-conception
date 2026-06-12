@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Bot, Minimize2, Sparkles, Phone, Mail } from "lucide-react";
 
@@ -207,7 +206,7 @@ function BotMessage({ text }: { text: string }) {
 }
 
 export default function ChatBot() {
-  const pathname = usePathname();
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -221,6 +220,10 @@ export default function ChatBot() {
   const [typing, setTyping] = useState(false);
   const [unread, setUnread] = useState(1);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    setHidden(!!document.querySelector("[data-maintenance-page]"));
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -249,7 +252,7 @@ export default function ChatBot() {
     }, 900 + Math.random() * 600);
   };
 
-  if (pathname === "/maintenance") return null;
+  if (hidden) return null;
 
   return (
     <>

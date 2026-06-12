@@ -39,7 +39,7 @@ export default function MaintenanceClient() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+    <main data-maintenance-page className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
       <NetworkBackground />
 
       <motion.div
