@@ -50,18 +50,52 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
   name: "Thalès Informatique",
+  alternateName: "Thales Informatique",
   url: SITE_URL,
   logo: OG_IMAGE,
+  image: OG_IMAGE,
   description:
-    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises marocaines dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
+    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises marocaines dans leur transformation digitale : ERP Sage X3 et Sage 100, gestion financière, RH, paie, production et plus.",
+  slogan: "Votre partenaire de transformation digitale",
+  foundingDate: "1996",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "310 Rue Hadj Omar Riffi",
     addressLocality: "Casablanca",
+    postalCode: "20120",
     addressCountry: "MA",
   },
-  areaServed: "MA",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 33.5950,
+    longitude: -7.6190,
+  },
+  telephone: "+212522548780",
+  email: "contact@thales.ma",
+  priceRange: "$$",
+  areaServed: {
+    "@type": "Country",
+    name: "Maroc",
+  },
+  knowsAbout: [
+    "ERP",
+    "Sage X3",
+    "Sage 100",
+    "Sage FRP 1000",
+    "Gestion financière",
+    "Ressources humaines",
+    "Paie",
+    "Transformation digitale",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/thalesinformatique/",
+    "https://www.facebook.com/Thales.Informatique",
+    "https://www.instagram.com/thales.informatique/",
+    "https://www.youtube.com/@thalesinformatique1033",
+  ],
 };
 
 export default function RootLayout({

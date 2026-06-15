@@ -92,6 +92,21 @@ const faqGroups: { label: string; items: FAQItem[] }[] = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqGroups.flatMap((group) =>
+    group.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    }))
+  ),
+};
+
 function AccordionItem({ item }: { item: FAQItem }) {
   const [open, setOpen] = useState(false);
   return (
@@ -124,6 +139,10 @@ export default function FaqClient() {
 
   return (
     <main className="overflow-x-hidden bg-bg">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
 
       {/* Hero */}

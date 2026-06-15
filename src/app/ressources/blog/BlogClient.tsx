@@ -116,6 +116,24 @@ const articles = [
     readTime: "5 min",
     href: "/ressources/blog/teletravail-sirh-flexibilite",
   },
+  {
+    category: "ERP",
+    title: "Combien coûte un ERP au Maroc en 2026 ? Guide des prix Sage",
+    excerpt: "Licences, intégration, formation, maintenance : décryptage des postes de budget d'un projet ERP au Maroc.",
+    author: "Équipe Thalès Informatique",
+    date: "Juin 2026",
+    readTime: "7 min",
+    href: "/ressources/blog/cout-erp-maroc-2026",
+  },
+  {
+    category: "Stratégie",
+    title: "Comment choisir son intégrateur ERP au Maroc : 7 critères essentiels",
+    excerpt: "Certifications Sage, méthodologie, support local, conformité réglementaire : les critères pour bien choisir votre partenaire ERP.",
+    author: "Équipe Thalès Informatique",
+    date: "Juin 2026",
+    readTime: "6 min",
+    href: "/ressources/blog/choisir-integrateur-erp-maroc",
+  },
 ];
 
 const categories = ["Tous", "Réglementation", "RH & SIRH", "ERP", "Finance", "RH & Paie", "Production", "Technologie", "Stratégie"];
