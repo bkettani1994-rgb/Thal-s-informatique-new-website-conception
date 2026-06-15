@@ -2,39 +2,28 @@
 
 import { motion } from "framer-motion";
 import {
-  BarChart3,
-  Calculator,
-  Users2,
   Wallet,
+  Users2,
   Cog,
-  Wrench,
-  MessageSquareText,
   LineChart,
+  Code2,
+  Server,
   ArrowRight,
 } from "lucide-react";
 
 const solutions = [
   {
-    icon: BarChart3,
-    title: "Gestion financière",
-    desc: "Pilotez vos finances avec précision : comptabilité générale, budgets, clôtures et consolidation.",
+    icon: Wallet,
+    title: "Finance & Trésorerie",
+    desc: "Comptabilité, budgets, clôtures, consolidation et pilotage de la trésorerie en temps réel.",
     color: "text-blue-600",
     bgLight: "bg-blue-50",
     border: "border-blue-100 hover:border-blue-300",
     tag: "Finance",
   },
   {
-    icon: Calculator,
-    title: "Comptabilité & fiscalité",
-    desc: "Conformité fiscale totale, déclarations automatisées et gestion des taxes en temps réel.",
-    color: "text-indigo-600",
-    bgLight: "bg-indigo-50",
-    border: "border-indigo-100 hover:border-indigo-300",
-    tag: "Comptabilité",
-  },
-  {
     icon: Users2,
-    title: "Gestion RH & paie",
+    title: "RH & Paie",
     desc: "Recrutement, carrières, évaluations et paie multi-conventions sur une seule plateforme.",
     color: "text-violet-600",
     bgLight: "bg-violet-50",
@@ -42,49 +31,40 @@ const solutions = [
     tag: "Ressources humaines",
   },
   {
-    icon: Wallet,
-    title: "Gestion de trésorerie",
-    desc: "Prévisions de cash-flow, rapprochements bancaires et gestion des flux financiers en temps réel.",
-    color: "text-emerald-600",
-    bgLight: "bg-emerald-50",
-    border: "border-emerald-100 hover:border-emerald-300",
-    tag: "Trésorerie",
-  },
-  {
     icon: Cog,
-    title: "Gestion de production",
-    desc: "Planification, ordres de fabrication, suivi des coûts et gestion des capacités de production.",
+    title: "Processus Opérationnels",
+    desc: "Production, achats, ventes, stocks et logistique optimisés de bout en bout.",
     color: "text-amber-600",
     bgLight: "bg-amber-50",
     border: "border-amber-100 hover:border-amber-300",
-    tag: "Production",
-  },
-  {
-    icon: Wrench,
-    title: "Maintenance des équipements",
-    desc: "GMAO complète : interventions préventives, correctives, suivi des actifs et gestion des techniciens.",
-    color: "text-orange-600",
-    bgLight: "bg-orange-50",
-    border: "border-orange-100 hover:border-orange-300",
-    tag: "Maintenance",
-  },
-  {
-    icon: MessageSquareText,
-    title: "Gestion de la relation client",
-    desc: "Suivi des opportunités, historique client, devis et fidélisation pour maximiser vos revenus.",
-    color: "text-rose-600",
-    bgLight: "bg-rose-50",
-    border: "border-rose-100 hover:border-rose-300",
-    tag: "CRM",
+    tag: "Opérations",
   },
   {
     icon: LineChart,
-    title: "Reporting & pilotage",
-    desc: "Tableaux de bord personnalisables, KPIs et analyses décisionnelles pour piloter votre activité.",
+    title: "Conseil & Stratégie",
+    desc: "Audit organisationnel, accompagnement au changement et pilotage de la performance.",
     color: "text-cyan-600",
     bgLight: "bg-cyan-50",
     border: "border-cyan-100 hover:border-cyan-300",
-    tag: "Business Intelligence",
+    tag: "Conseil",
+  },
+  {
+    icon: Code2,
+    title: "Développement Spécifique",
+    desc: "Développements sur mesure, connecteurs et intégrations adaptés à vos besoins métiers.",
+    color: "text-rose-600",
+    bgLight: "bg-rose-50",
+    border: "border-rose-100 hover:border-rose-300",
+    tag: "Développement",
+  },
+  {
+    icon: Server,
+    title: "Ingénierie IT",
+    desc: "Infrastructure, cloud, sécurité et infogérance de vos systèmes d'information.",
+    color: "text-emerald-600",
+    bgLight: "bg-emerald-50",
+    border: "border-emerald-100 hover:border-emerald-300",
+    tag: "Infrastructure",
   },
 ];
 
@@ -114,7 +94,7 @@ export default function Solutions() {
         </motion.div>
 
         {/* Solutions grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {solutions.map((sol, i) => (
             <motion.div
               key={sol.title}
