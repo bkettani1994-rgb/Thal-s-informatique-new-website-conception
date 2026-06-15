@@ -40,8 +40,8 @@ const lfNews = [
 
 const companyNews = [
   {
-    title: "Thalès Informatique certifié Sage Gold Partner 2025",
-    desc: "Nous sommes fiers d'annoncer le renouvellement de notre certification Sage Gold Partner, attestant de notre expertise et de la satisfaction de nos clients.",
+    title: "Thalès Informatique certifié Sage Business Partner Platinum 2025",
+    desc: "Nous sommes fiers d'annoncer le renouvellement de notre certification Sage Business Partner Platinum, attestant de notre expertise et de la satisfaction de nos clients.",
     date: "Fév 2025",
     tag: "Certification",
   },

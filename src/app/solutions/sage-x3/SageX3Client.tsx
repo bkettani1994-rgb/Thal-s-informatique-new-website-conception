@@ -17,7 +17,7 @@ const modules = [
 ];
 
 const expertiseCards = [
-  { title: "Expertise certifiée", desc: "Partenaire Gold Sage au Maroc depuis plus de 15 ans. Nos consultants sont certifiés Sage X3.", icon: "🏆" },
+  { title: "Expertise certifiée", desc: "Sage Business Partner Platinum au Maroc depuis plus de 15 ans. Nos consultants sont certifiés Sage X3.", icon: "🏆" },
   { title: "Déploiement rapide", desc: "Méthodologie éprouvée pour un go-live en 3 à 6 mois selon la complexité de votre organisation.", icon: "⚡" },
   { title: "Support local Casablanca", desc: "Équipe dédiée à Casablanca pour un support réactif en français et en arabe.", icon: "📍" },
 ];
@@ -85,7 +85,7 @@ export default function SageX3Client() {
                   Sage X3 est la solution ERP de référence pour les entreprises de taille intermédiaire et les groupes industriels. Dotée d&apos;une architecture moderne et d&apos;une couverture fonctionnelle étendue, elle répond aux exigences des organisations les plus complexes.
                 </p>
                 <p className="text-secondary leading-relaxed">
-                  <strong className="text-primary">Thalès Informatique</strong> est partenaire Gold Sage au Maroc depuis plus de 15 ans. Nous accompagnons les plus grandes entreprises marocaines dans leur transformation digitale avec Sage X3.
+                  <strong className="text-primary">Thalès Informatique</strong> est Sage Business Partner Platinum au Maroc depuis plus de 15 ans. Nous accompagnons les plus grandes entreprises marocaines dans leur transformation digitale avec Sage X3.
                 </p>
               </motion.div>
               <motion.div

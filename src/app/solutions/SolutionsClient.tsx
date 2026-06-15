@@ -20,7 +20,7 @@ const categories = [
         sub: "Grandes entreprises & industries",
         badge: "SOLUTION PHARE",
         href: "/solutions/sage-x3",
-        desc: "L'ERP de référence pour les groupes industriels et entreprises de taille intermédiaire. Partenariat Gold Sage.",
+        desc: "L'ERP de référence pour les groupes industriels et entreprises de taille intermédiaire. Partenaire Sage Business Partner Platinum.",
       },
       {
         title: "Sage 100",
@@ -89,7 +89,7 @@ const categories = [
 ];
 
 const partners = [
-  "Sage Gold Partner",
+  "Sage Business Partner Platinum",
   "DimoMaint Partner",
   "Eloficash Certified",
   "Factorial Partner",
