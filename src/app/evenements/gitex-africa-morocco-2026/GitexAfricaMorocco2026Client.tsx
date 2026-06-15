@@ -6,6 +6,18 @@ import Link from "next/link";
 import { ChevronRight, Calendar, MapPin, Users, CheckCircle2, ArrowRight } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import EventGallery, { type GalleryImage } from "@/components/sections/EventGallery";
+
+const galleryImages: GalleryImage[] = [
+  { alt: "Stand Thalès Informatique au Gitex Africa Morocco 2026", caption: "Notre stand sur le salon" },
+  { alt: "Démonstration Sage X3 sur le stand Thalès Informatique", caption: "Démonstration live Sage X3" },
+  { alt: "Équipe Thalès Informatique au Gitex Africa Morocco 2026", caption: "L'équipe Thalès Informatique" },
+  { alt: "Échanges avec des visiteurs sur le stand Thalès Informatique", caption: "Échanges avec les visiteurs" },
+  { alt: "Présentation Sage 100 et Sage FRP 1000 au Gitex", caption: "Présentation Sage 100 & FRP 1000" },
+  { alt: "Networking avec des partenaires au Gitex Africa Morocco", caption: "Networking partenaires" },
+  { alt: "Consultants Thalès Informatique en rendez-vous au Gitex", caption: "Rendez-vous clients" },
+  { alt: "Vue du salon Gitex Africa Morocco 2026 à Marrakech", caption: "Ambiance du salon à Marrakech" },
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -117,6 +129,13 @@ export default function GitexAfricaMorocco2026Client() {
           </motion.div>
         </div>
       </section>
+
+      {/* Gallery */}
+      <EventGallery
+        images={galleryImages}
+        title="Notre présence en images"
+        subtitle="Quelques moments forts de la participation de Thalès Informatique au Gitex Africa Morocco 2026."
+      />
 
       {/* CTA */}
       <section className="py-20" ref={ctaRef}>
