@@ -89,6 +89,33 @@ const articles = [
     readTime: "5 min",
     href: "/ressources/blog/loi-finances-2026-erp",
   },
+  {
+    category: "Technologie",
+    title: "Intelligence Artificielle et ERP : 5 cas d'usage pour les entreprises marocaines",
+    excerpt: "Saisie automatisée, prévision de trésorerie, optimisation des stocks : l'IA s'intègre désormais dans votre ERP Sage.",
+    author: "Équipe Thalès Informatique",
+    date: "Juin 2026",
+    readTime: "6 min",
+    href: "/ressources/blog/ia-erp-cas-usage",
+  },
+  {
+    category: "Technologie",
+    title: "Cybersécurité : protéger votre ERP face à la montée des cybermenaces",
+    excerpt: "Phishing, ransomwares, accès non autorisés : les bonnes pratiques pour sécuriser vos données d'entreprise.",
+    author: "Équipe Thalès Informatique",
+    date: "Juin 2026",
+    readTime: "6 min",
+    href: "/ressources/blog/cybersecurite-erp-maroc",
+  },
+  {
+    category: "RH & SIRH",
+    title: "Télétravail et flexibilité : comment le SIRH accompagne les nouveaux modes de travail",
+    excerpt: "Plannings flexibles, pointage à distance, signature électronique : le SIRH au cœur du travail hybride.",
+    author: "Équipe Thalès Informatique",
+    date: "Juin 2026",
+    readTime: "5 min",
+    href: "/ressources/blog/teletravail-sirh-flexibilite",
+  },
 ];
 
 const categories = ["Tous", "Réglementation", "RH & SIRH", "ERP", "Finance", "RH & Paie", "Production", "Technologie", "Stratégie"];
