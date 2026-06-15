@@ -76,6 +76,11 @@ const organizationSchema = {
   telephone: "+212522548780",
   email: "contact@thales.ma",
   priceRange: "$$",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.7",
+    reviewCount: "29",
+  },
   areaServed: {
     "@type": "Country",
     name: "Maroc",
