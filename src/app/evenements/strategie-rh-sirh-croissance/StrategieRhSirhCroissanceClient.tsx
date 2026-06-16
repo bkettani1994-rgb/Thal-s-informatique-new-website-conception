@@ -52,7 +52,7 @@ const agenda = [
     icon: Mic2,
     time: "14h30",
     title: "Thématique : L'entreprise agile à l'ère du digital",
-    desc: "Comment la stratégie RH et le SIRH soutiennent la croissance — animée par Yassine REDA, Sales Director chez Thalès Informatique.",
+    desc: "La thématique centrale de l'événement : comment la stratégie RH et le SIRH deviennent un levier de croissance pour les entreprises à l'ère du digital.",
   },
   {
     icon: Monitor,
