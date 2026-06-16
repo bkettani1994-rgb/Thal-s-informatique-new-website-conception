@@ -167,7 +167,7 @@ const differentiators = [
   {
     icon: MapPin,
     title: "Proximité",
-    desc: "Présence à Casablanca, Rabat et Marrakech. Des équipes locales pour un suivi régulier et des interventions rapides.",
+    desc: "Basés à Casablanca, nos équipes assurent un suivi régulier et des interventions rapides au plus près de vos équipes.",
   },
   {
     icon: Star,
