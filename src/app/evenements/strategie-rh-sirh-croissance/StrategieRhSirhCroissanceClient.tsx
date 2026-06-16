@@ -109,14 +109,46 @@ const audience = [
 const partners = ["Sage", "Factorial", "Héliolys"];
 
 const galleryImages: GalleryImage[] = [
-  { alt: "Accueil des participants — Conférence RH & SIRH Casablanca", caption: "Accueil & networking" },
-  { alt: "Intervention de Yassine REDA — Sales Director Thalès Informatique", caption: "Intervention Yassine REDA" },
-  { alt: "Présentation Factorial par Ayoub EL ABD", caption: "Présentation Factorial" },
-  { alt: "Sanaa BENAHMED — DRH Héliolys Consulting en conférence", caption: "Sanaa BENAHMED — Héliolys" },
-  { alt: "Démonstration live de la solution SIRH", caption: "Démo live SIRH" },
-  { alt: "Networking entre participants au Hotel Onomo Casablanca", caption: "Networking participants" },
-  { alt: "Remise de prix lors de la tombola de l'événement RH", caption: "Tombola & animation" },
-  { alt: "Cocktail de clôture — Conférence RH & SIRH Thalès Informatique", caption: "Cocktail de clôture" },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/1_lhhrtt.jpg",
+    alt: "Accueil des participants — Conférence RH & SIRH Casablanca",
+    caption: "Accueil des participants",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/2_k6iwud.jpg",
+    alt: "Intervention en salle — Conférence RH & SIRH Thalès Informatique",
+    caption: "Intervention en salle",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/3_u5sutq.jpg",
+    alt: "Échanges entre intervenants — Conférence RH & SIRH",
+    caption: "Échanges entre intervenants",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/4_zbasib.jpg",
+    alt: "Présentation live de la solution SIRH — Thalès Informatique",
+    caption: "Présentation live SIRH",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/5_r55rlo.jpg",
+    alt: "Participants en salle — Conférence RH & SIRH Hotel Onomo Casablanca",
+    caption: "Participants en salle",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/6_fdt6en.jpg",
+    alt: "Session de networking — Conférence RH & SIRH Thalès Informatique",
+    caption: "Session de networking",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598300/7_qqqbkv.jpg",
+    alt: "Tombola et animation — Conférence RH & SIRH Casablanca",
+    caption: "Tombola & animation",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598300/8_mcw0ef.jpg",
+    alt: "Cocktail de clôture — Conférence RH & SIRH Thalès Informatique",
+    caption: "Cocktail de clôture",
+  },
 ];
 
 export default function StrategieRhSirhCroissanceClient() {
