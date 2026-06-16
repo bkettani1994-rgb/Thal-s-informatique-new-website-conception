@@ -52,7 +52,7 @@ const agenda = [
     icon: Mic2,
     time: "14h30",
     title: "Thématique : L'entreprise agile à l'ère du digital",
-    desc: "Comment la stratégie RH et le SIRH soutiennent la croissance, animée par Yassine REDA — Sales Director, Thalès Informatique.",
+    desc: "Comment la stratégie RH et le SIRH soutiennent la croissance — animée par Yassine REDA, Sales Director chez Thalès Informatique.",
   },
   {
     icon: Monitor,
@@ -77,13 +77,13 @@ const agenda = [
 const speakers = [
   {
     name: "Sanaa BENAHMED",
-    role: "DRH",
+    role: "CEO",
     company: "Héliolys Consulting",
     photo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776875108/1760553646722_atj1zr.jpg",
   },
   {
     name: "Ayoub EL ABD",
-    role: "SVP/PDG — Partner Lead",
+    role: "Strategic Partner Lead",
     company: "Factorial",
     photo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776872482/1749232766691_gv6gzl.jpg",
   },
