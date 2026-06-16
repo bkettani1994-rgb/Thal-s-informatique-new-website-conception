@@ -106,7 +106,11 @@ const audience = [
   "DSI & Responsables Transformation Digitale",
 ];
 
-const partners = ["Sage", "Factorial", "Héliolys"];
+const partners = [
+  { name: "Sage", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776701410/logo_event_grp_2_mzjosn.png" },
+  { name: "Factorial", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771409242/Factorial_logo_couleur_xywdb2.png" },
+  { name: "Héliolys", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776701411/logo_event_grp_1_etedmr.png" },
+];
 
 const galleryImages: GalleryImage[] = [
   {
@@ -369,11 +373,11 @@ export default function StrategieRhSirhCroissanceClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeUp} initial="hidden" animate={partnersInView ? "visible" : "hidden"} className="text-center">
             <h2 className="text-2xl font-bold text-primary mb-6">Organisé en partenariat avec</h2>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-8">
               {partners.map((p) => (
-                <span key={p} className="px-6 py-3 bg-bg-base border border-border rounded-xl text-primary font-semibold hover:border-cta hover:text-cta transition-colors duration-200">
-                  {p}
-                </span>
+                <div key={p.name} className="bg-white border border-border rounded-2xl px-8 py-5 hover:shadow-md transition-shadow duration-200 flex items-center justify-center">
+                  <img src={p.logo} alt={`Logo ${p.name}`} className="h-10 w-auto object-contain" />
+                </div>
               ))}
             </div>
           </motion.div>
