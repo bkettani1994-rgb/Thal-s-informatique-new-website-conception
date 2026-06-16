@@ -111,43 +111,43 @@ const partners = ["Sage", "Factorial", "Héliolys"];
 const galleryImages: GalleryImage[] = [
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/1_lhhrtt.jpg",
-    alt: "Accueil des participants — Conférence RH & SIRH Casablanca",
-    caption: "Accueil des participants",
+    alt: "Accueil des participants et préparation de la salle — Conférence RH & SIRH",
+    caption: "Accueil des participants et préparation de la salle",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/2_k6iwud.jpg",
-    alt: "Intervention en salle — Conférence RH & SIRH Thalès Informatique",
-    caption: "Intervention en salle",
+    alt: "Session de networking et échanges entre professionnels RH",
+    caption: "Session de networking et échanges entre professionnels RH",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/3_u5sutq.jpg",
-    alt: "Échanges entre intervenants — Conférence RH & SIRH",
-    caption: "Échanges entre intervenants",
+    alt: "Conférence : l'entreprise agile à l'ère du digital",
+    caption: "Conférence : l'entreprise agile à l'ère du digital",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/4_zbasib.jpg",
-    alt: "Présentation live de la solution SIRH — Thalès Informatique",
-    caption: "Présentation live SIRH",
+    alt: "Participation active des décideurs et responsables RH",
+    caption: "Participation active des décideurs et responsables RH",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/5_r55rlo.jpg",
-    alt: "Participants en salle — Conférence RH & SIRH Hotel Onomo Casablanca",
-    caption: "Participants en salle",
+    alt: "Présentation de la solution SIRH Factorial",
+    caption: "Présentation de la solution SIRH Factorial",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/6_fdt6en.jpg",
-    alt: "Session de networking — Conférence RH & SIRH Thalès Informatique",
-    caption: "Session de networking",
+    alt: "Démonstration et échanges autour des enjeux RH",
+    caption: "Démonstration et échanges autour des enjeux RH",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598300/7_qqqbkv.jpg",
-    alt: "Tombola et animation — Conférence RH & SIRH Casablanca",
-    caption: "Tombola & animation",
+    alt: "Pause gourmande et moments de convivialité",
+    caption: "Pause gourmande et moments de convivialité",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598300/8_mcw0ef.jpg",
-    alt: "Cocktail de clôture — Conférence RH & SIRH Thalès Informatique",
-    caption: "Cocktail de clôture",
+    alt: "L'équipe organisatrice Thalès Informatique",
+    caption: "L'équipe organisatrice Thalès Informatique",
   },
 ];
 
