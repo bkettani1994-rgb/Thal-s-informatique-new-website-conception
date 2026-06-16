@@ -79,22 +79,19 @@ const speakers = [
     name: "Sanaa BENAHMED",
     role: "DRH",
     company: "Héliolys Consulting",
-    initial: "SB",
-    color: "bg-violet-100 text-violet-700",
+    photo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776875108/1760553646722_atj1zr.jpg",
   },
   {
     name: "Ayoub EL ABD",
     role: "SVP/PDG — Partner Lead",
     company: "Factorial",
-    initial: "AE",
-    color: "bg-orange-100 text-orange-700",
+    photo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776872482/1749232766691_gv6gzl.jpg",
   },
   {
     name: "Yassine REDA",
     role: "Sales Director",
     company: "Thalès Informatique",
-    initial: "YR",
-    color: "bg-blue-100 text-blue-700",
+    photo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1778584658/Generated_Image_May_12_2026_-_12_14PM_1_wptqek.png",
   },
 ];
 
@@ -326,9 +323,11 @@ export default function StrategieRhSirhCroissanceClient() {
                 variants={fadeUp}
                 className="bg-bg-base rounded-2xl border border-border p-6 text-center hover:shadow-md transition-shadow duration-200"
               >
-                <div className={`w-16 h-16 rounded-full ${speaker.color} flex items-center justify-center mx-auto mb-4 text-xl font-bold`}>
-                  {speaker.initial}
-                </div>
+                <img
+                  src={speaker.photo}
+                  alt={speaker.name}
+                  className="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-border"
+                />
                 <h3 className="font-bold text-primary text-sm">{speaker.name}</h3>
                 <p className="text-xs text-cta font-semibold mt-1">{speaker.role}</p>
                 <p className="text-xs text-secondary mt-0.5">{speaker.company}</p>
