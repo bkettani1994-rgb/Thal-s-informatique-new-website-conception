@@ -18,6 +18,11 @@ import {
   TrendingDown,
   ArrowRight,
   Star,
+  ClipboardList,
+  ListChecks,
+  FileText,
+  Shield,
+  Gauge,
 } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -124,28 +129,45 @@ const packs = [
 const process = [
   {
     step: "01",
-    title: "Audit flash",
-    description: "Vision rapide et précise de l'existant : infrastructure, risques, contraintes métier et priorités. La base de toute offre sérieuse.",
+    icon: ClipboardList,
+    title: "Audit de l'Infrastructure",
+    description: "Analyse complète des équipements, serveurs, postes de travail, réseaux et systèmes existants.",
   },
   {
     step: "02",
-    title: "Offre sur mesure",
-    description: "Proposition adaptée au périmètre, au budget et aux priorités du client, avec définition des SLA et du périmètre de prise en charge.",
+    icon: ListChecks,
+    title: "Évaluation & Recommandations",
+    description: "Identification des risques, des axes d'amélioration et des priorités techniques.",
   },
   {
     step: "03",
-    title: "Déploiement & sécurisation",
-    description: "Onboarding piloté de bout en bout : déploiement des outils de supervision, sécurisation des environnements, transfert de connaissance.",
+    icon: FileText,
+    title: "Mise en Place du Plan d'Infogérance",
+    description: "Définition du périmètre d'intervention, des procédures et des niveaux de service.",
   },
   {
     step: "04",
-    title: "Supervision & assistance",
-    description: "Monitoring continu, résolution des incidents selon le niveau de service choisi et suivi humain constant de votre environnement.",
+    icon: Shield,
+    title: "Déploiement des Outils de Supervision",
+    description: "Installation des solutions de surveillance, sauvegarde, sécurité et maintenance.",
   },
   {
     step: "05",
-    title: "Reporting & optimisation",
-    description: "Pilotage de l'IT dans la durée : tableaux de bord mensuels, recommandations concrètes et mesurables, montée en gamme progressive.",
+    icon: Activity,
+    title: "Surveillance Continue",
+    description: "Monitoring proactif des systèmes afin de détecter et traiter rapidement les incidents.",
+  },
+  {
+    step: "06",
+    icon: HeadphonesIcon,
+    title: "Assistance Utilisateurs",
+    description: "Support technique réactif pour accompagner les collaborateurs au quotidien.",
+  },
+  {
+    step: "07",
+    icon: Gauge,
+    title: "Optimisation & Sécurisation",
+    description: "Amélioration continue des performances, de la disponibilité et de la cybersécurité.",
   },
 ];
 
@@ -393,15 +415,22 @@ export default function InfogeranceClient() {
               animate={processInView ? "visible" : "hidden"}
               className="relative"
             >
-              <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-border" />
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+              {/* Horizontal connector line */}
+              <div className="hidden lg:block absolute top-[52px] left-[calc(100%/14)] right-[calc(100%/14)] h-0.5 bg-cyan-200 z-0" />
+
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
                 {process.map((p) => (
-                  <motion.div key={p.step} variants={fadeUp} className="relative text-center">
-                    <div className="w-14 h-14 rounded-full bg-cyan-50 border-2 border-cyan-200 flex items-center justify-center mx-auto mb-4 relative z-10">
-                      <span className="text-lg font-bold text-cyan-600">{p.step}</span>
+                  <motion.div key={p.step} variants={fadeUp} className="relative flex flex-col items-center text-center">
+                    {/* Step badge */}
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cta flex items-center justify-center z-20">
+                      <span className="text-[10px] font-bold text-white">{p.step}</span>
                     </div>
-                    <h3 className="text-sm font-bold text-primary mb-2">{p.title}</h3>
-                    <p className="text-xs text-secondary leading-relaxed">{p.description}</p>
+                    {/* Icon circle */}
+                    <div className="w-16 h-16 rounded-full bg-white border-2 border-cyan-200 flex items-center justify-center mb-4 relative z-10 shadow-sm">
+                      <p.icon size={22} className="text-cyan-500" />
+                    </div>
+                    <h3 className="text-xs font-bold text-primary mb-2 leading-snug">{p.title}</h3>
+                    <p className="text-[11px] text-secondary leading-relaxed">{p.description}</p>
                   </motion.div>
                 ))}
               </div>
