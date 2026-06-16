@@ -104,9 +104,9 @@ const audience = [
 ];
 
 const partners = [
-  { name: "Sage", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776701410/logo_event_grp_2_mzjosn.png" },
-  { name: "Factorial", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771409242/Factorial_logo_couleur_xywdb2.png" },
-  { name: "Héliolys", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776701411/logo_event_grp_1_etedmr.png" },
+  { name: "Sage", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781600065/1_ktyvlq.png" },
+  { name: "Factorial", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781600065/2_erzkns.png" },
+  { name: "Héliolys", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781600065/3_iwynox.png" },
 ];
 
 const galleryImages: GalleryImage[] = [
