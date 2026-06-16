@@ -25,6 +25,7 @@ const clients = [
   { name: "SMIT",                        logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993204/19_shgmar.png" },
   { name: "Maroc Modis",               logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993386/Design_sans_titre_36_tux6b9.png" },
   { name: "Groupe Sapress",              logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993204/21_qqzucq.png" },
+  { name: "Marsa Maroc",                 logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781620315/Design_sans_titre_36_dtiv2f.png" },
 ];
 
 function LogoCard({ name, logo }: { name: string; logo: string }) {
