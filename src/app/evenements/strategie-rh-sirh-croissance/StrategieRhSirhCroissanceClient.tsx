@@ -348,12 +348,12 @@ export default function StrategieRhSirhCroissanceClient() {
             variants={stagger}
             initial="hidden"
             animate={audienceInView ? "visible" : "hidden"}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-3xl"
+            className="grid sm:grid-cols-3 lg:grid-cols-5 gap-3"
           >
             {audience.map((item) => (
-              <motion.div key={item} variants={fadeUp} className="flex items-center gap-3 p-4 bg-white rounded-xl border border-border">
-                <Briefcase size={16} className="text-cta shrink-0" />
-                <span className="text-sm text-secondary font-medium">{item}</span>
+              <motion.div key={item} variants={fadeUp} className="flex flex-col items-center gap-3 p-5 bg-white rounded-xl border border-border text-center hover:border-cta hover:shadow-md transition-all duration-200">
+                <Briefcase size={20} className="text-cta shrink-0" />
+                <span className="text-sm text-secondary font-medium leading-snug">{item}</span>
               </motion.div>
             ))}
           </motion.div>
