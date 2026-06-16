@@ -8,17 +8,47 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import EventGallery, { type GalleryImage } from "@/components/sections/EventGallery";
 
-const PLACEHOLDER_IMG = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781539005/image00056_rn7xzx.jpg";
-
 const galleryImages: GalleryImage[] = [
-  { src: PLACEHOLDER_IMG, alt: "Stand Thalès Informatique au Gitex Africa Morocco 2026", caption: "Notre stand sur le salon" },
-  { src: PLACEHOLDER_IMG, alt: "Démonstration Sage X3 sur le stand Thalès Informatique", caption: "Démonstration live Sage X3" },
-  { src: PLACEHOLDER_IMG, alt: "Équipe Thalès Informatique au Gitex Africa Morocco 2026", caption: "L'équipe Thalès Informatique" },
-  { src: PLACEHOLDER_IMG, alt: "Échanges avec des visiteurs sur le stand Thalès Informatique", caption: "Échanges avec les visiteurs" },
-  { src: PLACEHOLDER_IMG, alt: "Présentation Sage 100 et Sage FRP 1000 au Gitex", caption: "Présentation Sage 100 & FRP 1000" },
-  { src: PLACEHOLDER_IMG, alt: "Networking avec des partenaires au Gitex Africa Morocco", caption: "Networking partenaires" },
-  { src: PLACEHOLDER_IMG, alt: "Consultants Thalès Informatique en rendez-vous au Gitex", caption: "Rendez-vous clients" },
-  { src: PLACEHOLDER_IMG, alt: "Vue du salon Gitex Africa Morocco 2026 à Marrakech", caption: "Ambiance du salon à Marrakech" },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604816/10_odcrxf.jpg",
+    alt: "Stand Thalès Informatique au GITEX Africa Morocco 2026",
+    caption: "Stand Thalès Informatique au GITEX",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604823/11_dbwtyz.jpg",
+    alt: "Démonstration de nos solutions en direct au GITEX Africa Morocco 2026",
+    caption: "Démonstration de nos solutions en direct",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604846/12_oaaq03.jpg",
+    alt: "Expérience immersive et découverte des innovations au GITEX",
+    caption: "Expérience immersive et découverte des innovations",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604846/13_vh5tqh.jpg",
+    alt: "Présentation des solutions digitales Thalès Informatique au GITEX",
+    caption: "Présentation des solutions digitales Thalès Informatique",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604847/14_fqlqqs.jpg",
+    alt: "Échanges avec les visiteurs et professionnels du secteur au GITEX Africa Morocco",
+    caption: "Échanges avec les visiteurs et professionnels du secteur",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604873/16_wb1tat.jpg",
+    alt: "Rendez-vous d'affaires et rencontres stratégiques au GITEX Africa Morocco 2026",
+    caption: "Rendez-vous d'affaires et rencontres stratégiques",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604872/15_qkaywr.jpg",
+    alt: "Networking et opportunités de collaboration au GITEX Africa Morocco",
+    caption: "Networking et opportunités de collaboration",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781604873/17_trqiah.jpg",
+    alt: "L'équipe Thalès Informatique au GITEX Africa Morocco 2026",
+    caption: "L'équipe Thalès Informatique au GITEX",
+  },
 ];
 
 const fadeUp = {
