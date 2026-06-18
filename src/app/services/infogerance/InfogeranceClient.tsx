@@ -468,7 +468,7 @@ export default function InfogeranceClient() {
         <section className="py-20 bg-primary" ref={diffRef}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={fadeUp} initial="hidden" animate={diffInView ? "visible" : "hidden"} className="text-center mb-12">
-              <span className="text-xs font-bold text-accent tracking-widest uppercase">POURQUOI THALÈS</span>
+              <span className="text-xs font-bold text-accent tracking-widest uppercase">POURQUOI THALÈS INFORMATIQUE</span>
               <h2 className="text-3xl font-bold text-white mt-2 mb-3">Simplicité. Proximité. Exécution.</h2>
               <p className="text-white/60 max-w-xl mx-auto">Un partenaire IT de confiance, habitué aux environnements exigeants où la disponibilité et la sécurité ne sont pas négociables.</p>
             </motion.div>
