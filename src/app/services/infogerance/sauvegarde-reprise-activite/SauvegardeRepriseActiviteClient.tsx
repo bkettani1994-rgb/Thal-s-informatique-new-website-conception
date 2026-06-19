@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Database, RefreshCcw, ShieldAlert, Timer, CheckCircle, ArrowRight } from "lucide-react";
+import { ChevronRight, Database, RefreshCcw, ShieldAlert, Timer, CheckCircle, ArrowRight, HardDrive, ShieldCheck, Cloud, RotateCcw, Sparkles, Star } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -31,16 +31,100 @@ const guarantees = [
   "Délais de reprise (RTO) et de perte de données (RPO) définis avec vous",
 ];
 
+const products = [
+  {
+    key: "veeam-backup-replication",
+    name: "Veeam Backup & Replication",
+    vendor: "Veeam",
+    icon: HardDrive,
+    definition:
+      "Solution de sauvegarde et de réplication pour environnements virtuels, physiques et cloud, reconnue pour la rapidité de ses restaurations.",
+    strengths: [
+      "Sauvegarde et réplication de machines virtuelles (VMware, Hyper-V)",
+      "Restauration instantanée au niveau fichier, application ou VM complète",
+      "Réplication vers un site de secours pour un basculement rapide",
+      "Compatible avec les environnements hybrides (on-premise, cloud, multi-cloud)",
+    ],
+    value: [
+      "Réduction nette du temps d'arrêt grâce à des délais de reprise très courts",
+      "Fiabilité éprouvée sur les infrastructures virtualisées les plus exigeantes",
+      "Base solide pour construire un plan de reprise d'activité sur mesure",
+    ],
+  },
+  {
+    key: "acronis-cyber-backup",
+    name: "Acronis Cyber Backup",
+    vendor: "Acronis",
+    icon: ShieldCheck,
+    definition:
+      "Solution de sauvegarde intégrant des fonctionnalités de cybersécurité (anti-ransomware, antimalware) pour protéger vos données contre les menaces actuelles.",
+    strengths: [
+      "Sauvegarde d'images complètes de postes, serveurs et machines virtuelles",
+      "Protection active contre les ransomwares intégrée à la sauvegarde",
+      "Sauvegarde locale et cloud avec chiffrement de bout en bout",
+      "Tableau de bord centralisé pour la supervision de vos sauvegardes",
+    ],
+    value: [
+      "Une seule solution pour couvrir à la fois la sauvegarde et la cybersécurité",
+      "Réduction du risque de perte de données liée aux cyberattaques",
+      "Simplicité de gestion pour vos équipes IT",
+    ],
+  },
+  {
+    key: "acronis-backup-m365",
+    name: "Acronis Backup for Microsoft 365",
+    vendor: "Acronis",
+    icon: Cloud,
+    definition:
+      "Solution dédiée à la sauvegarde des données Microsoft 365 (emails, fichiers, Teams, SharePoint) non couvertes nativement par les politiques de rétention Microsoft.",
+    strengths: [
+      "Sauvegarde complète d'Exchange Online, SharePoint, OneDrive et Teams",
+      "Restauration granulaire (email, fichier, conversation) en quelques clics",
+      "Sauvegardes automatisées et chiffrées dans le cloud",
+      "Conservation des données indépendante des politiques de Microsoft",
+    ],
+    value: [
+      "Comble les limites de la rétention native de Microsoft 365",
+      "Protection contre la suppression accidentelle ou malveillante de données",
+      "Conformité renforcée pour la gestion documentaire de l'entreprise",
+    ],
+  },
+  {
+    key: "veeam-backup-m365",
+    name: "Veeam Backup for Microsoft 365",
+    vendor: "Veeam",
+    icon: RotateCcw,
+    definition:
+      "Solution de sauvegarde spécialisée pour les environnements Microsoft 365, garantissant un contrôle total sur vos données cloud.",
+    strengths: [
+      "Sauvegarde d'Exchange Online, OneDrive, SharePoint et Teams",
+      "Restauration rapide et granulaire des éléments supprimés",
+      "Stockage flexible (cloud, on-premise ou hybride)",
+      "Recherche et restauration en self-service pour les utilisateurs",
+    ],
+    value: [
+      "Indépendance totale par rapport aux limites de rétention de Microsoft",
+      "Continuité d'activité assurée même en cas d'incident sur le cloud Microsoft",
+      "Gain de temps pour les équipes IT grâce au self-service",
+    ],
+  },
+];
+
 export default function SauvegardeRepriseActiviteClient() {
   const introRef = useRef(null);
   const stepsRef = useRef(null);
+  const productsRef = useRef(null);
   const guaranteesRef = useRef(null);
   const ctaRef = useRef(null);
 
   const introInView = useInView(introRef, { once: true, margin: "-100px" });
   const stepsInView = useInView(stepsRef, { once: true, margin: "-100px" });
+  const productsInView = useInView(productsRef, { once: true, margin: "-100px" });
   const guaranteesInView = useInView(guaranteesRef, { once: true, margin: "-100px" });
   const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
+
+  const [activeProduct, setActiveProduct] = useState(products[0].key);
+  const selected = products.find((p) => p.key === activeProduct)!;
 
   return (
     <>
@@ -106,6 +190,87 @@ export default function SauvegardeRepriseActiviteClient() {
                 </motion.div>
               ))}
             </motion.div>
+          </div>
+        </section>
+
+        {/* Produits & solutions partenaires */}
+        <section ref={productsRef} className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={fadeUp} initial="hidden" animate={productsInView ? "visible" : "hidden"} className="text-center mb-14">
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">SOLUTIONS PARTENAIRES</span>
+              <h2 className="text-3xl font-bold text-primary mt-2 mb-3">Les technologies derrière nos sauvegardes</h2>
+              <p className="text-secondary max-w-2xl mx-auto">Sélectionnez une solution pour découvrir sa définition, ses points forts fonctionnels et la valeur qu'elle apporte à votre entreprise.</p>
+            </motion.div>
+
+            <motion.div variants={stagger} initial="hidden" animate={productsInView ? "visible" : "hidden"} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+              {products.map((p) => {
+                const isActive = p.key === activeProduct;
+                return (
+                  <motion.button
+                    key={p.key}
+                    type="button"
+                    variants={fadeUp}
+                    onClick={() => setActiveProduct(p.key)}
+                    className={`text-left rounded-2xl border-2 p-5 transition-all duration-200 ${
+                      isActive
+                        ? "border-cta bg-cta/5 shadow-md"
+                        : "border-border bg-bg hover:border-cta/40 hover:shadow-sm"
+                    }`}
+                  >
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${isActive ? "bg-cta text-white" : "bg-cta/10 text-cta"}`}>
+                      <p.icon size={20} />
+                    </div>
+                    <div className="text-[11px] font-bold text-secondary/60 uppercase tracking-wide mb-1">{p.vendor}</div>
+                    <h3 className="text-sm font-bold text-primary leading-snug">{p.name}</h3>
+                  </motion.button>
+                );
+              })}
+            </motion.div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selected.key}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3 }}
+                className="bg-bg rounded-2xl border border-border p-8 lg:p-10"
+              >
+                <h3 className="text-2xl font-bold text-primary mb-4">{selected.name}</h3>
+                <p className="text-secondary leading-relaxed mb-8 max-w-3xl">{selected.definition}</p>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Sparkles size={16} className="text-cta" />
+                      <h4 className="text-sm font-bold text-primary uppercase tracking-wide">Points forts fonctionnels</h4>
+                    </div>
+                    <ul className="space-y-2.5">
+                      {selected.strengths.map((s) => (
+                        <li key={s} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
+                          {s}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Star size={16} className="text-cta" />
+                      <h4 className="text-sm font-bold text-primary uppercase tracking-wide">Valeur ajoutée</h4>
+                    </div>
+                    <ul className="space-y-2.5">
+                      {selected.value.map((v) => (
+                        <li key={v} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
+                          {v}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 
