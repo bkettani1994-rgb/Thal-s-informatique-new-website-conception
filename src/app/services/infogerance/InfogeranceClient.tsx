@@ -23,6 +23,7 @@ import {
   FileText,
   Shield,
   Gauge,
+  BookOpen,
 } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -168,6 +169,12 @@ const process = [
     icon: Gauge,
     title: "Optimisation & Sécurisation",
     description: "Amélioration continue des performances, de la disponibilité et de la cybersécurité.",
+  },
+  {
+    step: "08",
+    icon: BookOpen,
+    title: "Documentation",
+    description: "Remise d'une documentation complète de l'infrastructure et des procédures pour une traçabilité totale.",
   },
 ];
 
@@ -416,9 +423,9 @@ export default function InfogeranceClient() {
               className="relative"
             >
               {/* Horizontal connector line */}
-              <div className="hidden lg:block absolute top-[52px] left-[calc(100%/14)] right-[calc(100%/14)] h-0.5 bg-cyan-200 z-0" />
+              <div className="hidden lg:block absolute top-[52px] left-[calc(100%/16)] right-[calc(100%/16)] h-0.5 bg-cyan-200 z-0" />
 
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
                 {process.map((p) => (
                   <motion.div key={p.step} variants={fadeUp} className="relative flex flex-col items-center text-center">
                     {/* Step badge */}
