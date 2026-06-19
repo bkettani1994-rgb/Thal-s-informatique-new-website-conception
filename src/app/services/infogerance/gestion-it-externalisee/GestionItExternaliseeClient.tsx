@@ -123,8 +123,13 @@ export default function GestionItExternaliseeClient() {
       <Navbar />
       <main className="min-h-screen bg-bg">
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dmutnjgp8/image/upload/v1781882699/magnific_professional-banner-for-o_9RjpfUVNYZ_w8srtl.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 text-white/50 text-sm mb-8 flex-wrap">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
               <ChevronRight size={14} />
