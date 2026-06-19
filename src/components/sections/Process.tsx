@@ -17,6 +17,7 @@ import {
   Activity,
   Headphones,
   Gauge,
+  BookOpen,
   ArrowRight,
 } from "lucide-react";
 
@@ -74,6 +75,7 @@ const journeys: Journey[] = [
       { icon: Activity, title: "Surveillance Continue", description: "Monitoring proactif des systèmes afin de détecter et traiter rapidement les incidents." },
       { icon: Headphones, title: "Assistance Utilisateurs", description: "Support technique réactif pour accompagner les collaborateurs au quotidien." },
       { icon: Gauge, title: "Optimisation & Sécurisation", description: "Amélioration continue des performances, de la disponibilité et de la cybersécurité." },
+      { icon: BookOpen, title: "Documentation", description: "Remise d'une documentation complète de l'infrastructure et des procédures pour une traçabilité totale." },
     ],
   },
 ];
@@ -167,7 +169,7 @@ export default function Process() {
                 animate={inView ? { width: "100%" } : { width: "0%" }}
                 transition={{ duration: 1.4, ease: "easeInOut", delay: 0.3 }}
               />
-              <div className="grid grid-cols-7 gap-3">
+              <div className={`grid gap-3 ${journey.steps.length === 8 ? "grid-cols-8" : "grid-cols-7"}`}>
                 {journey.steps.map((step, i) => (
                   <motion.div
                     key={step.title}
