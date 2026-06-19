@@ -31,7 +31,7 @@ const benefits = [
   "Équipes sensibilisées aux risques de phishing et d'ingénierie sociale",
 ];
 
-export default function CybersecurityClient() {
+export default function CybersecuriteClient() {
   const introRef = useRef(null);
   const domainsRef = useRef(null);
   const benefitsRef = useRef(null);
@@ -56,7 +56,7 @@ export default function CybersecurityClient() {
               <ChevronRight size={14} />
               <Link href="/services/infogerance" className="hover:text-white transition-colors">Infogérance</Link>
               <ChevronRight size={14} />
-              <span className="text-accent">Cybersecurity</span>
+              <span className="text-accent">Cybersécurité</span>
             </div>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-accent text-xs font-semibold tracking-widest mb-6">

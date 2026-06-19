@@ -103,7 +103,7 @@ const plans = [
   },
 ];
 
-export default function ManagedItServicesClient() {
+export default function GestionItExternaliseeClient() {
   const introRef = useRef(null);
   const scopesRef = useRef(null);
   const plansRef = useRef(null);
@@ -132,14 +132,14 @@ export default function ManagedItServicesClient() {
               <ChevronRight size={14} />
               <Link href="/services/infogerance" className="hover:text-white transition-colors">Infogérance</Link>
               <ChevronRight size={14} />
-              <span className="text-accent">Managed IT Services</span>
+              <span className="text-accent">Gestion IT Externalisée</span>
             </div>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-accent text-xs font-semibold tracking-widest mb-6">
                 <Server size={12} /> GESTION COMPLÈTE
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Managed IT Services
+                Gestion IT Externalisée
               </h1>
               <p className="text-xl text-white/70 leading-relaxed">
                 La prise en charge complète de votre infrastructure informatique, pour que vos équipes
@@ -155,7 +155,7 @@ export default function ManagedItServicesClient() {
             <motion.div variants={fadeUp} initial="hidden" animate={introInView ? "visible" : "hidden"} className="max-w-3xl">
               <h2 className="text-3xl font-bold text-primary mb-6">Une infrastructure pilotée de bout en bout</h2>
               <p className="text-secondary text-lg leading-relaxed mb-4">
-                Nos Managed IT Services couvrent l'ensemble de votre environnement informatique : postes de
+                Nos services de gestion IT externalisée couvrent l'ensemble de votre environnement informatique : postes de
                 travail, serveurs, réseau et cloud. Basée à Casablanca, notre équipe assure une supervision
                 continue et une maintenance proactive pour garantir la disponibilité et la performance de vos
                 systèmes.

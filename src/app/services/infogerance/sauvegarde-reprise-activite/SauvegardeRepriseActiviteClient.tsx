@@ -31,7 +31,7 @@ const guarantees = [
   "Délais de reprise (RTO) et de perte de données (RPO) définis avec vous",
 ];
 
-export default function BackupDisasterRecoveryClient() {
+export default function SauvegardeRepriseActiviteClient() {
   const introRef = useRef(null);
   const stepsRef = useRef(null);
   const guaranteesRef = useRef(null);
@@ -56,14 +56,14 @@ export default function BackupDisasterRecoveryClient() {
               <ChevronRight size={14} />
               <Link href="/services/infogerance" className="hover:text-white transition-colors">Infogérance</Link>
               <ChevronRight size={14} />
-              <span className="text-accent">Backup & Disaster Recovery</span>
+              <span className="text-accent">Sauvegarde & Reprise d'Activité</span>
             </div>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-accent text-xs font-semibold tracking-widest mb-6">
                 <Database size={12} /> CONTINUITÉ D'ACTIVITÉ
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Backup & Disaster Recovery
+                Sauvegarde & Reprise d'Activité
               </h1>
               <p className="text-xl text-white/70 leading-relaxed">
                 Protégez vos données et garantissez la continuité de votre activité, même en cas d'incident majeur.
@@ -79,7 +79,7 @@ export default function BackupDisasterRecoveryClient() {
               <h2 className="text-3xl font-bold text-primary mb-6">Vos données, protégées en toutes circonstances</h2>
               <p className="text-secondary text-lg leading-relaxed mb-4">
                 Une panne, une erreur humaine ou une cyberattaque peut compromettre vos données en quelques
-                minutes. Notre offre Backup & Disaster Recovery met en place des sauvegardes automatisées et
+                minutes. Notre offre Sauvegarde & Reprise d'Activité met en place des sauvegardes automatisées et
                 un plan de reprise d'activité testé régulièrement, pour minimiser l'impact d'un incident.
               </p>
               <p className="text-secondary leading-relaxed">

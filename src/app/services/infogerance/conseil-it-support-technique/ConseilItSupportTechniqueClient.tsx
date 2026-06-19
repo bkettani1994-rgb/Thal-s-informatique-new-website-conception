@@ -31,7 +31,7 @@ const benefits = [
   "Des interventions sur site lorsque la situation l'exige",
 ];
 
-export default function ConsultingItSupportTechniqueClient() {
+export default function ConseilItSupportTechniqueClient() {
   const introRef = useRef(null);
   const servicesRef = useRef(null);
   const benefitsRef = useRef(null);
@@ -56,14 +56,14 @@ export default function ConsultingItSupportTechniqueClient() {
               <ChevronRight size={14} />
               <Link href="/services/infogerance" className="hover:text-white transition-colors">Infogérance</Link>
               <ChevronRight size={14} />
-              <span className="text-accent">Consulting IT et Support Technique</span>
+              <span className="text-accent">Conseil IT et Support Technique</span>
             </div>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-accent text-xs font-semibold tracking-widest mb-6">
                 <Headset size={12} /> ACCOMPAGNEMENT & HELPDESK
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Consulting IT et Support Technique
+                Conseil IT et Support Technique
               </h1>
               <p className="text-xl text-white/70 leading-relaxed">
                 Un conseil stratégique sur votre roadmap IT, doublé d'un helpdesk réactif pour vos équipes au quotidien.

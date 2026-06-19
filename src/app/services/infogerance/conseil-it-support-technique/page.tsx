@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import ConsultingItSupportTechniqueClient from "./ConsultingItSupportTechniqueClient";
+import ConseilItSupportTechniqueClient from "./ConseilItSupportTechniqueClient";
 
 export const metadata: Metadata = {
-  title: "Consulting IT et Support Technique",
+  title: "Conseil IT et Support Technique",
   description:
     "Conseil stratégique sur votre roadmap IT et helpdesk réactif pour accompagner vos équipes au quotidien, par Thalès Informatique.",
   alternates: {
-    canonical: "/services/infogerance/consulting-it-support-technique",
+    canonical: "/services/infogerance/conseil-it-support-technique",
   },
 };
 
 export default function Page() {
-  return <ConsultingItSupportTechniqueClient />;
+  return <ConseilItSupportTechniqueClient />;
 }
