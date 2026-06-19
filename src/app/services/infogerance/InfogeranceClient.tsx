@@ -24,6 +24,9 @@ import {
   Shield,
   Gauge,
   BookOpen,
+  Database,
+  Bug,
+  Headset,
 } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -61,69 +64,50 @@ const pillars = [
   },
 ];
 
-const packs = [
+const offers = [
   {
-    name: "Essentiel",
-    tag: "DÉMARRAGE",
-    desc: "Un socle de supervision et de maintenance pour sécuriser votre parc informatique.",
-    features: [
-      "Inventaire et supervision du parc",
-      "Monitoring en temps réel",
-      "Maintenance préventive",
-      "Patchs et mises à jour système",
-      "Reporting mensuel",
-    ],
-    color: "border-slate-200",
-    tagColor: "bg-slate-100 text-slate-600",
-    highlight: false,
-  },
-  {
-    name: "Business",
-    tag: "LE PLUS CHOISI",
-    desc: "Gestion avancée des utilisateurs, du réseau, des sauvegardes et helpdesk illimité en heures ouvrées.",
-    features: [
-      "Tout le pack Essentiel",
-      "Gestion avancée utilisateurs & réseau",
-      "Sauvegardes automatisées",
-      "Helpdesk illimité en heures ouvrées",
-      "Interventions sur site incluses",
-      "Reporting avancé",
-    ],
+    name: "Managed IT Services",
+    tag: "GESTION COMPLÈTE",
+    icon: Server,
+    desc: "La prise en charge complète de votre infrastructure : postes, serveurs, réseau et cloud, supervisés et maintenus au quotidien.",
+    href: "/services/infogerance/managed-it-services",
     color: "border-cta ring-2 ring-cta/20",
     tagColor: "bg-cta text-white",
-    highlight: true,
+    iconBg: "bg-cta/10",
+    iconColor: "text-cta",
   },
   {
-    name: "Premium",
-    tag: "RECOMMANDÉ",
-    desc: "Cybersécurité renforcée, SLA prioritaires et accompagnement stratégique pour les environnements critiques.",
-    features: [
-      "Tout le pack Business",
-      "Cybersécurité renforcée (EDR, pare-feu avancé)",
-      "SLA prioritaires & interventions H24",
-      "Plan de reprise d'activité (PRA)",
-      "Accompagnement stratégique IT",
-      "Tableau de bord dédié",
-    ],
+    name: "Backup & Disaster Recovery",
+    tag: "CONTINUITÉ D'ACTIVITÉ",
+    icon: Database,
+    desc: "Sauvegardes automatisées, plans de reprise d'activité et tests de restauration pour garantir la continuité de vos données.",
+    href: "/services/infogerance/backup-disaster-recovery",
+    color: "border-slate-200",
+    tagColor: "bg-slate-100 text-slate-600",
+    iconBg: "bg-slate-100",
+    iconColor: "text-slate-600",
+  },
+  {
+    name: "Cybersecurity",
+    tag: "PROTECTION & CONFORMITÉ",
+    icon: Bug,
+    desc: "Protection de vos systèmes contre les menaces : pare-feu avancé, EDR, audits de sécurité et sensibilisation des équipes.",
+    href: "/services/infogerance/cybersecurity",
     color: "border-violet-200",
     tagColor: "bg-violet-100 text-violet-700",
-    highlight: false,
+    iconBg: "bg-violet-100",
+    iconColor: "text-violet-700",
   },
   {
-    name: "Enterprise 365",
-    tag: "SUR MESURE",
-    desc: "Offre entièrement personnalisée avec SLA sur mesure et accompagnement dans vos projets de transformation IT.",
-    features: [
-      "Périmètre 100% sur mesure",
-      "SLA personnalisés & engagements contractuels",
-      "DSI externalisée partielle ou totale",
-      "Accompagnement projets transformation IT",
-      "Équipe dédiée Thalès Informatique",
-      "Revues trimestrielles stratégiques",
-    ],
+    name: "Consulting IT et Support Technique",
+    tag: "ACCOMPAGNEMENT & HELPDESK",
+    icon: Headset,
+    desc: "Conseil stratégique sur votre roadmap IT et helpdesk réactif pour accompagner vos équipes au quotidien.",
+    href: "/services/infogerance/consulting-it-support-technique",
     color: "border-amber-200",
     tagColor: "bg-amber-100 text-amber-700",
-    highlight: false,
+    iconBg: "bg-amber-100",
+    iconColor: "text-amber-700",
   },
 ];
 
@@ -359,13 +343,13 @@ export default function InfogeranceClient() {
           </div>
         </section>
 
-        {/* Niveaux d'offre */}
+        {/* Nos offres de services */}
         <section className="py-20 bg-bg" ref={packsRef}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={fadeUp} initial="hidden" animate={packsInView ? "visible" : "hidden"} className="text-center mb-12">
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">NIVEAUX D'OFFRE</span>
-              <h2 className="text-3xl font-bold text-primary mt-2 mb-3">Un pack adapté à chaque maturité IT</h2>
-              <p className="text-secondary max-w-xl mx-auto">De la supervision de base à l'accompagnement stratégique complet, choisissez le niveau qui correspond à vos enjeux.</p>
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">NOS OFFRES DE SERVICES</span>
+              <h2 className="text-3xl font-bold text-primary mt-2 mb-3">Quatre offres dédiées à votre infogérance</h2>
+              <p className="text-secondary max-w-xl mx-auto">Chaque offre couvre un enjeu spécifique de votre infrastructure, avec une page dédiée pour explorer le détail des prestations.</p>
             </motion.div>
             <motion.div
               variants={stagger}
@@ -373,34 +357,23 @@ export default function InfogeranceClient() {
               animate={packsInView ? "visible" : "hidden"}
               className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
-              {packs.map((pack) => (
+              {offers.map((offer) => (
                 <motion.div
-                  key={pack.name}
+                  key={offer.name}
                   variants={fadeUp}
-                  className={`bg-white rounded-2xl border-2 ${pack.color} p-6 flex flex-col ${pack.highlight ? "shadow-xl" : ""}`}
+                  className={`bg-white rounded-2xl border-2 ${offer.color} p-6 flex flex-col`}
                 >
-                  <div className="mb-4">
-                    <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full ${pack.tagColor} mb-3`}>{pack.tag}</span>
-                    <h3 className="text-xl font-bold text-primary">{pack.name}</h3>
-                    <p className="text-sm text-secondary mt-2 leading-relaxed">{pack.desc}</p>
+                  <div className={`w-12 h-12 rounded-xl ${offer.iconBg} flex items-center justify-center mb-4`}>
+                    <offer.icon size={22} className={offer.iconColor} />
                   </div>
-                  <ul className="space-y-2 flex-1 mt-4">
-                    {pack.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-secondary">
-                        <Check size={14} className="text-cyan-500 mt-0.5 shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                  <span className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full ${offer.tagColor} mb-3 self-start`}>{offer.tag}</span>
+                  <h3 className="text-lg font-bold text-primary mb-2">{offer.name}</h3>
+                  <p className="text-sm text-secondary leading-relaxed flex-1">{offer.desc}</p>
                   <Link
-                    href="/contact"
-                    className={`mt-6 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition-colors duration-200 ${
-                      pack.highlight
-                        ? "bg-cta text-white hover:bg-blue-700"
-                        : "border border-border text-primary hover:border-cta hover:text-cta"
-                    }`}
+                    href={offer.href}
+                    className="mt-6 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm border border-border text-primary hover:border-cta hover:text-cta transition-colors duration-200"
                   >
-                    En savoir plus <ChevronRight size={14} />
+                    Découvrir l'offre <ChevronRight size={14} />
                   </Link>
                 </motion.div>
               ))}
