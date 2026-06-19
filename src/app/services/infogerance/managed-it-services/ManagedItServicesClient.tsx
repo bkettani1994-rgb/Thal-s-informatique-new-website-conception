@@ -40,69 +40,65 @@ const onboarding = [
 
 const plans = [
   {
-    name: "Starter",
+    name: "Socle",
     price: "À partir de 90 DH HT / Poste / Mois",
-    tagline: "L'essentiel de la sécurité IT, sans complexité.",
+    tagline: "Les fondamentaux d'une IT bien gérée, sans superflu.",
     features: [
-      "Monitoring proactif & inventaire des actifs",
-      "Gestion patchs & mises à jour",
-      "Protection antivirus & antimalware standard",
-      "Sauvegarde locale Acronis & restauration (limite 50 Go/poste)",
-      "Assistance téléphonique & support à distance",
-      "SLA « Standard »",
-      "Reporting mensuel",
+      "Inventaire des actifs & supervision proactive",
+      "Déploiement des correctifs et mises à jour",
+      "Antivirus et protection antimalware",
+      "Sauvegarde locale avec restauration (jusqu'à 50 Go/poste)",
+      "Support téléphonique et prise en main à distance",
+      "Engagement de service Standard",
+      "Bilan mensuel de l'activité",
     ],
-    option: "Module Advanced Backup (VM, M365, Google Workspace).",
-    style: "light",
+    option: "Module Advanced Backup disponible (VM, M365, Google Workspace).",
     highlight: false,
   },
   {
-    name: "Protect",
+    name: "Bouclier",
     price: "À partir de 180 DH HT / Poste / Mois",
-    tagline: "Anticipez les menaces : passez au niveau PROTECT",
+    tagline: "Une longueur d'avance sur les menaces du quotidien.",
     features: [
-      "Toutes les fonctions du Starter",
-      "Sauvegarde Cloud Acronis & restauration (limite cloud 100 Go/poste)",
-      "Protection Advanced (EDR inclus)",
-      "Intervention sur Site",
-      "SLA « Premium »",
-      "Reporting mensuel automatisé",
+      "L'ensemble des prestations du pack Socle",
+      "Sauvegarde dans le cloud avec restauration (jusqu'à 100 Go/poste)",
+      "Détection et réponse avancées (EDR)",
+      "Déplacements sur site selon besoin",
+      "Engagement de service Premium",
+      "Bilan mensuel automatisé",
     ],
-    option: "Module Advanced Backup (VM, M365, Google Workspace).",
-    style: "dark",
-    highlight: true,
-  },
-  {
-    name: "Secure+",
-    price: "à partir de 450 DH HT / Poste / Mois",
-    tagline: "La puissance de la cybersécurité au service de la performance continue.",
-    features: [
-      "Tous les services PROTECT",
-      "Disaster Recovery (DRaaS) – redémarrage VM/serveur en cas de panne (100G cloud +16 compute point)",
-      "XDR (Extended Detection & Response)",
-      "Data Loss Prevention (DLP)",
-      "Email Security & Collaboration Security (Microsoft 365)",
-      "Tests de restauration trimestriels",
-      "SLA « Ultimate »",
-      "Reporting mensuel automatisé",
-    ],
-    style: "light",
+    option: "Module Advanced Backup disponible (VM, M365, Google Workspace).",
     highlight: false,
   },
   {
-    name: "Enterprise 365",
-    price: "Sur demande de devis",
-    tagline: "Votre partenaire de confiance pour une IT performante et résiliente.",
+    name: "Forteresse",
+    price: "À partir de 450 DH HT / Poste / Mois",
+    tagline: "Une cybersécurité de haut niveau, sans compromis sur la performance.",
     features: [
-      "Tous les services SECURE+",
-      "Sauvegarde illimitée Microsoft 365 & Google Workspace",
-      "Advanced Backup pour serveurs physiques & virtuels",
-      "MDR (Managed Detection & Response) 24/7",
-      "Security Posture Management (Microsoft 365)",
-      "SLA Personnalisé",
-      "Reporting mensuel automatisé",
+      "L'ensemble des prestations du pack Bouclier",
+      "Reprise après sinistre (DRaaS) — redémarrage rapide de vos VM et serveurs",
+      "Détection et réponse étendues (XDR)",
+      "Prévention de la fuite de données (DLP)",
+      "Sécurisation des emails et de la collaboration Microsoft 365",
+      "Tests de restauration chaque trimestre",
+      "Engagement de service Ultimate",
+      "Bilan mensuel automatisé",
     ],
-    style: "light",
+    highlight: false,
+  },
+  {
+    name: "Excellence 365",
+    price: "Sur devis personnalisé",
+    tagline: "Un accompagnement sur mesure pour une IT résiliente en continu.",
+    features: [
+      "L'ensemble des prestations du pack Forteresse",
+      "Sauvegarde sans limite sur Microsoft 365 & Google Workspace",
+      "Sauvegarde avancée des serveurs physiques et virtuels",
+      "Détection et réponse managées (MDR) en continu",
+      "Pilotage de la posture de sécurité Microsoft 365",
+      "Engagement de service entièrement personnalisé",
+      "Bilan mensuel automatisé",
+    ],
     highlight: false,
   },
 ];
@@ -211,38 +207,30 @@ export default function ManagedItServicesClient() {
                 <motion.div
                   key={plan.name}
                   variants={fadeUp}
-                  className={`rounded-2xl border-2 p-6 flex flex-col ${
-                    plan.highlight
-                      ? "bg-primary border-primary text-white shadow-xl lg:-translate-y-2"
-                      : "bg-white border-border text-primary"
-                  }`}
+                  className="rounded-2xl border-2 border-border bg-white text-primary p-6 flex flex-col hover:border-cta/40 hover:shadow-md transition-all duration-200"
                 >
                   <div className="text-center mb-4">
-                    <h3 className={`text-xl font-bold mb-2 ${plan.highlight ? "text-white" : "text-primary"}`}>{plan.name}</h3>
-                    <p className={`text-xs font-semibold ${plan.highlight ? "text-white/70" : "text-secondary"}`}>{plan.price}</p>
-                    <div className={`h-0.5 w-16 mx-auto mt-4 rounded-full ${plan.highlight ? "bg-accent" : "bg-cta/30"}`} />
+                    <h3 className="text-xl font-bold mb-2 text-primary">{plan.name}</h3>
+                    <p className="text-xs font-semibold text-secondary">{plan.price}</p>
+                    <div className="h-0.5 w-16 mx-auto mt-4 rounded-full bg-cta/30" />
                   </div>
-                  <p className={`text-sm font-semibold mb-4 text-center ${plan.highlight ? "text-accent" : "text-cta"}`}>{plan.tagline}</p>
+                  <p className="text-sm font-semibold mb-4 text-center text-cta">{plan.tagline}</p>
                   <ul className="space-y-2.5 flex-1">
                     {plan.features.map((f) => (
-                      <li key={f} className={`flex items-start gap-2 text-[13px] leading-relaxed ${plan.highlight ? "text-white/80" : "text-secondary"}`}>
-                        <Check size={14} className={`mt-0.5 shrink-0 ${plan.highlight ? "text-accent" : "text-cyan-500"}`} />
+                      <li key={f} className="flex items-start gap-2 text-[13px] leading-relaxed text-secondary">
+                        <Check size={14} className="mt-0.5 shrink-0 text-cyan-500" />
                         {f}
                       </li>
                     ))}
                   </ul>
                   {plan.option && (
-                    <p className={`text-[11px] mt-4 pt-4 border-t ${plan.highlight ? "border-white/15 text-white/50" : "border-border text-secondary/70"}`}>
-                      <span className="underline">Option</span> : Module <em>Advanced Backup</em> (VM, M365, Google Workspace).
+                    <p className="text-[11px] mt-4 pt-4 border-t border-border text-secondary/70">
+                      <span className="underline">Option</span> : {plan.option}
                     </p>
                   )}
                   <Link
                     href="/contact"
-                    className={`mt-6 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition-colors duration-200 ${
-                      plan.highlight
-                        ? "bg-cta text-white hover:bg-blue-600"
-                        : "border border-border text-primary hover:border-cta hover:text-cta"
-                    }`}
+                    className="mt-6 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm border border-border text-primary hover:border-cta hover:text-cta transition-colors duration-200"
                   >
                     Demander un devis <ChevronRight size={14} />
                   </Link>
