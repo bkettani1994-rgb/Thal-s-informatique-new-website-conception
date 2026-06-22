@@ -230,15 +230,17 @@ const products: {
     definition:
       "Solution de sauvegarde spécialisée pour les environnements Microsoft 365, garantissant un contrôle total sur vos données cloud.",
     strengths: [
-      "Sauvegarde d'Exchange Online, OneDrive, SharePoint et Teams",
-      "Restauration rapide et granulaire des éléments supprimés",
-      "Stockage flexible (cloud, on-premise ou hybride)",
-      "Recherche et restauration en self-service pour les utilisateurs",
+      "Sauvegarde complète : options de sauvegarde complètes ou granulaires pour les services Microsoft 365",
+      "Récupération efficace : restauration rapide d'éléments individuels ou d'ensembles de données entiers à partir des sauvegardes",
+      "Recherche avancée et exportation : localisation et export d'éléments de données spécifiques selon les besoins",
+      "Sécurité et conformité : chiffrement, contrôle d'accès basé sur les rôles et conformité aux réglementations de protection des données",
+      "Automatisation des tâches de sauvegarde et de récupération sans intervention manuelle",
     ],
     value: [
-      "Indépendance totale par rapport aux limites de rétention de Microsoft",
-      "Continuité d'activité assurée même en cas d'incident sur le cloud Microsoft",
-      "Gain de temps pour les équipes IT grâce au self-service",
+      "Disponibilité des données : les données Microsoft 365 critiques restent disponibles et récupérables en cas de perte ou de corruption",
+      "Renforcement de la sécurité grâce à un chiffrement avancé et des contrôles d'accès contre les accès non autorisés",
+      "Efficacité opérationnelle améliorée par des processus de sauvegarde automatisés et une gestion centralisée",
+      "Rentabilité : réduction des coûts opérationnels liés à la récupération des données et temps d'arrêt minimal en cas d'incident",
     ],
   },
 ];
