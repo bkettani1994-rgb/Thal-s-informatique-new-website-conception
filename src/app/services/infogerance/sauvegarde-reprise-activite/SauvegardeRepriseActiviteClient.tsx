@@ -31,7 +31,17 @@ const guarantees = [
   "Délais de reprise (RTO) et de perte de données (RPO) définis avec vous",
 ];
 
-const products = [
+type StrengthItem = string | { category: string; items: string[] };
+
+const products: {
+  key: string;
+  name: string;
+  vendor: string;
+  icon: typeof HardDrive;
+  definition: string;
+  strengths: StrengthItem[];
+  value: StrengthItem[];
+}[] = [
   {
     key: "veeam-backup-replication",
     name: "Veeam Backup & Replication",
@@ -40,15 +50,75 @@ const products = [
     definition:
       "Solution de sauvegarde et de réplication pour environnements virtuels, physiques et cloud, reconnue pour la rapidité de ses restaurations.",
     strengths: [
-      "Sauvegarde et réplication de machines virtuelles (VMware, Hyper-V)",
-      "Restauration instantanée au niveau fichier, application ou VM complète",
-      "Réplication vers un site de secours pour un basculement rapide",
-      "Compatible avec les environnements hybrides (on-premise, cloud, multi-cloud)",
+      {
+        category: "Sauvegarde et Restauration",
+        items: [
+          "Environnements virtuels : prise en charge de VMware vSphere, Microsoft Hyper-V et Nutanix AHV",
+          "Environnements physiques : sauvegarde des serveurs physiques et des postes de travail Windows et Linux",
+          "Cloud : intégration avec AWS, Azure, Google Cloud Platform et autres services de cloud public",
+          "Snapshot de stockage : intégration avec les snapshots de stockage pour une sauvegarde rapide et sans agent",
+          "Restauration granulaire : restauration au niveau des fichiers et des objets d'application (Exchange, SharePoint, SQL, Active Directory, Oracle)",
+          "Restauration instantanée : restauration instantanée des VM, restauration bare-metal",
+          "SureBackup : test automatisé des sauvegardes pour garantir la récupérabilité",
+        ],
+      },
+      {
+        category: "Réplication",
+        items: [
+          "Réplication des VM : création de répliques de VM pour une reprise après sinistre rapide",
+          "Failover et failback : processus de basculement automatisé et planifié, retour à l'état normal après résolution du sinistre",
+        ],
+      },
+      {
+        category: "Veeam Cloud Connect",
+        items: [
+          "Envoi des sauvegardes vers le cloud : permet d'envoyer des sauvegardes vers des fournisseurs de services Veeam Cloud",
+          "Récupération à partir du cloud : options de récupération directe à partir du cloud",
+        ],
+      },
+      {
+        category: "Veeam Explorer",
+        items: [
+          "Restauration granulaire pour Microsoft Exchange, SharePoint, Active Directory, SQL Server et Oracle",
+          "Recherche avancée pour trouver et restaurer rapidement des éléments spécifiques",
+        ],
+      },
+      {
+        category: "Automatisation et Orchestration",
+        items: [
+          "Veeam ONE : surveillance et reporting avancés pour une gestion proactive des environnements de sauvegarde",
+          "Automatisation des tâches : planification automatique des sauvegardes et des tests de récupération",
+        ],
+      },
     ],
     value: [
-      "Réduction nette du temps d'arrêt grâce à des délais de reprise très courts",
-      "Fiabilité éprouvée sur les infrastructures virtualisées les plus exigeantes",
-      "Base solide pour construire un plan de reprise d'activité sur mesure",
+      {
+        category: "Protection des Données",
+        items: [
+          "Sauvegarde fiable : garantit l'intégrité des sauvegardes et la possibilité de restauration à tout moment",
+          "Tests automatisés : SureBackup pour vérifier automatiquement la récupérabilité des sauvegardes",
+        ],
+      },
+      {
+        category: "Flexibilité et Performance",
+        items: [
+          "Multi-environnement : prise en charge des environnements virtuels, physiques et cloud",
+          "Optimisation des performances : sauvegardes et restaurations rapides et efficaces",
+        ],
+      },
+      {
+        category: "Scalabilité",
+        items: [
+          "Adapté à toutes les tailles d'entreprises, de la petite structure aux grandes organisations avec des déploiements étendus",
+        ],
+      },
+      {
+        category: "Gestion Simplifiée",
+        items: [
+          "Interface intuitive : console de gestion centralisée pour configurer et surveiller les sauvegardes",
+          "Automatisation : réduction des tâches manuelles grâce à l'automatisation des processus",
+        ],
+      },
     ],
   },
   {
@@ -251,28 +321,70 @@ export default function SauvegardeRepriseActiviteClient() {
                       <Sparkles size={16} className="text-cta" />
                       <h4 className="text-sm font-bold text-primary uppercase tracking-wide">Points forts fonctionnels</h4>
                     </div>
-                    <ul className="space-y-2.5">
-                      {selected.strengths.map((s) => (
-                        <li key={s} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                          <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
+                    {selected.strengths.every((s) => typeof s === "string") ? (
+                      <ul className="space-y-2.5">
+                        {selected.strengths.map((s) => (
+                          <li key={s as string} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                            <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
+                            {s as string}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="space-y-5">
+                        {selected.strengths.map((group) => {
+                          const g = group as { category: string; items: string[] };
+                          return (
+                            <div key={g.category}>
+                              <h5 className="text-xs font-bold text-cta uppercase tracking-wide mb-2">{g.category}</h5>
+                              <ul className="space-y-2">
+                                {g.items.map((item) => (
+                                  <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                                    <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
+                                    {item}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <Star size={16} className="text-cta" />
                       <h4 className="text-sm font-bold text-primary uppercase tracking-wide">Valeur ajoutée</h4>
                     </div>
-                    <ul className="space-y-2.5">
-                      {selected.value.map((v) => (
-                        <li key={v} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                          <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
-                          {v}
-                        </li>
-                      ))}
-                    </ul>
+                    {selected.value.every((v) => typeof v === "string") ? (
+                      <ul className="space-y-2.5">
+                        {selected.value.map((v) => (
+                          <li key={v as string} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                            <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
+                            {v as string}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="space-y-5">
+                        {selected.value.map((group) => {
+                          const g = group as { category: string; items: string[] };
+                          return (
+                            <div key={g.category}>
+                              <h5 className="text-xs font-bold text-cta uppercase tracking-wide mb-2">{g.category}</h5>
+                              <ul className="space-y-2">
+                                {g.items.map((item) => (
+                                  <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                                    <CheckCircle size={15} className="text-cta mt-0.5 shrink-0" />
+                                    {item}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
