@@ -209,15 +209,17 @@ const products: {
     definition:
       "Solution dédiée à la sauvegarde des données Microsoft 365 (emails, fichiers, Teams, SharePoint) non couvertes nativement par les politiques de rétention Microsoft.",
     strengths: [
-      "Sauvegarde complète d'Exchange Online, SharePoint, OneDrive et Teams",
-      "Restauration granulaire (email, fichier, conversation) en quelques clics",
-      "Sauvegardes automatisées et chiffrées dans le cloud",
-      "Conservation des données indépendante des politiques de Microsoft",
+      "Flexibilité de sauvegarde : planification flexible des sauvegardes et politiques de rétention adaptées aux besoins organisationnels",
+      "Sécurité avancée : chiffrement des données au repos et en transit, contre les accès non autorisés",
+      "Récupération à un instant précis : restauration granulaire des e-mails, fichiers et autres éléments à des points spécifiques dans le temps",
+      "Sauvegarde automatisée réduisant l'intervention manuelle pour une protection continue",
+      "Couverture complète des boîtes aux lettres Exchange Online, de SharePoint, OneDrive et Teams",
     ],
     value: [
-      "Comble les limites de la rétention native de Microsoft 365",
-      "Protection contre la suppression accidentelle ou malveillante de données",
-      "Conformité renforcée pour la gestion documentaire de l'entreprise",
+      "Résilience des données : protège les données critiques de Microsoft 365 contre la suppression accidentelle, les attaques de ransomware et les erreurs opérationnelles",
+      "Conformité prête : aide les organisations à respecter les exigences de conformité réglementaire en garantissant la disponibilité et la récupérabilité des données",
+      "Efficacité opérationnelle grâce à une administration centralisée des sauvegardes et de la surveillance",
+      "Optimisation des coûts : réduction des risques de perte de données et des coûts associés grâce à une récupération rapide",
     ],
   },
   {
