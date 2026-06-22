@@ -47,8 +47,14 @@ export default function ConseilItSupportTechniqueClient() {
       <Navbar />
       <main className="min-h-screen bg-bg">
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781880098/IT_servers_fcccww.jpg"
+            alt="Conseil IT et support technique sur l'infrastructure serveur de l'entreprise"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 text-white/50 text-sm mb-8 flex-wrap">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
               <ChevronRight size={14} />

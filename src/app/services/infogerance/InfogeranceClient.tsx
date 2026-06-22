@@ -222,9 +222,10 @@ export default function InfogeranceClient() {
 
         {/* Hero */}
         <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('https://res.cloudinary.com/dmutnjgp8/image/upload/v1781880098/IT_servers_fcccww.jpg')" }}
+          <img
+            src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781880098/IT_servers_fcccww.jpg"
+            alt="Serveurs informatiques supervisés dans le cadre de l'infogérance Thalès Informatique"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
