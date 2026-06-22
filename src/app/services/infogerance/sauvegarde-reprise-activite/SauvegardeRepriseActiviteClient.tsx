@@ -129,15 +129,76 @@ const products: {
     definition:
       "Solution de sauvegarde intégrant des fonctionnalités de cybersécurité (anti-ransomware, antimalware) pour protéger vos données contre les menaces actuelles.",
     strengths: [
-      "Sauvegarde d'images complètes de postes, serveurs et machines virtuelles",
-      "Protection active contre les ransomwares intégrée à la sauvegarde",
-      "Sauvegarde locale et cloud avec chiffrement de bout en bout",
-      "Tableau de bord centralisé pour la supervision de vos sauvegardes",
+      {
+        category: "Sauvegarde et Restauration",
+        items: [
+          "Environnements physiques : prise en charge des serveurs Windows et Linux, des postes de travail, et des applications comme Microsoft Exchange, SQL Server, SharePoint et Active Directory",
+          "Environnements virtuels : prise en charge des hyperviseurs comme VMware vSphere, Microsoft Hyper-V, Citrix XenServer, Red Hat Virtualization et Oracle VM Server",
+          "Environnements cloud : intégration avec les services cloud publics comme AWS, Microsoft Azure et Google Cloud Platform",
+          "Disques et systèmes complets : sauvegarde au niveau du disque et du système entier pour une récupération complète",
+          "Restauration granulaire : restauration de fichiers individuels, de dossiers, d'objets d'application spécifiques (comme des emails Exchange) et de machines virtuelles",
+          "Restauration instantanée des machines virtuelles pour minimiser les temps d'arrêt",
+          "Restauration bare-metal : restauration complète du système sur un matériel identique ou différent",
+        ],
+      },
+      {
+        category: "Stockage des Sauvegardes",
+        items: [
+          "Options de stockage flexibles : sauvegardes sur site (NAS, SAN, bandes magnétiques), dans le cloud Acronis, ou en configuration hybride",
+          "Réduction des données : déduplication et compression pour économiser l'espace de stockage et la bande passante",
+        ],
+      },
+      {
+        category: "Protection Avancée",
+        items: [
+          "Protection contre les ransomwares : Acronis Active Protection utilise l'intelligence artificielle pour détecter et stopper les ransomwares en temps réel",
+          "Cryptage AES-256 des données en transit et au repos pour assurer la confidentialité et la sécurité des sauvegardes",
+        ],
+      },
+      {
+        category: "Gestion et Surveillance",
+        items: [
+          "Console de gestion web centralisée pour configurer, gérer et surveiller les sauvegardes et les restaurations",
+          "Rapports et notifications en temps réel sur l'état des sauvegardes et des restaurations",
+        ],
+      },
+      {
+        category: "Automatisation et Orchestration",
+        items: [
+          "Planification des sauvegardes selon des horaires prédéfinis ou des déclencheurs d'événements",
+          "Plan de reprise après sinistre : création et automatisation des plans de reprise pour garantir une récupération rapide",
+        ],
+      },
     ],
     value: [
-      "Une seule solution pour couvrir à la fois la sauvegarde et la cybersécurité",
-      "Réduction du risque de perte de données liée aux cyberattaques",
-      "Simplicité de gestion pour vos équipes IT",
+      {
+        category: "Protection Complète des Données",
+        items: [
+          "Multi-environnement : prise en charge des environnements physiques, virtuels et cloud pour une protection complète",
+          "Restauration fiable garantissant la possibilité de restaurer rapidement les données en cas de besoin",
+        ],
+      },
+      {
+        category: "Sécurité et Conformité",
+        items: [
+          "Protection avancée contre les menaces comme les ransomwares et autres malwares",
+          "Conformité réglementaire : aide les entreprises à se conformer aux exigences de conservation et de protection des données",
+        ],
+      },
+      {
+        category: "Flexibilité et Scalabilité",
+        items: [
+          "Options de stockage flexibles sur site, dans le cloud ou en configuration hybride pour s'adapter aux besoins de l'entreprise",
+          "Scalabilité conçue pour évoluer avec la croissance des entreprises, des PME aux grandes organisations",
+        ],
+      },
+      {
+        category: "Gestion Simplifiée",
+        items: [
+          "Interface intuitive : console web facile à utiliser pour gérer et surveiller les sauvegardes",
+          "Automatisation réduisant les tâches manuelles grâce à l'automatisation des processus de sauvegarde et de restauration",
+        ],
+      },
     ],
   },
   {
