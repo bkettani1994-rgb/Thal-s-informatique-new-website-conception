@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Bug, Lock, Eye, Users, ShieldCheck, ArrowRight } from "lucide-react";
+import { ChevronRight, Bug, Lock, Eye, Users, ShieldCheck, ArrowRight, ShieldHalf, CheckCircle, Sparkles, Star, Flame, RadioTower } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -31,16 +31,119 @@ const benefits = [
   "Équipes sensibilisées aux risques de phishing et d'ingénierie sociale",
 ];
 
+const products = [
+  {
+    key: "sophos",
+    name: "Sophos",
+    vendor: "Sophos",
+    icon: ShieldHalf,
+    definition:
+      "Suite de cybersécurité nouvelle génération combinant protection des endpoints, pare-feu et détection des menaces pilotée par l'intelligence artificielle.",
+    strengths: [
+      "Protection des endpoints avec détection comportementale et blocage des ransomwares en temps réel",
+      "Pare-feu nouvelle génération (XG Firewall) avec inspection approfondie du trafic",
+      "Synchronized Security : communication automatique entre les endpoints et le pare-feu pour isoler les menaces",
+      "Console de gestion centralisée (Sophos Central) pour superviser l'ensemble du parc",
+    ],
+    value: [
+      "Réduction du temps de détection et de réponse face aux menaces grâce à l'automatisation",
+      "Visibilité unifiée sur la sécurité réseau et la sécurité des postes",
+      "Simplicité d'administration pour les équipes IT internes",
+    ],
+  },
+  {
+    key: "acronis",
+    name: "Acronis",
+    vendor: "Acronis",
+    icon: ShieldCheck,
+    definition:
+      "Plateforme combinant cybersécurité et protection des données, intégrant antimalware, anti-ransomware et gestion des vulnérabilités.",
+    strengths: [
+      "Protection anti-ransomware et antimalware basée sur l'intelligence artificielle (Acronis Active Protection)",
+      "Gestion des correctifs et des vulnérabilités pour réduire la surface d'attaque",
+      "Filtrage d'URL et protection contre les attaques par script",
+      "Intégration native avec les solutions de sauvegarde Acronis pour une remédiation rapide",
+    ],
+    value: [
+      "Une seule plateforme pour couvrir à la fois la cybersécurité et la continuité des données",
+      "Réduction du risque de compromission grâce à une approche proactive des vulnérabilités",
+      "Remédiation accélérée en cas d'incident grâce au lien avec la sauvegarde",
+    ],
+  },
+  {
+    key: "bitdefender",
+    name: "Bitdefender",
+    vendor: "Bitdefender",
+    icon: Lock,
+    definition:
+      "Solution de cybersécurité reconnue pour ses moteurs de détection performants et sa faible empreinte sur les postes de travail et serveurs.",
+    strengths: [
+      "Détection multicouche (machine learning, analyse comportementale, sandboxing) contre les menaces avancées",
+      "Protection EDR/XDR pour une visibilité étendue sur les incidents de sécurité",
+      "Faible impact sur les performances des postes et serveurs protégés",
+      "Console GravityZone centralisée pour le déploiement et le suivi des politiques de sécurité",
+    ],
+    value: [
+      "Niveau de détection élevé sans compromettre la productivité des utilisateurs",
+      "Réduction de la charge de gestion grâce à une administration centralisée",
+      "Réactivité accrue face aux menaces grâce aux capacités EDR/XDR",
+    ],
+  },
+  {
+    key: "fortinet",
+    name: "Fortinet",
+    vendor: "Fortinet",
+    icon: Flame,
+    definition:
+      "Référence du marché pour la sécurité réseau, avec des pare-feux nouvelle génération (FortiGate) et un écosystème de sécurité intégré (Security Fabric).",
+    strengths: [
+      "Pare-feu nouvelle génération (FortiGate) avec inspection SSL et protection contre les intrusions",
+      "Security Fabric : intégration native entre pare-feu, endpoints, Wi-Fi et cloud pour une défense cohérente",
+      "VPN sécurisé pour les accès distants et le télétravail",
+      "Performances élevées grâce à des processeurs de sécurité dédiés (SPU)",
+    ],
+    value: [
+      "Sécurité réseau robuste, adaptée aux infrastructures multi-sites",
+      "Cohérence de la posture de sécurité grâce à l'intégration de l'ensemble des couches de protection",
+      "Continuité d'activité assurée pour les collaborateurs en mobilité ou en télétravail",
+    ],
+  },
+  {
+    key: "eset",
+    name: "Eset",
+    vendor: "Eset",
+    icon: RadioTower,
+    definition:
+      "Solution de cybersécurité reconnue pour la légèreté de ses agents et l'efficacité de sa détection, adaptée aux PME comme aux grandes structures.",
+    strengths: [
+      "Moteur de détection multicouche combinant signatures, heuristique et machine learning",
+      "Protection des endpoints, serveurs de fichiers et messagerie contre malwares et phishing",
+      "Console de gestion ESET PROTECT pour le déploiement et le suivi à distance",
+      "Faible consommation de ressources, adaptée aux environnements hétérogènes",
+    ],
+    value: [
+      "Bon équilibre entre niveau de protection et performance des systèmes",
+      "Déploiement et gestion simplifiés pour les équipes IT, y compris sur des parcs hétérogènes",
+      "Coût total de possession maîtrisé pour les PME comme pour les grandes structures",
+    ],
+  },
+];
+
 export default function CybersecuriteClient() {
   const introRef = useRef(null);
   const domainsRef = useRef(null);
+  const productsRef = useRef(null);
   const benefitsRef = useRef(null);
   const ctaRef = useRef(null);
 
   const introInView = useInView(introRef, { once: true, margin: "-100px" });
   const domainsInView = useInView(domainsRef, { once: true, margin: "-100px" });
+  const productsInView = useInView(productsRef, { once: true, margin: "-100px" });
   const benefitsInView = useInView(benefitsRef, { once: true, margin: "-100px" });
   const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
+
+  const [activeProduct, setActiveProduct] = useState(products[0].key);
+  const selected = products.find((p) => p.key === activeProduct)!;
 
   return (
     <>
@@ -116,8 +219,89 @@ export default function CybersecuriteClient() {
           </div>
         </section>
 
+        {/* Produits & solutions partenaires */}
+        <section ref={productsRef} className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div variants={fadeUp} initial="hidden" animate={productsInView ? "visible" : "hidden"} className="text-center mb-14">
+              <span className="text-xs font-bold text-violet-600 tracking-widest uppercase">SOLUTIONS PARTENAIRES</span>
+              <h2 className="text-3xl font-bold text-primary mt-2 mb-3">Les technologies derrière notre cybersécurité</h2>
+              <p className="text-secondary max-w-2xl mx-auto">Sélectionnez une solution pour découvrir sa définition, ses points forts fonctionnels et la valeur qu'elle apporte à votre entreprise.</p>
+            </motion.div>
+
+            <motion.div variants={stagger} initial="hidden" animate={productsInView ? "visible" : "hidden"} className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
+              {products.map((p) => {
+                const isActive = p.key === activeProduct;
+                return (
+                  <motion.button
+                    key={p.key}
+                    type="button"
+                    variants={fadeUp}
+                    onClick={() => setActiveProduct(p.key)}
+                    className={`text-left rounded-2xl border-2 p-5 transition-all duration-200 ${
+                      isActive
+                        ? "border-violet-600 bg-violet-50 shadow-md"
+                        : "border-border bg-white hover:border-violet-300 hover:shadow-sm"
+                    }`}
+                  >
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${isActive ? "bg-violet-600 text-white" : "bg-violet-100 text-violet-700"}`}>
+                      <p.icon size={20} />
+                    </div>
+                    <div className="text-[11px] font-bold text-secondary/60 uppercase tracking-wide mb-1">{p.vendor}</div>
+                    <h3 className="text-sm font-bold text-primary leading-snug">{p.name}</h3>
+                  </motion.button>
+                );
+              })}
+            </motion.div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selected.key}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl border border-border p-8 lg:p-10"
+              >
+                <h3 className="text-2xl font-bold text-primary mb-4">{selected.name}</h3>
+                <p className="text-secondary leading-relaxed mb-8 max-w-3xl">{selected.definition}</p>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Sparkles size={16} className="text-violet-600" />
+                      <h4 className="text-sm font-bold text-primary uppercase tracking-wide">Points forts fonctionnels</h4>
+                    </div>
+                    <ul className="space-y-2.5">
+                      {selected.strengths.map((s) => (
+                        <li key={s} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle size={15} className="text-violet-600 mt-0.5 shrink-0" />
+                          {s}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Star size={16} className="text-violet-600" />
+                      <h4 className="text-sm font-bold text-primary uppercase tracking-wide">Valeur ajoutée</h4>
+                    </div>
+                    <ul className="space-y-2.5">
+                      {selected.value.map((v) => (
+                        <li key={v} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle size={15} className="text-violet-600 mt-0.5 shrink-0" />
+                          {v}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </section>
+
         {/* Benefits */}
-        <section ref={benefitsRef} className="py-20">
+        <section ref={benefitsRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={fadeUp} initial="hidden" animate={benefitsInView ? "visible" : "hidden"} className="text-center mb-14">
               <h2 className="text-3xl font-bold text-primary mb-4">Pourquoi investir dans la cybersécurité</h2>
@@ -134,7 +318,7 @@ export default function CybersecuriteClient() {
         </section>
 
         {/* CTA */}
-        <section ref={ctaRef} className="py-20 bg-white">
+        <section ref={ctaRef} className="py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div variants={fadeUp} initial="hidden" animate={ctaInView ? "visible" : "hidden"} className="bg-primary rounded-3xl p-12 text-center">
               <h2 className="text-3xl font-bold text-white mb-4">Renforcez votre niveau de sécurité</h2>
