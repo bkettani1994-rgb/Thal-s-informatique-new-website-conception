@@ -315,19 +315,39 @@ export default function TemoignagesClient() {
 
       {/* Overall rating */}
       <section ref={ratingRef} className="py-16 bg-gradient-to-br from-primary to-slate-800">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={ratingInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
+            className="grid sm:grid-cols-2 gap-8 text-center"
           >
-            <div className="flex justify-center gap-2 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={32} className="text-yellow-400 fill-yellow-400" />
-              ))}
+            <div>
+              <div className="flex justify-center gap-2 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={32} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <div className="text-6xl font-bold text-white mb-2">4.8<span className="text-3xl text-slate-400">/5</span></div>
+              <p className="text-slate-400 text-lg">Basé sur 312 avis clients vérifiés</p>
             </div>
-            <div className="text-6xl font-bold text-white mb-2">4.8<span className="text-3xl text-slate-400">/5</span></div>
-            <p className="text-slate-400 text-lg">Basé sur 312 avis clients vérifiés</p>
+            <div className="sm:border-l sm:border-white/15 sm:pl-8">
+              <div className="flex justify-center gap-2 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={32} className={i < 5 ? "text-yellow-400 fill-yellow-400" : "text-slate-500"} />
+                ))}
+              </div>
+              <div className="text-6xl font-bold text-white mb-2">4.7<span className="text-3xl text-slate-400">/5</span></div>
+              <p className="text-slate-400 text-lg mb-1">29 avis Google</p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Thales+Informatique+Revendeur+Solution+Sage+Casablanca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-white transition-colors"
+              >
+                Voir la fiche Google →
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -344,12 +364,22 @@ export default function TemoignagesClient() {
             <p className="text-secondary mb-8 text-lg">
               Vous êtes client Thalès Informatique ? Votre retour d'expérience aide d'autres entreprises à prendre la bonne décision.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-lg"
-            >
-              Laisser un avis <ChevronRight size={18} />
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-lg"
+              >
+                Laisser un avis <ChevronRight size={18} />
+              </Link>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Thales+Informatique+Revendeur+Solution+Sage+Casablanca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-cta text-cta font-semibold rounded-xl hover:bg-cta hover:text-white transition-colors duration-200"
+              >
+                Rédiger un avis Google <ChevronRight size={18} />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
