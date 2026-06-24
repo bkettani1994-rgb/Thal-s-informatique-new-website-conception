@@ -187,7 +187,7 @@ export default function TemoignagesClient() {
               Témoignages <span className="text-accent">Clients</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl">
-              Ce que nos clients disent de Thalès Informatique. 312 avis, 4.8/5 — une confiance bâtie sur 30 ans de résultats.
+              Ce que nos clients disent de Thalès Informatique — une confiance bâtie sur 30 ans de résultats.
             </p>
           </motion.div>
         </div>
@@ -315,39 +315,27 @@ export default function TemoignagesClient() {
 
       {/* Overall rating */}
       <section ref={ratingRef} className="py-16 bg-gradient-to-br from-primary to-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={ratingInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="grid sm:grid-cols-2 gap-8 text-center"
           >
-            <div>
-              <div className="flex justify-center gap-2 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={32} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <div className="text-6xl font-bold text-white mb-2">4.8<span className="text-3xl text-slate-400">/5</span></div>
-              <p className="text-slate-400 text-lg">Basé sur 312 avis clients vérifiés</p>
+            <div className="flex justify-center gap-2 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={32} className={i < 5 ? "text-yellow-400 fill-yellow-400" : "text-slate-500"} />
+              ))}
             </div>
-            <div className="sm:border-l sm:border-white/15 sm:pl-8">
-              <div className="flex justify-center gap-2 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={32} className={i < 5 ? "text-yellow-400 fill-yellow-400" : "text-slate-500"} />
-                ))}
-              </div>
-              <div className="text-6xl font-bold text-white mb-2">4.7<span className="text-3xl text-slate-400">/5</span></div>
-              <p className="text-slate-400 text-lg mb-1">29 avis Google</p>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Thales+Informatique+Revendeur+Solution+Sage+Casablanca"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-white transition-colors"
-              >
-                Voir la fiche Google →
-              </a>
-            </div>
+            <div className="text-6xl font-bold text-white mb-2">4.7<span className="text-3xl text-slate-400">/5</span></div>
+            <p className="text-slate-400 text-lg mb-1">29 avis Google</p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Thales+Informatique+Revendeur+Solution+Sage+Casablanca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-white transition-colors"
+            >
+              Voir la fiche Google →
+            </a>
           </motion.div>
         </div>
       </section>
