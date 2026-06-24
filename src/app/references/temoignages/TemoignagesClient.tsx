@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Play, Star, Quote } from "lucide-react";
+import { ChevronRight, Play, Star, Quote, X } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -19,36 +19,86 @@ const stagger = {
 
 const videoTestimonials = [
   {
-    name: "Karim Benali",
-    role: "Directeur Financier",
-    company: "Groupe Industriel XYZ",
-    quote: "Grâce à Thalès Informatique, nous avons réduit notre cycle de clôture de 12 à 3 jours. Une transformation remarquable.",
-    metric: "-75% temps clôture",
-    accent: "from-blue-600 to-blue-800",
-    accentText: "text-blue-400",
-    initial: "K",
-  },
-  {
-    name: "Fatima Zahra Alami",
-    role: "Directrice RH",
-    company: "Distribution Maroc Sud",
-    quote: "La gestion de notre paie pour 400 collaborateurs est devenue un vrai plaisir. Zéro erreur depuis 2 ans. L'équipe Thalès a tout changé.",
-    metric: "400 collaborateurs",
-    accent: "from-violet-600 to-violet-800",
-    accentText: "text-violet-400",
-    initial: "F",
-  },
-  {
-    name: "Mohamed Tazi",
+    videoId: "p1FgI3unv2Y",
+    name: "M. Laurent Chevreau",
     role: "Directeur Général",
-    company: "BTP Construct",
-    quote: "Vision en temps réel de nos chantiers, budgets et équipes. Thalès Informatique, toujours disponible, toujours efficace.",
-    metric: "+40% productivité",
-    accent: "from-emerald-600 to-emerald-800",
-    accentText: "text-emerald-400",
-    initial: "M",
+    company: "SOCIMAR",
+    quote: "Sage est une solution parfaitement adaptée aux besoins des PME. Nous avons opté pour Thalès Informatique pour la réactivité de ses collaborateurs qui sont extrêmement compétents.",
+    accent: "from-blue-600 to-cyan-500",
+    accentText: "text-blue-300",
+    initial: "L",
+  },
+  {
+    videoId: "2-XQ_MBOYKA",
+    name: "M. Rachid Oueski",
+    role: "DAF",
+    company: "HEA Trade & Services",
+    quote: "Thalès Informatique nous accompagne dans la mise à jour de notre solution dans les meilleures conditions en termes de délai et de qualité.",
+    accent: "from-violet-600 to-purple-500",
+    accentText: "text-violet-300",
+    initial: "R",
+  },
+  {
+    videoId: "JeQ1FB2e-7E",
+    name: "M. Noureddine Gnaou",
+    role: "PDG",
+    company: "SOREMAR GROUP",
+    quote: "Être entouré par des consultants expérimentés signifie que nous pouvons toujours trouver des solutions. Notre coopération tourne très bien sur tous les points de vue avec Thalès.",
+    accent: "from-emerald-600 to-teal-500",
+    accentText: "text-emerald-300",
+    initial: "N",
+  },
+  {
+    videoId: "lw9nXN4xwFI",
+    name: "Mme Ahlam Kadim",
+    role: "EM",
+    company: "POLLUCLEAN",
+    quote: "L'acquisition de la solution Sage depuis sa première version 7 jusqu'à la mise à jour vers la version 100c était une décision stratégique pour développer notre chiffre d'affaires.",
+    accent: "from-amber-500 to-orange-400",
+    accentText: "text-amber-300",
+    initial: "A",
   },
 ];
+
+function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-8"
+        onClick={onClose}
+      >
+        <div className="absolute inset-0 bg-primary/90 backdrop-blur-md" />
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            title="Témoignage client"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full border-0"
+          />
+        </motion.div>
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full flex items-center justify-center text-white transition-colors duration-200 cursor-pointer z-10"
+          aria-label="Fermer"
+        >
+          <X size={18} />
+        </button>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 
 const written = [
   {
@@ -90,6 +140,7 @@ const written = [
 ];
 
 export default function TemoignagesClient() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
   const writtenRef = useRef(null);
@@ -103,6 +154,9 @@ export default function TemoignagesClient() {
 
   return (
     <div className="min-h-screen bg-bg">
+      {activeVideo && (
+        <VideoModal videoId={activeVideo} onClose={() => setActiveVideo(null)} />
+      )}
       <Navbar />
 
       {/* Hero */}
@@ -155,43 +209,56 @@ export default function TemoignagesClient() {
             variants={stagger}
             initial="hidden"
             animate={videoInView ? "visible" : "hidden"}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {videoTestimonials.map((t) => (
               <motion.div
-                key={t.name}
+                key={t.videoId}
                 variants={fadeUp}
-                className={`relative bg-gradient-to-br ${t.accent} rounded-2xl overflow-hidden group cursor-pointer`}
+                className="relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden group"
               >
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
-                    <Play size={24} className="text-white ml-1" fill="white" />
+                {/* Video thumbnail */}
+                <div
+                  className="relative h-44 overflow-hidden cursor-pointer"
+                  onClick={() => setActiveVideo(t.videoId)}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${t.videoId}/maxresdefault.jpg`}
+                    alt={`Témoignage ${t.name}`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${t.accent} opacity-60`} />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-14 h-14 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center shadow-2xl cursor-pointer`}
+                    >
+                      <Play size={20} className="fill-white text-white ml-1" />
+                    </motion.div>
                   </div>
                 </div>
-                <div className="relative p-6 pt-16">
+                <div className="relative p-6">
                   {/* Stars */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  {/* Metric */}
-                  <div className={`text-2xl font-bold ${t.accentText} mb-4`}>{t.metric}</div>
                   {/* Quote */}
-                  <p className="text-white/90 text-sm leading-relaxed mb-6 italic">
+                  <p className="text-white/90 text-sm leading-relaxed mb-6 italic line-clamp-4">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   {/* Avatar */}
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-sm border border-white/30">
+                    <div className={`w-10 h-10 bg-gradient-to-br ${t.accent} rounded-full flex items-center justify-center text-white font-bold text-sm border border-white/30`}>
                       {t.initial}
                     </div>
-                    <div>
-                      <div className="text-white font-semibold text-sm">{t.name}</div>
-                      <div className="text-white/70 text-xs">{t.role}, {t.company}</div>
+                    <div className="min-w-0">
+                      <div className="text-white font-semibold text-sm truncate">{t.name}</div>
+                      <div className="text-white/70 text-xs truncate">{t.role}, {t.company}</div>
                     </div>
                   </div>
                 </div>
