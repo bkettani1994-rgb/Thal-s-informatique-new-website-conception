@@ -39,7 +39,7 @@ export default function CTA() {
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
-                href="tel:+212522000000"
+                href="tel:+212522548780"
                 className="group inline-flex items-center gap-2 bg-white hover:bg-white/90 text-cta font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-primary/20 cursor-pointer"
               >
                 <Calendar size={17} />
@@ -47,11 +47,11 @@ export default function CTA() {
                 <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="tel:+212522000000"
+                href="tel:+212522548780"
                 className="group inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/25 transition-all duration-200 cursor-pointer"
               >
                 <Phone size={17} />
-                +212 5 22 00 00 00
+                +212 5 22 54 87 80
               </a>
             </div>
           </div>
