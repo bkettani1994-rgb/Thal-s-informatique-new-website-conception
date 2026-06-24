@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, MapPin, Video, Users, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, Video, Users, ArrowRight, EyeOff } from "lucide-react";
 
 const events = [
   {
@@ -112,70 +112,91 @@ export default function Events() {
 
         {/* Event cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {events.map((event, i) => (
-            <Link href={event.href} key={event.title}>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group bg-white border border-border rounded-2xl overflow-hidden cursor-pointer card-hover h-full"
-            >
-              {/* Color bar + date */}
-              <div className={`${event.color} ${event.past ? "opacity-70" : ""} px-5 py-4 flex items-center justify-between`}>
-                <div className="text-white">
-                  <div className="text-3xl font-bold leading-none">{event.date.day}</div>
-                  <div className="text-sm text-white/80 font-medium">
-                    {event.date.month} {event.date.year}
+          {events.map((event, i) => {
+            const teaser = !event.past;
+            const Card = (
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className={`group relative bg-white border border-border rounded-2xl overflow-hidden h-full ${
+                  teaser ? "cursor-default" : "cursor-pointer card-hover"
+                }`}
+              >
+                <div className={teaser ? "blur-sm select-none pointer-events-none" : ""}>
+                  {/* Color bar + date */}
+                  <div className={`${event.color} ${event.past ? "opacity-70" : ""} px-5 py-4 flex items-center justify-between`}>
+                    <div className="text-white">
+                      <div className="text-3xl font-bold leading-none">{event.date.day}</div>
+                      <div className="text-sm text-white/80 font-medium">
+                        {event.date.month} {event.date.year}
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end gap-1.5">
+                      {event.past && (
+                        <span className="bg-white/20 text-white text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+                          Passé
+                        </span>
+                      )}
+                      <span className={`${event.tagColor} text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full`}>
+                        {event.tag}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="text-sm font-bold text-primary leading-snug mb-3 group-hover:text-cta transition-colors duration-200">
+                      {event.title}
+                    </h3>
+
+                    <div className="space-y-1.5 mb-4">
+                      <div className="flex items-center gap-2 text-xs text-secondary">
+                        <event.formatIcon size={13} className="text-slate-400 shrink-0" />
+                        <span>{event.format}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-secondary">
+                        <MapPin size={13} className="text-slate-400 shrink-0" />
+                        <span>{event.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-secondary">
+                        <Users size={13} className="text-slate-400 shrink-0" />
+                        <span>{event.seats}</span>
+                      </div>
+                    </div>
+
+                    {event.past ? (
+                      <div className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-secondary/60 border border-border rounded-lg py-2.5 bg-bg-base select-none">
+                        Voir le compte-rendu
+                      </div>
+                    ) : (
+                      <span className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-cta border border-cta/30 rounded-lg py-2.5 group-hover:bg-cta group-hover:text-white transition-all duration-200">
+                        En savoir plus
+                        <ArrowRight size={13} />
+                      </span>
+                    )}
                   </div>
                 </div>
-                <div className="flex flex-col items-end gap-1.5">
-                  {event.past && (
-                    <span className="bg-white/20 text-white text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
-                      Passé
+
+                {teaser && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-white/30">
+                    <span className="flex items-center gap-2 bg-white border border-border shadow-sm text-[11px] font-bold uppercase tracking-wide text-secondary px-4 py-2 rounded-full">
+                      <EyeOff size={13} />
+                      Bientôt révélé
                     </span>
-                  )}
-                  <span className={`${event.tagColor} text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full`}>
-                    {event.tag}
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="text-sm font-bold text-primary leading-snug mb-3 group-hover:text-cta transition-colors duration-200">
-                  {event.title}
-                </h3>
-
-                <div className="space-y-1.5 mb-4">
-                  <div className="flex items-center gap-2 text-xs text-secondary">
-                    <event.formatIcon size={13} className="text-slate-400 shrink-0" />
-                    <span>{event.format}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-secondary">
-                    <MapPin size={13} className="text-slate-400 shrink-0" />
-                    <span>{event.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-secondary">
-                    <Users size={13} className="text-slate-400 shrink-0" />
-                    <span>{event.seats}</span>
-                  </div>
-                </div>
-
-                {event.past ? (
-                  <div className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-secondary/60 border border-border rounded-lg py-2.5 bg-bg-base select-none">
-                    Voir le compte-rendu
-                  </div>
-                ) : (
-                  <span className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-cta border border-cta/30 rounded-lg py-2.5 group-hover:bg-cta group-hover:text-white transition-all duration-200">
-                    En savoir plus
-                    <ArrowRight size={13} />
-                  </span>
                 )}
-              </div>
-            </motion.div>
-            </Link>
-          ))}
+              </motion.div>
+            );
+            return teaser ? (
+              <div key={event.title}>{Card}</div>
+            ) : (
+              <Link href={event.href} key={event.title}>
+                {Card}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
