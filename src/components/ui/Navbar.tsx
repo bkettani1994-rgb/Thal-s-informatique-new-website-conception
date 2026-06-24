@@ -40,6 +40,8 @@ const navLinks: NavLink[] = [
     children: [
       { label: "Sage X3", href: "/solutions/sage-x3" },
       { label: "Sage 100", href: "/solutions/sage-100" },
+      { label: "Sage 100 Paie & RH", href: "/solutions/sage-100-paie-rh" },
+      { label: "Sage Espace Employés", href: "/solutions/sage-espace-employes" },
       { label: "Sage FRP 1000", href: "/solutions/sage-frp-1000" },
       { label: "DimoMaint GMAO", href: "/solutions/dimomaint-gmao" },
       { label: "Eloficash", href: "/solutions/eloficash" },

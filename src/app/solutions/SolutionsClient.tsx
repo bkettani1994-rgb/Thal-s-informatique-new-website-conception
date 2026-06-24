@@ -78,6 +78,20 @@ const categories = [
     border: "border-violet-100",
     products: [
       {
+        title: "Sage 100 Paie & RH",
+        sub: "Paie automatisée & conforme",
+        badge: "PAIE & RH",
+        href: "/solutions/sage-100-paie-rh",
+        desc: "Calcul de la paie, déclarations CNSS/IR et gestion des congés conformes à la réglementation marocaine.",
+      },
+      {
+        title: "Sage Espace Employés",
+        sub: "Portail collaborateur self-service",
+        badge: "PORTAIL COLLABORATEUR",
+        href: "/solutions/sage-espace-employes",
+        desc: "Bulletins de paie, congés et documents RH accessibles en ligne par chaque collaborateur.",
+      },
+      {
         title: "Factorial",
         sub: "Espace Collaborateur & SIRH Cloud",
         badge: "SIRH CLOUD",
