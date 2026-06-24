@@ -372,7 +372,7 @@ export default function TemoignagesClient() {
                 Laisser un avis <ChevronRight size={18} />
               </Link>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Thales+Informatique+Revendeur+Solution+Sage+Casablanca"
+                href="https://g.page/r/CaKi6AqaUotyEAE/review"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-cta text-cta font-semibold rounded-xl hover:bg-cta hover:text-white transition-colors duration-200"
