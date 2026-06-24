@@ -1,49 +1,158 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronRight, Download } from "lucide-react";
 
-const modules = [
-  { title: "Finance & Comptabilité", desc: "Clôture express, multi-devises, consolidation groupe", icon: "💹" },
-  { title: "Gestion commerciale", desc: "Devis, commandes, facturation, CRM intégré", icon: "🛒" },
-  { title: "Gestion de production", desc: "MRP, GPAO, suivi temps réel des ateliers", icon: "🏭" },
-  { title: "Achats & Approvisionnements", desc: "Commandes fournisseurs, réceptions, contrôle qualité", icon: "📦" },
-  { title: "Ressources humaines", desc: "Paie, congés, gestion des compétences", icon: "👥" },
-  { title: "Reporting & BI", desc: "Tableaux de bord, KPIs, exports analytiques", icon: "📊" },
+const trustedLogos = [
+  { name: "Holding Al Mada", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/1_zj74sw.png" },
+  { name: "Saint-Gobain", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/8_icnnpi.png" },
+  { name: "Attijariwafa Bank", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/10_b6krpz.png" },
+  { name: "Safran", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/13_wivyxy.png" },
+  { name: "Marsa Maroc", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781620315/Design_sans_titre_36_dtiv2f.png" },
 ];
 
-const expertiseCards = [
-  { title: "Expertise certifiée", desc: "Sage Business Partner Platinum au Maroc depuis plus de 15 ans. Nos consultants sont certifiés Sage X3.", icon: "🏆" },
-  { title: "Déploiement rapide", desc: "Méthodologie éprouvée pour un go-live en 3 à 6 mois selon la complexité de votre organisation.", icon: "⚡" },
-  { title: "Support local Casablanca", desc: "Équipe dédiée à Casablanca pour un support réactif en français et en arabe.", icon: "📍" },
+const capabilities = [
+  {
+    title: "Gestion de la production",
+    icon: "⚙️",
+    items: [
+      "Suivi en temps réel des ordres de fabrication",
+      "Planification et ordonnancement des ateliers",
+      "Traçabilité complète des lots et numéros de série",
+      "Gestion de la qualité à chaque étape",
+    ],
+  },
+  {
+    title: "Gestion de la chaîne d'approvisionnement",
+    icon: "🔗",
+    items: [
+      "Pilotage des achats et des fournisseurs",
+      "Optimisation des niveaux de stock multi-sites",
+      "Gestion des entrepôts et de la logistique",
+      "Prévision de la demande et réapprovisionnement",
+    ],
+  },
+  {
+    title: "Gestion financière",
+    icon: "📊",
+    items: [
+      "Comptabilité multi-sociétés et multi-devises",
+      "Clôtures accélérées et consolidation groupe",
+      "Pilotage budgétaire et contrôle de gestion",
+      "Conformité fiscale et réglementaire au Maroc",
+    ],
+  },
 ];
 
-const industries = ["Industrie", "Agroalimentaire", "Distribution", "BTP", "Services", "Pharmacie"];
+const copilotPoints = [
+  "Réduisez les tâches répétitives grâce à l'automatisation intelligente des processus de production et de distribution",
+  "Accédez à des recommandations contextuelles directement dans vos écrans Sage X3 au quotidien",
+  "Identifiez plus rapidement les anomalies financières grâce à l'analyse augmentée des données",
+  "Gagnez du temps sur les opérations courantes pour vous concentrer sur les décisions stratégiques",
+];
+
+const completeManagementTabs = [
+  {
+    key: "collab",
+    label: "Collaboration sans couture",
+    title: "Collaboration sans couture entre vos équipes",
+    desc: "Tous vos services — production, finance, commercial, RH — travaillent sur une donnée unique et partagée en temps réel, sans ressaisie ni double traitement.",
+  },
+  {
+    key: "info",
+    label: "Information à jour",
+    title: "Une information toujours à jour",
+    desc: "Chaque décision s'appuie sur des données actualisées en continu, consultables depuis un tableau de bord central accessible à tous les niveaux de l'organisation.",
+  },
+  {
+    key: "mobile",
+    label: "Solution mobile flexible",
+    title: "Une solution accessible en mobilité",
+    desc: "Vos équipes terrain et vos managers consultent et valident leurs opérations depuis un smartphone ou une tablette, où qu'ils se trouvent.",
+  },
+  {
+    key: "config",
+    label: "Configuration flexible",
+    title: "Une configuration flexible selon vos besoins",
+    desc: "Sage X3 s'adapte à l'organisation de votre entreprise plutôt que l'inverse, grâce à des modules paramétrables sans développement lourd.",
+  },
+  {
+    key: "perf",
+    label: "Productivité accrue",
+    title: "Une productivité accrue à tous les niveaux",
+    desc: "L'automatisation des tâches répétitives et la fluidité des processus libèrent du temps pour les missions à plus forte valeur ajoutée.",
+  },
+];
+
+const sectors = [
+  {
+    title: "Secteur agroalimentaire",
+    items: ["Traçabilité", "Gestion des lots et dates de péremption", "Conformité sanitaire", "Ventes et marketing"],
+  },
+  {
+    title: "Industrie de transformation",
+    items: ["Suivi des coûts de revient", "Planification de production", "Contrôle qualité", "Gestion des sous-traitants"],
+  },
+  {
+    title: "Industrie",
+    items: ["Maintenance des équipements", "Gestion multi-sites", "Suivi des stocks techniques", "Pilotage de la performance"],
+  },
+  {
+    title: "Distribution",
+    items: ["Gestion des points de vente", "Transport et logistique", "Gestion des promotions", "Pilotage des marges"],
+  },
+  {
+    title: "Produits chimiques",
+    items: ["Traçabilité réglementaire", "Conformité HSE et fiches de sécurité", "Suivi des formules", "Gestion des risques produit"],
+  },
+  {
+    title: "Services",
+    items: ["Facturation à l'affaire", "Suivi de projet et rentabilité", "Gestion des ressources", "Reporting client"],
+  },
+];
+
+const complementarySolutions = [
+  { title: "Sage Eloficash", desc: "Recouvrement, scoring client et sécurisation des encours pour votre trésorerie.", href: "/solutions/eloficash" },
+  { title: "Sage Enterprise Intelligence", desc: "Pilotage décisionnel et tableaux de bord avancés connectés à Sage X3." },
+  { title: "Sage X3 Gestion à l'affaire", desc: "Suivi de la rentabilité projet par projet, du devis à la facturation." },
+  { title: "Sage X3 Immobilisations", desc: "Gestion complète du parc d'immobilisations et des plans d'amortissement." },
+  { title: "Sage X3 Warehousing (Geode)", desc: "Pilotage avancé de vos entrepôts et flux logistiques en temps réel." },
+  { title: "Sage X3 Web Scheduling", desc: "Planification visuelle et collaborative des ressources de production." },
+  { title: "Sage Youdoo", desc: "Portail collaboratif pour fluidifier les échanges entre vos équipes." },
+];
 
 export default function SageX3Client() {
   const introRef = useRef(null);
-  const modulesRef = useRef(null);
-  const expertiseRef = useRef(null);
-  const industriesRef = useRef(null);
+  const capabilitiesRef = useRef(null);
+  const copilotRef = useRef(null);
+  const managementRef = useRef(null);
+  const guideRef = useRef(null);
+  const sectorsRef = useRef(null);
+  const complementaryRef = useRef(null);
 
   const introInView = useInView(introRef, { once: true, margin: "-80px" });
-  const modulesInView = useInView(modulesRef, { once: true, margin: "-80px" });
-  const expertiseInView = useInView(expertiseRef, { once: true, margin: "-80px" });
-  const industriesInView = useInView(industriesRef, { once: true, margin: "-80px" });
+  const capabilitiesInView = useInView(capabilitiesRef, { once: true, margin: "-80px" });
+  const copilotInView = useInView(copilotRef, { once: true, margin: "-80px" });
+  const managementInView = useInView(managementRef, { once: true, margin: "-80px" });
+  const guideInView = useInView(guideRef, { once: true, margin: "-80px" });
+  const sectorsInView = useInView(sectorsRef, { once: true, margin: "-80px" });
+  const complementaryInView = useInView(complementaryRef, { once: true, margin: "-80px" });
+
+  const [activeTab, setActiveTab] = useState(completeManagementTabs[0].key);
+  const selectedTab = completeManagementTabs.find((t) => t.key === activeTab)!;
 
   return (
     <>
       <Navbar />
       <main className="bg-bg min-h-screen">
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+        <section className="pt-32 pb-16 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
               <ChevronRight size={14} />
@@ -55,144 +164,323 @@ export default function SageX3Client() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
-                SOLUTION PHARE
+                SAGE X3 — VERSION 7.4
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Sage X3
+                Bien plus qu&apos;un ERP
               </h1>
-              <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
-                L&apos;ERP pour grandes entreprises &amp; industries
+              <p className="text-xl text-white/70 leading-relaxed mb-8">
+                Prenez le contrôle de toute votre entreprise, des approvisionnements à la production en passant par la finance, et anticipez les transformations de votre marché avec Sage X3.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
+              >
+                Demander une démo <ArrowRight size={18} />
+              </Link>
+            </motion.div>
+
+            {/* Visual placeholder collage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
+                Visuel à intégrer
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
+                Capture interface Sage X3
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
+                Visuel à intégrer
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Trusted logos */}
+        <section className="py-10 bg-white border-b border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-xs font-semibold text-secondary/60 uppercase tracking-widest mb-6">
+              Ils nous font confiance
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {trustedLogos.map((c) => (
+                <div
+                  key={c.name}
+                  className="w-32 h-12 flex items-center justify-center bg-bg border border-border rounded-xl overflow-hidden"
+                >
+                  <img src={c.logo} alt={c.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Capacités puissantes */}
+        <section ref={capabilitiesRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12 max-w-2xl mx-auto"
+            >
+              <h2 className="text-3xl font-bold text-primary">Des capacités puissantes</h2>
+              <p className="text-secondary mt-3">
+                Pensé pour la complexité de votre entreprise, des opérations courantes à la stratégie, Sage X3 réunit tous vos métiers dans une seule solution intégrée.
               </p>
             </motion.div>
-          </div>
-        </section>
-
-        {/* Intro 2-col */}
-        <section ref={introRef} className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -24 }}
-                animate={introInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl font-bold text-primary mb-6">
-                  L&apos;ERP de référence pour les groupes industriels
-                </h2>
-                <p className="text-secondary leading-relaxed mb-4">
-                  Sage X3 est la solution ERP de référence pour les entreprises de taille intermédiaire et les groupes industriels. Dotée d&apos;une architecture moderne et d&apos;une couverture fonctionnelle étendue, elle répond aux exigences des organisations les plus complexes.
-                </p>
-                <p className="text-secondary leading-relaxed">
-                  <strong className="text-primary">Thalès Informatique</strong> est Sage Business Partner Platinum au Maroc depuis plus de 15 ans. Nous accompagnons les plus grandes entreprises marocaines dans leur transformation digitale avec Sage X3.
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                animate={introInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="grid grid-cols-1 gap-4"
-              >
-                {[
-                  { stat: "500+", label: "Déploiements au Maroc" },
-                  { stat: "30+", label: "Secteurs d'activité couverts" },
-                  { stat: "Support 24/7", label: "Équipe dédiée locale" },
-                ].map((item) => (
-                  <div key={item.label} className="bg-bg rounded-2xl p-6 border border-border flex items-center gap-4">
-                    <span className="text-3xl font-bold text-cta">{item.stat}</span>
-                    <span className="text-secondary font-medium">{item.label}</span>
-                  </div>
-                ))}
-              </motion.div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {capabilities.map((cap, i) => (
+                <motion.div
+                  key={cap.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white rounded-2xl p-7 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                >
+                  <span className="text-3xl mb-4 block">{cap.icon}</span>
+                  <h3 className="font-bold text-primary text-lg mb-4">{cap.title}</h3>
+                  <ul className="space-y-2.5">
+                    {cap.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                        <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-5"
+                  >
+                    En savoir plus <ArrowRight size={14} />
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Modules */}
-        <section ref={modulesRef} className="py-20 bg-bg">
+        {/* Sage Copilot AI band */}
+        <section ref={copilotRef} className="py-20 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-900 to-black" />
+          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={copilotInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
+                INTELLIGENCE ARTIFICIELLE
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 max-w-xl">
+                Gagnez en productivité avec Sage Copilot pour Sage X3
+              </h2>
+              <ul className="space-y-3 mb-8">
+                {copilotPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-white/75 leading-relaxed">
+                    <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-primary font-bold px-7 py-3.5 rounded-xl hover:bg-white/90 transition-colors duration-200"
+              >
+                Demander une démo <ArrowRight size={18} />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Gestion d'entreprise complète — tabs */}
+        <section ref={managementRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={modulesInView ? { opacity: 1, y: 0 } : {}}
+              animate={managementInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">MODULES FONCTIONNELS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Une couverture fonctionnelle complète</h2>
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">VUE D&apos;ENSEMBLE</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">Gestion d&apos;entreprise complète</h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={managementInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="grid lg:grid-cols-[280px_1fr] gap-8"
+            >
+              {/* Tab list */}
+              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
+                {completeManagementTabs.map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => setActiveTab(tab.key)}
+                    className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
+                      activeTab === tab.key
+                        ? "bg-cta/10 text-cta"
+                        : "text-secondary hover:bg-bg hover:text-primary"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab content */}
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
+                  <p className="text-secondary leading-relaxed mb-6">{selectedTab.desc}</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
+                    >
+                      Demander une démo
+                    </Link>
+                    <Link
+                      href="/solutions"
+                      className="inline-flex items-center gap-2 border border-border text-secondary font-semibold px-5 py-2.5 rounded-lg hover:border-cta hover:text-cta transition-colors duration-200 text-sm"
+                    >
+                      Voir les fonctionnalités
+                    </Link>
+                  </div>
+                </div>
+                <div className="h-64 rounded-2xl bg-bg border border-border flex items-center justify-center text-secondary/50 text-sm">
+                  Capture interface Sage X3
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Guide download */}
+        <section ref={guideRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={guideInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="grid md:grid-cols-2 gap-10 items-center bg-white rounded-2xl border border-border p-8 lg:p-12"
+            >
+              <div className="h-56 rounded-2xl bg-bg border border-border flex items-center justify-center text-secondary/50 text-sm order-2 md:order-1">
+                Visuel à intégrer
+              </div>
+              <div className="order-1 md:order-2">
+                <span className="text-xs font-bold text-cta tracking-widest uppercase">RESSOURCE</span>
+                <h2 className="text-2xl lg:text-3xl font-bold text-primary mt-2 mb-4">
+                  Guide des fonctionnalités Sage X3
+                </h2>
+                <p className="text-secondary leading-relaxed mb-6">
+                  Les solutions Sage X3 sont régulièrement enrichies pour étendre la couverture fonctionnelle de votre ERP. Téléchargez notre guide pour découvrir l&apos;ensemble des capacités à votre portée.
+                </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-cta font-semibold text-sm hover:text-blue-700 transition-colors"
+                >
+                  <Download size={16} /> Télécharger le guide
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Secteurs sur mesure */}
+        <section ref={sectorsRef} className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={sectorsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12 max-w-2xl mx-auto"
+            >
+              <h2 className="text-3xl font-bold text-primary">Des solutions sur mesure pour votre secteur d&apos;activité</h2>
+              <Link
+                href="/secteurs"
+                className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
+              >
+                Voir tous les secteurs <ArrowRight size={14} />
+              </Link>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {modules.map((mod, i) => (
+              {sectors.map((sector, i) => (
                 <motion.div
-                  key={mod.title}
+                  key={sector.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={modulesInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  animate={sectorsInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                  className="bg-bg rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
                 >
-                  <span className="text-3xl mb-4 block">{mod.icon}</span>
-                  <h3 className="font-bold text-primary mb-2">{mod.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{mod.desc}</p>
+                  <h3 className="font-bold text-primary mb-4">{sector.title}</h3>
+                  <ul className="space-y-2 mb-5">
+                    {sector.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                        <CheckCircle2 size={14} className="text-cta shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/secteurs" className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
+                    En savoir plus <ArrowRight size={13} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Why Thalès */}
-        <section ref={expertiseRef} className="py-20 bg-white">
+        {/* Solutions complémentaires */}
+        <section ref={complementaryRef} className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={expertiseInView ? { opacity: 1, y: 0 } : {}}
+              animate={complementaryInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">POURQUOI THALÈS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Sage X3 avec Thalès Informatique</h2>
+              <h2 className="text-3xl font-bold text-primary">Solutions complémentaires</h2>
+              <p className="text-secondary mt-3">
+                Étendez les capacités de Sage X3 avec des modules complémentaires pensés pour aller plus loin selon vos enjeux métiers.
+              </p>
             </motion.div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {expertiseCards.map((card, i) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {complementarySolutions.map((sol, i) => (
                 <motion.div
-                  key={card.title}
+                  key={sol.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={expertiseInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-bg rounded-2xl p-8 border border-border text-center"
+                  animate={complementaryInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                  className="bg-white rounded-2xl p-6 border border-border flex flex-col"
                 >
-                  <span className="text-4xl mb-4 block">{card.icon}</span>
-                  <h3 className="font-bold text-primary mb-3">{card.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{card.desc}</p>
+                  <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed flex-1">{sol.desc}</p>
+                  {sol.href ? (
+                    <Link
+                      href={sol.href}
+                      className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
+                    >
+                      Découvrir {sol.title} <ArrowRight size={13} />
+                    </Link>
+                  ) : (
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
+                    >
+                      Demander des informations <ArrowRight size={13} />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Industries */}
-        <section ref={industriesRef} className="py-20 bg-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={industriesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-10"
-            >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">SECTEURS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Industries couvertes</h2>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={industriesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-3"
-            >
-              {industries.map((ind) => (
-                <span key={ind} className="px-5 py-2.5 bg-white border border-border rounded-full text-sm font-semibold text-secondary hover:border-cta hover:text-cta transition-colors duration-200">
-                  {ind}
-                </span>
-              ))}
-            </motion.div>
           </div>
         </section>
 
