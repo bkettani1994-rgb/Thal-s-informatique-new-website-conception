@@ -52,34 +52,52 @@ const copilotPoints = [
 
 const completeManagementTabs = [
   {
+    key: "complete",
+    label: "Gestion d'entreprise complète",
+    title: "Gestion d'entreprise complète",
+    desc: "Tous vos processus opérationnels peuvent être gérés et configurés depuis un seul et même endroit. Planifiez vos finances en temps réel, restez en conformité et automatisez votre comptabilité. Prenez le contrôle de la gestion de la chaîne logistique en matière de stocks, d'achats et de logistique. Optimisez la manière dont vous supervisez les processus de fabrication, la production et le contrôle qualité.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376656/Screenshot_2026-06-25_at_09-37-17_Sage_X3_Sage_Maroc_znqbvy.png",
+    imageAlt: "Tableau de bord Sage X3 pour la gestion d'entreprise complète : finance, achats, stocks et production",
+  },
+  {
     key: "collab",
-    label: "Collaboration sans couture",
-    title: "Collaboration sans couture entre vos équipes",
-    desc: "Tous vos services — production, finance, commercial, RH — travaillent sur une donnée unique et partagée en temps réel, sans ressaisie ni double traitement.",
+    label: "Collaboration améliorée",
+    title: "Collaboration améliorée",
+    desc: "Gérez les flux de travail entre plusieurs équipes et sur plusieurs sites. Regroupez vos services grâce à des processus qui fonctionnent de manière fluide et harmonisée.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376715/Screenshot_2026-06-25_at_09-38-22_Sage_X3_Sage_Maroc_gefaqm.png",
+    imageAlt: "Interface Sage X3 illustrant la collaboration entre équipes et sites multiples",
   },
   {
     key: "info",
-    label: "Information à jour",
-    title: "Une information toujours à jour",
-    desc: "Chaque décision s'appuie sur des données actualisées en continu, consultables depuis un tableau de bord central accessible à tous les niveaux de l'organisation.",
+    label: "Informations clés par rôle",
+    title: "Informations clés par rôle",
+    desc: "Accédez à des données pertinentes grâce à un accès personnalisé et à une visualisation claire. Vous pourrez visualiser et partager un aperçu complet de vos données pour aider vos équipes à prendre des décisions plus rapidement, avec la possibilité d'explorer les informations en détail.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376770/Screenshot_2026-06-25_at_09-39-23_Sage_X3_Sage_Maroc_en6wt4.png",
+    imageAlt: "Tableaux de bord personnalisés par rôle dans Sage X3 pour une prise de décision rapide",
   },
   {
     key: "mobile",
     label: "Solution mobile flexible",
-    title: "Une solution accessible en mobilité",
-    desc: "Vos équipes terrain et vos managers consultent et valident leurs opérations depuis un smartphone ou une tablette, où qu'ils se trouvent.",
+    title: "Solution mobile flexible",
+    desc: "La planification en déplacement n'a jamais été aussi simple. Une solution simple, cloud et mobile, qui vous permet d'accéder à vos informations partout et à tout moment.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376850/Screenshot_2026-06-25_at_09-40-04_Sage_X3_Sage_Maroc_wgj99v.png",
+    imageAlt: "Application mobile Sage X3 accessible en déplacement sur smartphone et tablette",
   },
   {
     key: "config",
-    label: "Configuration flexible",
-    title: "Une configuration flexible selon vos besoins",
-    desc: "Sage X3 s'adapte à l'organisation de votre entreprise plutôt que l'inverse, grâce à des modules paramétrables sans développement lourd.",
+    label: "Configurable selon vos besoins",
+    title: "Configurable selon vos besoins",
+    desc: "Faites évoluer le logiciel pour qu'il s'adapte à vos processus métier spécifiques. Adaptez-le à vos besoins sectoriels et exigences légales, ajoutez des API ou des applications personnalisées, et intégrez-le à d'autres solutions pour une expérience entièrement sur mesure.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376894/Screenshot_2026-06-25_at_09-41-28_Sage_X3_Sage_Maroc_su77oz.png",
+    imageAlt: "Configuration personnalisée de Sage X3 avec API et applications sur mesure",
   },
   {
-    key: "perf",
-    label: "Productivité accrue",
-    title: "Une productivité accrue à tous les niveaux",
-    desc: "L'automatisation des tâches répétitives et la fluidité des processus libèrent du temps pour les missions à plus forte valeur ajoutée.",
+    key: "ia",
+    label: "Productivité optimisée par l'IA",
+    title: "Productivité optimisée par l'IA",
+    desc: "L'IA intégrée agit comme votre assistant personnel et fournit des informations clés automatisées et des analyses prédictives.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376981/Screenshot_2026-06-25_at_09-42-46_Sage_X3_Sage_Maroc_nczqiw.png",
+    imageAlt: "Assistant intelligence artificielle intégré à Sage X3 pour des analyses prédictives",
   },
 ];
 
@@ -355,8 +373,17 @@ export default function SageX3Client() {
                     </Link>
                   </div>
                 </div>
-                <div className="h-64 rounded-2xl bg-bg border border-border flex items-center justify-center text-secondary/50 text-sm">
-                  Capture interface Sage X3
+                <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white">
+                  <motion.img
+                    key={selectedTab.key}
+                    src={selectedTab.image}
+                    alt={selectedTab.imageAlt}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </motion.div>
