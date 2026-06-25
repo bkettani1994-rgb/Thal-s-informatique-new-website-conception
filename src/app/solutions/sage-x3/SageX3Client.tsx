@@ -337,43 +337,39 @@ export default function SageX3Client() {
               className="grid lg:grid-cols-[280px_1fr] gap-8"
             >
               {/* Tab list */}
-              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
-                {completeManagementTabs.map((tab) => (
-                  <button
-                    key={tab.key}
-                    onClick={() => setActiveTab(tab.key)}
-                    className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
-                      activeTab === tab.key
-                        ? "bg-cta/10 text-cta"
-                        : "text-secondary hover:bg-bg hover:text-primary"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+              <div className="relative -mx-4 px-4 sm:mx-0 sm:px-0">
+                <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth border-b lg:border-b-0 lg:border-r border-border pb-3 lg:pb-0 lg:pr-2 [&::-webkit-scrollbar]:hidden">
+                  {completeManagementTabs.map((tab) => (
+                    <button
+                      key={tab.key}
+                      onClick={() => setActiveTab(tab.key)}
+                      className={`shrink-0 snap-start text-left px-4 py-2.5 rounded-full lg:rounded-lg border lg:border-0 text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
+                        activeTab === tab.key
+                          ? "bg-cta text-white border-cta lg:bg-cta/10 lg:text-cta"
+                          : "bg-white text-secondary border-border hover:border-cta hover:text-cta lg:bg-transparent lg:hover:bg-bg lg:hover:text-primary"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+                <div className="lg:hidden pointer-events-none absolute right-4 top-0 bottom-3 w-10 bg-gradient-to-l from-bg to-transparent" />
               </div>
+              <p className="lg:hidden -mt-1 text-xs text-secondary/60">Faites glisser pour voir tous les onglets →</p>
 
               {/* Tab content */}
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid md:grid-cols-2 gap-8 items-center lg:col-start-2">
                 <div>
                   <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
                   <p className="text-secondary leading-relaxed mb-6">{selectedTab.desc}</p>
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
-                    >
-                      Demander une démo
-                    </Link>
-                    <Link
-                      href="/solutions"
-                      className="inline-flex items-center gap-2 border border-border text-secondary font-semibold px-5 py-2.5 rounded-lg hover:border-cta hover:text-cta transition-colors duration-200 text-sm"
-                    >
-                      Voir les fonctionnalités
-                    </Link>
-                  </div>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
+                  >
+                    Demander une démo
+                  </Link>
                 </div>
-                <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white">
+                <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
                   <motion.img
                     key={selectedTab.key}
                     src={selectedTab.image}
@@ -381,7 +377,7 @@ export default function SageX3Client() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full h-full object-cover"
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
                     loading="lazy"
                   />
                 </div>
