@@ -143,34 +143,34 @@ export default function Sage100PaieRhClient() {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm mb-6">
-                100
+              <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
+                SAGE 100 PAIE & RH
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Sage 100 Paie & RH
+                Gérez votre paie et vos RH avec Sage 100
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
                 Réalisez facilement et rapidement vos bulletins de paie et vos déclarations sociales, en toute conformité.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-primary font-bold px-8 py-4 rounded-xl hover:bg-white/90 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demandez une démo
+                Demander une démo <ArrowRight size={18} />
               </Link>
             </motion.div>
 
-            {/* Visual placeholder collage */}
+            {/* Visual collage */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4"
+              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              {["Collaborateur RH", "Tableau de bord effectifs", "Bulletins de salaire", "Notifications mobiles"].map((label) => (
+              {["Collaborateur RH", "Interface Sage 100 Paie & RH", "Bulletins de salaire"].map((label) => (
                 <div
                   key={label}
-                  className="h-40 sm:h-56 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-xs text-center px-3"
+                  className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-xs text-center px-3"
                 >
                   {label}
                   <br />
