@@ -128,7 +128,7 @@ export default function AProposClient() {
 
           {/* Horizontal milestone strip */}
           <FadeIn>
-            <div className="relative rounded-3xl bg-gradient-to-br from-primary via-slate-800 to-slate-900 py-12 px-6 sm:px-10 overflow-hidden mb-12">
+            <div className="relative rounded-3xl py-12 px-6 sm:px-10 overflow-hidden mb-12" style={{ backgroundColor: "#0369A1" }}>
               <div className="relative flex items-start justify-between">
                 <div className="absolute top-7 left-0 right-0 h-0.5 bg-white/25" />
                 <div className="absolute top-[26px] right-0 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-white/40" />
