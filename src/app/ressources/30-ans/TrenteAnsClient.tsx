@@ -222,11 +222,11 @@ export default function TrenteAnsClient() {
             </p>
             <div className="flex items-center justify-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-br from-cta to-blue-700 rounded-2xl flex items-center justify-center">
-                <span className="text-white font-bold text-sm">HA</span>
+                <span className="text-white font-bold text-sm">AR</span>
               </div>
               <div className="text-left">
-                <div className="text-white font-semibold text-sm">Hassan El Alami</div>
-                <div className="text-white/50 text-xs">Président Directeur Général, fondateur</div>
+                <div className="text-white font-semibold text-sm">Abdellah REDA</div>
+                <div className="text-white/50 text-xs">Directeur Général, fondateur</div>
               </div>
             </div>
           </FadeIn>

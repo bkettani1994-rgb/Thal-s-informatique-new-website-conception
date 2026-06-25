@@ -53,7 +53,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Hassan El Alami", role: "Président Directeur Général", tenure: "Fondateur, 30 ans d'expérience", initials: "HA" },
+  { name: "Abdellah REDA", role: "Directeur Général", tenure: "Fondateur, 30 ans d'expérience", initials: "AR" },
   { name: "Rachid Bensouda", role: "Directeur Général Technique", tenure: "Expert ERP, 20 ans d'expérience", initials: "RB" },
   { name: "Leila Moussaoui", role: "Directrice Générale Commerciale", tenure: "15 ans en transformation digitale", initials: "LM" },
   { name: "Omar Filali", role: "Directeur des Ressources Humaines", tenure: "Expert RH & culture d'entreprise", initials: "OF" },
