@@ -172,43 +172,46 @@ export default function Sage100Client() {
               <ChevronRight size={14} />
               <span className="text-white">Sage 100</span>
             </nav>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
+                SAGE 100
+              </span>
+              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
+                Gérez votre entreprise avec Sage 100
+              </h1>
+              <p className="text-xl text-white/70 leading-relaxed mb-8">
+                Maîtrisez les deux piliers de votre entreprise avec les modules Sage 100 Comptabilité et Sage 100 Gestion Commerciale. Hébergée dans le cloud Microsoft Azure, Sage 100 est accessible partout, à tout moment.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                  Gérez votre entreprise avec Sage 100
-                </h1>
-                <p className="text-lg text-white/70 leading-relaxed mb-6">
-                  Maîtrisez les deux piliers de votre entreprise avec les modules Sage 100 Comptabilité et Sage 100 Gestion Commerciale. Hébergée dans le cloud Microsoft Azure, Sage 100 est accessible partout, à tout moment.
-                </p>
-                <div className="flex flex-wrap gap-3 mb-3">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-cta text-white font-bold px-6 py-3.5 rounded-xl hover:bg-blue-600 transition-colors duration-200"
-                  >
-                    Demander une démo
-                  </Link>
-                  <Link
-                    href="/solutions"
-                    className="inline-flex items-center gap-2 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-white/10 transition-colors duration-200"
-                  >
-                    En savoir plus
-                  </Link>
-                </div>
-                <p className="text-white/40 text-xs">Accédez immédiatement à toutes les fonctions. Facturation de votre choix.</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="h-64 lg:h-80 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm"
-              >
+                Demander une démo <ArrowRight size={18} />
+              </Link>
+            </motion.div>
+
+            {/* Visual collage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
+                Visuel à intégrer
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
                 Capture interface Sage 100
-              </motion.div>
-            </div>
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
+                Visuel à intégrer
+              </div>
+            </motion.div>
           </div>
         </section>
 
