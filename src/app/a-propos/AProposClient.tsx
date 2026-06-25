@@ -46,7 +46,7 @@ const timeline = [
 ];
 
 const values = [
-  { icon: Lightbulb, title: "Innovation", desc: "Nous investissons 15% de notre CA en R&D pour anticiper les évolutions technologiques et réglementaires." },
+  { icon: Lightbulb, title: "Innovation", desc: "Nous investissons durablement en R&D pour anticiper les évolutions technologiques et réglementaires." },
   { icon: Award, title: "Excellence", desc: "Chaque projet est mené avec rigueur et expertise. Notre taux de satisfaction client est de 98%." },
   { icon: MapPin, title: "Proximité", desc: "Basés à Casablanca, nos consultants terrain interviennent dans tout le Maroc. Support en arabe et français." },
   { icon: Heart, title: "Intégrité", desc: "Des relations fondées sur la transparence, le respect des engagements et l'honnêteté intellectuelle." },
