@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight, ChevronDown, CheckCircle2, Star, MessageCircle } from "lucide-react";
+import { ArrowRight, ChevronRight, ChevronDown, CheckCircle2, MessageCircle, Receipt, TrendingUp, Wallet, CreditCard } from "lucide-react";
 
 const discoveryTabs = [
   {
@@ -87,10 +87,10 @@ const plans = [
 ];
 
 const complementary = [
-  { title: "Sage Automatisation Comptable", desc: "Dématérialisez toutes les étapes du traitement comptable de vos factures fournisseurs, plus simple, plus rapide, plus écolo.", icon: "🧾" },
-  { title: "Sage Business Reporting", desc: "Utilisez des analyses et reportings personnalisés et des tableaux de bord actualisés en temps réel pour prendre les meilleures décisions.", icon: "📈" },
-  { title: "Sage 100 Trésorerie", desc: "Gérez efficacement votre trésorerie et maîtrisez vos coûts : facilitez la gestion quotidienne de votre entreprise, maîtrisez et anticipez tous les risques liés à la trésorerie.", icon: "💼" },
-  { title: "AP Gestion des Règlements", desc: "Révolutionnez votre gestion financière en automatisant vos flux de trésorerie, encaissements et décaissements, pour une visibilité en temps réel de votre santé financière.", icon: "💳" },
+  { title: "Sage Automatisation Comptable", desc: "Dématérialisez toutes les étapes du traitement comptable de vos factures fournisseurs, plus simple, plus rapide, plus écolo.", icon: Receipt, gradient: "from-orange-500 via-amber-500 to-yellow-400" },
+  { title: "Sage Business Reporting", desc: "Utilisez des analyses et reportings personnalisés et des tableaux de bord actualisés en temps réel pour prendre les meilleures décisions.", icon: TrendingUp, gradient: "from-emerald-500 via-teal-500 to-cyan-400" },
+  { title: "Sage 100 Trésorerie", desc: "Gérez efficacement votre trésorerie et maîtrisez vos coûts : facilitez la gestion quotidienne de votre entreprise, maîtrisez et anticipez tous les risques liés à la trésorerie.", icon: Wallet, gradient: "from-blue-600 via-indigo-500 to-violet-500" },
+  { title: "AP Gestion des Règlements", desc: "Révolutionnez votre gestion financière en automatisant vos flux de trésorerie, encaissements et décaissements, pour une visibilité en temps réel de votre santé financière.", icon: CreditCard, gradient: "from-fuchsia-500 via-purple-500 to-violet-700" },
 ];
 
 const faqs = [
@@ -308,14 +308,14 @@ export default function Sage100Client() {
               <h2 className="text-3xl font-bold text-primary">Choisissez votre solution</h2>
               <p className="text-secondary mt-3">Gérez la comptabilité, la gestion commerciale, ou les deux.</p>
             </motion.div>
-            <div className="grid md:grid-cols-3 gap-6 items-start">
+            <div className="grid md:grid-cols-3 gap-6 items-stretch">
               {plans.map((plan, i) => (
                 <motion.div
                   key={plan.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={plansInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`relative bg-white rounded-2xl p-7 border-2 ${
+                  className={`relative flex flex-col h-full bg-white rounded-2xl p-7 border-2 ${
                     plan.popular ? "border-cta shadow-xl" : "border-border"
                   }`}
                 >
@@ -337,7 +337,7 @@ export default function Sage100Client() {
                     {plan.cta}
                   </Link>
                   <p className="text-xs font-bold text-secondary/60 uppercase tracking-widest mb-3">Fonctionnalités incluses :</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 flex-1">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
                         <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
@@ -348,26 +348,6 @@ export default function Sage100Client() {
                 </motion.div>
               ))}
             </div>
-
-            {/* Ratings */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={plansInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col items-center gap-3 mt-12"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-primary">Avis clients vérifiés</span>
-              </div>
-              <p className="text-xs text-secondary/60 text-center max-w-lg">
-                Le prix final est déterminé par le nombre d&apos;utilisateurs, le périmètre fonctionnel choisi, le besoin d&apos;intégration et le niveau de support fourni par Thalès Informatique.
-              </p>
-            </motion.div>
           </div>
         </section>
 
@@ -392,11 +372,19 @@ export default function Sage100Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={complementaryInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-bg rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  className="bg-white rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden"
                 >
-                  <span className="text-3xl mb-4 block">{sol.icon}</span>
-                  <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{sol.desc}</p>
+                  <div className={`relative h-28 bg-gradient-to-br ${sol.gradient} overflow-hidden`}>
+                    <div className="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-white/15" />
+                    <div className="absolute -right-2 top-4 w-12 h-12 rounded-full bg-white/10" />
+                    <div className="relative h-full flex items-center justify-center">
+                      <sol.icon size={36} className="text-white drop-shadow-md" strokeWidth={1.75} />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
+                    <p className="text-sm text-secondary leading-relaxed">{sol.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
