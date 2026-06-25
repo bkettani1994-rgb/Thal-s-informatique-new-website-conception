@@ -5,31 +5,85 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Layers, Building2, Plug } from "lucide-react";
 
-const features = [
-  { title: "Consolidation automatique multi-entités", desc: "Consolidez les comptes de toutes vos filiales en quelques clics, avec gestion des éliminations intercompany.", icon: "🔗" },
-  { title: "Reporting groupe en temps réel", desc: "Tableaux de bord financiers groupe, disponibles instantanément pour les décideurs.", icon: "📊" },
-  { title: "Gestion multi-devises & multi-réglementaire", desc: "Gérez plusieurs devises et réglementations comptables en parallèle (IFRS, normes marocaines).", icon: "🌍" },
-  { title: "Contrôle de gestion avancé", desc: "Budgets, forecasts, analyse des écarts et simulation de scénarios financiers.", icon: "🎯" },
-  { title: "Intercompany automatisé", desc: "Automatisation des flux financiers inter-sociétés : factures, prêts, dividendes.", icon: "⚡" },
-  { title: "Conformité IFRS & normes marocaines", desc: "Respect des obligations légales locales et des standards internationaux simultanément.", icon: "✅" },
+const pillars = [
+  {
+    title: "Une seule solution pour un pilotage complet",
+    desc: "Comptabilité, processus opérationnels, pilotage budgétaire : Sage FRP 1000 réunit tous les besoins de votre direction financière dans une seule plateforme modulaire. Vous activez les briques utiles à votre groupe et faites évoluer la solution au rythme de votre croissance.",
+    icon: Layers,
+  },
+  {
+    title: "Optez pour une gestion multi-sociétés",
+    desc: "Grâce à une base de données unique, Sage FRP 1000 vous permet d'agréger facilement les données de toutes vos filiales, d'harmoniser et de sécuriser votre référentiel, et de gérer nativement vos flux intra-groupe.",
+    icon: Building2,
+  },
+  {
+    title: "Une plateforme technologique ouverte",
+    desc: "Interconnectée avec vos applications existantes, disponible en cloud comme en on-premise, Sage FRP 1000 est une solution prête à l'emploi qui se déploie rapidement et s'ajuste à l'organisation de votre groupe.",
+    icon: Plug,
+  },
 ];
 
-const profiles = [
-  { title: "Groupes industriels", desc: "Plusieurs unités de production, consolidation complexe, reporting vers la maison-mère.", icon: "🏭" },
-  { title: "Holdings financières", desc: "Gestion des participations, dividendes, flux de trésorerie groupe.", icon: "🏦" },
-  { title: "Filiales de multinationales", desc: "Reporting dual (local + groupe), multi-devises, normes IFRS.", icon: "🌐" },
+const accountingCards = [
+  {
+    title: "Comptabilité",
+    desc: "Une solution qui s'adapte au cœur de votre métier pour collecter de façon homogène l'ensemble de vos données financières. Sage FRP 1000 Comptabilité offre une large couverture fonctionnelle, une mise en conformité permanente et des délais de clôture optimisés.",
+    cta: "Découvrir Sage FRP 1000 Comptabilité",
+  },
+  {
+    title: "Immobilisations",
+    desc: "Maîtrisez les impacts de votre stratégie d'investissement avec Sage FRP 1000 Immobilisations : une gestion experte qui couvre tout le cycle de vie de vos immobilisations, avec une structure évolutive et des arrêtés comptables optimisés.",
+    cta: "Découvrir Sage FRP 1000 Immobilisations",
+  },
+];
+
+const financialFlowCards = [
+  {
+    title: "Trésorerie",
+    desc: "Obtenez une vision en temps réel et sécurisée de vos flux financiers : Sage FRP 1000 Trésorerie couvre les besoins des services de trésorerie et des directions financières, quelle que soit l'organisation de votre groupe.",
+    cta: "Découvrir Sage FRP 1000 Trésorerie",
+  },
+  {
+    title: "Rapprochement Bancaire",
+    desc: "Fiabilisez vos rapprochements bancaires et identifiez immédiatement les écarts grâce à des contrôles automatisés, pour produire un état de rapprochement précis dans les meilleurs délais.",
+    cta: "Découvrir Sage FRP 1000 Rapprochement Bancaire",
+  },
+  {
+    title: "Banque Paiement",
+    desc: "Sécurisez vos processus de règlement et vos échanges bancaires entre vos différentes entités : gestion, sécurité et télétransmission de vos moyens de paiement et relevés bancaires.",
+    cta: "Découvrir Sage FRP 1000 Banque Paiement",
+  },
+];
+
+const operationalCards = [
+  {
+    title: "Achats",
+    desc: "Pilotez l'ensemble de votre chaîne d'achats (engagements, stocks, ventes, notes de frais) et maîtrisez vos dépenses de bout en bout grâce à une vision unifiée de vos flux.",
+    cta: "Découvrir Sage FRP 1000 Achats",
+  },
+  {
+    title: "Ventes",
+    desc: "Administrez votre cycle de ventes de bout en bout, optimisez l'ensemble des flux liés à votre activité commerciale et renforcez la collaboration entre vos équipes.",
+    cta: "Découvrir Sage FRP 1000 Ventes",
+  },
+  {
+    title: "Stocks",
+    desc: "Gardez le contrôle de vos stocks avec un outil métier intuitif qui maîtrise la chaîne de vos dépenses dans son intégralité et optimise les flux liés à votre activité commerciale.",
+    cta: "Découvrir Sage FRP 1000 Stocks",
+  },
 ];
 
 export default function SageFrp1000Client() {
-  const introRef = useRef(null);
-  const featuresRef = useRef(null);
-  const profilesRef = useRef(null);
+  const pillarsRef = useRef(null);
+  const accountingRef = useRef(null);
+  const flowsRef = useRef(null);
+  const operationalRef = useRef(null);
 
-  const introInView = useInView(introRef, { once: true, margin: "-80px" });
-  const featuresInView = useInView(featuresRef, { once: true, margin: "-80px" });
-  const profilesInView = useInView(profilesRef, { once: true, margin: "-80px" });
+  const pillarsInView = useInView(pillarsRef, { once: true, margin: "-80px" });
+  const accountingInView = useInView(accountingRef, { once: true, margin: "-80px" });
+  const flowsInView = useInView(flowsRef, { once: true, margin: "-80px" });
+  const operationalInView = useInView(operationalRef, { once: true, margin: "-80px" });
 
   return (
     <>
@@ -90,84 +144,133 @@ export default function SageFrp1000Client() {
           </div>
         </section>
 
-        {/* Intro */}
-        <section ref={introRef} className="py-20 bg-white">
+        {/* Pillars */}
+        <section ref={pillarsRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={introInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="text-xs font-bold text-cta tracking-widest uppercase">LA SOLUTION GROUPE</span>
-                <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
-                  La finance de groupe sans complexité
-                </h2>
-                <p className="text-secondary leading-relaxed mb-4">
-                  Sage FRP 1000 est la solution financière dédiée aux groupes, filiales et holdings. Elle centralise la consolidation automatique, le reporting groupe et la gestion multi-entités dans une plateforme unifiée.
-                </p>
-                <p className="text-secondary leading-relaxed">
-                  Déployée par <strong className="text-primary">Thalès Informatique</strong> au Maroc, Sage FRP 1000 permet aux groupes marocains et aux filiales de multinationales de piloter leur performance financière avec précision et conformité.
-                </p>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={pillarsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-12"
+            >
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">UN OUTIL, TOUS VOS ENJEUX</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">
+                L'outil de pilotage financier qui s'adapte à votre groupe
+              </h2>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {pillars.map((pillar, i) => {
+                const Icon = pillar.icon;
+                return (
+                  <motion.div
+                    key={pillar.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={pillarsInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="bg-bg rounded-2xl p-8 border border-border"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
+                      <Icon size={22} className="text-cta" />
+                    </div>
+                    <h3 className="font-bold text-primary mb-3">{pillar.title}</h3>
+                    <p className="text-sm text-secondary leading-relaxed">{pillar.desc}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* Features */}
-        <section ref={featuresRef} className="py-20 bg-bg">
+        {/* Gestion comptable */}
+        <section ref={accountingRef} className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              animate={accountingInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">FONCTIONNALITÉS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Des capacités taillées pour les groupes</h2>
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">GESTION COMPTABLE</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">Une comptabilité fiable, du quotidien à la clôture</h2>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feat, i) => (
+            <div className="grid md:grid-cols-2 gap-6">
+              {accountingCards.map((card, i) => (
                 <motion.div
-                  key={feat.title}
+                  key={card.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  animate={accountingInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white rounded-2xl p-8 border border-border hover:border-cta hover:shadow-lg transition-all duration-200 flex flex-col"
                 >
-                  <span className="text-3xl mb-4 block">{feat.icon}</span>
-                  <h3 className="font-bold text-primary mb-2">{feat.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{feat.desc}</p>
+                  <h3 className="font-bold text-xl text-primary mb-3">{card.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed flex-1 mb-4">{card.desc}</p>
+                  <Link href="/contact" className="inline-flex items-center gap-1 text-cta text-sm font-semibold hover:gap-2 transition-all">
+                    {card.cta} <ArrowRight size={16} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Who it's for */}
-        <section ref={profilesRef} className="py-20 bg-white">
+        {/* Flux financiers */}
+        <section ref={flowsRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={profilesInView ? { opacity: 1, y: 0 } : {}}
+              animate={flowsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">POUR QUI ?</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Conçu pour les structures complexes</h2>
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">FLUX FINANCIERS</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">Sécurisez vos flux de trésorerie et vos paiements</h2>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6">
-              {profiles.map((profile, i) => (
+              {financialFlowCards.map((card, i) => (
                 <motion.div
-                  key={profile.title}
+                  key={card.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={profilesInView ? { opacity: 1, y: 0 } : {}}
+                  animate={flowsInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-bg rounded-2xl p-8 border border-border text-center"
+                  className="bg-bg rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200 flex flex-col"
                 >
-                  <span className="text-4xl mb-4 block">{profile.icon}</span>
-                  <h3 className="font-bold text-primary mb-3">{profile.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{profile.desc}</p>
+                  <h3 className="font-bold text-primary mb-3">{card.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed flex-1 mb-4">{card.desc}</p>
+                  <Link href="/contact" className="inline-flex items-center gap-1 text-cta text-sm font-semibold hover:gap-2 transition-all">
+                    {card.cta} <ArrowRight size={16} />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Processus opérationnels */}
+        <section ref={operationalRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={operationalInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-12"
+            >
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">PROCESSUS OPÉRATIONNELS</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">Maîtrisez vos achats, ventes et stocks de bout en bout</h2>
+            </motion.div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {operationalCards.map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={operationalInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200 flex flex-col"
+                >
+                  <h3 className="font-bold text-primary mb-3">{card.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed flex-1 mb-4">{card.desc}</p>
+                  <Link href="/contact" className="inline-flex items-center gap-1 text-cta text-sm font-semibold hover:gap-2 transition-all">
+                    {card.cta} <ArrowRight size={16} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
