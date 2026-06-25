@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, CheckCircle2, ChevronRight, Download, Factory, Truck, LineChart } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronRight, Download, Factory, Truck, LineChart, Wheat, Cog, FlaskConical, Briefcase } from "lucide-react";
 
 const capabilities = [
   {
@@ -104,26 +104,38 @@ const completeManagementTabs = [
 const sectors = [
   {
     title: "Secteur agroalimentaire",
+    icon: Wheat,
+    gradient: "from-lime-500 via-green-500 to-emerald-600",
     items: ["Traçabilité", "Gestion des lots et dates de péremption", "Conformité sanitaire", "Ventes et marketing"],
   },
   {
     title: "Industrie de transformation",
+    icon: Cog,
+    gradient: "from-amber-500 via-orange-500 to-red-500",
     items: ["Suivi des coûts de revient", "Planification de production", "Contrôle qualité", "Gestion des sous-traitants"],
   },
   {
     title: "Industrie",
+    icon: Factory,
+    gradient: "from-slate-500 via-slate-600 to-slate-800",
     items: ["Maintenance des équipements", "Gestion multi-sites", "Suivi des stocks techniques", "Pilotage de la performance"],
   },
   {
     title: "Distribution",
+    icon: Truck,
+    gradient: "from-sky-500 via-blue-500 to-indigo-600",
     items: ["Gestion des points de vente", "Transport et logistique", "Gestion des promotions", "Pilotage des marges"],
   },
   {
     title: "Produits chimiques",
+    icon: FlaskConical,
+    gradient: "from-fuchsia-500 via-purple-500 to-violet-700",
     items: ["Traçabilité réglementaire", "Conformité HSE et fiches de sécurité", "Suivi des formules", "Gestion des risques produit"],
   },
   {
     title: "Services",
+    icon: Briefcase,
+    gradient: "from-cyan-500 via-teal-500 to-blue-600",
     items: ["Facturation à l'affaire", "Suivi de projet et rentabilité", "Gestion des ressources", "Reporting client"],
   },
 ];
@@ -442,20 +454,29 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={sectorsInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="bg-bg rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  className="bg-bg rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden"
                 >
-                  <h3 className="font-bold text-primary mb-4">{sector.title}</h3>
-                  <ul className="space-y-2 mb-5">
-                    {sector.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                        <CheckCircle2 size={14} className="text-cta shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/secteurs" className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
-                    En savoir plus <ArrowRight size={13} />
-                  </Link>
+                  <div className={`relative h-28 bg-gradient-to-br ${sector.gradient} overflow-hidden`}>
+                    <div className="absolute -right-5 -bottom-5 w-24 h-24 rounded-full bg-white/15" />
+                    <div className="absolute left-5 top-3 w-10 h-10 rounded-full bg-white/10" />
+                    <div className="relative h-full flex items-center justify-center">
+                      <sector.icon size={36} className="text-white drop-shadow-md" strokeWidth={1.75} />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-primary mb-4">{sector.title}</h3>
+                    <ul className="space-y-2 mb-5">
+                      {sector.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle2 size={14} className="text-cta shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href="/secteurs" className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
+                      En savoir plus <ArrowRight size={13} />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
