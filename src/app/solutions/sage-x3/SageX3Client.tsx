@@ -12,8 +12,6 @@ const capabilities = [
     title: "Gestion de la production",
     icon: Factory,
     gradient: "from-orange-500 via-amber-500 to-yellow-400",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Smart_Manufacturing_Factory_thal%C3%A8s_informatique_ht9xvt.jpg",
-    imageAlt: "Atelier de production intelligent piloté en temps réel avec Sage X3",
     items: [
       "Suivi en temps réel des ordres de fabrication",
       "Planification et ordonnancement des ateliers",
@@ -25,8 +23,6 @@ const capabilities = [
     title: "Gestion de la chaîne d'approvisionnement",
     icon: Truck,
     gradient: "from-emerald-500 via-teal-500 to-cyan-400",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Industry_4.0_Production_Line_thal%C3%A8s_informatique_wqxuar.jpg",
-    imageAlt: "Logistique et chaîne d'approvisionnement connectée pilotée par Sage X3",
     items: [
       "Pilotage des achats et des fournisseurs",
       "Optimisation des niveaux de stock multi-sites",
@@ -38,8 +34,6 @@ const capabilities = [
     title: "Gestion financière",
     icon: LineChart,
     gradient: "from-blue-600 via-indigo-500 to-violet-500",
-    image: null,
-    imageAlt: "Pilotage financier et budgétaire multi-sociétés avec Sage X3",
     items: [
       "Comptabilité multi-sociétés et multi-devises",
       "Clôtures accélérées et consolidation groupe",
@@ -243,16 +237,9 @@ export default function SageX3Client() {
                   className="bg-white rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden"
                 >
                   <div className={`relative h-36 bg-gradient-to-br ${cap.gradient} overflow-hidden`}>
-                    {cap.image && (
-                      <img
-                        src={cap.image}
-                        alt={cap.imageAlt}
-                        className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80"
-                        loading="lazy"
-                      />
-                    )}
                     <div className="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-white/15" />
                     <div className="absolute -right-2 top-4 w-16 h-16 rounded-full bg-white/10" />
+                    <div className="absolute left-6 bottom-3 w-10 h-10 rounded-full bg-white/10" />
                     <div className="relative h-full flex items-center justify-center">
                       <cap.icon size={44} className="text-white drop-shadow-md" strokeWidth={1.75} />
                     </div>
@@ -385,8 +372,13 @@ export default function SageX3Client() {
               transition={{ duration: 0.6 }}
               className="grid md:grid-cols-2 gap-10 items-center bg-white rounded-2xl border border-border p-8 lg:p-12"
             >
-              <div className="h-56 rounded-2xl bg-bg border border-border flex items-center justify-center text-secondary/50 text-sm order-2 md:order-1">
-                Visuel à intégrer
+              <div className="h-56 rounded-2xl border border-border overflow-hidden order-2 md:order-1">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375900/Manufacturing_Engineers_Collaboration_thal%C3%A8s_informatique_fonqhg.jpg"
+                  alt="Ingénieurs collaborant autour des fonctionnalités de l'ERP Sage X3 en environnement industriel"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div className="order-1 md:order-2">
                 <span className="text-xs font-bold text-cta tracking-widest uppercase">RESSOURCE</span>
