@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronRight, ChevronDown, FileText, CalendarDays, CalendarClock, MessageSquare, Receipt, BarChart3 } from "lucide-react";
 
 const benefits = [
   { title: "Moins d'administratif, plus d'humain", desc: "Simplifiez et automatisez vos processus RH, et dématérialisez les données de vos salariés.", icon: "⚙️" },
@@ -60,12 +60,12 @@ const discoveryTabs = [
 ];
 
 const complementary = [
-  { title: "Dématérialisez les processus paie et RH", desc: "Dites adieu au papier et digitalisez vos processus paie et ressources humaines.", icon: "🧾", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Démat RH" },
-  { title: "Gérez les congés et absences", desc: "La gestion des congés de vos employés devient plus facile que jamais.", icon: "🗓️", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
-  { title: "Gérez les plannings", desc: "Facilitez le planning de vos collaborateurs grâce aux automatismes.", icon: "📅", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
-  { title: "Automatisez les campagnes", desc: "Faites de l'entretien individuel un moment propice aux échanges.", icon: "💬", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
-  { title: "Gérez les notes de frais", desc: "Scannez vos justificatifs en quelques secondes pour une gestion simplifiée.", icon: "🧮", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
-  { title: "Pilotez votre entreprise", desc: "Réalisez des tableaux de bord et reportings, et partagez-les en un clic.", icon: "📊", href: "/solutions/sage-100-paie-rh", linkLabel: "Découvrez Sage Business Reporting" },
+  { title: "Dématérialisez les processus paie et RH", desc: "Dites adieu au papier et digitalisez vos processus paie et ressources humaines.", icon: FileText, gradient: "from-orange-500 via-amber-500 to-yellow-400", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Démat RH" },
+  { title: "Gérez les congés et absences", desc: "La gestion des congés de vos employés devient plus facile que jamais.", icon: CalendarDays, gradient: "from-emerald-500 via-teal-500 to-cyan-400", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
+  { title: "Gérez les plannings", desc: "Facilitez le planning de vos collaborateurs grâce aux automatismes.", icon: CalendarClock, gradient: "from-blue-600 via-indigo-500 to-violet-500", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
+  { title: "Automatisez les campagnes", desc: "Faites de l'entretien individuel un moment propice aux échanges.", icon: MessageSquare, gradient: "from-sky-500 via-blue-500 to-indigo-600", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
+  { title: "Gérez les notes de frais", desc: "Scannez vos justificatifs en quelques secondes pour une gestion simplifiée.", icon: Receipt, gradient: "from-fuchsia-500 via-purple-500 to-violet-700", href: "/solutions/sage-espace-employes", linkLabel: "Découvrez Sage Espace Employés" },
+  { title: "Pilotez votre entreprise", desc: "Réalisez des tableaux de bord et reportings, et partagez-les en un clic.", icon: BarChart3, gradient: "from-lime-500 via-green-500 to-emerald-600", href: "/solutions/sage-100-paie-rh", linkLabel: "Découvrez Sage Business Reporting" },
 ];
 
 const faqs = [
@@ -307,19 +307,25 @@ export default function Sage100PaieRhClient() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={complementaryInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="bg-white rounded-2xl p-6 border border-border flex flex-col"
+                  className="bg-white rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden flex flex-col"
                 >
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white text-lg mb-4">
-                    {sol.icon}
-                  </span>
-                  <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed flex-1">{sol.desc}</p>
-                  <Link
-                    href={sol.href}
-                    className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
-                  >
-                    {sol.linkLabel} <ArrowRight size={13} />
-                  </Link>
+                  <div className={`relative h-28 bg-gradient-to-br ${sol.gradient} overflow-hidden`}>
+                    <div className="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-white/15" />
+                    <div className="absolute -right-2 top-4 w-12 h-12 rounded-full bg-white/10" />
+                    <div className="relative h-full flex items-center justify-center">
+                      <sol.icon size={36} className="text-white drop-shadow-md" strokeWidth={1.75} />
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
+                    <p className="text-sm text-secondary leading-relaxed flex-1">{sol.desc}</p>
+                    <Link
+                      href={sol.href}
+                      className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
+                    >
+                      {sol.linkLabel} <ArrowRight size={13} />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
