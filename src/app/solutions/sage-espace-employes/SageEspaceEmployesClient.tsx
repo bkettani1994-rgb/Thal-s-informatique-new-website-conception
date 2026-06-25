@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight, Sparkles, RefreshCw, Smartphone, ShieldCheck } from "lucide-react";
+import { ArrowRight, ChevronRight, Sparkles, RefreshCw, Smartphone, ShieldCheck, X, ZoomIn } from "lucide-react";
 
 const topHighlights = [
   { title: "Simple et accessible", desc: "Sage Espace Employés se prend en main sans formation lourde : vos collaborateurs deviennent acteurs de leur dossier RH dès la première connexion.", icon: Sparkles },
@@ -22,6 +22,8 @@ const featureBlocks = [
     ],
     note: "Disponible avec Sage 100 Paie & RH",
     imagePos: "right",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395333/1-see-appli-bureau-3-thal%C3%A8s_informatique_gbgvud.png",
+    imageAlt: "Interface Sage Espace Employés pour la gestion des congés depuis l'application bureau",
   },
   {
     title: "Une vraie souplesse d'utilisation",
@@ -30,6 +32,8 @@ const featureBlocks = [
       "Vous configurez les types de congés, les compteurs de récupération et les soldes en temps réel. Les contrôleurs de paie sont automatiquement informés à chaque demande déposée par vos salariés.",
     ],
     imagePos: "left",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395333/2-see-appli-bureau-1-thal%C3%A8s_informatique_pzpaec.png",
+    imageAlt: "Interface Sage Espace Employés affichant le paramétrage du circuit de validation des absences",
   },
   {
     title: "Le planning des congés en temps réel et partagé",
@@ -38,6 +42,8 @@ const featureBlocks = [
       "Vous gérez ainsi le planning de présence de vos salariés de façon automatisée, et tout le processus de gestion des congés et absences en devient plus simple et centralisé.",
     ],
     imagePos: "right",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395333/3-see-appli-bureau-2-thal%C3%A8s-informatique_uslkrl.png",
+    imageAlt: "Planning des congés et absences partagé en temps réel dans Sage Espace Employés",
   },
   {
     title: "Une paie prête dans les délais",
@@ -46,6 +52,8 @@ const featureBlocks = [
       "Grâce à la synchronisation automatique des congés et absences traités dans Sage Espace Employés, Sage 100 Paie & RH dispose de toutes les données nécessaires pour préparer votre paie.",
     ],
     imagePos: "left",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395333/4-sage-dematerialisation-rh-projet-distribution-thal%C3%A8s-informatique_hzzxam.jpg",
+    imageAlt: "Dématérialisation des processus RH et de paie avec Sage Espace Employés",
   },
   {
     title: "Les dossiers de vos collaborateurs sont centralisés et toujours à jour",
@@ -54,6 +62,8 @@ const featureBlocks = [
       "L'accès aux données est sécurisé et contrôlé selon le profil de chaque utilisateur. La saisie des informations variables de paie (primes, heures supplémentaires...) est elle aussi prise en compte automatiquement dans le bulletin.",
     ],
     note: "Disponible avec Sage 100 Paie & RH",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395333/5-2-see-dossier-salarie-thal%C3%A8s-informatique_trr6c3.png",
+    imageAlt: "Dossier salarié centralisé et données administratives RH dans Sage Espace Employés",
     imagePos: "right",
   },
   {
@@ -64,6 +74,8 @@ const featureBlocks = [
     ],
     note: "Disponible avec Sage 100 Paie & RH",
     imagePos: "left",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395334/6-sage-espace-employes-suivi-des-objectifs-thal%C3%A8s-informatique_p4lntb.png",
+    imageAlt: "Suivi des entretiens et des objectifs des collaborateurs dans Sage Espace Employés",
   },
   {
     title: "Simplifiez la gestion des notes de frais avec une application dédiée",
@@ -103,6 +115,7 @@ export default function SageEspaceEmployesClient() {
   const introRef = useRef(null);
   const featuresRef = useRef(null);
   const dailyTimeRef = useRef(null);
+  const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string } | null>(null);
 
   const introInView = useInView(introRef, { once: true, margin: "-80px" });
   const featuresInView = useInView(featuresRef, { once: true, margin: "-80px" });
@@ -234,14 +247,66 @@ export default function SageEspaceEmployesClient() {
                       <p className="text-xs font-bold text-cta uppercase tracking-widest">{block.note}</p>
                     )}
                   </div>
-                  <div className={`h-56 sm:h-72 rounded-2xl border border-border bg-white flex items-center justify-center text-secondary/50 text-sm ${block.imagePos === "left" ? "md:order-1" : ""}`}>
-                    Visuel à intégrer
-                  </div>
+                  {block.image ? (
+                    <button
+                      type="button"
+                      onClick={() => setLightboxImg({ src: block.image!, alt: block.imageAlt! })}
+                      className={`relative group h-56 sm:h-72 rounded-2xl border border-border bg-white overflow-hidden cursor-zoom-in ${block.imagePos === "left" ? "md:order-1" : ""}`}
+                      aria-label={`Agrandir : ${block.imageAlt}`}
+                    >
+                      <img
+                        src={block.image}
+                        alt={block.imageAlt}
+                        className="w-full h-full object-contain p-3"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center">
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white rounded-full p-2 shadow-lg">
+                          <ZoomIn size={18} className="text-primary" />
+                        </span>
+                      </div>
+                    </button>
+                  ) : (
+                    <div className={`h-56 sm:h-72 rounded-2xl border border-border bg-white flex items-center justify-center text-secondary/50 text-sm ${block.imagePos === "left" ? "md:order-1" : ""}`}>
+                      Visuel à intégrer
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Lightbox */}
+        <AnimatePresence>
+          {lightboxImg && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center px-4"
+              onClick={() => setLightboxImg(null)}
+            >
+              <button
+                onClick={() => setLightboxImg(null)}
+                className="absolute top-5 right-5 text-white/70 hover:text-white transition-colors cursor-pointer"
+                aria-label="Fermer"
+              >
+                <X size={28} />
+              </button>
+              <motion.img
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.92 }}
+                transition={{ duration: 0.25 }}
+                onClick={(e) => e.stopPropagation()}
+                src={lightboxImg.src}
+                alt={lightboxImg.alt}
+                className="max-w-4xl w-full max-h-[85vh] object-contain rounded-xl mx-auto"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Daily time saved */}
         <section ref={dailyTimeRef} className="py-20 bg-white">
