@@ -47,8 +47,8 @@ const milestones = [
 const stats = [
   { value: "30", label: "Ans d'expertise" },
   { value: "500+", label: "Clients accompagnés" },
-  { value: "120+", label: "Experts dédiés" },
-  { value: "98%", label: "Taux de satisfaction" },
+  { value: "20+", label: "Consultants certifiés" },
+  { value: "92%", label: "Taux de fidélisation" },
 ];
 
 const highlights = [
@@ -165,7 +165,7 @@ export default function TrenteAnsClient() {
                 <div className="absolute top-[26px] right-0 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-white/40" />
                 {milestones.map((item) => (
                   <div key={item.year} className="relative z-10 flex flex-col items-center text-center w-1/5 px-1">
-                    <div className="w-14 h-14 rounded-full border-2 border-white bg-primary flex items-center justify-center text-white font-bold text-sm mb-3">
+                    <div className="w-14 h-14 rounded-full border-2 border-white bg-white flex items-center justify-center text-sky-500 font-bold text-sm mb-3">
                       {item.year}
                     </div>
                     <p className="text-white text-xs sm:text-sm font-semibold leading-tight">{item.title}</p>
