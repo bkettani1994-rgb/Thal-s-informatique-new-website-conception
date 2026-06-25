@@ -130,16 +130,27 @@ export default function SageFrp1000Client() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              {["Consolidation des comptes", "Interface Sage FRP 1000", "Reporting financier groupe"].map((label) => (
-                <div
-                  key={label}
-                  className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-xs text-center px-3"
-                >
-                  {label}
-                  <br />
-                  (visuel à intégrer)
-                </div>
-              ))}
+              <div className="rounded-2xl border border-white/15 overflow-hidden h-48 sm:h-64">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782397949/Les_employ%C3%A9s_d_entrep%C3%B4t_parlent_de_logistique_et_de_distribution_Photo_Gratuite-thal%C3%A8s-informatique-sage-frp1000_btjmg3.png"
+                  alt="Équipe logistique échangeant sur la gestion des flux et de la distribution"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="rounded-2xl border border-white/15 overflow-hidden h-48 sm:h-64 bg-white flex items-center justify-center p-3">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782397864/Sage-FRP-1000-la-suite-financiere-evolutive-et-personnalisable-pour-repondre-aux-enjeux-des-directions-financieres_umcn5r.png"
+                  alt="Interface Sage FRP 1000, la suite financière évolutive pour les directions financières"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="rounded-2xl border border-white/15 overflow-hidden h-48 sm:h-64">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782397950/Homme_avec_casque_de_travail_logistique_Photo_Gratuite-thal%C3%A8s-informatique-sagefrp1000_vwpaov.png"
+                  alt="Collaborateur en environnement logistique utilisant les outils de pilotage Sage FRP 1000"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
           </div>
         </section>
