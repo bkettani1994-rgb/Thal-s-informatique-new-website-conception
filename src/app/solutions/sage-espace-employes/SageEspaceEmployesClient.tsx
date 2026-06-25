@@ -5,33 +5,108 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight, Sparkles, RefreshCw, Smartphone, ShieldCheck } from "lucide-react";
 
-const features = [
-  { title: "Consultation des bulletins de paie", desc: "Chaque collaborateur accède à ses fiches de paie en ligne, à tout moment.", icon: "💰" },
-  { title: "Gestion des congés & absences", desc: "Demandes, validations et soldes de congés en temps réel, sans papier.", icon: "🗓️" },
-  { title: "Dossier collaborateur", desc: "Contrat, avenants, attestations et documents RH centralisés et accessibles.", icon: "🗂️" },
-  { title: "Notes de frais en ligne", desc: "Saisie et suivi des remboursements directement depuis l'espace employé.", icon: "🧾" },
-  { title: "Notifications RH", desc: "Alertes automatiques sur les validations, échéances et communications RH.", icon: "🔔" },
-  { title: "Accès sécurisé multi-appareils", desc: "Connexion sécurisée depuis ordinateur, tablette ou smartphone.", icon: "🔒" },
+const topHighlights = [
+  { title: "Simple et accessible", desc: "Sage Espace Employés se prend en main sans formation lourde : vos collaborateurs deviennent acteurs de leur dossier RH dès la première connexion.", icon: Sparkles },
+  { title: "Connecté et évolutif", desc: "Le portail s'intègre nativement à Sage 100 Paie & RH : les demandes de congés et absences sont déjà traitées par votre service paie sans ressaisie.", icon: RefreshCw },
+  { title: "Mobile", desc: "Accessible depuis l'App Store et Google Play, l'application permet de consulter son planning, ses congés ou de poser une demande où que vous soyez.", icon: Smartphone },
+  { title: "Conforme et sécurisé", desc: "L'accès aux données est contrôlé selon le profil de chaque utilisateur, avec des sauvegardes régulières pour garantir la disponibilité et la sécurité des informations.", icon: ShieldCheck },
 ];
 
-const advantages = [
-  { title: "Moins de sollicitations RH", desc: "Les collaborateurs trouvent leurs informations en autonomie, sans solliciter le service RH.", icon: "⚡" },
-  { title: "Zéro papier", desc: "Bulletins, contrats et justificatifs sont dématérialisés et archivés légalement.", icon: "🌱" },
-  { title: "Disponible partout", desc: "Un espace accessible à tout moment, même en dehors des locaux de l'entreprise.", icon: "📱" },
+const featureBlocks = [
+  {
+    title: "Une gestion des congés adaptée à votre organisation",
+    paragraphs: [
+      "Simplifiez et automatisez le suivi des congés et absences de vos collaborateurs, de la demande jusqu'à son intégration dans la paie pour l'édition des bulletins de salaire.",
+    ],
+    note: "Disponible avec Sage 100 Paie & RH",
+    imagePos: "right",
+  },
+  {
+    title: "Une vraie souplesse d'utilisation",
+    paragraphs: [
+      "Le circuit de validation se paramètre selon votre organisation : vos responsables d'équipe valident les demandes d'absence depuis le bureau ou en déplacement.",
+      "Vous configurez les types de congés, les compteurs de récupération et les soldes en temps réel. Les contrôleurs de paie sont automatiquement informés à chaque demande déposée par vos salariés.",
+    ],
+    imagePos: "left",
+  },
+  {
+    title: "Le planning des congés en temps réel et partagé",
+    paragraphs: [
+      "Évitez les échanges de mails et les plannings tenus à la main : visualisez en un coup d'œil l'état des congés de toute l'équipe et anticipez les périodes de forte absence.",
+      "Vous gérez ainsi le planning de présence de vos salariés de façon automatisée, et tout le processus de gestion des congés et absences en devient plus simple et centralisé.",
+    ],
+    imagePos: "right",
+  },
+  {
+    title: "Une paie prête dans les délais",
+    paragraphs: [
+      "En fin de mois, vous gagnez un temps précieux et évitez le stress de la paie en retard.",
+      "Grâce à la synchronisation automatique des congés et absences traités dans Sage Espace Employés, Sage 100 Paie & RH dispose de toutes les données nécessaires pour préparer votre paie.",
+    ],
+    imagePos: "left",
+  },
+  {
+    title: "Les dossiers de vos collaborateurs sont centralisés et toujours à jour",
+    paragraphs: [
+      "Choisissez les données administratives à gérer selon vos besoins RH : règles de partage et de modification des informations, circuit de validation des mises à jour, rappels programmés sur les échéances importantes.",
+      "L'accès aux données est sécurisé et contrôlé selon le profil de chaque utilisateur. La saisie des informations variables de paie (primes, heures supplémentaires...) est elle aussi prise en compte automatiquement dans le bulletin.",
+    ],
+    note: "Disponible avec Sage 100 Paie & RH",
+    imagePos: "right",
+  },
+  {
+    title: "Pilotez les entretiens et les objectifs de vos collaborateurs",
+    paragraphs: [
+      "Créez vos propres formulaires d'entretien ou d'enquête, planifiez vos entretiens obligatoires et valorisez la performance de vos équipes.",
+      "Les échanges sont formalisés et conservés : le pilotage des compétences et des objectifs s'en trouve automatisé et simplifié.",
+    ],
+    note: "Disponible avec Sage 100 Paie & RH",
+    imagePos: "left",
+  },
+  {
+    title: "Simplifiez la gestion des notes de frais avec une application dédiée",
+    paragraphs: [
+      "Oubliez les reçus perdus et les notes de frais rejetées : vos collaborateurs scannent leurs justificatifs en quelques secondes et les informations sont extraites automatiquement pour être soumises à validation.",
+      "Le paramétrage des règles de contrôle et de remboursement garantit l'application de votre politique de dépenses, tandis que la comptabilisation automatisée des notes de frais maîtrise vos délais de remboursement.",
+    ],
+    imagePos: "right",
+  },
+];
+
+const dailyTime = [
+  {
+    title: "Automatisez la saisie et la gestion des congés et absences",
+    items: [
+      "Un planning de congés et absences individuel et partagé",
+      "Un calcul et un suivi automatisés des soldes",
+      "Une validation par les responsables d'équipe via un circuit d'approbation à plusieurs niveaux",
+      "Une intégration directe des données vers votre paie",
+    ],
+  },
+  {
+    title: "Faites valider les demandes par vos managers",
+    items: [
+      "Vos managers valident les demandes et vous en êtes automatiquement informé. Tous les échanges sont horodatés et archivés.",
+    ],
+  },
+  {
+    title: "Les soldes de vos collaborateurs sont mis à jour automatiquement",
+    items: [
+      "Gérez tous les types de congés et absences : congés payés, RTT, récupération, télétravail, maladie, congés de paternité et de maternité.",
+    ],
+  },
 ];
 
 export default function SageEspaceEmployesClient() {
   const introRef = useRef(null);
   const featuresRef = useRef(null);
-  const advantagesRef = useRef(null);
-  const portalRef = useRef(null);
+  const dailyTimeRef = useRef(null);
 
   const introInView = useInView(introRef, { once: true, margin: "-80px" });
   const featuresInView = useInView(featuresRef, { once: true, margin: "-80px" });
-  const advantagesInView = useInView(advantagesRef, { once: true, margin: "-80px" });
-  const portalInView = useInView(portalRef, { once: true, margin: "-80px" });
+  const dailyTimeInView = useInView(dailyTimeRef, { once: true, margin: "-80px" });
 
   return (
     <>
@@ -95,23 +170,35 @@ export default function SageEspaceEmployesClient() {
         {/* Intro */}
         <section ref={introRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={introInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="text-xs font-bold text-cta tracking-widest uppercase">LA RH EN LIBRE-SERVICE</span>
-                <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
-                  Donnez l&apos;autonomie à vos collaborateurs
-                </h2>
-                <p className="text-secondary leading-relaxed mb-4">
-                  Sage Espace Employés est le portail self-service qui connecte vos collaborateurs à leurs informations RH : bulletins de paie, congés, documents administratifs. Couplé à Sage 100 Paie & RH, il simplifie le quotidien de toute l&apos;entreprise.
-                </p>
-                <p className="text-secondary leading-relaxed">
-                  <strong className="text-primary">Thalès Informatique</strong> déploie et paramètre Sage Espace Employés pour les entreprises marocaines, avec une formation dédiée aux équipes RH et aux collaborateurs.
-                </p>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={introInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl mx-auto text-center mb-12"
+            >
+              <h2 className="text-3xl font-bold text-primary mb-6">
+                Fluidifiez la gestion de vos congés et absences avec un portail simple et intuitif
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Sage Espace Employés aide vos équipes RH à gérer efficacement les salariés de votre entreprise et permet à chaque collaborateur d&apos;interagir facilement avec elles. Déployé et paramétré par <strong className="text-primary">Thalès Informatique</strong>, il devient le premier réflexe de vos collaborateurs dès qu&apos;il s&apos;agit d&apos;une démarche RH.
+              </p>
+            </motion.div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {topHighlights.map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={introInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="text-center"
+                >
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cta/10 text-cta mb-4">
+                    <item.icon size={24} strokeWidth={1.75} />
+                  </span>
+                  <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -123,118 +210,73 @@ export default function SageEspaceEmployesClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={featuresInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">FONCTIONNALITÉS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Tout ce que vos collaborateurs attendent</h2>
+              <h2 className="text-3xl font-bold text-primary">Fonctionnalités de Sage Espace Employés</h2>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feat, i) => (
+            <div className="space-y-16">
+              {featureBlocks.map((block, i) => (
                 <motion.div
-                  key={feat.title}
+                  key={block.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={featuresInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="grid md:grid-cols-2 gap-8 items-center"
                 >
-                  <span className="text-3xl mb-4 block">{feat.icon}</span>
-                  <h3 className="font-bold text-primary mb-2">{feat.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{feat.desc}</p>
+                  <div className={block.imagePos === "left" ? "md:order-2" : ""}>
+                    <h3 className="text-2xl font-bold text-primary mb-4">{block.title}</h3>
+                    {block.paragraphs.map((p) => (
+                      <p key={p} className="text-secondary leading-relaxed mb-4">
+                        {p}
+                      </p>
+                    ))}
+                    {block.note && (
+                      <p className="text-xs font-bold text-cta uppercase tracking-widest">{block.note}</p>
+                    )}
+                  </div>
+                  <div className={`h-56 sm:h-72 rounded-2xl border border-border bg-white flex items-center justify-center text-secondary/50 text-sm ${block.imagePos === "left" ? "md:order-1" : ""}`}>
+                    Visuel à intégrer
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Advantages */}
-        <section ref={advantagesRef} className="py-20 bg-white">
+        {/* Daily time saved */}
+        <section ref={dailyTimeRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={advantagesInView ? { opacity: 1, y: 0 } : {}}
+              animate={dailyTimeInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">BÉNÉFICES</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Pourquoi un espace employés digital ?</h2>
+              <h2 className="text-3xl font-bold text-primary">
+                Au quotidien, vous gagnez vraiment du temps avec Sage Espace Employés
+              </h2>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6">
-              {advantages.map((adv, i) => (
+              {dailyTime.map((block, i) => (
                 <motion.div
-                  key={adv.title}
+                  key={block.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={advantagesInView ? { opacity: 1, y: 0 } : {}}
+                  animate={dailyTimeInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-bg rounded-2xl p-8 border border-border text-center"
+                  className="bg-bg rounded-2xl p-7 border border-border"
                 >
-                  <span className="text-4xl mb-4 block">{adv.icon}</span>
-                  <h3 className="font-bold text-primary mb-3">{adv.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{adv.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Employee Portal Mockup */}
-        <section ref={portalRef} className="py-20 bg-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={portalInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
-              <span className="text-xs font-bold text-cta tracking-widest uppercase">INTERFACE</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">L&apos;espace employés au quotidien</h2>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={portalInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-primary rounded-2xl p-8 lg:p-12"
-            >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-white font-bold text-xl mb-4">Un portail simple pour chaque collaborateur</h3>
-                  <ul className="space-y-3">
-                    {[
-                      "Télécharger ses bulletins de paie",
-                      "Poser une demande de congé en quelques clics",
-                      "Consulter son contrat et ses documents RH",
-                      "Suivre son solde de congés en temps réel",
-                      "Soumettre une note de frais",
-                      "Recevoir les notifications RH importantes",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-white/80 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  <h3 className="font-bold text-primary mb-4">{block.title}</h3>
+                  <ul className="space-y-2.5">
+                    {block.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cta shrink-0 mt-1.5" />
                         {item}
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                  <div className="text-center text-white">
-                    <div className="text-5xl mb-4">👤</div>
-                    <div className="font-bold text-lg mb-1">Fatima Zahra Benani</div>
-                    <div className="text-white/60 text-sm mb-6">Chargée de Clientèle</div>
-                    <div className="grid grid-cols-2 gap-3 text-left">
-                      {[
-                        { label: "Congés restants", value: "14 jours" },
-                        { label: "Ancienneté", value: "2 ans 8 mois" },
-                        { label: "Dernier bulletin", value: "Mai 2026" },
-                        { label: "Notes de frais", value: "1 en attente" },
-                      ].map((item) => (
-                        <div key={item.label} className="bg-white/10 rounded-lg p-3">
-                          <div className="text-white/50 text-xs">{item.label}</div>
-                          <div className="text-white font-semibold text-sm mt-0.5">{item.value}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
