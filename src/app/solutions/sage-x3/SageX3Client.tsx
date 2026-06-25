@@ -337,7 +337,7 @@ export default function SageX3Client() {
               className="grid lg:grid-cols-[280px_1fr] gap-8"
             >
               {/* Tab list */}
-              <div className="relative -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div className="relative">
                 <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth border-b lg:border-b-0 lg:border-r border-border pb-3 lg:pb-0 lg:pr-2 [&::-webkit-scrollbar]:hidden">
                   {completeManagementTabs.map((tab) => (
                     <button
@@ -353,7 +353,7 @@ export default function SageX3Client() {
                     </button>
                   ))}
                 </div>
-                <div className="lg:hidden pointer-events-none absolute right-4 top-0 bottom-3 w-10 bg-gradient-to-l from-bg to-transparent" />
+                <div className="lg:hidden pointer-events-none absolute right-0 top-0 bottom-3 w-10 bg-gradient-to-l from-white to-transparent" />
               </div>
               <p className="lg:hidden -mt-1 text-xs text-secondary/60">Faites glisser pour voir tous les onglets →</p>
 
