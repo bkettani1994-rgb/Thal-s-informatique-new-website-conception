@@ -53,7 +53,6 @@ const stats = [
   { value: "30", label: "Ans d'expertise" },
   { value: "500+", label: "Clients accompagnés" },
   { value: "120+", label: "Experts dédiés" },
-  { value: "4", label: "Villes au Maroc" },
   { value: "98%", label: "Taux de satisfaction" },
 ];
 
