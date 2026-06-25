@@ -246,18 +246,18 @@ export default function Sage100Client() {
               initial={{ opacity: 0, y: 20 }}
               animate={discoveryInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="grid lg:grid-cols-[300px_1fr] gap-8"
+              className="grid lg:grid-cols-[280px_1fr] gap-8"
             >
               {/* Tab list */}
-              <div className="flex flex-col gap-1 border-l border-border">
+              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
                 {discoveryTabs.map((tab) => (
                   <button
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key)}
-                    className={`text-left pl-4 pr-3 py-3 -ml-px border-l-2 text-sm font-semibold transition-colors duration-150 cursor-pointer ${
+                    className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
                       activeTab === tab.key
-                        ? "border-cta text-cta"
-                        : "border-transparent text-secondary hover:text-primary"
+                        ? "bg-cta/10 text-cta"
+                        : "text-secondary hover:bg-bg hover:text-primary"
                     }`}
                   >
                     {tab.label}
