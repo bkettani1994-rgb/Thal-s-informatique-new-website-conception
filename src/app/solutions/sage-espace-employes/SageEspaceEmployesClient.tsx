@@ -84,6 +84,8 @@ const featureBlocks = [
       "Le paramétrage des règles de contrôle et de remboursement garantit l'application de votre politique de dépenses, tandis que la comptabilisation automatisée des notes de frais maîtrise vos délais de remboursement.",
     ],
     imagePos: "right",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395844/7-3-see-Notes-de-frais-thal%C3%A8s-informatique_knqvtf.png",
+    imageAlt: "Application Sage Espace Employés pour scanner et soumettre ses notes de frais",
   },
 ];
 
