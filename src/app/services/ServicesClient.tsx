@@ -100,8 +100,8 @@ const reasons = [
   },
   {
     icon: MapPin,
-    title: "Présence nationale",
-    desc: "Thalès Informatique intervient dans toutes les grandes villes du Maroc : Casablanca, Rabat, Fès, Marrakech et Tanger.",
+    title: "Intervention sur tout le Maroc",
+    desc: "Depuis notre siège de Casablanca, nos équipes interviennent auprès de clients sur l'ensemble du territoire marocain, sur site comme à distance.",
   },
   {
     icon: Zap,

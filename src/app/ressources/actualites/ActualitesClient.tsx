@@ -46,8 +46,8 @@ const companyNews = [
     tag: "Certification",
   },
   {
-    title: "Ouverture de notre nouvelle agence à Rabat",
-    desc: "Pour mieux servir nos clients de la région de Rabat-Salé-Kénitra, Thalès Informatique ouvre une nouvelle agence dans la capitale administrative du Maroc.",
+    title: "Renforcement de notre équipe de consultants terrain",
+    desc: "Thalès Informatique élargit son équipe de consultants pour accompagner sur site les clients basés partout au Maroc, depuis notre siège de Casablanca.",
     date: "Mars 2025",
     tag: "Expansion",
   },

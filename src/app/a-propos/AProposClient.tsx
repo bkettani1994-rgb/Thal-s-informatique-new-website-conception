@@ -30,8 +30,8 @@ const timeline = [
   },
   {
     year: "2010",
-    title: "Expansion nationale",
-    desc: "Renforcement de notre présence nationale avec une équipe de consultants terrain intervenant dans toutes les régions du Maroc.",
+    title: "Expansion de notre équipe terrain",
+    desc: "Renforcement de notre équipe de consultants, intervenant depuis Casablanca auprès de clients sur l'ensemble du territoire marocain.",
   },
   {
     year: "2018",
