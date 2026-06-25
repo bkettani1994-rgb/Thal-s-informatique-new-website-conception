@@ -202,14 +202,29 @@ export default function Sage100Client() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
-                Visuel à intégrer
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380898/gestion_commerce_sage_100_thal%C3%A8s_informatique_krgrfr.jpg"
+                  alt="Gestion commerciale d'une PME marocaine pilotée avec l'ERP Sage 100"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
-                Capture interface Sage 100
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380734/interface-sage-100-cloud_thal%C3%A8s_informatique_gorcph.webp"
+                  alt="Interface cloud de l'ERP Sage 100 affichant un tableau de bord de gestion d'entreprise"
+                  className="w-full h-full object-contain p-3"
+                  loading="lazy"
+                />
               </div>
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
-                Visuel à intégrer
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380899/comptabilit%C3%A9_cabinet_sage_100_maroc_thal%C3%A8s_informatique_mqxbz1.jpg"
+                  alt="Cabinet comptable au Maroc utilisant Sage 100 pour la comptabilité de ses clients"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </motion.div>
           </div>
