@@ -7,12 +7,6 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { ArrowRight, ChevronRight, ChevronDown } from "lucide-react";
 
-const trustedLogos = [
-  { name: "Holding Al Mada", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/1_zj74sw.png" },
-  { name: "Saham Paiement", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/3_ol6ctk.png" },
-  { name: "Maroc Modis", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993386/Design_sans_titre_36_tux6b9.png" },
-];
-
 const benefits = [
   { title: "Moins d'administratif, plus d'humain", desc: "Simplifiez et automatisez vos processus RH, et dématérialisez les données de vos salariés.", icon: "⚙️" },
   { title: "Soyez conforme", desc: "Gérez sereinement les contraintes légales et réglementaires et faites vos déclarations en un clic. C'est simple et rapide.", icon: "✅" },
@@ -28,30 +22,40 @@ const discoveryTabs = [
     label: "La paie",
     title: "La paie",
     desc: "Avec l'assistant de préparation, réalisez vos bulletins de salaire en intégrant le report automatique des éléments constants, la gestion des titres restaurant, le calcul des paies à l'envers, la gestion des acomptes (de la génération au virement), le contrôle et le report automatique des acomptes payés et disposez d'une fonction de rappel des salaires pour gérer la rétroactivité.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383795/Screenshot_2026-06-25_at_11-35-59_Sage_100_Paie_RH_Sage_Maroc_w6k5se.png",
+    imageAlt: "Interface Sage 100 Paie & RH dédiée à la préparation et au calcul des bulletins de salaire",
   },
   {
     key: "rh",
     label: "Les ressources humaines",
     title: "Les ressources humaines",
     desc: "Centralisez les dossiers de vos collaborateurs, suivez les contrats, les avenants et les compétences, et pilotez vos effectifs grâce à des indicateurs RH actualisés en continu.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383796/Screenshot_2026-06-25_at_11-36-06_Sage_100_Paie_RH_Sage_Maroc_mmmrf5.png",
+    imageAlt: "Interface Sage 100 Paie & RH pour la centralisation des dossiers et indicateurs des collaborateurs",
   },
   {
     key: "declarations",
     label: "Les déclarations obligatoires",
     title: "Les déclarations obligatoires",
     desc: "Générez automatiquement vos déclarations sociales et fiscales (CNSS, IR, AMO) conformes à la réglementation marocaine, prêtes à être transmises chaque mois.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383796/Screenshot_2026-06-25_at_11-36-13_Sage_100_Paie_RH_Sage_Maroc_esgbj5.png",
+    imageAlt: "Interface Sage 100 Paie & RH pour la génération automatique des déclarations sociales et fiscales",
   },
   {
     key: "administratif",
     label: "La gestion administrative",
     title: "La gestion administrative",
     desc: "Gérez les congés, les absences, les notes de frais et l'ensemble des documents administratifs RH dans un environnement unique et sécurisé.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383796/Screenshot_2026-06-25_at_11-36-18_Sage_100_Paie_RH_Sage_Maroc_xsxzno.png",
+    imageAlt: "Interface Sage 100 Paie & RH pour la gestion administrative des congés, absences et notes de frais",
   },
   {
     key: "guide",
     label: "Laissez-vous guider",
     title: "Laissez-vous guider",
     desc: "Des assistants de paramétrage et des contrôles automatiques vous accompagnent à chaque étape, de la première paie jusqu'aux clôtures de fin d'exercice.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383795/Screenshot_2026-06-25_at_11-35-59_Sage_100_Paie_RH_Sage_Maroc_w6k5se.png",
+    imageAlt: "Assistants de paramétrage et contrôles automatiques de Sage 100 Paie & RH",
   },
 ];
 
@@ -107,13 +111,11 @@ function FaqAccordionItem({ item }: { item: { q: string; a: string } }) {
 }
 
 export default function Sage100PaieRhClient() {
-  const trustedRef = useRef(null);
   const benefitsRef = useRef(null);
   const discoveryRef = useRef(null);
   const complementaryRef = useRef(null);
   const faqRef = useRef(null);
 
-  const trustedInView = useInView(trustedRef, { once: true, margin: "-80px" });
   const benefitsInView = useInView(benefitsRef, { once: true, margin: "-80px" });
   const discoveryInView = useInView(discoveryRef, { once: true, margin: "-80px" });
   const complementaryInView = useInView(complementaryRef, { once: true, margin: "-80px" });
@@ -195,35 +197,6 @@ export default function Sage100PaieRhClient() {
           </div>
         </section>
 
-        {/* Trusted logos */}
-        <section ref={trustedRef} className="py-10 bg-primary border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={trustedInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center text-xs font-semibold text-white/40 uppercase tracking-widest mb-6"
-            >
-              Ils nous font confiance
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={trustedInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-wrap items-center justify-center gap-4"
-            >
-              {trustedLogos.map((c) => (
-                <div
-                  key={c.name}
-                  className="w-32 h-12 flex items-center justify-center bg-white/5 border border-white/15 rounded-xl overflow-hidden"
-                >
-                  <img src={c.logo} alt={c.name} className="w-full h-full object-cover opacity-90" loading="lazy" />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
         {/* Optimisez votre gestion de la paie et des RH */}
         <section ref={benefitsRef} className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -276,15 +249,13 @@ export default function Sage100PaieRhClient() {
               className="grid lg:grid-cols-[280px_1fr] gap-8"
             >
               {/* Tab list */}
-              <div className="flex flex-col gap-1 border-l border-border">
+              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
                 {discoveryTabs.map((tab) => (
                   <button
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key)}
-                    className={`text-left pl-4 pr-3 py-3 -ml-px border-l-2 text-sm font-semibold transition-colors duration-150 cursor-pointer ${
-                      activeTab === tab.key
-                        ? "border-cta text-cta"
-                        : "border-transparent text-secondary hover:text-primary"
+                    className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
+                      activeTab === tab.key ? "bg-cta/10 text-cta" : "text-secondary hover:bg-bg hover:text-primary"
                     }`}
                   >
                     {tab.label}
@@ -298,8 +269,17 @@ export default function Sage100PaieRhClient() {
                   <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
                   <p className="text-secondary leading-relaxed">{selectedTab.desc}</p>
                 </div>
-                <div className="h-64 rounded-2xl bg-bg border border-border flex items-center justify-center text-secondary/50 text-sm">
-                  Capture bulletin de paie Sage 100
+                <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
+                  <motion.img
+                    key={selectedTab.key}
+                    src={selectedTab.image}
+                    alt={selectedTab.imageAlt}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </motion.div>
