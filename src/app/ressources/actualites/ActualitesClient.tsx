@@ -3,59 +3,73 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Bell, Mail } from "lucide-react";
+import { ChevronRight, Bell, Mail, ExternalLink } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 const lfNews = [
   {
-    tag: "LF 2025 — IR & Barème",
-    title: "Modification du barème de l'impôt sur le revenu",
-    desc: "Impact sur la paie et les bulletins de salaire. Mise à jour disponible dans Sage 100 Paie et Sage X3 RH.",
-    date: "Jan 2025",
-    color: "border-l-blue-500",
-  },
-  {
-    tag: "LF 2025 — TVA",
-    title: "Nouveaux taux TVA applicables au 1er janvier 2025",
-    desc: "Révision des taux de TVA sur plusieurs catégories de produits et services. Paramétrage automatique dans vos solutions Sage.",
-    date: "Jan 2025",
-    color: "border-l-green-500",
-  },
-  {
-    tag: "LF 2025 — IS",
-    title: "Taux d'imposition sur les sociétés, nouvelles tranches",
-    desc: "Nouvelles tranches d'IS progressif pour les entreprises marocaines. Impacts sur le module comptabilité Sage.",
-    date: "Jan 2025",
+    tag: "LF 2026 — IS",
+    title: "Taux d'IS définitifs et unifiés au 1er janvier 2026",
+    desc: "20% pour les sociétés hors secteur financier sous le seuil de 100 MDH de bénéfice net fiscal, 35% au-delà, 40% maintenu pour le secteur financier. Paramétrage à jour dans le module comptabilité Sage.",
+    date: "Jan 2026",
     color: "border-l-purple-500",
+    href: "https://ledesk.ma/enclair/loi-de-finances-2026-toutes-les-mesures-fiscales-decryptees-par-la-dgi/",
+    source: "Le Desk",
   },
   {
-    tag: "LF 2025 — CNSS",
-    title: "Évolution du plafond de cotisation CNSS",
-    desc: "Nouveau plafond mensuel de cotisation CNSS. Implémenté dans Sage 100 Paie et les paramètres RH de Sage X3.",
-    date: "Jan 2025",
+    tag: "LF 2026 — TVA",
+    title: "Auto-liquidation de la TVA et nouvelles exonérations",
+    desc: "Obligation d'auto-liquidation de la TVA pour les industriels acheteurs de déchets de récupération, et exonération des pâtes alimentaires courtes. Mise à jour disponible dans Sage X3 et Sage 100.",
+    date: "Jan 2026",
+    color: "border-l-green-500",
+    href: "https://www.cielmaroc.ma/actualites/loi-de-finances-2026-resume-des-principales-mesures",
+    source: "Ciel Informatique",
+  },
+  {
+    tag: "LF 2026 — IR",
+    title: "Exonération totale des pensions de retraite de base",
+    desc: "Les pensions CNSS, CMR et régimes de base sont désormais totalement exonérées d'IR. Impact direct sur les bulletins de paie des retraités dans Sage 100 Paie et Sage X3 RH.",
+    date: "Jan 2026",
+    color: "border-l-blue-500",
+    href: "https://blog.avocats.deloitte.fr/maroc-les-principales-mesures-de-la-loi-de-finances-pour-2026/",
+    source: "Deloitte Maroc",
+  },
+  {
+    tag: "LF 2026 — Retenue à la source",
+    title: "Élargissement de la retenue à la source sur les loyers",
+    desc: "Une retenue à la source de 5% s'applique désormais aux loyers versés à des personnes morales ou physiques assujetties à l'IS/IR, imputable et restituable. Disponible dans le module trésorerie Sage.",
+    date: "Jan 2026",
     color: "border-l-orange-500",
+    href: "https://guide.izri.ma/loi-finances-2026-maroc/",
+    source: "IZRI Guide",
   },
 ];
 
 const companyNews = [
   {
-    title: "Thalès Informatique certifié Sage Business Partner Platinum 2025",
-    desc: "Nous sommes fiers d'annoncer le renouvellement de notre certification Sage Business Partner Platinum, attestant de notre expertise et de la satisfaction de nos clients.",
-    date: "Fév 2025",
+    title: "Thalès Informatique, partenaire Sage certifié au Maroc",
+    desc: "Premier Centre de Compétence Sage du Maroc depuis 1996, Thalès Informatique confirme son expertise sur l'ensemble des solutions Sage : comptabilité, gestion commerciale, CRM, production, paie et RH.",
+    date: "2026",
     tag: "Certification",
+    href: "https://thales.ma/pourquoi-faire-confiance-a-thales-informatique-pour-vos-erp-sage-au-maroc/",
+    source: "thales.ma",
   },
   {
-    title: "Renforcement de notre équipe de consultants terrain",
-    desc: "Thalès Informatique élargit son équipe de consultants pour accompagner sur site les clients basés partout au Maroc, depuis notre siège de Casablanca.",
-    date: "Mars 2025",
-    tag: "Expansion",
+    title: "Kickoff 2026 : nos équipes lancent une nouvelle année",
+    desc: "Toutes les équipes de Thalès Informatique se sont réunies pour le Kickoff 2026, l'occasion de présenter les ambitions et projets de l'année autour de la transformation digitale de nos clients.",
+    date: "Jan 2026",
+    tag: "Vie d'équipe",
+    href: "https://ma.linkedin.com/company/thalesinformatique",
+    source: "LinkedIn Thalès Informatique",
   },
   {
-    title: "Thalès Informatique au Forum IT Maroc 2025",
-    desc: "Retrouvez nos experts au stand Thalès Informatique lors du Forum IT Maroc. Démonstrations live, conférences et rencontres avec nos ingénieurs.",
-    date: "Avril 2025",
-    tag: "Événement",
+    title: "Thalès Informatique distingué Top League Zone Export",
+    desc: "Une reconnaissance qui salue le rayonnement international de Thalès Informatique et son engagement constant en matière de qualité, de performance et de satisfaction client.",
+    date: "2026",
+    tag: "Distinction",
+    href: "https://thales.ma/thales-informatique-leader-des-solutions-erp-sage-au-maroc/",
+    source: "thales.ma",
   },
 ];
 
@@ -107,13 +121,13 @@ export default function ActualitesClient() {
             <div className="bg-cta rounded-xl px-6 py-4 flex items-center gap-3 mb-12">
               <Bell size={20} className="text-white shrink-0" />
               <p className="text-white font-semibold text-sm md:text-base">
-                🔔 Loi de Finances 2025 — Mise à jour disponible dans Sage X3 et Sage 100
+                🔔 Loi de Finances 2026 — Mise à jour disponible dans Sage X3 et Sage 100
               </p>
             </div>
 
             {/* LF 2025 News */}
             <div className="mb-14">
-              <h2 className="text-2xl font-bold text-primary mb-2">Loi de Finances 2025</h2>
+              <h2 className="text-2xl font-bold text-primary mb-2">Loi de Finances 2026</h2>
               <p className="text-secondary mb-8">Toutes les modifications réglementaires et leurs impacts sur vos solutions Sage.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {lfNews.map((item, i) => (
@@ -127,7 +141,17 @@ export default function ActualitesClient() {
                     <span className="inline-block text-xs font-bold text-cta bg-blue-50 px-2.5 py-1 rounded-full mb-3">{item.tag}</span>
                     <h3 className="font-bold text-primary mb-2">{item.title}</h3>
                     <p className="text-sm text-secondary mb-3">{item.desc}</p>
-                    <span className="text-xs text-slate-400">{item.date}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-slate-400">{item.date}</span>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-cta hover:underline"
+                      >
+                        Source : {item.source} <ExternalLink size={12} />
+                      </a>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -149,7 +173,17 @@ export default function ActualitesClient() {
                     <span className="inline-block text-xs font-semibold text-purple-700 bg-purple-50 px-2.5 py-1 rounded-full mb-3">{item.tag}</span>
                     <h3 className="font-bold text-primary mb-2">{item.title}</h3>
                     <p className="text-sm text-secondary mb-3">{item.desc}</p>
-                    <span className="text-xs text-slate-400">{item.date}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-slate-400">{item.date}</span>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-cta hover:underline"
+                      >
+                        Source : {item.source} <ExternalLink size={12} />
+                      </a>
+                    </div>
                   </motion.div>
                 ))}
               </div>
