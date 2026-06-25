@@ -7,14 +7,6 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { ArrowRight, ChevronRight, ChevronDown, CheckCircle2, Star, MessageCircle } from "lucide-react";
 
-const trustedLogos = [
-  { name: "Holding Al Mada", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/1_zj74sw.png" },
-  { name: "EY", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/5_qhuo2n.png" },
-  { name: "ONMT", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/6_c9rrzv.png" },
-  { name: "Bourse de Casablanca", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/12_e95w9h.png" },
-  { name: "UIC", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/14_xvjdgw.png" },
-];
-
 const discoveryTabs = [
   {
     key: "compta",
@@ -26,6 +18,8 @@ const discoveryTabs = [
       "Rapprochement bancaire manuel ou automatisé",
       "Fonctions d'analyse des charges et des coûts de production",
     ],
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782381038/Screenshot_2026-06-25_at_10-50-08_Sage_100_-_Logiciel_de_gestion_Sage_Maroc_kyee1l.png",
+    imageAlt: "Interface Sage 100 dédiée au suivi de la comptabilité et des dépenses d'entreprise",
   },
   {
     key: "commerce",
@@ -37,6 +31,8 @@ const discoveryTabs = [
       "Suivi des stocks en temps réel",
       "Tableau de bord commercial et suivi des marges",
     ],
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782381038/Screenshot_2026-06-25_at_10-50-13_Sage_100_-_Logiciel_de_gestion_Sage_Maroc_ko3gtl.png",
+    imageAlt: "Interface Sage 100 pour le pilotage du cycle commercial, des devis à la facturation",
   },
   {
     key: "finance",
@@ -48,6 +44,8 @@ const discoveryTabs = [
       "Gestion des encaissements et décaissements",
       "Reporting financier consolidé",
     ],
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782381038/Screenshot_2026-06-25_at_10-50-18_Sage_100_-_Logiciel_de_gestion_Sage_Maroc_hxdrw5.png",
+    imageAlt: "Interface Sage 100 pour le suivi de trésorerie et le reporting financier",
   },
   {
     key: "cloud",
@@ -59,6 +57,8 @@ const discoveryTabs = [
       "Sauvegardes automatiques et mises à jour incluses",
       "Disponibilité garantie sans infrastructure à gérer",
     ],
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782381038/Screenshot_2026-06-25_at_10-50-24_Sage_100_-_Logiciel_de_gestion_Sage_Maroc_igvpan.png",
+    imageAlt: "Interface Sage 100 accessible en mode cloud depuis n'importe quel appareil connecté",
   },
 ];
 
@@ -140,14 +140,12 @@ function FaqAccordionItem({ item }: { item: { q: string; a: string } }) {
 }
 
 export default function Sage100Client() {
-  const trustedRef = useRef(null);
   const discoveryRef = useRef(null);
   const plansRef = useRef(null);
   const complementaryRef = useRef(null);
   const continueRef = useRef(null);
   const faqRef = useRef(null);
 
-  const trustedInView = useInView(trustedRef, { once: true, margin: "-80px" });
   const discoveryInView = useInView(discoveryRef, { once: true, margin: "-80px" });
   const plansInView = useInView(plansRef, { once: true, margin: "-80px" });
   const complementaryInView = useInView(complementaryRef, { once: true, margin: "-80px" });
@@ -230,35 +228,6 @@ export default function Sage100Client() {
           </div>
         </section>
 
-        {/* Trusted logos */}
-        <section ref={trustedRef} className="py-10 bg-primary border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={trustedInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center text-xs font-semibold text-white/40 uppercase tracking-widest mb-6"
-            >
-              Ils nous font confiance
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={trustedInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-wrap items-center justify-center gap-4"
-            >
-              {trustedLogos.map((c) => (
-                <div
-                  key={c.name}
-                  className="w-32 h-12 flex items-center justify-center bg-white/5 border border-white/15 rounded-xl overflow-hidden"
-                >
-                  <img src={c.logo} alt={c.name} className="w-full h-full object-cover opacity-90" loading="lazy" />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
         {/* Découvrez tout ce que Sage 100 peut faire */}
         <section ref={discoveryRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -310,8 +279,17 @@ export default function Sage100Client() {
                     ))}
                   </ul>
                 </div>
-                <div className="h-64 rounded-2xl bg-bg border border-border flex items-center justify-center text-secondary/50 text-sm">
-                  Capture interface Sage 100
+                <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
+                  <motion.img
+                    key={selectedTab.key}
+                    src={selectedTab.image}
+                    alt={selectedTab.imageAlt}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </motion.div>
