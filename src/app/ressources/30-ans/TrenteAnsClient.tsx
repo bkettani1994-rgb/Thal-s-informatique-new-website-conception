@@ -19,32 +19,27 @@ import Footer from "@/components/ui/Footer";
 const milestones = [
   {
     year: "1996",
-    title: "La naissance d'une vision",
-    desc: "Création de Thalès Informatique à Casablanca par une équipe d'ingénieurs passionnés, avec une ambition claire : digitaliser la gestion des entreprises marocaines.",
+    title: "Création de Thalès Informatique",
+    desc: "Naissance de Thalès Informatique à Casablanca, avec une ambition claire : digitaliser la gestion des entreprises marocaines.",
   },
   {
-    year: "2000",
-    title: "Premier grand projet ERP industriel",
-    desc: "Déploiement de notre première solution ERP complète chez un groupe agroalimentaire de référence, posant les fondations de notre expertise sectorielle.",
+    year: "2005",
+    title: "Agrément Sage FRP 1000",
+    desc: "Obtention de l'agrément Sage FRP 1000, renforçant notre expertise au service des groupes et holdings dans leur pilotage financier.",
   },
   {
-    year: "2010",
-    title: "Une couverture nationale",
-    desc: "Notre équipe de consultants terrain s'étend à travers le Maroc pour accompagner nos clients où qu'ils se trouvent.",
+    year: "2017",
+    title: "Agrément Sage X3",
+    desc: "Obtention de l'agrément Sage X3, élargissant notre couverture ERP pour accompagner l'industrie, le négoce et la distribution.",
   },
   {
-    year: "2018",
-    title: "Le virage Cloud",
-    desc: "Lancement de notre offre Cloud ERP, une première pour un éditeur marocain, ouvrant l'accès à des solutions de classe mondiale pour les PME.",
-  },
-  {
-    year: "2023",
-    title: "500ème client accompagné",
-    desc: "Un cap symbolique : 500 entreprises marocaines nous font confiance pour piloter leur transformation digitale au quotidien.",
+    year: "2022",
+    title: "Partner Platinium",
+    desc: "Élévation au rang de Partner Platinium Sage, la plus haute distinction, qui consacre notre expertise et la qualité de notre accompagnement client.",
   },
   {
     year: "2026",
-    title: "30 ans, et toujours en mouvement",
+    title: "30 ans de succès partagés",
     desc: "Trois décennies d'expertise, un nouveau site, une nouvelle expérience client et des ambitions renouvelées pour les 30 prochaines années.",
   },
 ];
@@ -137,7 +132,7 @@ export default function TrenteAnsClient() {
       <section className="py-16 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-cta mb-2">{stat.value}</div>
@@ -151,7 +146,7 @@ export default function TrenteAnsClient() {
 
       {/* Timeline */}
       <section className="py-24 bg-bg">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <div className="text-center mb-14">
               <span className="text-cta text-sm font-semibold uppercase tracking-widest">Notre histoire</span>
@@ -161,25 +156,36 @@ export default function TrenteAnsClient() {
               </p>
             </div>
           </FadeIn>
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
-            <div className="space-y-10">
-              {milestones.map((item, i) => (
-                <FadeIn key={item.year} delay={i * 0.1}>
-                  <div className="flex gap-6">
-                    <div className="relative shrink-0">
-                      <div className="w-16 h-16 bg-white border-2 border-cta rounded-2xl flex items-center justify-center z-10 relative">
-                        <span className="text-cta font-black text-xs text-center leading-tight">{item.year}</span>
-                      </div>
+
+          {/* Horizontal milestone strip */}
+          <FadeIn>
+            <div className="relative rounded-3xl bg-gradient-to-br from-primary via-slate-800 to-slate-900 py-12 px-6 sm:px-10 overflow-hidden mb-12">
+              <div className="relative flex items-start justify-between">
+                <div className="absolute top-7 left-0 right-0 h-0.5 bg-white/25" />
+                <div className="absolute top-[26px] right-0 w-0 h-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-white/40" />
+                {milestones.map((item) => (
+                  <div key={item.year} className="relative z-10 flex flex-col items-center text-center w-1/5 px-1">
+                    <div className="w-14 h-14 rounded-full border-2 border-white bg-primary flex items-center justify-center text-white font-bold text-sm mb-3">
+                      {item.year}
                     </div>
-                    <div className="bg-white border border-border rounded-2xl p-6 flex-grow hover:shadow-md transition-shadow duration-300">
-                      <h3 className="font-bold text-primary mb-2">{item.title}</h3>
-                      <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
-                    </div>
+                    <p className="text-white text-xs sm:text-sm font-semibold leading-tight">{item.title}</p>
                   </div>
-                </FadeIn>
-              ))}
+                ))}
+              </div>
             </div>
+          </FadeIn>
+
+          {/* Enriched milestone details */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {milestones.map((item, i) => (
+              <FadeIn key={item.year} delay={i * 0.1}>
+                <div className="bg-white border border-border rounded-2xl p-6 h-full hover:shadow-md transition-shadow duration-300">
+                  <span className="text-cta font-black text-sm">{item.year}</span>
+                  <h3 className="font-bold text-primary mt-2 mb-2">{item.title}</h3>
+                  <p className="text-secondary text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
