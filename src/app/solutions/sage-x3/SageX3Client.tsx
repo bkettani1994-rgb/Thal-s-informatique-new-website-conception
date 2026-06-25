@@ -183,21 +183,36 @@ export default function SageX3Client() {
               </Link>
             </motion.div>
 
-            {/* Visual placeholder collage */}
+            {/* Visual collage */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
-                Visuel à intégrer
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Smart_Manufacturing_Factory_thal%C3%A8s_informatique_ht9xvt.jpg"
+                  alt="Usine de production intelligente pilotée avec l'ERP Sage X3 au Maroc"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
-                Capture interface Sage X3
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375122/sage_x3_hero_image_bfjdfy.png"
+                  alt="Interface de l'ERP Sage X3 affichant un tableau de bord de gestion d'entreprise"
+                  className="w-full h-full object-contain p-3"
+                  loading="lazy"
+                />
               </div>
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-sm">
-                Visuel à intégrer
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Industry_4.0_Production_Line_thal%C3%A8s_informatique_wqxuar.jpg"
+                  alt="Chaîne de production industrielle connectée et digitalisée avec Sage X3"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </motion.div>
           </div>
