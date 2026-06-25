@@ -420,7 +420,9 @@ export default function SageX3Client() {
                   Les solutions Sage X3 sont régulièrement enrichies pour étendre la couverture fonctionnelle de votre ERP. Téléchargez notre guide pour découvrir l&apos;ensemble des capacités à votre portée.
                 </p>
                 <a
-                  href="#"
+                  href="https://drive.google.com/file/d/1ppOLIQZnNlAPRfIsdzT4KrDSnmn6ExN7/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-cta font-semibold text-sm hover:text-blue-700 transition-colors"
                 >
                   <Download size={16} /> Télécharger le guide
