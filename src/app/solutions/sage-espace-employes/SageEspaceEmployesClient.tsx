@@ -168,16 +168,30 @@ export default function SageEspaceEmployesClient() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
-              {["Dossier collaborateur", "Interface Sage Espace Employés", "Gestion des congés"].map((label) => (
-                <div
-                  key={label}
-                  className="sm:col-span-1 h-48 sm:h-64 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-white/40 text-xs text-center px-3"
-                >
-                  {label}
-                  <br />
-                  (visuel à intégrer)
-                </div>
-              ))}
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782396164/man-wheelchair-having-office-job_zta3ni.jpg"
+                  alt="Collaborateur en situation de handicap travaillant au bureau avec Sage Espace Employés"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782396271/1-see-Conges-et-absences3-thal%C3%A8s-informatique_tr3xju.png"
+                  alt="Interface Sage Espace Employés affichant la gestion des congés et absences"
+                  className="w-full h-full object-contain p-3"
+                  loading="lazy"
+                />
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782396164/medium-shot-people-working-with-computers_ej7zsc.jpg"
+                  alt="Équipe de collaborateurs travaillant sur ordinateur avec Sage Espace Employés"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </motion.div>
           </div>
         </section>
