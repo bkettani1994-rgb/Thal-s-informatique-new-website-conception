@@ -5,20 +5,15 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, CheckCircle2, ChevronRight, Download } from "lucide-react";
-
-const trustedLogos = [
-  { name: "Holding Al Mada", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/1_zj74sw.png" },
-  { name: "Saint-Gobain", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/8_icnnpi.png" },
-  { name: "Attijariwafa Bank", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993202/10_b6krpz.png" },
-  { name: "Safran", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780993203/13_wivyxy.png" },
-  { name: "Marsa Maroc", logo: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781620315/Design_sans_titre_36_dtiv2f.png" },
-];
+import { ArrowRight, CheckCircle2, ChevronRight, Download, Factory, Truck, LineChart } from "lucide-react";
 
 const capabilities = [
   {
     title: "Gestion de la production",
-    icon: "⚙️",
+    icon: Factory,
+    gradient: "from-orange-500 via-amber-500 to-yellow-400",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Smart_Manufacturing_Factory_thal%C3%A8s_informatique_ht9xvt.jpg",
+    imageAlt: "Atelier de production intelligent piloté en temps réel avec Sage X3",
     items: [
       "Suivi en temps réel des ordres de fabrication",
       "Planification et ordonnancement des ateliers",
@@ -28,7 +23,10 @@ const capabilities = [
   },
   {
     title: "Gestion de la chaîne d'approvisionnement",
-    icon: "🔗",
+    icon: Truck,
+    gradient: "from-emerald-500 via-teal-500 to-cyan-400",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Industry_4.0_Production_Line_thal%C3%A8s_informatique_wqxuar.jpg",
+    imageAlt: "Logistique et chaîne d'approvisionnement connectée pilotée par Sage X3",
     items: [
       "Pilotage des achats et des fournisseurs",
       "Optimisation des niveaux de stock multi-sites",
@@ -38,7 +36,10 @@ const capabilities = [
   },
   {
     title: "Gestion financière",
-    icon: "📊",
+    icon: LineChart,
+    gradient: "from-blue-600 via-indigo-500 to-violet-500",
+    image: null,
+    imageAlt: "Pilotage financier et budgétaire multi-sociétés avec Sage X3",
     items: [
       "Comptabilité multi-sociétés et multi-devises",
       "Clôtures accélérées et consolidation groupe",
@@ -167,7 +168,7 @@ export default function SageX3Client() {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
-                SAGE X3 — VERSION 7.4
+                SAGE X3
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
                 Bien plus qu&apos;un ERP
@@ -218,25 +219,6 @@ export default function SageX3Client() {
           </div>
         </section>
 
-        {/* Trusted logos */}
-        <section className="py-10 bg-white border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-xs font-semibold text-secondary/60 uppercase tracking-widest mb-6">
-              Ils nous font confiance
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {trustedLogos.map((c) => (
-                <div
-                  key={c.name}
-                  className="w-32 h-12 flex items-center justify-center bg-bg border border-border rounded-xl overflow-hidden"
-                >
-                  <img src={c.logo} alt={c.name} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Capacités puissantes */}
         <section ref={capabilitiesRef} className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,24 +240,40 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-2xl p-7 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  className="bg-white rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden"
                 >
-                  <span className="text-3xl mb-4 block">{cap.icon}</span>
-                  <h3 className="font-bold text-primary text-lg mb-4">{cap.title}</h3>
-                  <ul className="space-y-2.5">
-                    {cap.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                        <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-5"
-                  >
-                    En savoir plus <ArrowRight size={14} />
-                  </Link>
+                  <div className={`relative h-36 bg-gradient-to-br ${cap.gradient} overflow-hidden`}>
+                    {cap.image && (
+                      <img
+                        src={cap.image}
+                        alt={cap.imageAlt}
+                        className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80"
+                        loading="lazy"
+                      />
+                    )}
+                    <div className="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-white/15" />
+                    <div className="absolute -right-2 top-4 w-16 h-16 rounded-full bg-white/10" />
+                    <div className="relative h-full flex items-center justify-center">
+                      <cap.icon size={44} className="text-white drop-shadow-md" strokeWidth={1.75} />
+                    </div>
+                  </div>
+                  <div className="p-7">
+                    <h3 className="font-bold text-primary text-lg mb-4">{cap.title}</h3>
+                    <ul className="space-y-2.5">
+                      {cap.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-5"
+                    >
+                      En savoir plus <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
