@@ -92,45 +92,13 @@ const sectors = [
   { name: "Agroalimentaire", count: "50+", icon: Wheat, color: "bg-amber-50 text-amber-700 border-amber-200" },
 ];
 
-const featured = [
-  {
-    initial: "M",
-    name: "Maghreb Steel",
-    sector: "Industrie",
-    quote: "Thalès Informatique a transformé notre gestion de production en déployant Sage X3 en un temps record. La visibilité sur nos stocks est désormais totale.",
-    person: "Directeur des Systèmes d'Information",
-    solution: "Sage X3",
-    accent: "bg-blue-600",
-  },
-  {
-    initial: "L",
-    name: "Label Vie",
-    sector: "Négoce & Distribution",
-    quote: "La gestion multi-sites est devenue simple et fluide. Nous pilotons 40 points de vente depuis une seule interface, avec une fiabilité exemplaire.",
-    person: "Directeur Financier",
-    solution: "Sage X3",
-    accent: "bg-violet-600",
-  },
-  {
-    initial: "C",
-    name: "Centrale Danone",
-    sector: "Agroalimentaire",
-    quote: "Grâce à la traçabilité mise en place par Thalès, nous avons atteint 100% de conformité ONSSA. L'équipe a été d'un professionnalisme irréprochable.",
-    person: "Directrice Qualité",
-    solution: "Sage X3",
-    accent: "bg-emerald-600",
-  },
-];
-
 export default function ClientsClient() {
   const statsRef = useRef(null);
   const gridRef = useRef(null);
   const sectorsRef = useRef(null);
-  const featuredRef = useRef(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-60px" });
   const gridInView = useInView(gridRef, { once: true, margin: "-60px" });
   const sectorsInView = useInView(sectorsRef, { once: true, margin: "-60px" });
-  const featuredInView = useInView(featuredRef, { once: true, margin: "-60px" });
 
   return (
     <div className="min-h-screen bg-bg">
@@ -257,50 +225,6 @@ export default function ClientsClient() {
                 <sector.icon size={30} className="mx-auto mb-3 opacity-80" />
                 <div className="text-2xl font-bold mb-1">{sector.count}</div>
                 <div className="text-sm font-medium">{sector.name}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured clients */}
-      <section className="py-20 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-primary mb-4">Références emblématiques</h2>
-            <p className="text-secondary max-w-xl mx-auto">Quelques-uns de nos clients phares et leur expérience avec Thalès Informatique.</p>
-          </motion.div>
-          <div ref={featuredRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featured.map((client, i) => (
-              <motion.div
-                key={client.name}
-                initial={{ opacity: 0, y: 40 }}
-                animate={featuredInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="bg-white rounded-2xl border border-border p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-14 h-14 ${client.accent} rounded-2xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0`}>
-                    {client.initial}
-                  </div>
-                  <div>
-                    <div className="font-bold text-primary text-lg">{client.name}</div>
-                    <div className="text-xs text-secondary">{client.sector}</div>
-                  </div>
-                </div>
-                <blockquote className="text-secondary text-sm leading-relaxed mb-6 italic">
-                  &ldquo;{client.quote}&rdquo;
-                </blockquote>
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="text-xs text-slate-400">{client.person}</span>
-                  <span className="text-xs font-semibold px-2 py-1 bg-cta/10 text-cta rounded-md">{client.solution}</span>
-                </div>
               </motion.div>
             ))}
           </div>
