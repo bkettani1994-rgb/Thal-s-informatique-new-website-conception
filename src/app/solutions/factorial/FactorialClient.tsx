@@ -164,6 +164,18 @@ const automationTabs = [
       { icon: Workflow, title: "Intégrations", desc: "Connectez Factorial à vos outils comptables et IT existants pour fluidifier vos process." },
     ],
   },
+  {
+    key: "gestion-it",
+    label: "Gestion IT",
+    title: "Tout votre environnement IT, plus connecté et mieux maîtrisé",
+    desc: "Centralisez les appareils, les accès, l'inventaire et le support sur une seule plateforme. Automatisez les processus clés, gagnez en contrôle et renforcez la sécurité dès le premier jour.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782484948/Factorial_Logiciel_de_gestion_d_entreprise_thales_informatique_giymio.png",
+    points: [
+      { icon: Settings2, title: "Inventaire IT", desc: "Commandez, expédiez, réparez et récupérez des appareils dans plus de 60 pays, avec une visibilité complète sur leur statut et leurs coûts." },
+      { icon: FolderLock, title: "Gestion des logiciels", desc: "Accordez les accès lors de l'onboarding, révoquez-les lors de l'offboarding et supprimez les licences inutilisées pour réduire les coûts." },
+      { icon: ShieldCheck, title: "Protégez les appareils et les données", desc: "Appliquez des politiques, verrouillez ou effacez les appareils à distance et générez automatiquement des preuves prêtes pour l'audit." },
+    ],
+  },
 ];
 
 const proximityAdvantages = [
