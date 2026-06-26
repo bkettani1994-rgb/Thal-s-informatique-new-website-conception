@@ -7,7 +7,7 @@ import { ArrowRight, Play, CheckCircle2 } from "lucide-react";
 const trustedBadges = [
   "Microsoft Partner",
   "Sage Platinum",
-  "ISO Certified",
+  "Certified",
   "30+ ans d'expérience",
 ];
 
