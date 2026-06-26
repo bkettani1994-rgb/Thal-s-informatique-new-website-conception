@@ -181,29 +181,29 @@ export default function FactorialClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
+              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 items-center"
             >
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
                 <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/3_u5sutq.jpg"
-                  alt="Conférence sur l'entreprise agile à l'ère du digital, organisée par Thalès Informatique"
-                  className="w-full h-full object-cover"
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png"
+                  alt="Interface Factorial dédiée à la gestion de la paie et des éléments RH"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
               </div>
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+              <div className="sm:col-span-1 h-64 sm:h-80 rounded-2xl border border-white/15 overflow-hidden bg-white flex items-center justify-center sm:-mt-8">
                 <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/5_r55rlo.jpg"
-                  alt="Présentation de la solution SIRH Factorial par Thalès Informatique"
-                  className="w-full h-full object-cover"
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1772537401/Home_Factorial_phone_FR_znv9zy.png"
+                  alt="Application mobile Factorial affichant l'espace collaborateur SIRH"
+                  className="w-full h-full object-contain p-4"
                   loading="lazy"
                 />
               </div>
-              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
                 <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/6_fdt6en.jpg"
-                  alt="Démonstration et échanges autour des enjeux RH avec Factorial et Thalès Informatique"
-                  className="w-full h-full object-cover"
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GTA_PLANINGS_nnq2wz.png"
+                  alt="Interface Factorial de gestion du temps et des plannings d'équipe"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
               </div>
