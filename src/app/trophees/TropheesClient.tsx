@@ -9,6 +9,14 @@ import Footer from "@/components/ui/Footer";
 
 const awards = [
   {
+    year: "2024",
+    icon: Trophy,
+    title: "Meilleure Dynamique Commerciale Maroc 2024",
+    org: "Sage Partner Sessions 2024",
+    color: "amber",
+    desc: "Cette distinction récompense la performance commerciale exceptionnelle de Thalès Informatique sur le marché marocain en 2024.",
+  },
+  {
     year: "2022",
     icon: Trophy,
     title: "Top League — Zone Export",

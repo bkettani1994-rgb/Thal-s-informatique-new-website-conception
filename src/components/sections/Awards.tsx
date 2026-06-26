@@ -6,6 +6,17 @@ import { Trophy, Medal, Star, Award, BadgeCheck } from "lucide-react";
 const awards = [
   {
     icon: Trophy,
+    year: "2024",
+    title: "Meilleure Dynamique Commerciale Maroc 2024",
+    org: "Sage Partner Sessions 2024",
+    desc: "Cette distinction récompense la performance commerciale exceptionnelle de Thalès Informatique sur le marché marocain en 2024.",
+    color: "from-rose-500 to-orange-400",
+    iconColor: "text-rose-600",
+    bg: "bg-rose-50",
+    border: "border-rose-200",
+  },
+  {
+    icon: Trophy,
     year: "2022",
     title: "Top League — Zone Export",
     org: "Top League 2022",
@@ -86,7 +97,7 @@ export default function Awards() {
         </motion.div>
 
         {/* Awards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:[&>*:last-child]:col-start-2">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {awards.map((award, i) => (
             <motion.div
               key={award.title}
