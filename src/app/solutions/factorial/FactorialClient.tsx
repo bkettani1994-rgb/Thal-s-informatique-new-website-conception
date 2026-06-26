@@ -117,17 +117,6 @@ const modernFeatures = [
 
 const automationTabs = [
   {
-    key: "rh-flux",
-    label: "RH & Flux",
-    title: "Remettre l'humain au cœur des RH",
-    desc: "Factorial automatise les processus RH chronophages : congés, notes de frais, pour vous laisser plus de temps à consacrer à vos équipes et à la croissance de votre entreprise.",
-    points: [
-      { icon: Users, title: "Portail employé", desc: "Centralise les demandes et démarches RH dans un seul espace, accessible 24/7 par chaque collaborateur." },
-      { icon: FileSignature, title: "Documents et signature électronique", desc: "Dématérialise les contrats, avenants et signatures pour des processus RH plus rapides et plus sûrs." },
-      { icon: BarChart3, title: "Rapports et données RH", desc: "Suivez vos effectifs, votre turnover et vos indicateurs RH en temps réel sur un même tableau de bord." },
-    ],
-  },
-  {
     key: "rh-paie",
     label: "RH & Paie",
     title: "Sécurisez le cycle de paie",
@@ -139,14 +128,36 @@ const automationTabs = [
     ],
   },
   {
-    key: "conduite-talents",
-    label: "Conduite des talents",
+    key: "gta-plannings",
+    label: "GTA & Plannings",
+    title: "Maîtrisez le temps de travail",
+    desc: "Suivez les présences, les absences et les plannings de vos équipes en temps réel, pour une gestion du temps de travail simple et fiable.",
+    points: [
+      { icon: FileSignature, title: "Pointage & présences", desc: "Suivez les heures travaillées et les absences de vos équipes directement depuis Factorial." },
+      { icon: BarChart3, title: "Plannings d'équipe", desc: "Organisez les plannings et les shifts de vos collaborateurs en quelques clics." },
+      { icon: Users, title: "Demandes de congés", desc: "Centralisez et validez les demandes de congés et absences dans un seul espace." },
+    ],
+  },
+  {
+    key: "gestion-talents",
+    label: "Gestion des talents",
     title: "Faites grandir vos équipes",
     desc: "Suivez le parcours de chaque collaborateur, de son recrutement à son évolution de carrière, pour une gestion des talents structurée et motivante.",
     points: [
       { icon: GraduationCap, title: "Formations & évaluations", desc: "Planifiez les formations et suivez les évaluations de performance de vos équipes." },
       { icon: UserCheck, title: "Recrutement & onboarding", desc: "Centralisez vos candidatures et digitalisez l'intégration de vos nouvelles recrues." },
       { icon: LineChart, title: "Suivi de carrière", desc: "Visualisez les évolutions, mobilités internes et perspectives de chaque collaborateur." },
+    ],
+  },
+  {
+    key: "finance-it",
+    label: "Finance & IT",
+    title: "Pilotez vos coûts RH",
+    desc: "Visualisez la masse salariale et les coûts RH en temps réel, et sécurisez l'accès aux données grâce à des intégrations IT robustes.",
+    points: [
+      { icon: BarChart3, title: "Suivi de la masse salariale", desc: "Visualisez vos coûts RH et budgets en temps réel sur un même tableau de bord." },
+      { icon: ShieldCheck, title: "Sécurité des données", desc: "Gestion fine des accès et des permissions pour protéger vos données sensibles." },
+      { icon: Workflow, title: "Intégrations", desc: "Connectez Factorial à vos outils comptables et IT existants pour fluidifier vos process." },
     ],
   },
 ];
