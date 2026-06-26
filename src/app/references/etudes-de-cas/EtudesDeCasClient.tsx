@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Clock, Tag, TrendingUp, ArrowRight } from "lucide-react";
+import { ChevronRight, Clock, Tag, TrendingUp, ArrowRight, Hourglass } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -138,6 +138,29 @@ export default function EtudesDeCasClient() {
         </div>
       </section>
 
+      {/* Teaser overlay */}
+      <div className="relative">
+        <div className="absolute inset-0 z-20 flex items-center justify-center px-4 pointer-events-none">
+          <div className="pointer-events-auto bg-white border border-border shadow-xl rounded-2xl p-8 md:p-10 max-w-lg text-center">
+            <div className="w-14 h-14 bg-cta/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <Hourglass size={26} className="text-cta" />
+            </div>
+            <h3 className="text-2xl font-bold text-primary mb-3">
+              Nos études de cas arrivent bientôt
+            </h3>
+            <p className="text-secondary leading-relaxed mb-6">
+              Nous travaillons actuellement à la rédaction d&apos;études de cas détaillées et vérifiées avec nos clients. Elles seront publiées très prochainement sur cette page.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors duration-200"
+            >
+              Être informé de leur publication <ChevronRight size={16} />
+            </Link>
+          </div>
+        </div>
+
+        <div aria-hidden="true" className="blur-md select-none pointer-events-none opacity-70">
       {/* Featured study */}
       <section ref={featuredRef} className="py-20 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -247,6 +270,8 @@ export default function EtudesDeCasClient() {
           </motion.div>
         </div>
       </section>
+        </div>
+      </div>
 
       {/* CTA */}
       <section ref={ctaRef} className="py-20 bg-primary">
