@@ -167,13 +167,13 @@ const automationTabs = [
   {
     key: "gestion-it",
     label: "Gestion IT",
-    title: "Tout votre environnement IT, plus connecté et mieux maîtrisé",
-    desc: "Centralisez les appareils, les accès, l'inventaire et le support sur une seule plateforme. Automatisez les processus clés, gagnez en contrôle et renforcez la sécurité dès le premier jour.",
+    title: "Pilotez tout votre parc IT depuis une seule plateforme",
+    desc: "Thalès Informatique vous aide à reprendre la main sur votre environnement IT : équipements, accès et licences sont centralisés et suivis au même endroit que vos processus RH, pour une gestion plus simple et plus sûre au quotidien.",
     image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782484948/Factorial_Logiciel_de_gestion_d_entreprise_thales_informatique_giymio.png",
     points: [
-      { icon: Settings2, title: "Inventaire IT", desc: "Commandez, expédiez, réparez et récupérez des appareils dans plus de 60 pays, avec une visibilité complète sur leur statut et leurs coûts." },
-      { icon: FolderLock, title: "Gestion des logiciels", desc: "Accordez les accès lors de l'onboarding, révoquez-les lors de l'offboarding et supprimez les licences inutilisées pour réduire les coûts." },
-      { icon: ShieldCheck, title: "Protégez les appareils et les données", desc: "Appliquez des politiques, verrouillez ou effacez les appareils à distance et générez automatiquement des preuves prêtes pour l'audit." },
+      { icon: Settings2, title: "Suivi du parc informatique", desc: "Gardez une vue d'ensemble sur vos équipements : affectation, état et coûts associés, du jour de l'acquisition à la mise au rebut." },
+      { icon: FolderLock, title: "Maîtrise des accès et licences", desc: "Octroyez les accès dès l'arrivée d'un collaborateur, révoquez-les à son départ et identifiez les licences inutilisées pour optimiser votre budget IT." },
+      { icon: ShieldCheck, title: "Sécurité et conformité", desc: "Encadrez vos appareils par des politiques de sécurité, intervenez à distance en cas de besoin et disposez d'un historique fiable pour vos audits." },
     ],
   },
 ];
