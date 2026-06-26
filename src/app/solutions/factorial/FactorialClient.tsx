@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -68,19 +68,17 @@ function CollageSlot({ images }: { images: { src: string; alt: string }[] }) {
 
   return (
     <div className="relative w-full h-full">
-      <AnimatePresence mode="wait">
+      {images.map((img, i) => (
         <motion.img
-          key={images[index].src}
-          src={images[index].src}
-          alt={images[index].alt}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: "easeInOut" }}
+          key={img.src}
+          src={img.src}
+          alt={img.alt}
+          animate={{ opacity: i === index ? 1 : 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full object-cover object-right"
           loading="lazy"
         />
-      </AnimatePresence>
+      ))}
     </div>
   );
 }
