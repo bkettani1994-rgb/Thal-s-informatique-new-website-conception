@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -33,6 +33,57 @@ import {
   UserCog,
   UserCheck,
 } from "lucide-react";
+
+const leftCollageImages = [
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png",
+    alt: "Interface Factorial dédiée à la gestion de la paie et des éléments RH",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/FINANCE_IT_cmtvdf.png",
+    alt: "Interface Factorial dédiée au suivi financier et IT des collaborateurs",
+  },
+];
+
+const rightCollageImages = [
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GTA_PLANINGS_nnq2wz.png",
+    alt: "Interface Factorial de gestion du temps et des plannings d'équipe",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GESTION_DES_TALENTS_iwxxmw.png",
+    alt: "Interface Factorial de gestion des talents et du suivi de carrière",
+  },
+];
+
+function CollageSlot({ images }: { images: { src: string; alt: string }[] }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full h-full">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={images[index].src}
+          src={images[index].src}
+          alt={images[index].alt}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover object-right"
+          loading="lazy"
+        />
+      </AnimatePresence>
+    </div>
+  );
+}
 
 const alliancePillars = [
   {
@@ -184,12 +235,7 @@ export default function FactorialClient() {
               className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 items-center"
             >
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
-                <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png"
-                  alt="Interface Factorial dédiée à la gestion de la paie et des éléments RH"
-                  className="w-full h-full object-cover object-right"
-                  loading="lazy"
-                />
+                <CollageSlot images={leftCollageImages} />
               </div>
               <div className="sm:col-span-1 h-64 sm:h-80 rounded-2xl border border-white/15 overflow-hidden bg-white flex items-center justify-center sm:-mt-8">
                 <img
@@ -200,12 +246,7 @@ export default function FactorialClient() {
                 />
               </div>
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
-                <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GTA_PLANINGS_nnq2wz.png"
-                  alt="Interface Factorial de gestion du temps et des plannings d'équipe"
-                  className="w-full h-full object-cover object-right"
-                  loading="lazy"
-                />
+                <CollageSlot images={rightCollageImages} />
               </div>
             </motion.div>
           </div>
