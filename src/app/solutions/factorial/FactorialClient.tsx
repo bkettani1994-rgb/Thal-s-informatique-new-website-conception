@@ -175,6 +175,39 @@ export default function FactorialClient() {
                 Demander une démo <ArrowRight size={18} />
               </Link>
             </motion.div>
+
+            {/* Visual collage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/3_u5sutq.jpg"
+                  alt="Conférence sur l'entreprise agile à l'ère du digital, organisée par Thalès Informatique"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/5_r55rlo.jpg"
+                  alt="Présentation de la solution SIRH Factorial par Thalès Informatique"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1781598299/6_fdt6en.jpg"
+                  alt="Démonstration et échanges autour des enjeux RH avec Factorial et Thalès Informatique"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
           </div>
         </section>
 
