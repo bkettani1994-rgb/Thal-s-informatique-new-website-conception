@@ -52,13 +52,6 @@ const values = [
   { icon: Heart, title: "Intégrité", desc: "Des relations fondées sur la transparence, le respect des engagements et l'honnêteté intellectuelle." },
 ];
 
-const team = [
-  { name: "Abdellah REDA", role: "Directeur Général", tenure: "Fondateur, 30 ans d'expérience", initials: "AR" },
-  { name: "Rachid Bensouda", role: "Directeur Général Technique", tenure: "Expert ERP, 20 ans d'expérience", initials: "RB" },
-  { name: "Leila Moussaoui", role: "Directrice Générale Commerciale", tenure: "15 ans en transformation digitale", initials: "LM" },
-  { name: "Omar Filali", role: "Directeur des Ressources Humaines", tenure: "Expert RH & culture d'entreprise", initials: "OF" },
-];
-
 const stats = [
   { value: "30+", label: "Années d'expérience" },
   { value: "500+", label: "Clients accompagnés" },
@@ -219,32 +212,6 @@ export default function AProposClient() {
                   </div>
                   <h4 className="font-bold text-primary mb-2">{value.title}</h4>
                   <p className="text-secondary text-sm leading-relaxed">{value.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-24 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-14">
-              <span className="text-cta text-sm font-semibold uppercase tracking-widest">Notre équipe dirigeante</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">Les visages de Thalès Informatique</h2>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, i) => (
-              <FadeIn key={member.name} delay={i * 0.1}>
-                <div className="bg-white border border-border rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cta to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-lg">{member.initials}</span>
-                  </div>
-                  <h3 className="font-bold text-primary mb-1">{member.name}</h3>
-                  <p className="text-cta text-sm font-semibold mb-2">{member.role}</p>
-                  <p className="text-secondary text-xs">{member.tenure}</p>
                 </div>
               </FadeIn>
             ))}
