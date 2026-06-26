@@ -187,7 +187,7 @@ export default function FactorialClient() {
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png"
                   alt="Interface Factorial dédiée à la gestion de la paie et des éléments RH"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-right"
                   loading="lazy"
                 />
               </div>
@@ -203,7 +203,7 @@ export default function FactorialClient() {
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GTA_PLANINGS_nnq2wz.png"
                   alt="Interface Factorial de gestion du temps et des plannings d'équipe"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-right"
                   loading="lazy"
                 />
               </div>
