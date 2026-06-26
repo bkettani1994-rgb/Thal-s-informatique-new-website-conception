@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Factory, ShoppingCart, Briefcase, HardHat, Wheat, ArrowRight, HeartHandshake, Landmark, FlaskConical, Truck } from "lucide-react";
+import { Factory, ShoppingCart, HardHat, Wheat, ArrowRight, HeartHandshake, Landmark, FlaskConical, Truck } from "lucide-react";
 
 const sectors = [
   {
@@ -28,18 +28,6 @@ const sectors = [
     borderColor: "border-violet-100",
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
-  },
-  {
-    icon: Briefcase,
-    label: "Services",
-    href: "/secteurs/services",
-    description:
-      "Pilotez vos projets, facturation et ressources humaines avec précision et efficacité.",
-    color: "from-amber-500 to-orange-500",
-    bgLight: "bg-amber-50",
-    borderColor: "border-amber-100",
-    iconBg: "bg-amber-100",
-    iconColor: "text-amber-600",
   },
   {
     icon: HardHat,
