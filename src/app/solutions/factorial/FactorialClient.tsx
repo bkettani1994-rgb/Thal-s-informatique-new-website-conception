@@ -133,6 +133,7 @@ const automationTabs = [
     label: "GTA & Plannings",
     title: "Maîtrisez le temps de travail",
     desc: "Suivez les présences, les absences et les plannings de vos équipes en temps réel, pour une gestion du temps de travail simple et fiable.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GTA_PLANINGS_nnq2wz.png",
     points: [
       { icon: FileSignature, title: "Pointage & présences", desc: "Suivez les heures travaillées et les absences de vos équipes directement depuis Factorial." },
       { icon: BarChart3, title: "Plannings d'équipe", desc: "Organisez les plannings et les shifts de vos collaborateurs en quelques clics." },
@@ -144,6 +145,7 @@ const automationTabs = [
     label: "Gestion des talents",
     title: "Faites grandir vos équipes",
     desc: "Suivez le parcours de chaque collaborateur, de son recrutement à son évolution de carrière, pour une gestion des talents structurée et motivante.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/GESTION_DES_TALENTS_iwxxmw.png",
     points: [
       { icon: GraduationCap, title: "Formations & évaluations", desc: "Planifiez les formations et suivez les évaluations de performance de vos équipes." },
       { icon: UserCheck, title: "Recrutement & onboarding", desc: "Centralisez vos candidatures et digitalisez l'intégration de vos nouvelles recrues." },
@@ -155,6 +157,7 @@ const automationTabs = [
     label: "Finance & IT",
     title: "Pilotez vos coûts RH",
     desc: "Visualisez la masse salariale et les coûts RH en temps réel, et sécurisez l'accès aux données grâce à des intégrations IT robustes.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/FINANCE_IT_cmtvdf.png",
     points: [
       { icon: BarChart3, title: "Suivi de la masse salariale", desc: "Visualisez vos coûts RH et budgets en temps réel sur un même tableau de bord." },
       { icon: ShieldCheck, title: "Sécurité des données", desc: "Gestion fine des accès et des permissions pour protéger vos données sensibles." },
