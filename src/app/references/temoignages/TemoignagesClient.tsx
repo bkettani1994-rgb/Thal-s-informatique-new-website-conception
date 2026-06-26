@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Play, Star, Quote, X } from "lucide-react";
+import { ChevronRight, Play, Star, X } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -100,55 +100,14 @@ function VideoModal({ videoId, onClose }: { videoId: string; onClose: () => void
   );
 }
 
-const written = [
-  {
-    quote: "Déploiement rapide et équipe très professionnelle. Sage X3 a transformé notre gestion de A à Z.",
-    name: "Ahmed Rachidi",
-    role: "DSI",
-    company: "Manufacture Textile",
-  },
-  {
-    quote: "Le support de Thalès est exemplaire. Toujours disponibles, toujours efficaces. Un vrai partenaire.",
-    name: "Nadia Benchrifa",
-    role: "Responsable Administratif & Financier",
-    company: "Groupe Immobilier",
-  },
-  {
-    quote: "Notre clôture mensuelle est passée de 5 jours à moins d'une journée. Résultats au-delà des attentes.",
-    name: "Youssef Eddahbi",
-    role: "Directeur Administratif & Financier",
-    company: "Distribution Nationale",
-  },
-  {
-    quote: "Formation excellente, nos équipes ont été pleinement opérationnelles en 2 semaines seulement.",
-    name: "Samira Moussaoui",
-    role: "Directrice RH",
-    company: "Industrie Chimique",
-  },
-  {
-    quote: "Eloficash a divisé nos impayés par 3 en 6 mois. Un ROI immédiat et mesurable.",
-    name: "Hassan Benyaich",
-    role: "Trésorier",
-    company: "Groupe Négoce",
-  },
-  {
-    quote: "La solution HACCP de Thalès nous a permis d'obtenir notre certification ISO 22000 sans stress.",
-    name: "Laila Tahiri",
-    role: "Directrice Qualité",
-    company: "Industries Agroalimentaires",
-  },
-];
-
 export default function TemoignagesClient() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-  const writtenRef = useRef(null);
   const ratingRef = useRef(null);
   const ctaRef = useRef(null);
 
   const videoInView = useInView(videoRef, { once: true, margin: "-80px" });
-  const writtenInView = useInView(writtenRef, { once: true, margin: "-80px" });
   const ratingInView = useInView(ratingRef, { once: true, margin: "-80px" });
   const ctaInView = useInView(ctaRef, { once: true, margin: "-80px" });
 
@@ -261,51 +220,6 @@ export default function TemoignagesClient() {
                       <div className="text-white/70 text-xs truncate">{t.role}, {t.company}</div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Written testimonials */}
-      <section ref={writtenRef} className="py-20 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={writtenInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-primary mb-3">Avis Écrits</h2>
-            <p className="text-secondary">Des retours authentiques de décideurs et utilisateurs</p>
-          </motion.div>
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={writtenInView ? "visible" : "hidden"}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {written.map((w) => (
-              <motion.div
-                key={w.name}
-                variants={fadeUp}
-                className="bg-white rounded-2xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <Quote size={24} className="text-cta/30 mb-3" />
-                <p className="text-secondary text-sm leading-relaxed mb-6 italic">
-                  &ldquo;{w.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} className="text-yellow-400 fill-yellow-400" />
-                  ))}
-                  <span className="text-xs text-slate-500 ml-1">5/5</span>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <div className="font-semibold text-primary text-sm">{w.name}</div>
-                  <div className="text-xs text-secondary mt-0.5">{w.role}</div>
-                  <div className="text-xs text-cta font-semibold mt-0.5">{w.company}</div>
                 </div>
               </motion.div>
             ))}
