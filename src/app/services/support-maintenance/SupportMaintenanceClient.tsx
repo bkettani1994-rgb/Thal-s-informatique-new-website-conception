@@ -17,37 +17,11 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const slaPlans = [
-  {
-    name: "Essentiel",
-    highlight: false,
-    features: [
-      "Jours ouvrés 8h30–17h30",
-      "Délai intervention 48h",
-      "Mises à jour incluses",
-      "Support email & téléphone",
-    ],
-  },
-  {
-    name: "Business",
-    highlight: false,
-    features: [
-      "Jours ouvrés 8h30–17h30+",
-      "Délai intervention 4h",
-      "Mises à jour + correctifs prioritaires",
-      "Email, téléphone & chat",
-    ],
-  },
-  {
-    name: "Premium",
-    highlight: true,
-    features: [
-      "7j/7 24h/24",
-      "Délai intervention 1h",
-      "Mises à jour + correctifs + évolutions",
-      "Dédié hotline + WhatsApp + astreinte",
-    ],
-  },
+const slaFeatures = [
+  "Jours ouvrés 8h30–17h30",
+  "Délai d'intervention rapide garanti",
+  "Mises à jour et correctifs inclus",
+  "Support email, téléphone & chat",
 ];
 
 const included = [
@@ -112,7 +86,7 @@ export default function SupportMaintenanceClient() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-white/70 max-w-2xl"
             >
-              Accords de niveau de service SLA — disponibilité garantie
+              Un seul niveau de service, exigeant pour tous nos clients
             </motion.p>
           </div>
         </section>
@@ -128,15 +102,15 @@ export default function SupportMaintenanceClient() {
             >
               <h2 className="text-3xl font-bold text-primary mb-6">Assurez la continuité de votre SI</h2>
               <p className="text-lg text-secondary leading-relaxed">
-                Thalès Informatique assure la continuité de votre système d'information avec des contrats de maintenance
-                adaptés à votre criticité métier. Trois niveaux de SLA disponibles pour répondre à tous les profils
-                d'entreprise, de la PME à la grande entreprise.
+                Thalès Informatique assure la continuité de votre système d'information avec un contrat de maintenance
+                unique et exigeant, appliqué à tous nos clients quelle que soit leur taille, de la PME à la grande
+                entreprise.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* SLA Plans */}
+        {/* Engagement de service */}
         <section className="py-20 bg-white" ref={plansRef}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -145,46 +119,32 @@ export default function SupportMaintenanceClient() {
               animate={plansInView ? "visible" : "hidden"}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-primary mb-4">Niveaux de service SLA</h2>
-              <p className="text-secondary">Choisissez le contrat adapté à votre criticité</p>
+              <h2 className="text-3xl font-bold text-primary mb-4">Notre engagement de service</h2>
+              <p className="text-secondary">Un seul contrat de maintenance, le même niveau d'exigence pour tous nos clients</p>
             </motion.div>
             <motion.div
-              variants={stagger}
+              variants={fadeUp}
               initial="hidden"
               animate={plansInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="max-w-2xl mx-auto relative p-8 rounded-2xl border-2 border-amber-400 bg-amber-50 shadow-xl"
             >
-              {slaPlans.map((plan) => (
-                <motion.div
-                  key={plan.name}
-                  variants={fadeUp}
-                  className={`relative p-8 rounded-2xl border-2 transition-all duration-300 ${
-                    plan.highlight
-                      ? "border-amber-400 bg-amber-50 shadow-xl"
-                      : "border-border bg-bg hover:border-amber-200 hover:shadow-md"
-                  }`}
-                >
-                  {plan.highlight && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center gap-1 px-4 py-1 bg-amber-400 text-white text-xs font-bold rounded-full">
-                        <Star size={12} fill="white" /> RECOMMANDÉ
-                      </span>
-                    </div>
-                  )}
-                  <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-5">
-                    <Shield size={24} className="text-amber-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-5">{plan.name}</h3>
-                  <ul className="space-y-3">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3">
-                        <Check size={16} className="text-amber-500 mt-0.5 shrink-0" />
-                        <span className="text-sm text-secondary">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="inline-flex items-center gap-1 px-4 py-1 bg-amber-400 text-white text-xs font-bold rounded-full">
+                  <Star size={12} fill="white" /> INCLUS POUR TOUS
+                </span>
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-5">
+                <Shield size={24} className="text-amber-600" />
+              </div>
+              <h3 className="text-xl font-bold text-primary mb-5">Contrat de maintenance Thalès Informatique</h3>
+              <ul className="space-y-3">
+                {slaFeatures.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <Check size={16} className="text-amber-500 mt-0.5 shrink-0" />
+                    <span className="text-sm text-secondary">{f}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
         </section>
@@ -250,9 +210,9 @@ export default function SupportMaintenanceClient() {
               initial="hidden"
               animate={ctaInView ? "visible" : "hidden"}
             >
-              <h2 className="text-3xl font-bold text-primary mb-4">Choisir mon contrat de maintenance</h2>
+              <h2 className="text-3xl font-bold text-primary mb-4">Souscrire à notre contrat de maintenance</h2>
               <p className="text-secondary mb-8 max-w-xl mx-auto">
-                Nos experts vous aident à sélectionner le niveau de service adapté à votre organisation.
+                Nos experts vous accompagnent dans la mise en place de votre contrat de maintenance.
               </p>
               <Link
                 href="/contact"
