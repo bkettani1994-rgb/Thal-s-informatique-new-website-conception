@@ -121,6 +121,7 @@ const automationTabs = [
     label: "RH & Paie",
     title: "Sécurisez le cycle de paie",
     desc: "Synchronisez les éléments variables de paie (congés, absences, primes) directement depuis Factorial pour fiabiliser et accélérer votre processus de paie mensuel.",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png",
     points: [
       { icon: Workflow, title: "Export des éléments variables", desc: "Transmettez automatiquement les variables de paie validées à votre service comptable ou cabinet." },
       { icon: ShieldCheck, title: "Traçabilité complète", desc: "Historique de chaque validation et modification pour sécuriser vos audits et contrôles." },
@@ -466,26 +467,33 @@ export default function FactorialClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="grid lg:grid-cols-2 gap-10 items-center mb-12">
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
-                  <p className="text-secondary leading-relaxed">{selectedTab.desc}</p>
-                </div>
-                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-secondary">Évolution des effectifs</span>
-                    <PenLine size={14} className="text-slate-300" />
+              <div className="max-w-3xl mx-auto text-center mb-10">
+                <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
+                <p className="text-secondary leading-relaxed">{selectedTab.desc}</p>
+              </div>
+
+              <div className="max-w-3xl mx-auto mb-12">
+                {selectedTab.image ? (
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <img src={selectedTab.image} alt={selectedTab.title} className="w-full h-auto" />
                   </div>
-                  <div className="flex items-end gap-1.5 h-20 mb-4">
-                    {[40, 55, 48, 62, 70, 58, 75, 68, 80].map((h, i) => (
-                      <div key={i} className="flex-1 bg-cta/70 rounded-t" style={{ height: `${h}%` }} />
-                    ))}
+                ) : (
+                  <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-semibold text-secondary">Évolution des effectifs</span>
+                      <PenLine size={14} className="text-slate-300" />
+                    </div>
+                    <div className="flex items-end gap-1.5 h-20 mb-4">
+                      {[40, 55, 48, 62, 70, 58, 75, 68, 80].map((h, i) => (
+                        <div key={i} className="flex-1 bg-cta/70 rounded-t" style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                      <span className="text-xs text-secondary">Taux de satisfaction</span>
+                      <span className="text-lg font-bold text-cta">87%</span>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <span className="text-xs text-secondary">Taux de satisfaction</span>
-                    <span className="text-lg font-bold text-cta">87%</span>
-                  </div>
-                </div>
+                )}
               </div>
 
               <div className="grid sm:grid-cols-3 gap-6">
