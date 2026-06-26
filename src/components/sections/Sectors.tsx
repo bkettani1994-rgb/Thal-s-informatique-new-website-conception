@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Factory, ShoppingCart, Briefcase, HardHat, Wheat, ArrowRight } from "lucide-react";
+import { Factory, ShoppingCart, Briefcase, HardHat, Wheat, ArrowRight, HeartHandshake, Landmark, FlaskConical, Truck } from "lucide-react";
 
 const sectors = [
   {
@@ -65,6 +65,54 @@ const sectors = [
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
   },
+  {
+    icon: HeartHandshake,
+    label: "Association",
+    href: "/secteurs/association",
+    description:
+      "Suivez vos adhérents, vos subventions et votre comptabilité associative en toute transparence.",
+    color: "from-rose-500 to-pink-500",
+    bgLight: "bg-rose-50",
+    borderColor: "border-rose-100",
+    iconBg: "bg-rose-100",
+    iconColor: "text-rose-600",
+  },
+  {
+    icon: Landmark,
+    label: "Banque, Assurance & Mutuelle",
+    href: "/secteurs/banque-assurance-mutuelle",
+    description:
+      "Assurez votre conformité réglementaire et pilotez vos contrats, sinistres et flux financiers.",
+    color: "from-indigo-500 to-sky-500",
+    bgLight: "bg-indigo-50",
+    borderColor: "border-indigo-100",
+    iconBg: "bg-indigo-100",
+    iconColor: "text-indigo-600",
+  },
+  {
+    icon: FlaskConical,
+    label: "Chimie",
+    href: "/secteurs/chimie",
+    description:
+      "Maîtrisez vos formulations, votre traçabilité de lots et votre conformité réglementaire.",
+    color: "from-purple-500 to-violet-500",
+    bgLight: "bg-purple-50",
+    borderColor: "border-purple-100",
+    iconBg: "bg-purple-100",
+    iconColor: "text-purple-600",
+  },
+  {
+    icon: Truck,
+    label: "Logistique",
+    href: "/secteurs/logistique",
+    description:
+      "Pilotez vos entrepôts, votre transport et vos échanges EDI avec une traçabilité en temps réel.",
+    color: "from-cyan-500 to-teal-500",
+    bgLight: "bg-cyan-50",
+    borderColor: "border-cyan-100",
+    iconBg: "bg-cyan-100",
+    iconColor: "text-cyan-600",
+  },
 ];
 
 export default function Sectors() {
@@ -101,7 +149,7 @@ export default function Sectors() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {sectors.map((sector, i) => (
             <motion.div
               key={sector.label}

@@ -70,6 +70,10 @@ const navLinks: NavLink[] = [
       { label: "Services", href: "/secteurs/services" },
       { label: "BTP", href: "/secteurs/btp" },
       { label: "Agroalimentaire", href: "/secteurs/agroalimentaire" },
+      { label: "Association", href: "/secteurs/association" },
+      { label: "Banque, Assurance & Mutuelle", href: "/secteurs/banque-assurance-mutuelle" },
+      { label: "Chimie", href: "/secteurs/chimie" },
+      { label: "Logistique", href: "/secteurs/logistique" },
     ],
   },
   {
