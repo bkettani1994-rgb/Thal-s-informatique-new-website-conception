@@ -38,7 +38,7 @@ export default function FactorialClient() {
       <Navbar />
       <main className="bg-bg min-h-screen">
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+        <section className="pt-32 pb-16 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-2 text-white/50 text-sm mb-8">
@@ -52,16 +52,23 @@ export default function FactorialClient() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-violet-400 tracking-widest bg-violet-400/10 px-3 py-1.5 rounded-full mb-4">
                 SIRH CLOUD
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Factorial
+                Gérez vos RH avec Factorial
               </h1>
-              <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
-                SIRH Cloud &amp; Espace Collaborateur
+              <p className="text-xl text-white/70 leading-relaxed mb-8">
+                Le SIRH Cloud qui centralise congés, fiches de paie, recrutement et formations. Accessible partout, à tout moment, pour vos équipes RH et vos collaborateurs.
               </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-violet-500 text-white font-bold px-8 py-4 rounded-xl hover:bg-violet-600 transition-colors duration-200"
+              >
+                Demander une démo <ArrowRight size={18} />
+              </Link>
             </motion.div>
           </div>
         </section>
