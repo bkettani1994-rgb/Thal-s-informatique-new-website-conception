@@ -50,7 +50,7 @@ const sections = [
   },
   {
     title: "11. Contact",
-    body: "Pour toute question relative à la présente Politique de confidentialité ou au traitement de vos données personnelles :\n\n📍 310 Rue Hadj Omar Riffi, Casablanca 20120, Maroc\n📞 05 22 54 87 80\n✉️ contact@thales.ma",
+    body: "Pour toute question relative à la présente Politique de confidentialité ou au traitement de vos données personnelles :\n\n📍 310 Rue Hadj Omar Riffi, Casablanca 20120, Maroc\n📞 +212 5 22 54 87 80\n✉️ contact@thales.ma",
   },
 ];
 

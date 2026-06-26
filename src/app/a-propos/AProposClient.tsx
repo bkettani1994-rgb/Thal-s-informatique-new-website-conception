@@ -60,7 +60,7 @@ const stats = [
 ];
 
 const offices = [
-  { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "05 22 54 87 80", email: "contact@thales.ma" },
+  { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "+212 5 22 54 87 80", tel: "+212522548780", email: "contact@thales.ma" },
 ];
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -259,7 +259,7 @@ export default function AProposClient() {
                   </div>
                   <div className="space-y-2 text-xs text-secondary">
                     <div>{office.address}</div>
-                    <a href={`tel:${office.phone}`} className="block hover:text-primary transition-colors">{office.phone}</a>
+                    <a href={`tel:${office.tel}`} className="block hover:text-primary transition-colors">{office.phone}</a>
                     <a href={`mailto:${office.email}`} className="block hover:text-primary transition-colors">{office.email}</a>
                   </div>
                 </div>

@@ -27,7 +27,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ["demo", "démonstration", "démo", "essai", "gratuit"],
-    response: "Excellente initiative ! 🎯 Nous proposons des démonstrations **gratuites et personnalisées** de nos solutions Sage. Contactez notre équipe :\n\n📞 **05 22 54 87 80**\n✉️ **contact@thales.ma**\n\nOu rendez-vous sur notre page [Contact](/contact) pour planifier votre démo.",
+    response: "Excellente initiative ! 🎯 Nous proposons des démonstrations **gratuites et personnalisées** de nos solutions Sage. Contactez notre équipe :\n\n📞 **+212 5 22 54 87 80**\n✉️ **contact@thales.ma**\n\nOu rendez-vous sur notre page [Contact](/contact) pour planifier votre démo.",
   },
   {
     keywords: ["sage x3", "x3", "erp", "solution", "logiciel"],
@@ -35,7 +35,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ["prix", "tarif", "coût", "combien", "budget"],
-    response: "Les tarifs de nos solutions varient selon la taille de votre entreprise et vos besoins spécifiques. 💡\n\nNous préférons vous proposer un **devis personnalisé** après avoir compris vos enjeux métiers.\n\nContactez-nous au **05 22 54 87 80** ou via [notre formulaire de contact](/contact).",
+    response: "Les tarifs de nos solutions varient selon la taille de votre entreprise et vos besoins spécifiques. 💡\n\nNous préférons vous proposer un **devis personnalisé** après avoir compris vos enjeux métiers.\n\nContactez-nous au **+212 5 22 54 87 80** ou via [notre formulaire de contact](/contact).",
   },
   {
     keywords: ["support", "assistance", "aide", "problème", "hotline", "dépannage"],
@@ -43,7 +43,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ["contact", "joindre", "appeler", "email", "adresse", "bureau"],
-    response: "Voici nos coordonnées 📍\n\n📞 **05 22 54 87 80**\n✉️ **contact@thales.ma**\n🏢 **310 Rue Hadj Omar Riffi, Casablanca 20120**\n\n🕐 Lun–Ven : 8h30 – 17h30\n\n[Voir sur Google Maps](https://maps.app.goo.gl/XK8BzRFH58aUSTnU6)",
+    response: "Voici nos coordonnées 📍\n\n📞 **+212 5 22 54 87 80**\n✉️ **contact@thales.ma**\n🏢 **310 Rue Hadj Omar Riffi, Casablanca 20120**\n\n🕐 Lun–Ven : 8h30 – 17h30\n\n[Voir sur Google Maps](https://maps.app.goo.gl/XK8BzRFH58aUSTnU6)",
   },
   {
     keywords: ["rh", "paie", "sirh", "ressources humaines", "congé", "salaire"],
@@ -172,7 +172,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
 ];
 
 const defaultResponse =
-  "Je n'ai pas bien compris votre question. 🤔 Vous pouvez me demander des informations sur nos **solutions ERP**, nos **services**, ou nos **coordonnées**.\n\nPréférez-vous parler directement à un expert ?\n📞 **05 22 54 87 80** — Lun–Ven 8h30–17h30";
+  "Je n'ai pas bien compris votre question. 🤔 Vous pouvez me demander des informations sur nos **solutions ERP**, nos **services**, ou nos **coordonnées**.\n\nPréférez-vous parler directement à un expert ?\n📞 **+212 5 22 54 87 80** — Lun–Ven 8h30–17h30";
 
 function getResponse(input: string): string {
   const lower = input.toLowerCase();

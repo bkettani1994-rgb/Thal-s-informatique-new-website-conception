@@ -16,7 +16,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
 const offices = [
-  { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "05 22 54 87 80", email: "contact@thales.ma" },
+  { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "+212 5 22 54 87 80", tel: "+212522548780", email: "contact@thales.ma" },
 ];
 
 const secteurs = ["Industrie", "Négoce & Distribution", "Services & Conseil", "BTP & Construction", "Agroalimentaire", "Autre"];
@@ -239,7 +239,7 @@ export default function ContactClient() {
                   <div className="space-y-2 text-sm text-secondary">
                     <div>310 Rue Hadj Omar Riffi</div>
                     <div>Casablanca 20120, Maroc</div>
-                    <a href="tel:+212522548780" className="block text-primary hover:text-cta transition-colors font-medium">05 22 54 87 80</a>
+                    <a href="tel:+212522548780" className="block text-primary hover:text-cta transition-colors font-medium">+212 5 22 54 87 80</a>
                     <a href="mailto:contact@thales.ma" className="block text-primary hover:text-cta transition-colors font-medium">contact@thales.ma</a>
                     <a href="https://www.thales.ma" target="_blank" rel="noopener noreferrer" className="block text-cta hover:text-primary transition-colors font-medium">www.thales.ma</a>
                   </div>
@@ -351,7 +351,7 @@ export default function ContactClient() {
                   </div>
                   <div className="space-y-1.5 text-xs text-secondary">
                     <div className="leading-relaxed">{office.address}</div>
-                    <a href={`tel:${office.phone}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                    <a href={`tel:${office.tel}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">
                       <Phone size={11} className="text-cta" />{office.phone}
                     </a>
                     <a href={`mailto:${office.email}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">

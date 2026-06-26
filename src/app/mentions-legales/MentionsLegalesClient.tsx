@@ -10,7 +10,7 @@ import Footer from "@/components/ui/Footer";
 const sections = [
   {
     title: "1. Présentation de l'éditeur du site",
-    body: "Le présent site www.thales.ma est édité par :\n\n**Thalès Informatique**\nSociété spécialisée dans l'intégration de solutions de gestion (ERP, CRM, RH) et l'accompagnement à la transformation digitale des entreprises\nSiège social : 310 Rue Hadj Omar Riffi, Casablanca 20120, Maroc\nTéléphone : 05 22 54 87 80\nE-mail : contact@thales.ma\nForme juridique : Société à responsabilité limitée (SARL)\nRegistre du Commerce : Casablanca\n\nDirecteur de la publication : La Direction Générale de Thalès Informatique.",
+    body: "Le présent site www.thales.ma est édité par :\n\n**Thalès Informatique**\nSociété spécialisée dans l'intégration de solutions de gestion (ERP, CRM, RH) et l'accompagnement à la transformation digitale des entreprises\nSiège social : 310 Rue Hadj Omar Riffi, Casablanca 20120, Maroc\nTéléphone : +212 5 22 54 87 80\nE-mail : contact@thales.ma\nForme juridique : Société à responsabilité limitée (SARL)\nRegistre du Commerce : Casablanca\n\nDirecteur de la publication : La Direction Générale de Thalès Informatique.",
   },
   {
     title: "2. Hébergement du site",
@@ -42,7 +42,7 @@ const sections = [
   },
   {
     title: "9. Contact",
-    body: "Pour toute question relative aux présentes mentions légales :\n\n📍 310 Rue Hadj Omar Riffi, Casablanca 20120\n📞 05 22 54 87 80\n✉️ contact@thales.ma",
+    body: "Pour toute question relative aux présentes mentions légales :\n\n📍 310 Rue Hadj Omar Riffi, Casablanca 20120\n📞 +212 5 22 54 87 80\n✉️ contact@thales.ma",
   },
 ];
 

@@ -107,7 +107,7 @@ export default function Footer() {
                 className="flex items-center gap-2 text-white/65 hover:text-white text-xs transition-colors duration-200"
               >
                 <Phone size={12} className="shrink-0" />
-                05 22 54 87 80
+                +212 5 22 54 87 80
               </a>
               <a
                 href="mailto:contact@thales.ma"

@@ -70,7 +70,7 @@ export default function MaintenanceClient() {
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cta/5 text-cta font-semibold rounded-xl hover:bg-cta/10 transition-colors border border-cta/20"
           >
             <Phone size={16} />
-            05 22 54 87 80
+            +212 5 22 54 87 80
           </a>
           <a
             href="mailto:contact@thales.ma"

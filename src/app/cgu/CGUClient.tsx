@@ -54,7 +54,7 @@ const sections = [
   },
   {
     title: "12. Contact",
-    body: "Pour toute question relative aux présentes Conditions Générales d'Utilisation :\n\n📍 310 Rue Hadj Omar Riffi, Casablanca 20120\n📞 05 22 54 87 80\n✉️ contact@thales.ma",
+    body: "Pour toute question relative aux présentes Conditions Générales d'Utilisation :\n\n📍 310 Rue Hadj Omar Riffi, Casablanca 20120\n📞 +212 5 22 54 87 80\n✉️ contact@thales.ma",
   },
 ];
 

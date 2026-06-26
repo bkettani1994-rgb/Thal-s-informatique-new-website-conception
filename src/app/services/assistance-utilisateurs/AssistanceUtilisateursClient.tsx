@@ -21,7 +21,7 @@ const channels = [
   {
     icon: Phone,
     title: "Téléphone",
-    contact: "05 22 54 87 80",
+    contact: "+212 5 22 54 87 80",
     hours: "Lun–Ven 8h30–17h30",
   },
   {
@@ -257,11 +257,11 @@ export default function AssistanceUtilisateursClient() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="tel:0522548780"
+                  href="tel:+212522548780"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200"
                 >
                   <Phone size={18} />
-                  05 22 54 87 80
+                  +212 5 22 54 87 80
                 </a>
                 <Link
                   href="/contact"
