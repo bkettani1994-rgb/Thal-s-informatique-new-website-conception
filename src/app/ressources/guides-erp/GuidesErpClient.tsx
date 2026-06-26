@@ -106,9 +106,9 @@ export default function GuidesErpClient() {
                 <div>
                   <h2 className="text-xl font-bold text-primary mb-2">Bibliothèque de guides pratiques</h2>
                   <p className="text-secondary leading-relaxed">
-                    Thalès Informatique met à disposition des dirigeants et DSI marocains une bibliothèque de guides pratiques
-                    pour préparer, piloter et réussir leur projet ERP. Tous nos guides sont rédigés par nos ingénieurs experts
-                    et mis à jour régulièrement pour refléter les dernières évolutions réglementaires et technologiques au Maroc.
+                    Thalès Informatique prépare actuellement une bibliothèque de guides pratiques pour aider les dirigeants et DSI marocains
+                    à préparer, piloter et réussir leur projet ERP. Ces guides seront rédigés par nos ingénieurs experts et mis à jour
+                    régulièrement pour refléter les dernières évolutions réglementaires et technologiques au Maroc.
                   </p>
                 </div>
               </div>
@@ -130,10 +130,10 @@ export default function GuidesErpClient() {
                   <p className="text-sm text-secondary mb-4 flex-1">{guide.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400">{guide.pages}</span>
-                    <button className="flex items-center gap-1.5 text-sm font-semibold text-cta hover:text-blue-700 transition-colors cursor-pointer">
+                    <span className="flex items-center gap-1.5 text-sm font-semibold text-slate-400 cursor-not-allowed">
                       <Download size={14} />
-                      Télécharger
-                    </button>
+                      Bientôt disponible
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -143,8 +143,8 @@ export default function GuidesErpClient() {
             <div className="bg-primary rounded-2xl p-8 md:p-12 mb-12">
               <div className="max-w-xl mx-auto text-center">
                 <Mail size={32} className="text-accent mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">Accédez à tous nos guides gratuitement</h3>
-                <p className="text-white/60 mb-6">Renseignez vos coordonnées pour télécharger l&apos;intégralité de la bibliothèque.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Bientôt, vous pourrez télécharger nos guides</h3>
+                <p className="text-white/60 mb-6">Notre bibliothèque de guides est en cours de préparation. Laissez-nous vos coordonnées pour être averti dès leur publication.</p>
                 <form
                   onSubmit={(e) => { e.preventDefault(); setFormData({ name: "", email: "" }); }}
                   className="flex flex-col gap-3"
@@ -169,7 +169,7 @@ export default function GuidesErpClient() {
                     type="submit"
                     className="w-full py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
                   >
-                    Télécharger la bibliothèque complète
+                    M&apos;avertir de la disponibilité
                   </button>
                 </form>
               </div>
