@@ -23,8 +23,8 @@ const lfNews = [
     desc: "Obligation d'auto-liquidation de la TVA pour les industriels acheteurs de déchets de récupération, et exonération des pâtes alimentaires courtes. Mise à jour disponible dans Sage X3 et Sage 100.",
     date: "Jan 2026",
     color: "border-l-green-500",
-    href: "https://www.cielmaroc.ma/actualites/loi-de-finances-2026-resume-des-principales-mesures",
-    source: "Ciel Informatique",
+    href: "https://ledesk.ma/enclair/loi-de-finances-2026-toutes-les-mesures-fiscales-decryptees-par-la-dgi/",
+    source: "Le Desk",
   },
   {
     tag: "LF 2026 — IR",
