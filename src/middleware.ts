@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 const PREVIEW_COOKIE = "thales_preview";
 const PREVIEW_SECRET = process.env.PREVIEW_SECRET || "thales-preview-2026";
-const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE !== "false";
+const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE === "true";
 
 export function middleware(request: NextRequest) {
   if (!MAINTENANCE_MODE) {
