@@ -1,37 +1,142 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronRight,
+  ShieldCheck,
+  Sparkles,
+  MapPin,
+  Clock3,
+  FileWarning,
+  Settings2,
+  AlertTriangle,
+  Calendar,
+  Timer,
+  FolderLock,
+  LineChart,
+  Workflow,
+  Lock,
+  Bot,
+  Send,
+  PenLine,
+  FileSignature,
+  BarChart3,
+  GraduationCap,
+  HeadphonesIcon,
+  Users,
+  Briefcase,
+  UserCog,
+  UserCheck,
+} from "lucide-react";
 
-const features = [
-  { title: "Espace collaborateur en ligne", desc: "Chaque employé accède à ses informations RH depuis n&apos;importe quel appareil, n&apos;importe où.", icon: "👤" },
-  { title: "Gestion des congés & absences", desc: "Demandes, approbations, soldes en temps réel — zéro email, zéro papier.", icon: "🗓️" },
-  { title: "Fiches de paie dématérialisées", desc: "Distribution digitale des bulletins de paie, archivage légal sécurisé.", icon: "💰" },
-  { title: "Recrutement & onboarding", desc: "Pipeline de recrutement, gestion des candidats, intégration digitale des nouveaux.", icon: "🎯" },
-  { title: "Suivi des formations", desc: "Plan de formation, inscriptions, évaluations et historique par collaborateur.", icon: "📚" },
-  { title: "Organigramme interactif", desc: "Visualisez et mettez à jour votre structure organisationnelle en temps réel.", icon: "🏢" },
+const alliancePillars = [
+  {
+    icon: ShieldCheck,
+    title: "Thalès Informatique",
+    desc: "Plus de 30 ans d'expertise dans la transformation digitale des entreprises au Maroc, avec un accompagnement de proximité.",
+  },
+  {
+    icon: Sparkles,
+    title: "Factorial",
+    desc: "Le SIRH Cloud nouvelle génération, conçu pour simplifier la gestion RH des PME et ETI grâce à une interface moderne et intuitive.",
+  },
+  {
+    icon: MapPin,
+    title: "Accompagnement Local",
+    desc: "Nos consultants RH vous accompagnent en français comme en arabe, du paramétrage initial jusqu'à l'adoption par vos équipes.",
+  },
 ];
 
-const cloudAdvantages = [
-  { title: "Déploiement en 48h", desc: "Factorial est opérationnel en 48 heures sans infrastructure à installer.", icon: "⚡" },
-  { title: "Mises à jour automatiques", desc: "Nouvelles fonctionnalités et conformité légale mises à jour automatiquement.", icon: "🔄" },
-  { title: "Accès mobile", desc: "Application mobile iOS & Android pour les managers et collaborateurs.", icon: "📱" },
+const painPoints = [
+  { icon: Clock3, title: "Gestion chronophage", desc: "Suivi des congés et absences géré manuellement sur Excel ou par email, source d'erreurs et de perte de temps." },
+  { icon: FileWarning, title: "Paie sujette à erreurs", desc: "Saisie manuelle des éléments variables de paie, risques d'erreurs et d'oublis chaque fin de mois." },
+  { icon: Settings2, title: "Dossiers dispersés", desc: "Contrats, avenants et documents RH éparpillés entre plusieurs outils et classeurs papier." },
+  { icon: AlertTriangle, title: "Risques de conformité", desc: "Difficulté à garantir la conformité légale et la confidentialité des données RH sensibles." },
+];
+
+const modernFeatures = [
+  { icon: Calendar, title: "Congés & Absences", desc: "Validez en un clic, visibilité immédiate sur le planning d'équipe." },
+  { icon: Timer, title: "Gestion du temps", desc: "Pointage digital, suivi automatisé des heures de travail." },
+  { icon: FolderLock, title: "Dossiers salariés", desc: "Stockage centralisé (Cloud), conforme à la loi marocaine et sécurisé." },
+  { icon: LineChart, title: "Performance & Reporting", desc: "Tableaux de bord RH personnalisables en temps réel." },
+  { icon: Workflow, title: "Workflows automatisés", desc: "Automatisez les processus RH répétitifs, des onboardings aux approbations." },
+  { icon: Lock, title: "Conformité RGPD", desc: "Données hébergées dans le Cloud, conformes aux normes de sécurité internationales." },
+];
+
+const automationTabs = [
+  {
+    key: "rh-flux",
+    label: "RH & Flux",
+    title: "Remettre l'humain au cœur des RH",
+    desc: "Factorial automatise les processus RH chronophages : congés, notes de frais, pour vous laisser plus de temps à consacrer à vos équipes et à la croissance de votre entreprise.",
+    points: [
+      { icon: Users, title: "Portail employé", desc: "Centralise les demandes et démarches RH dans un seul espace, accessible 24/7 par chaque collaborateur." },
+      { icon: FileSignature, title: "Documents et signature électronique", desc: "Dématérialise les contrats, avenants et signatures pour des processus RH plus rapides et plus sûrs." },
+      { icon: BarChart3, title: "Rapports et données RH", desc: "Suivez vos effectifs, votre turnover et vos indicateurs RH en temps réel sur un même tableau de bord." },
+    ],
+  },
+  {
+    key: "rh-paie",
+    label: "RH & Paie",
+    title: "Sécurisez le cycle de paie",
+    desc: "Synchronisez les éléments variables de paie (congés, absences, primes) directement depuis Factorial pour fiabiliser et accélérer votre processus de paie mensuel.",
+    points: [
+      { icon: Workflow, title: "Export des éléments variables", desc: "Transmettez automatiquement les variables de paie validées à votre service comptable ou cabinet." },
+      { icon: ShieldCheck, title: "Traçabilité complète", desc: "Historique de chaque validation et modification pour sécuriser vos audits et contrôles." },
+      { icon: Lock, title: "Confidentialité garantie", desc: "Accès aux données de paie strictement limité aux personnes habilitées." },
+    ],
+  },
+  {
+    key: "conduite-talents",
+    label: "Conduite des talents",
+    title: "Faites grandir vos équipes",
+    desc: "Suivez le parcours de chaque collaborateur, de son recrutement à son évolution de carrière, pour une gestion des talents structurée et motivante.",
+    points: [
+      { icon: GraduationCap, title: "Formations & évaluations", desc: "Planifiez les formations et suivez les évaluations de performance de vos équipes." },
+      { icon: UserCheck, title: "Recrutement & onboarding", desc: "Centralisez vos candidatures et digitalisez l'intégration de vos nouvelles recrues." },
+      { icon: LineChart, title: "Suivi de carrière", desc: "Visualisez les évolutions, mobilités internes et perspectives de chaque collaborateur." },
+    ],
+  },
+];
+
+const proximityAdvantages = [
+  { icon: UserCog, title: "Conseil personnalisé", desc: "Nos consultants RH analysent vos besoins pour configurer Factorial selon vos process internes." },
+  { icon: MapPin, title: "Déploiement clé en main", desc: "De l'installation à la migration de vos données, nous gérons tout le déploiement au Maroc." },
+  { icon: GraduationCap, title: "Formation des équipes", desc: "Vos équipes RH et managers sont formés pour une adoption rapide et durable de l'outil." },
+  { icon: HeadphonesIcon, title: "Support technique local", desc: "Une équipe support basée au Maroc, disponible en français et en arabe pour vous accompagner." },
+];
+
+const audiences = [
+  { icon: Briefcase, title: "Responsables RH", desc: "Libérez-vous des tâches administratives répétitives pour vous concentrer sur le pilotage stratégique." },
+  { icon: BarChart3, title: "CFOs", desc: "Visualisez la masse salariale et les coûts RH en temps réel pour des décisions plus éclairées." },
+  { icon: UserCog, title: "Managers", desc: "Gérez les congés et la performance de vos équipes en quelques clics, sans solliciter les RH." },
+  { icon: Users, title: "Employés", desc: "Accédez à votre espace personnel RH à tout moment, depuis votre ordinateur ou votre mobile." },
 ];
 
 export default function FactorialClient() {
-  const introRef = useRef(null);
+  const allianceRef = useRef(null);
+  const painRef = useRef(null);
   const featuresRef = useRef(null);
-  const cloudRef = useRef(null);
-  const portalRef = useRef(null);
+  const aiRef = useRef(null);
+  const automationRef = useRef(null);
+  const proximityRef = useRef(null);
+  const audiencesRef = useRef(null);
 
-  const introInView = useInView(introRef, { once: true, margin: "-80px" });
+  const allianceInView = useInView(allianceRef, { once: true, margin: "-80px" });
+  const painInView = useInView(painRef, { once: true, margin: "-80px" });
   const featuresInView = useInView(featuresRef, { once: true, margin: "-80px" });
-  const cloudInView = useInView(cloudRef, { once: true, margin: "-80px" });
-  const portalInView = useInView(portalRef, { once: true, margin: "-80px" });
+  const aiInView = useInView(aiRef, { once: true, margin: "-80px" });
+  const automationInView = useInView(automationRef, { once: true, margin: "-80px" });
+  const proximityInView = useInView(proximityRef, { once: true, margin: "-80px" });
+  const audiencesInView = useInView(audiencesRef, { once: true, margin: "-80px" });
+
+  const [activeTab, setActiveTab] = useState(automationTabs[0].key);
+  const selectedTab = automationTabs.find((t) => t.key === activeTab)!;
 
   return (
     <>
@@ -54,7 +159,7 @@ export default function FactorialClient() {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <span className="inline-block text-xs font-bold text-violet-400 tracking-widest bg-violet-400/10 px-3 py-1.5 rounded-full mb-4">
+              <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
                 SIRH CLOUD
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
@@ -65,7 +170,7 @@ export default function FactorialClient() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-violet-500 text-white font-bold px-8 py-4 rounded-xl hover:bg-violet-600 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
                 Demander une démo <ArrowRight size={18} />
               </Link>
@@ -73,149 +178,346 @@ export default function FactorialClient() {
           </div>
         </section>
 
-        {/* Intro */}
-        <section ref={introRef} className="py-20 bg-white">
+        {/* Alliance stratégique */}
+        <section ref={allianceRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={allianceInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-2xl mx-auto mb-12"
+            >
+              <h2 className="text-3xl font-bold text-primary mb-3">
+                Une alliance stratégique pour votre succès
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                L&apos;alliance de l&apos;expertise locale de Thalès Informatique et de la puissance technologique de Factorial.
+              </p>
+            </motion.div>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {alliancePillars.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={allianceInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-slate-50 border border-border rounded-2xl p-6 text-center"
+                >
+                  <div className="w-12 h-12 bg-cta/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <p.icon size={22} className="text-cta" />
+                  </div>
+                  <h3 className="font-bold text-primary mb-2">{p.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed">{p.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pain points */}
+        <section ref={painRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={introInView ? { opacity: 1, y: 0 } : {}}
+                animate={painInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
               >
-                <span className="text-xs font-bold text-violet-600 tracking-widest uppercase">LE SIRH MODERNE</span>
+                <span className="text-xs font-bold text-cta tracking-widest uppercase">LE CONSTAT ACTUEL</span>
                 <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
-                  La RH centralisée, enfin accessible à tous
+                  Vos processus RH freinent-ils votre croissance ?
                 </h2>
-                <p className="text-secondary leading-relaxed mb-4">
-                  Factorial est le SIRH Cloud moderne qui centralise toute la gestion RH : congés, fiches de paie, recrutement, formations. Accessible depuis n&apos;importe quel appareil, il simplifie le quotidien des RH et des collaborateurs.
-                </p>
-                <p className="text-secondary leading-relaxed">
-                  <strong className="text-primary">Thalès Informatique</strong> est partenaire Factorial certifié au Maroc. Nous vous accompagnons dans la configuration, la formation et l&apos;adoption par vos équipes.
-                </p>
+                <div className="space-y-5">
+                  {painPoints.map((pt) => (
+                    <div key={pt.title} className="flex items-start gap-4">
+                      <div className="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
+                        <pt.icon size={18} className="text-red-500" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-primary text-sm mb-1">{pt.title}</h3>
+                        <p className="text-secondary text-sm leading-relaxed">{pt.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={painInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="grid grid-cols-2 gap-4"
+              >
+                <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-cta/15 to-accent/10 border border-border flex items-center justify-center">
+                  <FileWarning size={36} className="text-cta/60" />
+                </div>
+                <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-accent/15 to-cta/10 border border-border flex items-center justify-center">
+                  <Clock3 size={36} className="text-accent/60" />
+                </div>
+                <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-cta/10 to-primary/10 border border-border flex items-center justify-center">
+                  <FolderLock size={36} className="text-primary/50" />
+                </div>
+                <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/15 border border-border flex items-center justify-center">
+                  <AlertTriangle size={36} className="text-orange-400" />
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Features */}
-        <section ref={featuresRef} className="py-20 bg-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Une solution pensée pour les RH modernes */}
+        <section ref={featuresRef} className="py-20 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-cta via-primary to-primary opacity-90" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={featuresInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <span className="text-xs font-bold text-violet-600 tracking-widest uppercase">FONCTIONNALITÉS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Tout ce que vos RH attendent</h2>
+              <h2 className="text-3xl font-bold text-white mt-2 mb-3">Une solution pensée pour les RH modernes</h2>
+              <p className="text-white/70">
+                Factorial centralise tous les besoins dans une plateforme unique, intuitive et évolutive.
+              </p>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feat, i) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+              {modernFeatures.map((feat, i) => (
                 <motion.div
                   key={feat.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={featuresInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-2xl p-6 border border-border hover:border-violet-400 hover:shadow-lg transition-all duration-200"
+                  className="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15 hover:bg-white/15 transition-colors duration-200"
                 >
-                  <span className="text-3xl mb-4 block">{feat.icon}</span>
-                  <h3 className="font-bold text-primary mb-2">{feat.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed" dangerouslySetInnerHTML={{ __html: feat.desc }} />
+                  <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center mb-4">
+                    <feat.icon size={18} className="text-white" />
+                  </div>
+                  <h3 className="font-bold text-white mb-2 text-sm">{feat.title}</h3>
+                  <p className="text-sm text-white/70 leading-relaxed">{feat.desc}</p>
                 </motion.div>
               ))}
             </div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={featuresInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-center"
+            >
+              <p className="text-white/60 text-sm mb-5">
+                Rejoignez plus de 10 000 entreprises qui ont déjà adopté Factorial.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors duration-200"
+              >
+                Réservez une démo gratuite
+              </Link>
+            </motion.div>
           </div>
         </section>
 
-        {/* Cloud Advantages */}
-        <section ref={cloudRef} className="py-20 bg-white">
+        {/* IA */}
+        <section ref={aiRef} className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={cloudInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
+              animate={aiInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-2xl mx-auto mb-12"
             >
-              <span className="text-xs font-bold text-violet-600 tracking-widest uppercase">CLOUD NATIF</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Les avantages du Cloud</h2>
-            </motion.div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {cloudAdvantages.map((adv, i) => (
-                <motion.div
-                  key={adv.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={cloudInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-violet-50 rounded-2xl p-8 border border-violet-100 text-center"
-                >
-                  <span className="text-4xl mb-4 block">{adv.icon}</span>
-                  <h3 className="font-bold text-primary mb-3">{adv.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{adv.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Employee Portal Mockup */}
-        <section ref={portalRef} className="py-20 bg-bg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={portalInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
-              <span className="text-xs font-bold text-violet-600 tracking-widest uppercase">INTERFACE</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">L&apos;espace collaborateur Factorial</h2>
+              <h2 className="text-3xl font-bold text-primary mb-3">
+                L&apos;Intelligence Artificielle au cœur de votre plateforme RH avec Factorial
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Moins de paperasse, plus de temps pour vos équipes. L&apos;IA vous aide à transformer vos données en informations fiables et à accélérer l&apos;impact de vos équipes RH.
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={portalInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-primary rounded-2xl p-8 lg:p-12"
+              animate={aiInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="max-w-md mx-auto bg-slate-50 border border-border rounded-2xl p-6 shadow-sm"
             >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-white font-bold text-xl mb-4">Un portail intuitif pour chaque collaborateur</h3>
-                  <ul className="space-y-3">
-                    {[
-                      "Consulter et télécharger ses fiches de paie",
-                      "Poser des congés en 2 clics",
-                      "Accéder à son contrat et documents RH",
-                      "Voir son solde de congés en temps réel",
-                      "Suivre ses formations et objectifs",
-                      "Contacter les RH directement depuis le portail",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-white/80 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-full bg-cta flex items-center justify-center">
+                  <Bot size={18} className="text-white" />
                 </div>
-                <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                  <div className="text-center text-white">
-                    <div className="text-5xl mb-4">👤</div>
-                    <div className="font-bold text-lg mb-1">Mohamed Alami</div>
-                    <div className="text-white/60 text-sm mb-6">Responsable Comptabilité</div>
-                    <div className="grid grid-cols-2 gap-3 text-left">
-                      {[
-                        { label: "Congés restants", value: "18 jours" },
-                        { label: "Ancienneté", value: "4 ans 3 mois" },
-                        { label: "Prochaine paie", value: "30 juin 2026" },
-                        { label: "Formations", value: "2 en cours" },
-                      ].map((item) => (
-                        <div key={item.label} className="bg-white/10 rounded-lg p-3">
-                          <div className="text-white/50 text-xs">{item.label}</div>
-                          <div className="text-white font-semibold text-sm mt-0.5">{item.value}</div>
-                        </div>
-                      ))}
-                    </div>
+                <div>
+                  <div className="text-xs text-secondary">Bonjour Adam,</div>
+                  <div className="font-bold text-primary text-sm">Comment puis-je vous aider aujourd&apos;hui ?</div>
+                </div>
+              </div>
+              <div className="space-y-2 mb-4">
+                {[
+                  "Combien de RTT me reste-t-il ?",
+                  "Créer une demande de congé",
+                  "Faire une démarche pour un Atestto",
+                ].map((q) => (
+                  <div key={q} className="text-sm text-secondary bg-white border border-border rounded-lg px-3 py-2">
+                    {q}
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center gap-2 bg-white border border-border rounded-lg px-3 py-2">
+                <span className="text-sm text-slate-400 flex-1">Écrivez votre message...</span>
+                <Send size={16} className="text-cta" />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Automatisation / Tabs */}
+        <section ref={automationRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={automationInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-2xl mx-auto mb-10"
+            >
+              <h2 className="text-3xl font-bold text-primary mb-3">
+                Automatisez ce qui vous empêche d&apos;avancer
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Factorial automatise les processus RH chronophages, pour vous redonner du temps et recentrer vos efforts sur la croissance de vos équipes.
+              </p>
+            </motion.div>
+
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {automationTabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`text-sm font-semibold px-5 py-2.5 rounded-full border transition-colors duration-200 cursor-pointer ${
+                    activeTab === tab.key
+                      ? "bg-cta text-white border-cta"
+                      : "bg-white text-secondary border-border hover:border-cta hover:text-cta"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="grid lg:grid-cols-2 gap-10 items-center mb-12">
+                <div>
+                  <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
+                  <p className="text-secondary leading-relaxed">{selectedTab.desc}</p>
+                </div>
+                <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-semibold text-secondary">Évolution des effectifs</span>
+                    <PenLine size={14} className="text-slate-300" />
+                  </div>
+                  <div className="flex items-end gap-1.5 h-20 mb-4">
+                    {[40, 55, 48, 62, 70, 58, 75, 68, 80].map((h, i) => (
+                      <div key={i} className="flex-1 bg-cta/70 rounded-t" style={{ height: `${h}%` }} />
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <span className="text-xs text-secondary">Taux de satisfaction</span>
+                    <span className="text-lg font-bold text-cta">87%</span>
                   </div>
                 </div>
               </div>
+
+              <div className="grid sm:grid-cols-3 gap-6">
+                {selectedTab.points.map((pt) => (
+                  <div key={pt.title} className="bg-white border border-border rounded-xl p-5">
+                    <pt.icon size={18} className="text-cta mb-3" />
+                    <h4 className="font-bold text-primary text-sm mb-1.5">{pt.title}</h4>
+                    <p className="text-xs text-secondary leading-relaxed">{pt.desc}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Proximité Thalès */}
+        <section ref={proximityRef} className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={proximityInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6 }}
+                className="grid grid-cols-2 gap-5 order-2 lg:order-1"
+              >
+                {proximityAdvantages.map((adv) => (
+                  <div key={adv.title} className="bg-slate-50 border border-border rounded-xl p-5">
+                    <adv.icon size={20} className="text-cta mb-3" />
+                    <h4 className="font-bold text-primary text-sm mb-1.5">{adv.title}</h4>
+                    <p className="text-xs text-secondary leading-relaxed">{adv.desc}</p>
+                  </div>
+                ))}
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={proximityInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="order-1 lg:order-2"
+              >
+                <span className="text-xs font-bold text-cta tracking-widest uppercase">POURQUOI THALÈS INFORMATIQUE ?</span>
+                <h2 className="text-3xl font-bold text-primary mt-2 mb-5">
+                  Plus qu&apos;un logiciel, un véritable partenaire de proximité
+                </h2>
+                <p className="text-secondary leading-relaxed mb-5">
+                  Au-delà de la souscription, notre équipe vous accompagne dans son intégration. En choisissant Thalès Informatique, vous bénéficiez de 30 ans d&apos;expérience IT au Maroc, d&apos;un véritable interlocuteur dédié.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Implémentation rapide et accompagnement sur-mesure",
+                    "Certification et expertise éprouvée sur Factorial",
+                    "Support local au Maroc, pas de plateforme RH lointaine",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-secondary text-sm">
+                      <ShieldCheck size={16} className="text-cta shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Audiences */}
+        <section ref={audiencesRef} className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={audiencesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-2xl mx-auto mb-12"
+            >
+              <h2 className="text-3xl font-bold text-primary mb-3">Qui que vous soyez, nous pouvons vous aider</h2>
+              <p className="text-secondary leading-relaxed">
+                Factorial ne se résume pas à un logiciel RH. C&apos;est une solution complète permettant aux managers et aux équipes de mieux collaborer, décider et avancer ensemble.
+              </p>
+            </motion.div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {audiences.map((a, i) => (
+                <motion.div
+                  key={a.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={audiencesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="bg-white border border-border rounded-2xl p-6"
+                >
+                  <div className="w-10 h-10 bg-cta/10 rounded-lg flex items-center justify-center mb-4">
+                    <a.icon size={18} className="text-cta" />
+                  </div>
+                  <h3 className="font-bold text-primary text-sm mb-2">{a.title}</h3>
+                  <p className="text-xs text-secondary leading-relaxed">{a.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -236,7 +538,7 @@ export default function FactorialClient() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-violet-500 text-white font-bold px-8 py-4 rounded-xl hover:bg-violet-600 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
                 Demander une démo <ArrowRight size={18} />
               </Link>
