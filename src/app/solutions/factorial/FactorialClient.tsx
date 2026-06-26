@@ -21,8 +21,6 @@ import {
   LineChart,
   Workflow,
   Lock,
-  Bot,
-  Send,
   PenLine,
   FileSignature,
   BarChart3,
@@ -407,32 +405,13 @@ export default function FactorialClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={aiInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="max-w-md mx-auto bg-slate-50 border border-border rounded-2xl p-6 shadow-sm"
+              className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-sm border border-border"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-cta flex items-center justify-center">
-                  <Bot size={18} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-xs text-secondary">Bonjour Adam,</div>
-                  <div className="font-bold text-primary text-sm">Comment puis-je vous aider aujourd&apos;hui ?</div>
-                </div>
-              </div>
-              <div className="space-y-2 mb-4">
-                {[
-                  "Combien de RTT me reste-t-il ?",
-                  "Créer une demande de congé",
-                  "Faire une démarche pour un Atestto",
-                ].map((q) => (
-                  <div key={q} className="text-sm text-secondary bg-white border border-border rounded-lg px-3 py-2">
-                    {q}
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center gap-2 bg-white border border-border rounded-lg px-3 py-2">
-                <span className="text-sm text-slate-400 flex-1">Écrivez votre message...</span>
-                <Send size={16} className="text-cta" />
-              </div>
+              <img
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782482570/Factorial_Logiciel_de_gestion_d_entreprise_pour_Thal%C3%A8s_Informatique_nti6ux.png"
+                alt="Assistant IA Factorial intégré à la plateforme RH"
+                className="w-full h-auto"
+              />
             </motion.div>
           </div>
         </section>
