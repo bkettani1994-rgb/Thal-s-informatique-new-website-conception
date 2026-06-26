@@ -405,12 +405,12 @@ export default function FactorialClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={aiInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-sm border border-border"
+              className="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-lg"
             >
               <img
-                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782482570/Factorial_Logiciel_de_gestion_d_entreprise_pour_Thal%C3%A8s_Informatique_nti6ux.png"
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/q_auto,f_auto/v1782482570/Factorial_Logiciel_de_gestion_d_entreprise_pour_Thal%C3%A8s_Informatique_nti6ux.png"
                 alt="Assistant IA Factorial intégré à la plateforme RH"
-                className="w-full h-auto"
+                className="w-full h-auto rounded-3xl"
               />
             </motion.div>
           </div>
