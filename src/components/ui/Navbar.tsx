@@ -160,6 +160,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
+    <>
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -271,8 +272,14 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+    </motion.header>
 
-      {/* Mobile Menu — fixed overlay so page doesn't scroll behind */}
+    {/* Mobile Menu — fixed overlay so page doesn't scroll behind. Rendered
+        outside <motion.header> on purpose: the header has a transform /
+        backdrop-filter applied, which creates a CSS containing block for
+        fixed-position descendants — nesting the overlay inside it made the
+        overlay position itself relative to the (short) header box instead of
+        the viewport, collapsing it to an invisible sliver once scrolled. */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -280,7 +287,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="lg:hidden fixed inset-0 top-16 z-40 bg-white overflow-y-auto"
+            className="lg:hidden fixed inset-0 top-16 z-[55] bg-white overflow-y-auto"
           >
             <div className="px-4 py-4 space-y-1 pb-24">
               {navLinks.map((link) => (
@@ -362,6 +369,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
