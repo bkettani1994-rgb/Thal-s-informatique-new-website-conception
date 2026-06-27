@@ -118,7 +118,12 @@ export default function Navbar() {
       if (ticking) return;
       ticking = true;
       window.requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 20);
+        // Ignore scroll events fired while body scroll is locked (mobile menu
+        // open) — locking the body via position:fixed resets window.scrollY
+        // to 0, which would otherwise incorrectly flip the navbar transparent.
+        if (document.body.style.position !== "fixed") {
+          setScrolled(window.scrollY > 20);
+        }
         ticking = false;
       });
     };
@@ -142,6 +147,7 @@ export default function Navbar() {
         document.body.style.right = "";
         document.body.style.overflow = "";
         window.scrollTo(0, scrollY);
+        setScrolled(scrollY > 20);
       };
     }
   }, [mobileOpen]);
