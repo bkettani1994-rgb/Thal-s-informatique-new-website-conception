@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -112,6 +112,11 @@ export default function Navbar() {
   const toggleMobileSection = (label: string) =>
     setMobileExpanded((prev) => (prev === label ? null : label));
 
+  // Tracks the body scroll-lock state synchronously, independent of when the
+  // lock effect below actually commits its DOM writes — avoids any race
+  // between the scroll listener and the lock effect.
+  const scrollLockedRef = useRef(false);
+
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -121,7 +126,7 @@ export default function Navbar() {
         // Ignore scroll events fired while body scroll is locked (mobile menu
         // open) — locking the body via position:fixed resets window.scrollY
         // to 0, which would otherwise incorrectly flip the navbar transparent.
-        if (document.body.style.position !== "fixed") {
+        if (!scrollLockedRef.current) {
           setScrolled(window.scrollY > 20);
         }
         ticking = false;
@@ -134,6 +139,7 @@ export default function Navbar() {
   // Lock body scroll when mobile menu is open (iOS-safe: position: fixed avoids rubber-band scroll)
   useEffect(() => {
     if (mobileOpen) {
+      scrollLockedRef.current = true;
       const scrollY = window.scrollY;
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
@@ -147,6 +153,7 @@ export default function Navbar() {
         document.body.style.right = "";
         document.body.style.overflow = "";
         window.scrollTo(0, scrollY);
+        scrollLockedRef.current = false;
         setScrolled(scrollY > 20);
       };
     }
