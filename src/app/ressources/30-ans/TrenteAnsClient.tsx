@@ -65,7 +65,7 @@ const highlights = [
   {
     icon: TrendingUp,
     title: "Une croissance continue",
-    desc: "Une équipe qui n'a cessé de grandir pour répondre aux besoins évolutifs de nos clients, partout au Maroc.",
+    desc: "Une équipe qui n'a cessé de grandir pour répondre aux besoins évolutifs de nos clients, partout au Maroc et en Afrique.",
   },
   {
     icon: Rocket,

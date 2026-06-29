@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import GestionFinanciereClient from "./GestionFinanciereClient";
 
 export const metadata: Metadata = {
-  title: "Gestion Financière & Comptable ERP au Maroc",
+  title: "Gestion Financière & Comptable ERP au Maroc et en Afrique",
   description:
     "Pilotez comptabilité, trésorerie et déclarations fiscales (TVA, IS, IR) avec un module ERP conforme à la réglementation marocaine, déployé par Thalès Informatique.",
   alternates: {

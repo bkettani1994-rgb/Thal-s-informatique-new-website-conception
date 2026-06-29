@@ -9,7 +9,7 @@ import Footer from "@/components/ui/Footer";
 
 const featuredArticle = {
   title: "Comment réussir votre projet ERP en 6 étapes",
-  excerpt: "La mise en place d'un ERP est l'un des projets les plus structurants pour une entreprise. Découvrez notre méthodologie éprouvée sur 30 ans et 500+ projets au Maroc : de l'analyse des besoins à la formation des utilisateurs, en passant par la gestion du changement et la migration des données. Un guide complet pour maximiser votre ROI et minimiser les risques.",
+  excerpt: "La mise en place d'un ERP est l'un des projets les plus structurants pour une entreprise. Découvrez notre méthodologie éprouvée sur 30 ans et 500+ projets au Maroc et en Afrique : de l'analyse des besoins à la formation des utilisateurs, en passant par la gestion du changement et la migration des données. Un guide complet pour maximiser votre ROI et minimiser les risques.",
   author: "Ahmed Benkirane",
   role: "Consultant ERP Senior",
   date: "2 Janvier 2025",

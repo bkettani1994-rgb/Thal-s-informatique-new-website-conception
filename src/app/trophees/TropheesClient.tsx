@@ -74,7 +74,7 @@ const certifications = [
 
 const pressQuotes = [
   {
-    quote: "Thalès Informatique s'impose comme l'acteur de référence de l'ERP au Maroc, avec une croissance remarquable et une capacité d'innovation qui force le respect.",
+    quote: "Thalès Informatique s'impose comme l'acteur de référence de l'ERP au Maroc et en Afrique, avec une croissance remarquable et une capacité d'innovation qui force le respect.",
     source: "L'Économiste",
     date: "Octobre 2024",
   },

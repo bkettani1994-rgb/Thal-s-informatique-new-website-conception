@@ -138,7 +138,7 @@ export default function AuditConseilClient() {
                   vos flux et définir la feuille de route de votre transformation digitale.
                 </p>
                 <p className="text-secondary leading-relaxed">
-                  Forts de plus de 30 ans d'expérience au Maroc, nos consultants certifiés analysent
+                  Forts de plus de 30 ans d'expérience au Maroc et en Afrique, nos consultants certifiés analysent
                   chaque dimension de votre organisation pour vous livrer un plan d'action concret,
                   priorisé et directement actionnable.
                 </p>

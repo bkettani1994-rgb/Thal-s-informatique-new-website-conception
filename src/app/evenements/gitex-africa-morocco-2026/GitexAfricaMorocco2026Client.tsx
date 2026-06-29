@@ -123,7 +123,7 @@ export default function GitexAfricaMorocco2026Client() {
       <section className="py-16" ref={introRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeUp} initial="hidden" animate={introInView ? "visible" : "hidden"} className="max-w-3xl">
-            <h2 className="text-2xl font-bold text-primary mb-5">Trois jours d'innovation au Maroc</h2>
+            <h2 className="text-2xl font-bold text-primary mb-5">Trois jours d'innovation au Maroc et en Afrique</h2>
             <p className="text-secondary leading-relaxed mb-4">
               Du 07 au 09 avril 2026, Thalès Informatique a participé à Gitex Africa Morocco, le rendez-vous
               incontournable des acteurs de la technologie sur le continent africain, organisé à Marrakech.

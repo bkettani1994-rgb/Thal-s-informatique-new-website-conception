@@ -64,7 +64,7 @@ export default function DigitalisationPmeMaroc2026Client() {
             {/* Chiffres clés */}
             <div>
               <h2 className="text-2xl font-bold text-primary mb-4">
-                Chiffres clés de la digitalisation au Maroc en 2026
+                Chiffres clés de la digitalisation au Maroc et en Afrique en 2026
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div className="bg-slate-50 rounded-xl p-5 border border-border text-center">

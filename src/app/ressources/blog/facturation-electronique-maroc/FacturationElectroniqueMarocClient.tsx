@@ -28,7 +28,7 @@ export default function FacturationElectroniqueMarocClient() {
             Réglementation
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-            Facturation Électronique au Maroc : Ce que les entreprises doivent anticiper dès aujourd&apos;hui
+            Facturation Électronique au Maroc et en Afrique : Ce que les entreprises doivent anticiper dès aujourd&apos;hui
           </h1>
           <div className="flex flex-wrap gap-5 text-sm text-white/60">
             <span className="flex items-center gap-1.5"><User size={14} /> Équipe Thalès Informatique</span>

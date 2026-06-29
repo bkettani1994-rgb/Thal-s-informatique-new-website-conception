@@ -32,7 +32,7 @@ export default function CoutErpMaroc2026Client() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
           >
-            Combien coûte un ERP au Maroc en 2026 ? Guide des prix Sage
+            Combien coûte un ERP au Maroc et en Afrique en 2026 ? Guide des prix Sage
           </motion.h1>
           <div className="flex flex-wrap gap-4 text-sm text-white/50">
             <span className="flex items-center gap-1"><User size={14} /> Équipe Thalès Informatique</span>

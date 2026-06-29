@@ -161,7 +161,7 @@ export default function NegoceDistributionClient() {
                 Pilotez votre chaîne logistique de A à Z
               </h2>
               <p className="text-secondary text-lg leading-relaxed mb-4">
-                Les entreprises de négoce et distribution au Maroc font face à des défis logistiques complexes : multi-dépôts, multi-sociétés, gestion des prix et remises, livraisons urgentes et retours.
+                Les entreprises de négoce et distribution au Maroc et en Afrique font face à des défis logistiques complexes : multi-dépôts, multi-sociétés, gestion des prix et remises, livraisons urgentes et retours.
               </p>
               <p className="text-secondary leading-relaxed">
                 Thalès Informatique propose une solution ERP intégrée pour piloter l&apos;ensemble de votre chaîne logistique, de la commande fournisseur à la livraison client, avec une visibilité totale sur vos stocks et vos marges.

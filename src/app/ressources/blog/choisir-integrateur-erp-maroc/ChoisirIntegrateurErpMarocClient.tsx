@@ -32,7 +32,7 @@ export default function ChoisirIntegrateurErpMarocClient() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
           >
-            Comment choisir son intégrateur ERP au Maroc : 7 critères essentiels
+            Comment choisir son intégrateur ERP au Maroc et en Afrique : 7 critères essentiels
           </motion.h1>
           <div className="flex flex-wrap gap-4 text-sm text-white/50">
             <span className="flex items-center gap-1"><User size={14} /> Équipe Thalès Informatique</span>
@@ -94,7 +94,7 @@ export default function ChoisirIntegrateurErpMarocClient() {
                 4. La proximité et le support local
               </h2>
               <p className="leading-relaxed">
-                En cas de blocage, pouvoir compter sur une équipe basée au Maroc, parlant arabe et français, capable d&apos;intervenir sur site si nécessaire, fait toute la différence par rapport à un support uniquement à distance ou depuis l&apos;étranger.
+                En cas de blocage, pouvoir compter sur une équipe basée au Maroc et en Afrique, parlant arabe et français, capable d&apos;intervenir sur site si nécessaire, fait toute la différence par rapport à un support uniquement à distance ou depuis l&apos;étranger.
               </p>
             </div>
 

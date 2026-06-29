@@ -39,14 +39,14 @@ const guides = [
   {
     icon: "🏭",
     title: "Guide ERP industrie marocaine",
-    description: "Spécificités sectorielles et meilleures pratiques pour l'industrie au Maroc.",
+    description: "Spécificités sectorielles et meilleures pratiques pour l'industrie au Maroc et en Afrique.",
     pages: "40 pages",
     category: "Industrie",
   },
   {
     icon: "📊",
     title: "Benchmark ERP PME Maroc 2025",
-    description: "Comparatif des solutions ERP pour PME au Maroc.",
+    description: "Comparatif des solutions ERP pour PME au Maroc et en Afrique.",
     pages: "20 pages",
     category: "Stratégie",
   },
@@ -108,7 +108,7 @@ export default function GuidesErpClient() {
                   <p className="text-secondary leading-relaxed">
                     Thalès Informatique prépare actuellement une bibliothèque de guides pratiques pour aider les dirigeants et DSI marocains
                     à préparer, piloter et réussir leur projet ERP. Ces guides seront rédigés par nos ingénieurs experts et mis à jour
-                    régulièrement pour refléter les dernières évolutions réglementaires et technologiques au Maroc.
+                    régulièrement pour refléter les dernières évolutions réglementaires et technologiques au Maroc et en Afrique.
                   </p>
                 </div>
               </div>

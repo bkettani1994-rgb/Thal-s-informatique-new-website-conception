@@ -10,7 +10,7 @@ import Footer from "@/components/ui/Footer";
 const articles = [
   {
     category: "Réglementation",
-    title: "Facturation Électronique au Maroc : Ce que les entreprises doivent anticiper dès aujourd'hui",
+    title: "Facturation Électronique au Maroc et en Afrique : Ce que les entreprises doivent anticiper dès aujourd'hui",
     excerpt: "Pourquoi la facturation électronique devient incontournable et comment Sage facilite la transition.",
     author: "Équipe Thalès Informatique",
     date: "Juin 2026",
@@ -47,7 +47,7 @@ const articles = [
   {
     category: "RH & Paie",
     title: "CNSS & AMO 2026 : les nouveaux taux et déclarations",
-    excerpt: "Tout ce que vous devez savoir sur les changements réglementaires RH au Maroc.",
+    excerpt: "Tout ce que vous devez savoir sur les changements réglementaires RH au Maroc et en Afrique.",
     author: "Équipe Thalès Informatique",
     date: "Mars 2026",
     readTime: "4 min",
@@ -74,7 +74,7 @@ const articles = [
   {
     category: "Stratégie",
     title: "La digitalisation des PME en Afrique et à l'international : état des lieux 2026",
-    excerpt: "Baromètre annuel de la transformation digitale des entreprises au Maroc.",
+    excerpt: "Baromètre annuel de la transformation digitale des entreprises au Maroc et en Afrique.",
     author: "Équipe Thalès Informatique",
     date: "Janvier 2026",
     readTime: "10 min",
@@ -118,8 +118,8 @@ const articles = [
   },
   {
     category: "ERP",
-    title: "Combien coûte un ERP au Maroc en 2026 ? Guide des prix Sage",
-    excerpt: "Licences, intégration, formation, maintenance : décryptage des postes de budget d'un projet ERP au Maroc.",
+    title: "Combien coûte un ERP au Maroc et en Afrique en 2026 ? Guide des prix Sage",
+    excerpt: "Licences, intégration, formation, maintenance : décryptage des postes de budget d'un projet ERP au Maroc et en Afrique.",
     author: "Équipe Thalès Informatique",
     date: "Juin 2026",
     readTime: "7 min",
@@ -127,7 +127,7 @@ const articles = [
   },
   {
     category: "Stratégie",
-    title: "Comment choisir son intégrateur ERP au Maroc : 7 critères essentiels",
+    title: "Comment choisir son intégrateur ERP au Maroc et en Afrique : 7 critères essentiels",
     excerpt: "Certifications Sage, méthodologie, support local, conformité réglementaire : les critères pour bien choisir votre partenaire ERP.",
     author: "Équipe Thalès Informatique",
     date: "Juin 2026",

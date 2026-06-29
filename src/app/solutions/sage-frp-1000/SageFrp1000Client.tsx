@@ -301,7 +301,7 @@ export default function SageFrp1000Client() {
                 Pilotez votre groupe avec Sage FRP 1000
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Thalès Informatique vous accompagne dans le déploiement de Sage FRP 1000 au Maroc.
+                Thalès Informatique vous accompagne dans le déploiement de Sage FRP 1000 au Maroc et en Afrique.
               </p>
               <Link
                 href="/contact"

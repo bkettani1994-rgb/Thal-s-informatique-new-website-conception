@@ -165,7 +165,7 @@ export default function IndustrieClient() {
           >
             <motion.div variants={fadeUp}>
               <h2 className="text-3xl font-bold text-primary mb-6">
-                Votre partenaire ERP industriel au Maroc depuis 30 ans
+                Votre partenaire ERP industriel au Maroc et en Afrique depuis 30 ans
               </h2>
               <p className="text-secondary text-lg leading-relaxed mb-4">
                 Thalès Informatique accompagne les industriels marocains depuis 30 ans. Notre expertise couvre la gestion de production, les achats, la finance et les RH pour les entreprises industrielles de toute taille.
@@ -199,7 +199,7 @@ export default function IndustrieClient() {
                 <AlertTriangle size={14} className="text-red-600" />
                 <span className="text-xs font-semibold text-red-600 uppercase tracking-widest">Défis du secteur</span>
               </div>
-              <h2 className="text-3xl font-bold text-primary">Les enjeux de l'industrie au Maroc</h2>
+              <h2 className="text-3xl font-bold text-primary">Les enjeux de l'industrie au Maroc et en Afrique</h2>
             </motion.div>
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {defis.map((d) => (

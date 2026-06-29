@@ -219,7 +219,7 @@ export default function Sage100Client() {
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380899/comptabilit%C3%A9_cabinet_sage_100_maroc_thal%C3%A8s_informatique_mqxbz1.jpg"
-                  alt="Cabinet comptable au Maroc utilisant Sage 100 pour la comptabilité de ses clients"
+                  alt="Cabinet comptable au Maroc et en Afrique utilisant Sage 100 pour la comptabilité de ses clients"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

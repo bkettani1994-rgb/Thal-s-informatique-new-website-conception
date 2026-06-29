@@ -55,7 +55,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ["formation", "former", "apprendre", "utilisateur"],
-    response: "Nous proposons des formations complètes ! 🎓\n\n✅ Formations sur site à Casablanca et partout au Maroc\n✅ Sessions adaptées à chaque profil utilisateur\n✅ Support post-formation inclus\n\nEn savoir plus : [Formation Utilisateurs](/services/formation-utilisateurs)",
+    response: "Nous proposons des formations complètes ! 🎓\n\n✅ Formations sur site à Casablanca et partout au Maroc et en Afrique\n✅ Sessions adaptées à chaque profil utilisateur\n✅ Support post-formation inclus\n\nEn savoir plus : [Formation Utilisateurs](/services/formation-utilisateurs)",
   },
   {
     keywords: ["sage 100", "sage100", "pme", "comptabilité"],

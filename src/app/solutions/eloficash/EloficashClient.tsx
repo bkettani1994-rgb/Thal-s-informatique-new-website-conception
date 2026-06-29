@@ -84,7 +84,7 @@ export default function EloficashClient() {
                   Eloficash est la solution spécialisée dans le recouvrement de créances et la gestion du risque client. Elle automatise vos processus de relance et vous donne une visibilité complète sur votre exposition au risque.
                 </p>
                 <p className="text-secondary leading-relaxed">
-                  Intégrée et supportée par <strong className="text-primary">Thalès Informatique</strong> au Maroc, Eloficash se connecte directement à vos solutions Sage pour une gestion unifiée de votre poste client.
+                  Intégrée et supportée par <strong className="text-primary">Thalès Informatique</strong> au Maroc et en Afrique, Eloficash se connecte directement à vos solutions Sage pour une gestion unifiée de votre poste client.
                 </p>
               </motion.div>
             </div>
@@ -200,7 +200,7 @@ export default function EloficashClient() {
                 Réduisez vos impayés avec Eloficash
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Thalès Informatique vous accompagne dans la mise en place d&apos;Eloficash au Maroc.
+                Thalès Informatique vous accompagne dans la mise en place d&apos;Eloficash au Maroc et en Afrique.
               </p>
               <Link
                 href="/contact"

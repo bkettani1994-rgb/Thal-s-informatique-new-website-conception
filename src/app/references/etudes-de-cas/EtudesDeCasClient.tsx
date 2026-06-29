@@ -21,7 +21,7 @@ const featured = {
   company: "Maghreb Steel",
   title: "Digitalisation complète de la production",
   description:
-    "Maghreb Steel, leader de l'acier au Maroc, a déployé Sage X3 avec Thalès Informatique pour digitaliser sa gestion de production, ses achats et sa finance. Le projet a mobilisé une équipe de 12 consultants Thalès sur 18 mois pour couvrir l'ensemble des sites industriels du groupe.",
+    "Maghreb Steel, leader de l'acier au Maroc et en Afrique, a déployé Sage X3 avec Thalès Informatique pour digitaliser sa gestion de production, ses achats et sa finance. Le projet a mobilisé une équipe de 12 consultants Thalès sur 18 mois pour couvrir l'ensemble des sites industriels du groupe.",
   tags: ["Industrie", "Sage X3", "Production"],
   readTime: "5 min",
   results: [

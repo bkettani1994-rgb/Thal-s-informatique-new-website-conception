@@ -38,7 +38,7 @@ const capabilities = [
       "Comptabilité multi-sociétés et multi-devises",
       "Clôtures accélérées et consolidation groupe",
       "Pilotage budgétaire et contrôle de gestion",
-      "Conformité fiscale et réglementaire au Maroc",
+      "Conformité fiscale et réglementaire au Maroc et en Afrique",
     ],
   },
 ];
@@ -218,7 +218,7 @@ export default function SageX3Client() {
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Smart_Manufacturing_Factory_thal%C3%A8s_informatique_ht9xvt.jpg"
-                  alt="Usine de production intelligente pilotée avec l'ERP Sage X3 au Maroc"
+                  alt="Usine de production intelligente pilotée avec l'ERP Sage X3 au Maroc et en Afrique"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

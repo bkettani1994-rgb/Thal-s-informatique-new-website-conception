@@ -79,7 +79,7 @@ export default function DimomaintGmaoClient() {
                   DimoMaint GMAO est la solution de gestion de maintenance utilisée par les industriels marocains pour optimiser la disponibilité de leurs équipements et réduire les coûts de maintenance.
                 </p>
                 <p className="text-secondary leading-relaxed">
-                  <strong className="text-primary">Thalès Informatique</strong> en est distributeur et intégrateur officiel au Maroc. Nos techniciens certifiés DimoMaint assurent le déploiement, la formation et le support de proximité.
+                  <strong className="text-primary">Thalès Informatique</strong> en est distributeur et intégrateur officiel au Maroc et en Afrique. Nos techniciens certifiés DimoMaint assurent le déploiement, la formation et le support de proximité.
                 </p>
               </motion.div>
             </div>
@@ -191,7 +191,7 @@ export default function DimomaintGmaoClient() {
                 Optimisez votre maintenance avec DimoMaint
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Thalès Informatique, distributeur officiel DimoMaint au Maroc, vous accompagne de la mise en place jusqu&apos;au support.
+                Thalès Informatique, distributeur officiel DimoMaint au Maroc et en Afrique, vous accompagne de la mise en place jusqu&apos;au support.
               </p>
               <Link
                 href="/contact"

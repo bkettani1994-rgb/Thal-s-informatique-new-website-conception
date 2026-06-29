@@ -8,7 +8,7 @@ const articles = [
   {
     category: "Réglementation",
     categoryColor: "bg-blue-50 text-blue-700",
-    title: "Facturation Électronique au Maroc : Ce que les entreprises doivent anticiper dès aujourd'hui",
+    title: "Facturation Électronique au Maroc et en Afrique : Ce que les entreprises doivent anticiper dès aujourd'hui",
     excerpt: "Pourquoi la facturation électronique devient incontournable, les bénéfices pour les PME et les risques de ne pas anticiper. Comment Sage facilite la transition.",
     readTime: "6 min",
     date: "5 juin 2026",

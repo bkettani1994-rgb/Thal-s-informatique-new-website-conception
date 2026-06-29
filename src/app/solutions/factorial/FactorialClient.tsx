@@ -85,7 +85,7 @@ const alliancePillars = [
   {
     icon: ShieldCheck,
     title: "Thalès Informatique",
-    desc: "Plus de 30 ans d'expertise dans la transformation digitale des entreprises au Maroc, avec un accompagnement de proximité.",
+    desc: "Plus de 30 ans d'expertise dans la transformation digitale des entreprises au Maroc et en Afrique, avec un accompagnement de proximité.",
   },
   {
     icon: Sparkles,
@@ -180,9 +180,9 @@ const automationTabs = [
 
 const proximityAdvantages = [
   { icon: UserCog, title: "Conseil personnalisé", desc: "Nos consultants RH analysent vos besoins pour configurer Factorial selon vos process internes." },
-  { icon: MapPin, title: "Déploiement clé en main", desc: "De l'installation à la migration de vos données, nous gérons tout le déploiement au Maroc." },
+  { icon: MapPin, title: "Déploiement clé en main", desc: "De l'installation à la migration de vos données, nous gérons tout le déploiement au Maroc et en Afrique." },
   { icon: GraduationCap, title: "Formation des équipes", desc: "Vos équipes RH et managers sont formés pour une adoption rapide et durable de l'outil." },
-  { icon: HeadphonesIcon, title: "Support technique local", desc: "Une équipe support basée au Maroc, disponible en français et en arabe pour vous accompagner." },
+  { icon: HeadphonesIcon, title: "Support technique local", desc: "Une équipe support basée au Maroc et en Afrique, disponible en français et en arabe pour vous accompagner." },
 ];
 
 const audiences = [
@@ -553,13 +553,13 @@ export default function FactorialClient() {
                   Plus qu&apos;un logiciel, un véritable partenaire de proximité
                 </h2>
                 <p className="text-secondary leading-relaxed mb-5">
-                  Au-delà de la souscription, notre équipe vous accompagne dans son intégration. En choisissant Thalès Informatique, vous bénéficiez de 30 ans d&apos;expérience IT au Maroc, d&apos;un véritable interlocuteur dédié.
+                  Au-delà de la souscription, notre équipe vous accompagne dans son intégration. En choisissant Thalès Informatique, vous bénéficiez de 30 ans d&apos;expérience IT au Maroc et en Afrique, d&apos;un véritable interlocuteur dédié.
                 </p>
                 <ul className="space-y-3">
                   {[
                     "Implémentation rapide et accompagnement sur-mesure",
                     "Certification et expertise éprouvée sur Factorial",
-                    "Support local au Maroc, pas de plateforme RH lointaine",
+                    "Support local au Maroc et en Afrique, pas de plateforme RH lointaine",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-secondary text-sm">
                       <ShieldCheck size={16} className="text-cta shrink-0 mt-0.5" />
@@ -619,7 +619,7 @@ export default function FactorialClient() {
                 Modernisez votre RH avec Factorial
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Thalès Informatique vous accompagne dans le déploiement et l&apos;adoption de Factorial au Maroc.
+                Thalès Informatique vous accompagne dans le déploiement et l&apos;adoption de Factorial au Maroc et en Afrique.
               </p>
               <Link
                 href="/contact"

@@ -48,7 +48,7 @@ const lfNews = [
 
 const companyNews = [
   {
-    title: "Thalès Informatique, partenaire Sage certifié au Maroc",
+    title: "Thalès Informatique, partenaire Sage certifié au Maroc et en Afrique",
     desc: "Premier Centre de Compétence Sage du Maroc depuis 1996, Thalès Informatique confirme son expertise sur l'ensemble des solutions Sage : comptabilité, gestion commerciale, CRM, production, paie et RH.",
     date: "2026",
     tag: "Certification",

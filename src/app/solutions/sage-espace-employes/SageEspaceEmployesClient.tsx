@@ -374,7 +374,7 @@ export default function SageEspaceEmployesClient() {
                 Offrez l&apos;autonomie RH à vos équipes
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Thalès Informatique vous accompagne dans le déploiement de Sage Espace Employés au Maroc.
+                Thalès Informatique vous accompagne dans le déploiement de Sage Espace Employés au Maroc et en Afrique.
               </p>
               <Link
                 href="/contact"

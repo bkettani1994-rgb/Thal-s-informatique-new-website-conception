@@ -18,7 +18,7 @@ const stagger = {
 };
 
 const program = [
-  { time: "10h00", title: "Introduction : les défis de la clôture comptable au Maroc", desc: "Panorama des contraintes actuelles : délais, volumes, conformité réglementaire." },
+  { time: "10h00", title: "Introduction : les défis de la clôture comptable au Maroc et en Afrique", desc: "Panorama des contraintes actuelles : délais, volumes, conformité réglementaire." },
   { time: "10h15", title: "Comment l'IA accélère le processus de clôture", desc: "Automatisation du lettrage, détection d'anomalies, rapprochements bancaires intelligents." },
   { time: "10h45", title: "Démonstration live sur Sage avec IA intégrée", desc: "Cas pratique : passer d'une clôture de 10 jours à 3 jours." },
   { time: "11h15", title: "Questions / réponses avec nos experts", desc: "Échange ouvert avec les participants sur leurs problématiques spécifiques." },

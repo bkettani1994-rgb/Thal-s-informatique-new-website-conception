@@ -4,7 +4,7 @@ import IntegrationERPClient from "./IntegrationERPClient";
 export const metadata: Metadata = {
   title: "Intégration ERP & Connecteurs API Sage",
   description:
-    "Connecteurs API REST/SOAP, EDI, e-commerce, CRM et BI : Thalès Informatique intègre votre ERP Sage X3 ou Sage 100 à tout votre écosystème applicatif au Maroc.",
+    "Connecteurs API REST/SOAP, EDI, e-commerce, CRM et BI : Thalès Informatique intègre votre ERP Sage X3 ou Sage 100 à tout votre écosystème applicatif au Maroc et en Afrique.",
   alternates: {
     canonical: "/services/integration-erp",
   },

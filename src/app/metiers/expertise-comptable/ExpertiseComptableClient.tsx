@@ -72,7 +72,7 @@ export default function ExpertiseComptableClient() {
             <motion.div className="max-w-3xl" {...fadeUp}>
               <h2 className="text-2xl font-bold text-primary">Conçu pour les cabinets d&apos;expertise comptable marocains</h2>
               <p className="text-secondary mt-4 leading-relaxed">
-                Thalès Informatique propose une solution dédiée aux cabinets d&apos;expertise comptable opérant au Maroc. Gérez plusieurs dossiers clients depuis une interface unique, avec des outils de productivité avancés pour optimiser le temps de vos collaborateurs.
+                Thalès Informatique propose une solution dédiée aux cabinets d&apos;expertise comptable opérant au Maroc et en Afrique. Gérez plusieurs dossiers clients depuis une interface unique, avec des outils de productivité avancés pour optimiser le temps de vos collaborateurs.
               </p>
               <p className="text-secondary mt-3 leading-relaxed">
                 Compatible avec les exigences de l&apos;Ordre des Experts-Comptables du Maroc (OEC), notre solution garantit la conformité réglementaire de chaque dossier traité.
