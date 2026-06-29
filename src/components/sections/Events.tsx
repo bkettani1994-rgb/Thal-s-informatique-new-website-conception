@@ -112,7 +112,7 @@ export default function Events() {
 
         {/* Event cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {events.map((event, i) => {
+          {events.slice(0, 3).map((event, i) => {
             const teaser = !event.past;
             const Card = (
               <motion.div
