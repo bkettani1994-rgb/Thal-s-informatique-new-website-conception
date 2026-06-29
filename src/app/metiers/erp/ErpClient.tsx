@@ -60,7 +60,7 @@ export default function ErpClient() {
         <section className="py-16 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div className="max-w-3xl" {...fadeUp}>
-              <h2 className="text-2xl font-bold text-primary">L&apos;ERP marocain taillé pour les PME ambitieuses</h2>
+              <h2 className="text-2xl font-bold text-primary">L&apos;ERP taillé pour les PME ambitieuses au Maroc, en Afrique et à l&apos;international</h2>
               <p className="text-secondary mt-4 leading-relaxed">
                 Thalès Informatique propose une solution ERP intégrée qui couvre l&apos;intégralité des processus de votre entreprise : Finance, Ressources Humaines, Production, Commercial et Achats — dans un seul et même système, 100&nbsp;% conforme à la réglementation marocaine.
               </p>
