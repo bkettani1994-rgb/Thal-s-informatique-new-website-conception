@@ -100,8 +100,8 @@ const reasons = [
   },
   {
     icon: MapPin,
-    title: "Intervention sur tout le Maroc",
-    desc: "Depuis notre siège de Casablanca, nos équipes interviennent auprès de clients sur l'ensemble du territoire marocain, sur site comme à distance.",
+    title: "Intervention au Maroc, en Afrique et à l'international",
+    desc: "Depuis notre siège de Casablanca, nos équipes interviennent auprès de clients au Maroc, en Afrique et à l'international, sur site comme à distance.",
   },
   {
     icon: Zap,
@@ -205,7 +205,7 @@ export default function ServicesClient() {
             >
               <h2 className="text-3xl font-bold text-primary mb-4">Pourquoi choisir Thalès Informatique ?</h2>
               <p className="text-secondary max-w-2xl mx-auto">
-                30 ans d'expérience au service des entreprises marocaines
+                30 ans d'expérience au service des entreprises en Afrique et à l'international
               </p>
             </motion.div>
             <motion.div

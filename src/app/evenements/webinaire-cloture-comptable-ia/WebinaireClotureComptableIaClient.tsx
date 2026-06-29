@@ -76,7 +76,7 @@ export default function WebinaireClotureComptableIaClient() {
             className="text-lg text-white/70 max-w-2xl mb-8"
           >
             Une heure pour découvrir comment l'intelligence artificielle transforme la clôture comptable
-            des entreprises marocaines — avec démonstration live sur Sage.
+            des entreprises en Afrique et à l'international — avec démonstration live sur Sage.
           </motion.p>
           <div className="flex flex-wrap gap-6 text-sm text-white/60">
             <span className="flex items-center gap-2"><Calendar size={16} className="text-accent" /> 18 juin 2026 — 10h00 à 11h30</span>

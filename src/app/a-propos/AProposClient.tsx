@@ -21,7 +21,7 @@ const timeline = [
   {
     year: "1996",
     title: "Création de Thalès Informatique",
-    desc: "Naissance de Thalès Informatique à Casablanca, avec une ambition claire : digitaliser la gestion des entreprises marocaines grâce à des logiciels sur mesure.",
+    desc: "Naissance de Thalès Informatique à Casablanca, avec une ambition claire : digitaliser la gestion des entreprises en Afrique et à l'international grâce à des logiciels sur mesure.",
   },
   {
     year: "2005",
@@ -103,7 +103,7 @@ export default function AProposClient() {
               <span className="text-accent">Thalès Informatique</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed">
-              30 ans d'innovation au service de la transformation digitale des entreprises marocaines. Une histoire de passion, d'expertise et de confiance.
+              30 ans d'innovation au service de la transformation digitale des entreprises en Afrique et à l'international. Une histoire de passion, d'expertise et de confiance.
             </p>
           </motion.div>
         </div>
@@ -169,7 +169,7 @@ export default function AProposClient() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Notre Mission</h3>
                 <p className="text-white/80 leading-relaxed">
-                  Accompagner les entreprises marocaines dans leur transformation digitale en leur fournissant des solutions ERP innovantes, adaptées à leurs besoins et à la réglementation locale.
+                  Accompagner les entreprises en Afrique et à l'international dans leur transformation digitale en leur fournissant des solutions ERP innovantes, adaptées à leurs besoins et à la réglementation locale.
                 </p>
               </div>
             </FadeIn>
@@ -180,7 +180,7 @@ export default function AProposClient() {
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-3">Notre Vision</h3>
                 <p className="text-secondary leading-relaxed">
-                  Être le partenaire technologique de référence de toutes les entreprises marocaines, et étendre notre impact à l'ensemble du continent africain d'ici 2030.
+                  Être le partenaire technologique de référence des entreprises en Afrique, et étendre notre impact à l'international d'ici 2030.
                 </p>
               </div>
             </FadeIn>

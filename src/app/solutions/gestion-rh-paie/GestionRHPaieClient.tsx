@@ -244,7 +244,7 @@ export default function GestionRHPaieClient() {
               Modernisez votre gestion RH dès aujourd'hui
             </h2>
             <p className="text-secondary mb-8 text-lg">
-              Rejoignez 200+ entreprises marocaines qui font confiance à notre solution RH & Paie.
+              Rejoignez 200+ entreprises en Afrique et à l'international qui font confiance à notre solution RH & Paie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

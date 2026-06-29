@@ -20,7 +20,7 @@ const milestones = [
   {
     year: "1996",
     title: "Création de Thalès Informatique",
-    desc: "Naissance de Thalès Informatique à Casablanca, avec une ambition claire : digitaliser la gestion des entreprises marocaines.",
+    desc: "Naissance de Thalès Informatique à Casablanca, avec une ambition claire : digitaliser la gestion des entreprises en Afrique et à l'international.",
   },
   {
     year: "2005",
@@ -55,7 +55,7 @@ const highlights = [
   {
     icon: Award,
     title: "Une expertise reconnue",
-    desc: "Trois décennies d'expérience cumulée sur les solutions Sage et la transformation digitale des entreprises marocaines.",
+    desc: "Trois décennies d'expérience cumulée sur les solutions Sage et la transformation digitale des entreprises en Afrique et à l'international.",
   },
   {
     icon: Users,
@@ -120,7 +120,7 @@ export default function TrenteAnsClient() {
               <span className="text-accent">au service de votre réussite</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Depuis 1996, Thalès Informatique accompagne les entreprises marocaines dans leur
+              Depuis 1996, Thalès Informatique accompagne les entreprises en Afrique et à l'international dans leur
               transformation digitale. Trois décennies de passion, d'expertise et de confiance —
               et ce n'est que le début.
             </p>

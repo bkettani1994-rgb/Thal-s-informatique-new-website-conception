@@ -66,7 +66,7 @@ const highlights = [
   "Démonstrations live de nos modules de gestion financière, RH et production",
   "Rencontres avec plus de 200 décideurs et porteurs de projets de transformation digitale",
   "Échanges avec nos partenaires éditeurs autour des tendances technologiques en Afrique",
-  "Sessions de networking avec des entreprises marocaines et internationales",
+  "Sessions de networking avec des entreprises africaines et internationales",
 ];
 
 export default function GitexAfricaMorocco2026Client() {
@@ -132,7 +132,7 @@ export default function GitexAfricaMorocco2026Client() {
             </p>
             <p className="text-secondary leading-relaxed">
               Cette édition a été l'occasion de présenter nos retours d'expérience sur des projets de
-              digitalisation menés auprès d'entreprises marocaines de tous secteurs, et d'échanger avec
+              digitalisation menés auprès d'entreprises en Afrique et à l'international de tous secteurs, et d'échanger avec
               l'écosystème technologique régional sur les grands enjeux de la transformation digitale en Afrique.
             </p>
           </motion.div>

@@ -12,7 +12,7 @@ const subPages = [
     href: "/references/clients",
     icon: Users,
     title: "Nos Clients",
-    description: "Découvrez les 500+ entreprises marocaines qui nous font confiance depuis plus de 30 ans.",
+    description: "Découvrez les 500+ entreprises en Afrique et à l'international qui nous font confiance depuis plus de 30 ans.",
     count: "500+ clients",
     color: "from-blue-600 to-cyan-500",
     bg: "bg-blue-50",
@@ -81,7 +81,7 @@ export default function ReferencesClient() {
               Nos <span className="text-accent">Références</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl">
-              La confiance de 500+ entreprises marocaines depuis 30 ans. Découvrez nos clients, nos études de cas et les témoignages qui parlent pour nous.
+              La confiance de 500+ entreprises en Afrique et à l'international depuis 30 ans. Découvrez nos clients, nos études de cas et les témoignages qui parlent pour nous.
             </p>
           </motion.div>
         </div>

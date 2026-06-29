@@ -147,7 +147,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ["à propos", "a propos", "qui êtes-vous", "histoire", "entreprise", "présentation", "1996"],
-    response: "**Thalès Informatique** accompagne les entreprises marocaines dans leur transformation digitale depuis **1996** ! 🏢\n\nBasés à Casablanca, nous sommes spécialisés dans l'intégration de solutions ERP, CRM et RH (Sage, DimoMaint, Eloficash, Factorial), ainsi que dans le conseil, la formation et l'infogérance.\n\nPlus de 25 ans d'expertise au service de votre croissance ! 🚀",
+    response: "**Thalès Informatique** accompagne les entreprises en Afrique et à l'international dans leur transformation digitale depuis **1996** ! 🏢\n\nBasés à Casablanca, nous sommes spécialisés dans l'intégration de solutions ERP, CRM et RH (Sage, DimoMaint, Eloficash, Factorial), ainsi que dans le conseil, la formation et l'infogérance.\n\nPlus de 25 ans d'expertise au service de votre croissance ! 🚀",
   },
   {
     keywords: ["horaire", "ouvert", "ouverture", "heure", "fermeture", "disponib"],

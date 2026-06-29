@@ -32,7 +32,7 @@ export default function IaErpCasUsageClient() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
           >
-            Intelligence Artificielle et ERP : 5 cas d&apos;usage concrets pour les entreprises marocaines
+            Intelligence Artificielle et ERP : 5 cas d&apos;usage concrets pour les entreprises en Afrique et à l'international
           </motion.h1>
           <div className="flex flex-wrap gap-4 text-sm text-white/50">
             <span className="flex items-center gap-1"><User size={14} /> Équipe Thalès Informatique</span>

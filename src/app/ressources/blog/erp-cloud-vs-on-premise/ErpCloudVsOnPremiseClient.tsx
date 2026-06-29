@@ -54,7 +54,7 @@ export default function ErpCloudVsOnPremiseClient() {
             {/* Intro */}
             <div>
               <p className="text-lg leading-relaxed text-primary font-medium mb-4">
-                En 2026, le débat Cloud vs On-Premise reste d&apos;actualité au Maroc. Si le Cloud s&apos;est imposé en Europe, les entreprises marocaines doivent tenir compte de réalités spécifiques : qualité variable des connexions Internet selon les zones, réglementation sur la localisation des données, niveaux de personnalisation requis et contraintes sectorielles.
+                En 2026, le débat Cloud vs On-Premise reste d&apos;actualité au Maroc. Si le Cloud s&apos;est imposé en Europe, les entreprises en Afrique et à l'international doivent tenir compte de réalités spécifiques : qualité variable des connexions Internet selon les zones, réglementation sur la localisation des données, niveaux de personnalisation requis et contraintes sectorielles.
               </p>
               <p className="leading-relaxed">
                 Il n&apos;existe pas de réponse universelle : le bon choix dépend de votre taille, votre secteur, votre maturité IT et votre stratégie à moyen terme. Voici les clés pour décider avec lucidité.

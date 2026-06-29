@@ -27,7 +27,7 @@ const categories = [
         sub: "Gestion intégrée pour PME agiles",
         badge: "PME & ETI",
         href: "/solutions/sage-100",
-        desc: "L'ERP idéal pour les PME marocaines qui veulent digitaliser leur gestion sans complexité.",
+        desc: "L'ERP idéal pour les PME en Afrique et à l'international qui veulent digitaliser leur gestion sans complexité.",
       },
       {
         title: "Sage FRP 1000",
@@ -155,10 +155,10 @@ export default function SolutionsClient() {
               >
                 <span className="text-xs font-bold text-cta tracking-widest uppercase">INTÉGRATEUR DE RÉFÉRENCE</span>
                 <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
-                  Leader de l&apos;intégration ERP au Maroc
+                  Leader de l&apos;intégration ERP au Maroc et en Afrique
                 </h2>
                 <p className="text-secondary leading-relaxed mb-4">
-                  Thalès Informatique est intégrateur de solutions ERP et métier leader au Maroc depuis plus de 20 ans. Notre portfolio couvre tous les besoins des entreprises marocaines, des PME aux grands groupes.
+                  Thalès Informatique est intégrateur de solutions ERP et métier leader au Maroc depuis plus de 20 ans, avec des clients en Afrique et à l'international. Notre portfolio couvre tous les besoins des entreprises, des PME aux grands groupes.
                 </p>
                 <p className="text-secondary leading-relaxed">
                   Chaque solution est sélectionnée, déployée et supportée par nos équipes certifiées, avec un accompagnement local et une connaissance approfondie du contexte réglementaire marocain.

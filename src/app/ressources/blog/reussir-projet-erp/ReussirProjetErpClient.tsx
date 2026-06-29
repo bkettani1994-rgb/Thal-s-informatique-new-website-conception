@@ -57,7 +57,7 @@ export default function ReussirProjetErpClient() {
                 Selon les études sectorielles, près de 60 % des projets ERP n&apos;atteignent pas leurs objectifs initiaux : dépassements de budget, délais non respectés, adoption insuffisante des utilisateurs. Pourtant, un ERP bien déployé peut devenir le moteur de croissance de votre entreprise.
               </p>
               <p className="leading-relaxed">
-                Chez Thalès Informatique, nous avons accompagné des dizaines d&apos;entreprises marocaines dans leurs projets Sage X3 et Sage 100. Voici la méthode en 6 étapes qui fait la différence entre un projet qui transforme et un projet qui frustre.
+                Chez Thalès Informatique, nous avons accompagné des dizaines d&apos;entreprises en Afrique et à l'international dans leurs projets Sage X3 et Sage 100. Voici la méthode en 6 étapes qui fait la différence entre un projet qui transforme et un projet qui frustre.
               </p>
             </div>
 

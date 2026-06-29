@@ -32,7 +32,7 @@ export default function DigitalisationPmeMaroc2026Client() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
           >
-            La digitalisation des PME marocaines : état des lieux 2026
+            La digitalisation des PME en Afrique et à l'international : état des lieux 2026
           </motion.h1>
           <div className="flex flex-wrap gap-4 text-sm text-white/50">
             <span className="flex items-center gap-1"><User size={14} /> Équipe Thalès Informatique</span>
@@ -54,7 +54,7 @@ export default function DigitalisationPmeMaroc2026Client() {
             {/* Intro */}
             <div>
               <p className="text-lg leading-relaxed text-primary font-medium mb-4">
-                Le Maroc a engagé depuis 2014 un Plan d&apos;Accélération Industrielle ambitieux, complété par la stratégie Maroc Digital 2030. En 2026, où en sont réellement les PME marocaines dans leur transformation digitale ? Quels progrès, quels freins persistent, et quelles sont les priorités pour les deux prochaines années ?
+                Le Maroc a engagé depuis 2014 un Plan d&apos;Accélération Industrielle ambitieux, complété par la stratégie Maroc Digital 2030. En 2026, où en sont réellement les PME en Afrique et à l'international dans leur transformation digitale ? Quels progrès, quels freins persistent, et quelles sont les priorités pour les deux prochaines années ?
               </p>
               <p className="leading-relaxed">
                 Cet état des lieux annuel, réalisé par Thalès Informatique à partir de son expérience terrain et des données sectorielles disponibles, dresse un tableau nuancé d&apos;un écosystème en mutation mais encore inégal.
@@ -69,7 +69,7 @@ export default function DigitalisationPmeMaroc2026Client() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div className="bg-slate-50 rounded-xl p-5 border border-border text-center">
                   <p className="text-3xl font-bold text-cta mb-1">34 %</p>
-                  <p className="text-sm text-secondary">des PME marocaines de plus de 20 salariés sont équipées d&apos;un ERP (vs 21 % en 2022)</p>
+                  <p className="text-sm text-secondary">des PME en Afrique et à l'international de plus de 20 salariés sont équipées d&apos;un ERP (vs 21 % en 2022)</p>
                 </div>
                 <div className="bg-slate-50 rounded-xl p-5 border border-border text-center">
                   <p className="text-3xl font-bold text-cta mb-1">180 KMAD</p>
@@ -77,7 +77,7 @@ export default function DigitalisationPmeMaroc2026Client() {
                 </div>
                 <div className="bg-slate-50 rounded-xl p-5 border border-border text-center">
                   <p className="text-3xl font-bold text-cta mb-1">2,8 ans</p>
-                  <p className="text-sm text-secondary">délai moyen de retour sur investissement d&apos;un projet ERP déclaré par les PME marocaines digitalisées</p>
+                  <p className="text-sm text-secondary">délai moyen de retour sur investissement d&apos;un projet ERP déclaré par les PME en Afrique et à l'international digitalisées</p>
                 </div>
               </div>
               <p className="leading-relaxed">
@@ -88,13 +88,13 @@ export default function DigitalisationPmeMaroc2026Client() {
             {/* 3 freins */}
             <div>
               <h2 className="text-2xl font-bold text-primary mb-4">
-                Les 3 freins principaux à la digitalisation des PME marocaines
+                Les 3 freins principaux à la digitalisation des PME en Afrique et à l'international
               </h2>
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-primary mb-2">1. Le coût perçu comme prohibitif</h3>
                   <p className="leading-relaxed mb-2">
-                    Beaucoup de dirigeants de PME marocaines perçoivent encore la digitalisation comme un investissement réservé aux grandes entreprises. Cette perception est en partie due à des expériences passées de projets mal calibrés ou à des devis non contextualisés.
+                    Beaucoup de dirigeants de PME en Afrique et à l'international perçoivent encore la digitalisation comme un investissement réservé aux grandes entreprises. Cette perception est en partie due à des expériences passées de projets mal calibrés ou à des devis non contextualisés.
                   </p>
                   <p className="text-sm bg-green-50 border-l-4 border-green-500 rounded-r-lg p-3">
                     <strong>Solution :</strong> Les offres Sage 100 PME permettent aujourd&apos;hui de démarrer un projet ERP complet pour moins de 150 000 MAD, avec un ROI mesurable dès la première année sur les seules économies de temps de traitement administratif.
@@ -145,10 +145,10 @@ export default function DigitalisationPmeMaroc2026Client() {
             {/* ROI */}
             <div>
               <h2 className="text-2xl font-bold text-primary mb-3">
-                Retour sur investissement : ce que disent les PME marocaines digitalisées
+                Retour sur investissement : ce que disent les PME en Afrique et à l'international digitalisées
               </h2>
               <p className="leading-relaxed mb-4">
-                Dans notre expérience d&apos;accompagnement de PME marocaines, les bénéfices les plus fréquemment cités après 12 à 18 mois d&apos;utilisation d&apos;un ERP sont :
+                Dans notre expérience d&apos;accompagnement de PME en Afrique et à l'international, les bénéfices les plus fréquemment cités après 12 à 18 mois d&apos;utilisation d&apos;un ERP sont :
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-start gap-3 bg-slate-50 rounded-xl p-4 border border-border">
@@ -190,7 +190,7 @@ export default function DigitalisationPmeMaroc2026Client() {
                 </li>
                 <li className="flex gap-3">
                   <span className="font-bold text-cta w-6 shrink-0">4.</span>
-                  <span><strong>Cybersécurité :</strong> La digitalisation accroît la surface d&apos;attaque. Les PME marocaines commencent à intégrer des politiques de sécurité, souvent sous l&apos;impulsion de leurs assureurs et partenaires internationaux.</span>
+                  <span><strong>Cybersécurité :</strong> La digitalisation accroît la surface d&apos;attaque. Les PME en Afrique et à l'international commencent à intégrer des politiques de sécurité, souvent sous l&apos;impulsion de leurs assureurs et partenaires internationaux.</span>
                 </li>
               </ol>
             </div>

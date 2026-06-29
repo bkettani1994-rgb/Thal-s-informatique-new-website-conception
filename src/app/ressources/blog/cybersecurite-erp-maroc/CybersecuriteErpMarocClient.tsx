@@ -54,7 +54,7 @@ export default function CybersecuriteErpMarocClient() {
             {/* Intro */}
             <div>
               <p className="text-lg leading-relaxed text-primary font-medium mb-4">
-                Les cyberattaques contre les entreprises marocaines — phishing, ransomwares, intrusions — ont fortement augmenté ces dernières années. Votre ERP, qui centralise vos données financières, commerciales et RH, est une cible de choix : une attaque réussie peut paralyser votre activité pendant plusieurs jours, voire détruire des années de données.
+                Les cyberattaques contre les entreprises en Afrique et à l'international — phishing, ransomwares, intrusions — ont fortement augmenté ces dernières années. Votre ERP, qui centralise vos données financières, commerciales et RH, est une cible de choix : une attaque réussie peut paralyser votre activité pendant plusieurs jours, voire détruire des années de données.
               </p>
               <p className="leading-relaxed">
                 La bonne nouvelle : la majorité des incidents peuvent être évités avec des mesures simples, accessibles aux PME comme aux grandes entreprises. Voici les priorités à mettre en place dès maintenant.

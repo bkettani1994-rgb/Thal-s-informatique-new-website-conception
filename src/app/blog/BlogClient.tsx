@@ -57,7 +57,7 @@ const articles = [
   },
   {
     title: "ERP Cloud vs On-Premise : que choisir en 2025 ?",
-    excerpt: "Analyse comparative des deux approches pour les entreprises marocaines : coûts, sécurité, performance, conformité RGPD et perspectives d'évolution.",
+    excerpt: "Analyse comparative des deux approches pour les entreprises en Afrique et à l'international : coûts, sécurité, performance, conformité RGPD et perspectives d'évolution.",
     author: "Youssef El Fassi",
     date: "5 Déc 2024",
     readTime: "10 min",
@@ -65,7 +65,7 @@ const articles = [
     color: "indigo",
   },
   {
-    title: "La digitalisation des PME marocaines en 2025",
+    title: "La digitalisation des PME en Afrique et à l'international en 2025",
     excerpt: "État des lieux, défis et opportunités pour les PME qui entament leur transformation digitale. Témoignages d'entreprises ayant franchi le pas.",
     author: "Nadia Cherkaoui",
     date: "1 Déc 2024",

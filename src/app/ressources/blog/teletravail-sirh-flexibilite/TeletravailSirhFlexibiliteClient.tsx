@@ -54,7 +54,7 @@ export default function TeletravailSirhFlexibiliteClient() {
             {/* Intro */}
             <div>
               <p className="text-lg leading-relaxed text-primary font-medium mb-4">
-                Le télétravail et les horaires flexibles se sont durablement installés dans les entreprises marocaines, y compris dans des secteurs longtemps restés sur des organisations 100% présentielles. Pour les services RH, ce changement impose de revoir en profondeur la gestion des plannings, des présences et des processus administratifs.
+                Le télétravail et les horaires flexibles se sont durablement installés dans les entreprises en Afrique et à l'international, y compris dans des secteurs longtemps restés sur des organisations 100% présentielles. Pour les services RH, ce changement impose de revoir en profondeur la gestion des plannings, des présences et des processus administratifs.
               </p>
               <p className="leading-relaxed">
                 Un SIRH (Système d&apos;Information des Ressources Humaines) moderne est devenu l&apos;outil central pour accompagner cette transformation, sans perdre en contrôle ni en conformité. Voici comment.

@@ -45,7 +45,7 @@ export default function TvaClient() {
               <span className="text-xs font-bold text-accent tracking-widest">FINANCE</span>
               <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3">Gestion de la TVA</h1>
               <p className="text-white/70 text-lg mt-4 max-w-2xl">
-                Taxe sur encaissements et débits — conformité DGI garantie pour les entreprises marocaines.
+                Taxe sur encaissements et débits — conformité DGI garantie pour les entreprises en Afrique et à l'international.
               </p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Demander une démo <ArrowRight size={16} />

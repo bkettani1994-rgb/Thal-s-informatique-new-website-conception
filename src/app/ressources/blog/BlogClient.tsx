@@ -65,7 +65,7 @@ const articles = [
   {
     category: "Technologie",
     title: "ERP Cloud vs On-Premise : que choisir en 2026 ?",
-    excerpt: "Analyse comparative des deux approches pour les entreprises marocaines.",
+    excerpt: "Analyse comparative des deux approches pour les entreprises en Afrique et à l'international.",
     author: "Équipe Thalès Informatique",
     date: "Février 2026",
     readTime: "7 min",
@@ -73,7 +73,7 @@ const articles = [
   },
   {
     category: "Stratégie",
-    title: "La digitalisation des PME marocaines : état des lieux 2026",
+    title: "La digitalisation des PME en Afrique et à l'international : état des lieux 2026",
     excerpt: "Baromètre annuel de la transformation digitale des entreprises au Maroc.",
     author: "Équipe Thalès Informatique",
     date: "Janvier 2026",
@@ -91,7 +91,7 @@ const articles = [
   },
   {
     category: "Technologie",
-    title: "Intelligence Artificielle et ERP : 5 cas d'usage pour les entreprises marocaines",
+    title: "Intelligence Artificielle et ERP : 5 cas d'usage pour les entreprises en Afrique et à l'international",
     excerpt: "Saisie automatisée, prévision de trésorerie, optimisation des stocks : l'IA s'intègre désormais dans votre ERP Sage.",
     author: "Équipe Thalès Informatique",
     date: "Juin 2026",

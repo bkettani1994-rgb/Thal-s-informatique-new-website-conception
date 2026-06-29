@@ -145,7 +145,7 @@ export default function TropheesClient() {
           <FadeIn>
             <h2 className="text-3xl font-bold text-primary mb-6">L'excellence comme engagement</h2>
             <p className="text-secondary text-lg leading-relaxed mb-6">
-              Depuis notre fondation en 1996, Thalès Informatique a placé la qualité au cœur de chaque produit, chaque implémentation et chaque relation client. Ces distinctions ne sont pas simplement des trophées sur une étagère — elles reflètent la confiance que 500+ entreprises marocaines nous accordent chaque jour.
+              Depuis notre fondation en 1996, Thalès Informatique a placé la qualité au cœur de chaque produit, chaque implémentation et chaque relation client. Ces distinctions ne sont pas simplement des trophées sur une étagère — elles reflètent la confiance que 500+ entreprises en Afrique et à l'international nous accordent chaque jour.
             </p>
             <p className="text-secondary text-lg leading-relaxed">
               Chaque récompense représente des centaines d'heures de R&D, l'engagement de nos équipes, et la satisfaction de nos clients qui réussissent leur transformation digitale grâce à nos solutions.
@@ -237,7 +237,7 @@ export default function TropheesClient() {
               Rejoignez nos 500+ clients satisfaits
             </h2>
             <p className="text-secondary mb-8 text-lg">
-              Découvrez pourquoi les meilleures entreprises marocaines font confiance à Thalès Informatique.
+              Découvrez pourquoi les meilleures entreprises en Afrique et à l'international font confiance à Thalès Informatique.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

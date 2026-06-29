@@ -109,7 +109,7 @@ export default function Sirh7TachesAutomatiseesClient() {
               Prêt à automatiser vos processus RH ?
             </h3>
             <p className="text-white/70 mb-6 max-w-xl mx-auto">
-              Découvrez Factorial et nos solutions SIRH adaptées aux entreprises marocaines. Nos experts vous accompagnent de la démonstration jusqu&apos;au déploiement.
+              Découvrez Factorial et nos solutions SIRH adaptées aux entreprises en Afrique et à l'international. Nos experts vous accompagnent de la démonstration jusqu&apos;au déploiement.
             </p>
             <Link
               href="/solutions/factorial"

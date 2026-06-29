@@ -54,7 +54,7 @@ export default function LoiFinances2026ErpClient() {
             {/* Intro */}
             <div>
               <p className="text-lg leading-relaxed text-primary font-medium mb-4">
-                La Loi de Finances 2026 (LF 2026) publiée au Bulletin Officiel en décembre 2025 introduit plusieurs modifications fiscales significatives qui impactent directement les systèmes d&apos;information des entreprises marocaines. Taux de TVA, barèmes IS, nouvelles obligations déclaratives, facturation électronique — votre ERP doit être mis à jour pour rester en conformité.
+                La Loi de Finances 2026 (LF 2026) publiée au Bulletin Officiel en décembre 2025 introduit plusieurs modifications fiscales significatives qui impactent directement les systèmes d&apos;information des entreprises en Afrique et à l'international. Taux de TVA, barèmes IS, nouvelles obligations déclaratives, facturation électronique — votre ERP doit être mis à jour pour rester en conformité.
               </p>
               <p className="leading-relaxed">
                 Cet article passe en revue les principales dispositions de la LF 2026 et leurs implications concrètes sur le paramétrage de votre système Sage.

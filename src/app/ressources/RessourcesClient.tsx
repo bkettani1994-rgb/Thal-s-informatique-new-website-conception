@@ -12,7 +12,7 @@ const resourceCards = [
     icon: BookOpen,
     label: "Blog Décisionnel",
     href: "/ressources/blog",
-    desc: "Articles, analyses et tendances sur la transformation digitale marocaine et les bonnes pratiques ERP.",
+    desc: "Articles, analyses et tendances sur la transformation digitale en Afrique et à l'international et les bonnes pratiques ERP.",
     cta: "Lire le blog",
     color: "text-blue-500",
     bg: "bg-blue-50",

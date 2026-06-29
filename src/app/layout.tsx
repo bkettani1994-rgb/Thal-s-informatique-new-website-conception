@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     template: "%s | Thalès Informatique",
   },
   description:
-    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises marocaines dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
-  keywords: "ERP Maroc, transformation digitale, gestion entreprise, logiciel gestion, conseil informatique",
+    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises en Afrique et à l'international dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
+  keywords: "ERP Afrique, transformation digitale, gestion entreprise, logiciel gestion, conseil informatique, ERP international",
   icons: {
     icon: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780929211/logo_thales_informatique_favicon_amxxo8.png",
     shortcut: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780929211/logo_thales_informatique_favicon_amxxo8.png",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Thalès Informatique",
     title: "Thalès Informatique | Votre partenaire de transformation digitale",
     description:
-      "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises marocaines dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
+      "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises en Afrique et à l'international dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
     images: [
       {
         url: OG_IMAGE,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Thalès Informatique | Votre partenaire de transformation digitale",
     description:
-      "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises marocaines dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
+      "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises en Afrique et à l'international dans leur transformation digitale : ERP, gestion financière, RH, production et plus.",
     images: [OG_IMAGE],
   },
 };
@@ -59,7 +59,7 @@ const organizationSchema = {
   logo: OG_IMAGE,
   image: OG_IMAGE,
   description:
-    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises marocaines dans leur transformation digitale : ERP Sage X3 et Sage 100, gestion financière, RH, paie, production et plus.",
+    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises en Afrique et à l'international dans leur transformation digitale : ERP Sage X3 et Sage 100, gestion financière, RH, paie, production et plus.",
   slogan: "Votre partenaire de transformation digitale",
   foundingDate: "1996",
   address: {
@@ -82,10 +82,10 @@ const organizationSchema = {
     ratingValue: "4.7",
     reviewCount: "29",
   },
-  areaServed: {
-    "@type": "Country",
-    name: "Maroc",
-  },
+  areaServed: [
+    { "@type": "Continent", name: "Afrique" },
+    { "@type": "Country", name: "Maroc" },
+  ],
   knowsAbout: [
     "ERP",
     "Sage X3",

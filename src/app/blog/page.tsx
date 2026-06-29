@@ -4,7 +4,7 @@ import BlogClient from "./BlogClient";
 export const metadata: Metadata = {
   title: "Blog & Ressources ERP",
   description:
-    "Articles, guides et conseils d'experts sur l'ERP, la gestion financière, la paie et la transformation digitale des entreprises marocaines.",
+    "Articles, guides et conseils d'experts sur l'ERP, la gestion financière, la paie et la transformation digitale des entreprises en Afrique et à l'international.",
   alternates: {
     canonical: "/blog",
   },

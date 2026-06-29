@@ -57,7 +57,7 @@ export default function IndicateursFinanciersDafClient() {
                 En 2026, les Directeurs Administratifs et Financiers marocains font face à une pression croissante : inflation persistante, exigences réglementaires renforcées, concurrence internationale accrue. Dans ce contexte, piloter par les chiffres n&apos;est plus une option — c&apos;est une nécessité stratégique.
               </p>
               <p className="leading-relaxed">
-                Pourtant, de nombreuses PME marocaines naviguent encore à vue, sans tableaux de bord financiers fiables. Voici les 5 KPIs que tout DAF devrait surveiller en temps réel, et comment Sage les calcule automatiquement pour vous.
+                Pourtant, de nombreuses PME en Afrique et à l'international naviguent encore à vue, sans tableaux de bord financiers fiables. Voici les 5 KPIs que tout DAF devrait surveiller en temps réel, et comment Sage les calcule automatiquement pour vous.
               </p>
             </div>
 

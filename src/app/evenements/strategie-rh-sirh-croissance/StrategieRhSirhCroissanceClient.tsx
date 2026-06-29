@@ -209,7 +209,7 @@ export default function StrategieRhSirhCroissanceClient() {
             className="text-lg text-white/70 max-w-2xl mb-8"
           >
             Une après-midi de conférences et d'échanges organisée en partenariat avec Sage, Factorial et Héliolys
-            autour des nouveaux enjeux RH des entreprises marocaines.
+            autour des nouveaux enjeux RH des entreprises en Afrique et à l'international.
           </motion.p>
           <div className="flex flex-wrap gap-6 text-sm text-white/60">
             <span className="flex items-center gap-2"><Calendar size={16} className="text-accent" /> 13 mai 2026</span>

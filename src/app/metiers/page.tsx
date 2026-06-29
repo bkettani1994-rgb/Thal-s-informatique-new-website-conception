@@ -4,7 +4,7 @@ import MetiersClient from "./MetiersClient";
 export const metadata: Metadata = {
   title: "Nos Métiers ERP : Finance, RH, Production, CRM",
   description:
-    "Découvrez les modules métiers Thalès Informatique adaptés aux PME marocaines : comptabilité, paie, RH, CRM, production, trésorerie et conformité fiscale DGI.",
+    "Découvrez les modules métiers Thalès Informatique adaptés aux PME en Afrique et à l'international : comptabilité, paie, RH, CRM, production, trésorerie et conformité fiscale DGI.",
   alternates: {
     canonical: "/metiers",
   },

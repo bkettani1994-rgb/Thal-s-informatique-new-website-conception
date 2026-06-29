@@ -54,7 +54,7 @@ export default function CoutErpMaroc2026Client() {
             {/* Intro */}
             <div>
               <p className="text-lg leading-relaxed text-primary font-medium mb-4">
-                C&apos;est la question que se posent toutes les entreprises marocaines avant de se lancer dans un projet ERP : combien va coûter la mise en place de Sage X3 ou Sage 100 ? La réponse honnête est &quot;cela dépend&quot; — mais il est possible de donner des fourchettes réalistes pour budgétiser sereinement votre projet 2026.
+                C&apos;est la question que se posent toutes les entreprises en Afrique et à l'international avant de se lancer dans un projet ERP : combien va coûter la mise en place de Sage X3 ou Sage 100 ? La réponse honnête est &quot;cela dépend&quot; — mais il est possible de donner des fourchettes réalistes pour budgétiser sereinement votre projet 2026.
               </p>
               <p className="leading-relaxed">
                 Un projet ERP comprend toujours plusieurs postes de coût : les licences logicielles, l&apos;intégration et le paramétrage, la formation des utilisateurs, et la maintenance annuelle. Voici comment ils se décomposent.

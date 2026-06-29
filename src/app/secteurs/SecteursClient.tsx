@@ -129,7 +129,7 @@ export default function SecteursClient() {
               <span className="text-accent">d'Intervention</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Solutions ERP adaptées à chaque secteur d'activité au Maroc. Chaque industrie a ses spécificités — nos experts sectoriels vous accompagnent avec des solutions sur mesure.
+              Solutions ERP adaptées à chaque secteur d'activité, au Maroc, en Afrique et à l'international. Chaque industrie a ses spécificités — nos experts sectoriels vous accompagnent avec des solutions sur mesure.
             </p>
           </motion.div>
         </div>

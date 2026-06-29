@@ -136,7 +136,7 @@ export default function ChoisirIntegrateurErpMarocClient() {
             <div className="bg-primary rounded-2xl p-8 text-center">
               <h3 className="text-xl font-bold text-white mb-3">30 ans d&apos;expertise à votre service</h3>
               <p className="text-white/70 mb-6">
-                Partenaire certifié Sage basé à Casablanca, Thalès Informatique accompagne plus de 500 entreprises marocaines depuis 1996. Discutons de votre projet.
+                Partenaire certifié Sage basé à Casablanca, Thalès Informatique accompagne plus de 500 entreprises en Afrique et à l'international depuis 1996. Discutons de votre projet.
               </p>
               <Link
                 href="/contact"

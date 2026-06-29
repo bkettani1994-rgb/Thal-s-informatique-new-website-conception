@@ -44,7 +44,7 @@ export default function FacturationElectroniqueMarocClient() {
 
           {/* Introduction */}
           <p className="text-lg text-slate-700 leading-relaxed mb-8">
-            Le Maroc s&apos;inscrit résolument dans la dynamique mondiale de modernisation fiscale. La Direction Générale des Impôts (DGI) a annoncé l&apos;introduction progressive de la facturation électronique obligatoire dans le cadre des dernières lois de finances. Pour les entreprises marocaines, ce changement n&apos;est plus une option : c&apos;est une échéance à planifier dès maintenant.
+            Le Maroc s&apos;inscrit résolument dans la dynamique mondiale de modernisation fiscale. La Direction Générale des Impôts (DGI) a annoncé l&apos;introduction progressive de la facturation électronique obligatoire dans le cadre des dernières lois de finances. Pour les entreprises en Afrique et à l'international, ce changement n&apos;est plus une option : c&apos;est une échéance à planifier dès maintenant.
           </p>
 
           {/* Section 1 */}
@@ -120,7 +120,7 @@ export default function FacturationElectroniqueMarocClient() {
             Comment Sage facilite la transition
           </h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Sage, partenaire de Thalès Informatique, intègre nativement les fonctionnalités de facturation électronique dans ses solutions ERP et comptables. Voici comment Sage accompagne les entreprises marocaines :
+            Sage, partenaire de Thalès Informatique, intègre nativement les fonctionnalités de facturation électronique dans ses solutions ERP et comptables. Voici comment Sage accompagne les entreprises en Afrique et à l'international :
           </p>
           <ul className="space-y-4 mb-8">
             {[
