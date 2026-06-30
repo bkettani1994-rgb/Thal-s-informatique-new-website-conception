@@ -10,6 +10,7 @@ import { ArrowRight, CheckCircle2, ChevronRight, Download, Factory, Truck, LineC
 const capabilities = [
   {
     title: "Gestion de la production",
+    href: "/metiers/gestion-production",
     icon: Factory,
     gradient: "from-orange-500 via-amber-500 to-yellow-400",
     items: [
@@ -21,6 +22,7 @@ const capabilities = [
   },
   {
     title: "Gestion de la chaîne d'approvisionnement",
+    href: "/metiers/gestion-chaine-approvisionnement",
     icon: Truck,
     gradient: "from-emerald-500 via-teal-500 to-cyan-400",
     items: [
@@ -32,6 +34,7 @@ const capabilities = [
   },
   {
     title: "Gestion financière",
+    href: "/metiers/comptabilite-finance",
     icon: LineChart,
     gradient: "from-blue-600 via-indigo-500 to-violet-500",
     items: [
@@ -285,7 +288,7 @@ export default function SageX3Client() {
                       ))}
                     </ul>
                     <Link
-                      href="/contact"
+                      href={cap.href}
                       className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-5"
                     >
                       En savoir plus <ArrowRight size={14} />

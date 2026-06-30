@@ -25,6 +25,7 @@ const financeItems = [
 const opsItems = [
   { label: "ERP", sub: "Gestion flux intégrée PME", href: "/metiers/erp" },
   { label: "Gestion de Production", sub: "Nomenclatures & GPAO ateliers", href: "/metiers/gestion-production" },
+  { label: "Gestion de la Chaîne d'Approvisionnement", sub: "Achats, stocks & entrepôts", href: "/metiers/gestion-chaine-approvisionnement" },
   { label: "CRM", sub: "Relation client & support SAV", href: "/metiers/crm" },
   { label: "Reporting", sub: "Tableaux décisionnels Excel & BI", href: "/metiers/reporting" },
 ];
