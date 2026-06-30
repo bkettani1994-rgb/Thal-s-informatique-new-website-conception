@@ -229,9 +229,19 @@ export default function GestionProductionClient() {
             <motion.div {...fadeUp}>
               <h2 className="text-2xl font-bold text-white">Optimisez votre production avec Thalès Informatique</h2>
               <p className="text-white/70 mt-4">Réduisez vos coûts de production et améliorez votre taux de service grâce à notre module GPAO.</p>
-              <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
-                Planifier une démo <ArrowRight size={16} />
-              </Link>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                  Planifier une démo <ArrowRight size={16} />
+                </Link>
+                <a
+                  href="https://drive.google.com/file/d/14Cv-zNR4dNWV4Qn9xudp8XhUfodgPwWu/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-200"
+                >
+                  Télécharger le guide
+                </a>
+              </div>
             </motion.div>
           </div>
         </section>
