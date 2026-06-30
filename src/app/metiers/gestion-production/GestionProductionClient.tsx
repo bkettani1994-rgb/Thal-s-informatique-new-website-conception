@@ -210,12 +210,12 @@ export default function GestionProductionClient() {
                       Demander une démo
                     </Link>
                   </div>
-                  <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
+                  <div className="h-64 sm:h-80 md:h-96 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-1">
                     <img
                       src={tab.image}
                       alt={tab.imageAlt}
                       loading="lazy"
-                      className="max-w-full max-h-full w-auto h-auto object-contain"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </motion.div>
