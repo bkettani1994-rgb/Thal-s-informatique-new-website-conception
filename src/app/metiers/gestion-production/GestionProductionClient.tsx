@@ -137,8 +137,14 @@ export default function GestionProductionClient() {
     <>
       <Navbar />
       <main>
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782818502/Gestion-de-production-sage-x3-thales-informatique_g4exn1.webp"
+            alt="Pilotage de la production industrielle avec Sage X3 chez Thalès Informatique"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp}>
               <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
                 <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
