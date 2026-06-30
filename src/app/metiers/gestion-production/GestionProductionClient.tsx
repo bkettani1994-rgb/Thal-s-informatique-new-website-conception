@@ -203,12 +203,6 @@ export default function GestionProductionClient() {
                         </li>
                       ))}
                     </ul>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
-                    >
-                      Demander une démo
-                    </Link>
                   </div>
                   <div className="h-64 sm:h-80 md:h-96 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-1">
                     <img
