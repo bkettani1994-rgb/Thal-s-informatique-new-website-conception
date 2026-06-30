@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -134,12 +133,6 @@ const capabilityTabs = [
 ];
 
 export default function GestionProductionClient() {
-  const capabilitiesRef = useRef(null);
-  const capabilitiesInView = useInView(capabilitiesRef, { once: true, margin: "-80px" });
-
-  const [activeTab, setActiveTab] = useState(capabilityTabs[0].key);
-  const selectedTab = capabilityTabs.find((t) => t.key === activeTab)!;
-
   return (
     <>
       <Navbar />
@@ -177,76 +170,57 @@ export default function GestionProductionClient() {
           </div>
         </section>
 
-        {/* Capacités détaillées — tabs */}
-        <section ref={capabilitiesRef} className="py-20 bg-white">
+        {/* Capacités détaillées — blocs empilés */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
+            <motion.div {...fadeUp} className="text-center mb-16">
               <span className="text-xs font-bold text-cta tracking-widest uppercase">FONCTIONNALITÉS DÉTAILLÉES</span>
               <h2 className="text-3xl font-bold text-primary mt-2">Une couverture fonctionnelle complète</h2>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="grid lg:grid-cols-[280px_1fr] gap-8"
-            >
-              {/* Tab list */}
-              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
-                {capabilityTabs.map((tab) => (
-                  <button
-                    key={tab.key}
-                    onClick={() => setActiveTab(tab.key)}
-                    className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
-                      activeTab === tab.key
-                        ? "bg-cta/10 text-cta"
-                        : "text-secondary hover:bg-bg hover:text-primary"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
 
-              {/* Tab content */}
-              <div className="grid md:grid-cols-2 gap-8 items-start">
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
-                  <p className="text-secondary leading-relaxed mb-6">{selectedTab.desc}</p>
-                  <h4 className="text-sm font-bold text-primary uppercase tracking-wide mb-3">Principales fonctionnalités</h4>
-                  <ul className="space-y-2.5 mb-6">
-                    {selectedTab.features.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                        <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
-                  >
-                    Demander une démo
-                  </Link>
-                </div>
-                <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
-                  <motion.img
-                    key={selectedTab.key}
-                    src={selectedTab.image}
-                    alt={selectedTab.imageAlt}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4 }}
-                    className="max-w-full max-h-full w-auto h-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </motion.div>
+            <div className="space-y-20">
+              {capabilityTabs.map((tab, i) => (
+                <motion.div
+                  key={tab.key}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5 }}
+                  className={`grid md:grid-cols-2 gap-10 items-center ${
+                    i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                  }`}
+                >
+                  <div>
+                    <span className="text-xs font-bold text-cta tracking-widest uppercase">{tab.label}</span>
+                    <h3 className="text-2xl font-bold text-primary mt-2 mb-4">{tab.title}</h3>
+                    <p className="text-secondary leading-relaxed mb-6">{tab.desc}</p>
+                    <h4 className="text-sm font-bold text-primary uppercase tracking-wide mb-3">Fonctionnalités</h4>
+                    <ul className="space-y-2.5 mb-6">
+                      {tab.features.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                          <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
+                    >
+                      Demander une démo
+                    </Link>
+                  </div>
+                  <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
+                    <img
+                      src={tab.image}
+                      alt={tab.imageAlt}
+                      loading="lazy"
+                      className="max-w-full max-h-full w-auto h-auto object-contain"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
