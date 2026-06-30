@@ -112,10 +112,12 @@ export default function AgroalimentaireClient() {
 
       {/* Hero */}
       <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-green-400 blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full bg-emerald-400 blur-3xl" />
-        </div>
+        <img
+          src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782827385/magnific_a-clean-hightech-food-industry-sage-thales-informatique_ylwi8u.webp"
+          alt="Industrie agroalimentaire pilotée avec Sage X3 par Thalès Informatique"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
