@@ -154,7 +154,7 @@ export default function GestionProductionClient() {
                 <span className="text-accent">Gestion de Production</span>
               </nav>
               <span className="text-xs font-bold text-accent tracking-widest">OPÉRATIONS & ERP</span>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3">Gestion de Production</h1>
+              <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3">Gestion de Production avec Sage X3</h1>
               <p className="text-white/70 text-lg mt-4 max-w-2xl">
                 Pilotez l&apos;ensemble de votre production, du lancement des ordres de fabrication à la mise sur le marché, grâce à une solution unique et intégrée.
               </p>
