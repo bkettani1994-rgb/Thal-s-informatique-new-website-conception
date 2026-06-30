@@ -42,7 +42,7 @@ export default function GestionProductionClient() {
               <span className="text-xs font-bold text-accent tracking-widest">OPÉRATIONS & ERP</span>
               <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3">Gestion de Production</h1>
               <p className="text-white/70 text-lg mt-4 max-w-2xl">
-                Accélérez efficacement la commercialisation de vos produits en gérant tous vos processus de fabrication au sein d&apos;un système complet.
+                Pilotez l&apos;ensemble de votre production, du lancement des ordres de fabrication à la mise sur le marché, grâce à une solution unique et intégrée.
               </p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Demander une démo <ArrowRight size={16} />
