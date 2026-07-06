@@ -16,6 +16,8 @@ const articles = [
     date: "Juin 2026",
     readTime: "6 min",
     href: "/ressources/blog/facturation-electronique-maroc",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380899/comptabilit%C3%A9_cabinet_sage_100_maroc_thal%C3%A8s_informatique_mqxbz1.jpg",
+    imageAlt: "Expert-comptable analysant des factures électroniques sur Sage au Maroc",
   },
   {
     category: "RH & SIRH",
@@ -25,6 +27,8 @@ const articles = [
     date: "Mai 2026",
     readTime: "5 min",
     href: "/ressources/blog/sirh-7-taches-automatisees",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383567/worker-giving-her-opinion-office_wwbkyb.jpg",
+    imageAlt: "Collaboratrice RH gérant les processus automatisés avec un SIRH moderne",
   },
   {
     category: "ERP",
@@ -34,6 +38,8 @@ const articles = [
     date: "Mai 2026",
     readTime: "4 min",
     href: "/ressources/blog/erp-sage-depasse-excel",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375122/sage_x3_hero_image_bfjdfy.png",
+    imageAlt: "Interface Sage X3 remplaçant les fichiers Excel dans une PME",
   },
   {
     category: "Finance",
@@ -43,6 +49,8 @@ const articles = [
     date: "Avril 2026",
     readTime: "5 min",
     href: "/ressources/blog/indicateurs-financiers-daf",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/FINANCE_IT_cmtvdf.png",
+    imageAlt: "Tableau de bord financier avec indicateurs clés pour un directeur financier",
   },
   {
     category: "RH & Paie",
@@ -52,6 +60,8 @@ const articles = [
     date: "Mars 2026",
     readTime: "4 min",
     href: "/ressources/blog/cnss-amo-2026",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png",
+    imageAlt: "Gestion des déclarations CNSS et AMO 2026 avec un logiciel de paie Sage",
   },
   {
     category: "Production",
@@ -61,6 +71,8 @@ const articles = [
     date: "Mars 2026",
     readTime: "6 min",
     href: "/ressources/blog/lean-manufacturing-erp",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Industry_4.0_Production_Line_thal%C3%A8s_informatique_wqxuar.jpg",
+    imageAlt: "Ligne de production industrielle pilotée par un ERP Sage X3 en mode Lean",
   },
   {
     category: "Technologie",
@@ -70,6 +82,8 @@ const articles = [
     date: "Février 2026",
     readTime: "7 min",
     href: "/ressources/blog/erp-cloud-vs-on-premise",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1781880098/IT_servers_fcccww.jpg",
+    imageAlt: "Serveurs informatiques représentant le choix entre ERP cloud et on-premise",
   },
   {
     category: "Stratégie",
@@ -79,6 +93,8 @@ const articles = [
     date: "Janvier 2026",
     readTime: "10 min",
     href: "/ressources/blog/digitalisation-pme-maroc-2026",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375900/Manufacturing_Engineers_Collaboration_thal%C3%A8s_informatique_fonqhg.jpg",
+    imageAlt: "Ingénieurs collaborant autour de la transformation digitale en Afrique",
   },
   {
     category: "Réglementation",
@@ -88,6 +104,8 @@ const articles = [
     date: "Janvier 2026",
     readTime: "5 min",
     href: "/ressources/blog/loi-finances-2026-erp",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380898/gestion_commerce_sage_100_thal%C3%A8s_informatique_krgrfr.jpg",
+    imageAlt: "Impact de la loi de finances 2026 sur la gestion comptable avec Sage 100",
   },
   {
     category: "Technologie",
@@ -97,6 +115,8 @@ const articles = [
     date: "Juin 2026",
     readTime: "6 min",
     href: "/ressources/blog/ia-erp-cas-usage",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Smart_Manufacturing_Factory_thal%C3%A8s_informatique_ht9xvt.jpg",
+    imageAlt: "Usine intelligente illustrant l'intégration de l'IA dans un ERP Sage",
   },
   {
     category: "Technologie",
@@ -106,6 +126,8 @@ const articles = [
     date: "Juin 2026",
     readTime: "6 min",
     href: "/ressources/blog/cybersecurite-erp-maroc",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1776872482/1749232766691_gv6gzl.jpg",
+    imageAlt: "Protection cybersécurité d'un ERP contre les ransomwares et attaques informatiques",
   },
   {
     category: "RH & SIRH",
@@ -115,6 +137,8 @@ const articles = [
     date: "Juin 2026",
     readTime: "5 min",
     href: "/ressources/blog/teletravail-sirh-flexibilite",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782396164/medium-shot-people-working-with-computers_ej7zsc.jpg",
+    imageAlt: "Employés en télétravail utilisant un SIRH pour gérer congés et pointage à distance",
   },
   {
     category: "ERP",
@@ -124,6 +148,8 @@ const articles = [
     date: "Juin 2026",
     readTime: "7 min",
     href: "/ressources/blog/cout-erp-maroc-2026",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782397949/Les_employ%C3%A9s_d_entrep%C3%B4t_parlent_de_logistique_et_de_distribution_Photo_Gratuite-thal%C3%A8s-informatique-sage-frp1000_btjmg3.png",
+    imageAlt: "Guide des coûts d'un projet ERP Sage au Maroc et en Afrique en 2026",
   },
   {
     category: "Stratégie",
@@ -133,6 +159,8 @@ const articles = [
     date: "Juin 2026",
     readTime: "6 min",
     href: "/ressources/blog/choisir-integrateur-erp-maroc",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383568/senior-people-school-class-with-laptop-computer_jz358t.jpg",
+    imageAlt: "Réunion de sélection d'un intégrateur ERP Sage avec une équipe projet",
   },
 ];
 
@@ -242,22 +270,36 @@ export default function BlogClient() {
 
             {/* Article Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {articles.map((article, i) => (
-                <Link href={"href" in article && article.href ? article.href : "#"} key={i}>
+              {articles
+                .filter((article) => activeCategory === "Tous" || article.category === activeCategory)
+                .map((article, i) => (
+                <Link href={article.href} key={i}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={contentInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: i * 0.08 }}
-                    className="bg-white rounded-xl border border-border p-6 hover:shadow-md transition-shadow h-full"
+                    className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col group"
                   >
-                    <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3 ${categoryColors[article.category] || "bg-slate-100 text-slate-600"}`}>
-                      {article.category}
-                    </span>
-                    <h3 className="text-base font-bold text-primary mb-2 line-clamp-2">{article.title}</h3>
-                    <p className="text-sm text-secondary mb-4 line-clamp-2">{article.excerpt}</p>
-                    <div className="flex items-center gap-3 text-xs text-slate-400">
-                      <span className="flex items-center gap-1"><Tag size={12} /> {article.date}</span>
-                      <span className="flex items-center gap-1"><Clock size={12} /> {article.readTime}</span>
+                    {"image" in article && article.image && (
+                      <div className="h-44 overflow-hidden shrink-0">
+                        <img
+                          src={article.image}
+                          alt={article.imageAlt}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+                    <div className="p-5 flex flex-col flex-1">
+                      <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3 w-fit ${categoryColors[article.category] || "bg-slate-100 text-slate-600"}`}>
+                        {article.category}
+                      </span>
+                      <h3 className="text-base font-bold text-primary mb-2 line-clamp-2 group-hover:text-cta transition-colors">{article.title}</h3>
+                      <p className="text-sm text-secondary mb-4 line-clamp-2 flex-1">{article.excerpt}</p>
+                      <div className="flex items-center gap-3 text-xs text-slate-400">
+                        <span className="flex items-center gap-1"><Tag size={12} /> {article.date}</span>
+                        <span className="flex items-center gap-1"><Clock size={12} /> {article.readTime}</span>
+                      </div>
                     </div>
                   </motion.div>
                 </Link>
