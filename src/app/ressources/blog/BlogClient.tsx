@@ -280,17 +280,7 @@ export default function BlogClient() {
                     transition={{ duration: 0.5, delay: i * 0.08 }}
                     className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col group"
                   >
-                    {"image" in article && article.image && (
-                      <div className="h-44 overflow-hidden shrink-0">
-                        <img
-                          src={article.image}
-                          alt={article.imageAlt}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    )}
-                    <div className="p-5 flex flex-col flex-1">
+                        <div className="p-5 flex flex-col flex-1">
                       <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3 w-fit ${categoryColors[article.category] || "bg-slate-100 text-slate-600"}`}>
                         {article.category}
                       </span>
