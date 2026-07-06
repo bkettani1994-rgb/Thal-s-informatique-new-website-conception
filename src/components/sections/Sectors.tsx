@@ -110,15 +110,7 @@ function SectorCard({
         {/* Color overlay */}
         <div className={`absolute inset-0 bg-gradient-to-t ${sector.overlay}`} />
 
-        {/* Top row: tag + icon */}
-        <div className="relative flex items-start justify-between p-4">
-          <span className="text-[10px] font-bold tracking-widest text-white/80 uppercase bg-black/30 rounded px-2 py-0.5 backdrop-blur-sm">
-            {sector.tag}
-          </span>
-          <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center">
-            <sector.icon size={16} className="text-white" />
-          </div>
-        </div>
+        <div className="relative p-4" />
 
         {/* Bottom content */}
         <div className="relative p-4 pt-0">
