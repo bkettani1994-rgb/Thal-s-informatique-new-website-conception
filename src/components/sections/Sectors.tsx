@@ -114,19 +114,6 @@ function SectorCard({
 
         {/* Bottom content */}
         <div className="relative p-4 pt-0">
-          {"bullets" in sector && sector.bullets && (
-            <ul className="mb-3 space-y-1">
-              {sector.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-1.5 text-xs text-white/80">
-                  <span className="mt-0.5 text-white/60">✓</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-          )}
-          {"description" in sector && sector.description && (
-            <p className="text-xs text-white/80 mb-2">{sector.description}</p>
-          )}
           <h3 className="text-lg font-bold text-white mb-2 leading-tight">{sector.label}</h3>
           <span className="inline-flex items-center gap-1 text-xs font-semibold text-white/90 group-hover:gap-2 transition-all duration-200">
             En savoir plus <ArrowRight size={12} />
