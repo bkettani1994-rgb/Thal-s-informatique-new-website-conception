@@ -190,7 +190,7 @@ export default function ClientsClient() {
                       transition={{ duration: 0.35, delay: ci * 0.06 + i * 0.03 }}
                       className={`rounded-xl border px-3 py-3.5 text-center hover:shadow-md transition-all duration-200 cursor-default ${cat.color}`}
                     >
-                      <span className="text-xs font-semibold leading-tight block">{client}</span>
+                      <span className="text-xs font-semibold leading-tight block blur-sm select-none">{client}</span>
                     </motion.div>
                   ))}
                 </div>
