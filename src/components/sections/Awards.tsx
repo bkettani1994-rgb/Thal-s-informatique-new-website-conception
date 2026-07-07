@@ -114,7 +114,7 @@ export default function Awards() {
 
                   {/* Icon badge */}
                   <motion.div
-                    whileHover={{ scale: 1.25, y: -6, rotate: [0, -8, 8, -4, 4, 0] }}
+                    whileHover={{ scale: 1.1, y: -3, rotate: [0, -6, 6, -3, 3, 0] }}
                     transition={{ type: "spring", stiffness: 300, damping: 12 }}
                     className={`relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br ${award.color} flex items-center justify-center shadow-md cursor-pointer`}
                     style={{ flexShrink: 0 }}
