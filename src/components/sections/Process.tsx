@@ -19,6 +19,8 @@ import {
   Gauge,
   BookOpen,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 type Step = {
@@ -79,6 +81,90 @@ const journeys: Journey[] = [
     ],
   },
 ];
+
+function MobileCarousel({ journey, isInfogerance }: { journey: Journey; isInfogerance: boolean }) {
+  const [current, setCurrent] = useState(0);
+  const total = journey.steps.length;
+
+  const prev = () => setCurrent((c) => (c - 1 + total) % total);
+  const next = () => setCurrent((c) => (c + 1) % total);
+
+  const step = journey.steps[current];
+  const accent = isInfogerance ? "cyan" : "cta";
+
+  return (
+    <div className="lg:hidden mb-12 max-w-sm mx-auto">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`${journey.key}-${current}`}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -40 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="bg-white border border-border rounded-2xl p-8 shadow-sm text-center"
+        >
+          <div className="flex justify-center mb-5">
+            <div
+              className={`relative w-16 h-16 rounded-2xl flex items-center justify-center border-2 ${
+                isInfogerance ? "border-cyan-200 bg-cyan-50" : "border-cta/20 bg-cta/5"
+              }`}
+            >
+              <step.icon size={26} className={isInfogerance ? "text-cyan-600" : "text-cta"} />
+              <span
+                className={`absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white ${
+                  isInfogerance ? "bg-cyan-600" : "bg-cta"
+                }`}
+              >
+                {String(current + 1).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+          <h4 className="text-base font-bold text-primary mb-3">{step.title}</h4>
+          <p className="text-sm text-secondary leading-relaxed">{step.description}</p>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Controls */}
+      <div className="flex items-center justify-between mt-5 px-1">
+        <button
+          onClick={prev}
+          className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-secondary hover:text-primary hover:border-primary transition-colors"
+          aria-label="Étape précédente"
+        >
+          <ChevronLeft size={18} />
+        </button>
+
+        {/* Dots */}
+        <div className="flex items-center gap-1.5">
+          {journey.steps.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`rounded-full transition-all duration-200 ${
+                i === current
+                  ? `w-5 h-2 ${isInfogerance ? "bg-cyan-600" : "bg-cta"}`
+                  : "w-2 h-2 bg-slate-200 hover:bg-slate-400"
+              }`}
+              aria-label={`Étape ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={next}
+          className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-secondary hover:text-primary hover:border-primary transition-colors"
+          aria-label="Étape suivante"
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+
+      <p className={`text-center text-xs font-semibold mt-3 ${isInfogerance ? "text-cyan-600" : "text-cta"}`}>
+        {current + 1} / {total}
+      </p>
+    </div>
+  );
+}
 
 export default function Process() {
   const sectionRef = useRef(null);
@@ -205,50 +291,8 @@ export default function Process() {
               </div>
             </div>
 
-            {/* Mobile / Tablet: vertical timeline */}
-            <div className="lg:hidden relative mb-12 max-w-xl mx-auto">
-              <div className="absolute top-0 bottom-0 left-7 w-0.5 bg-border" />
-              <motion.div
-                className={`absolute top-0 left-7 w-0.5 ${isInfogerance ? "bg-cyan-500" : "bg-cta"}`}
-                initial={{ height: "0%" }}
-                whileInView={{ height: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.4, ease: "easeInOut", delay: 0.2 }}
-              />
-              <div className="space-y-8">
-                {journey.steps.map((step, i) => (
-                  <motion.div
-                    key={step.title}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.06 }}
-                    className="group relative flex items-start gap-5 pl-0"
-                  >
-                    <div
-                      className={`relative z-10 shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center border-2 bg-white transition-all duration-300 group-hover:shadow-lg ${
-                        isInfogerance
-                          ? "border-cyan-200 group-hover:border-cyan-500 group-hover:bg-cyan-50"
-                          : "border-cta/20 group-hover:border-cta group-hover:bg-cta/5"
-                      }`}
-                    >
-                      <step.icon size={22} className={isInfogerance ? "text-cyan-600" : "text-cta"} />
-                      <span
-                        className={`absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white ${
-                          isInfogerance ? "bg-cyan-600" : "bg-cta"
-                        }`}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <div className="pt-2">
-                      <h4 className="text-sm font-bold text-primary mb-1.5">{step.title}</h4>
-                      <p className="text-sm text-secondary leading-relaxed">{step.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            {/* Mobile / Tablet: carousel one step at a time */}
+            <MobileCarousel journey={journey} isInfogerance={isInfogerance} />
 
             {/* CTA */}
             <div className="text-center">
