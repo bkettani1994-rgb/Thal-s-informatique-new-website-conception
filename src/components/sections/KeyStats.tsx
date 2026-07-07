@@ -31,7 +31,7 @@ function Counter({ target, suffix, color, running }: { target: number; suffix: s
   }, [running, target]);
 
   return (
-    <span className="tabular-nums" style={{ color }}>
+    <span className="tabular-nums text-white">
       {count.toLocaleString("fr-MA")}{suffix}
     </span>
   );
