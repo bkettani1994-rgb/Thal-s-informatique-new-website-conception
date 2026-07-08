@@ -200,7 +200,7 @@ export default function ClientsClient() {
               Nos <span className="text-accent">Clients</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl">
-              Plus de 500 entreprises en Afrique et à l'international nous font confiance pour piloter leur croissance avec les meilleures solutions ERP du marché.
+              Plus de 500 entreprises au Maroc et en Afrique nous font confiance pour piloter leur croissance avec les meilleures solutions ERP du marché.
             </p>
           </motion.div>
         </div>
