@@ -23,6 +23,16 @@ const clientsByCategory = [
       "Crédit Agricole", "Chaabi", "Attijari", "Saham",
       "Saham Bank", "Bourse de Casablanca", "CDG", "Africa",
     ],
+    logos: [
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501989/15_itqaq7.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501990/20_aiaksf.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501990/17_nhnx49.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501990/19_d1cb6z.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501990/13_rrmf3t.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501989/16_qqkhpx.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501989/14_mrjebw.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783501989/18_wep8ts.png",
+    ],
   },
   {
     category: "Services & Autres",
@@ -182,17 +192,29 @@ export default function ClientsClient() {
                   <div className="flex-1 h-px bg-border" />
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                  {cat.clients.map((client, i) => (
-                    <motion.div
-                      key={client}
-                      initial={{ opacity: 0, scale: 0.92 }}
-                      animate={gridInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.35, delay: ci * 0.06 + i * 0.03 }}
-                      className={`rounded-xl border px-3 py-3.5 text-center hover:shadow-md transition-all duration-200 cursor-default ${cat.color}`}
-                    >
-                      <span className="text-xs font-semibold leading-tight block blur-sm select-none">{client}</span>
-                    </motion.div>
-                  ))}
+                  {cat.clients.map((client, i) => {
+                    const logo = (cat as { logos?: string[] }).logos?.[i];
+                    return (
+                      <motion.div
+                        key={client}
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={gridInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.35, delay: ci * 0.06 + i * 0.03 }}
+                        className={`rounded-xl border px-3 py-3.5 flex items-center justify-center hover:shadow-md transition-all duration-200 cursor-default ${logo ? "bg-white border-border min-h-[64px]" : cat.color}`}
+                      >
+                        {logo ? (
+                          <img
+                            src={logo}
+                            alt={client}
+                            loading="lazy"
+                            className="max-h-10 max-w-full object-contain"
+                          />
+                        ) : (
+                          <span className="text-xs font-semibold leading-tight block blur-sm select-none">{client}</span>
+                        )}
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
