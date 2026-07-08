@@ -115,9 +115,17 @@ const clientsByCategory = [
     category: "Éducation & Santé",
     color: "bg-pink-50 border-pink-200 text-pink-800",
     dot: "bg-pink-500",
-    clients: [
-      "UEMF", "Université Internationale de Casablanca",
-      "UR", "Groupe Test", "HEM", "IMA",
+    clients: ["1","2","3","4","5","6","7","8","9"],
+    logos: [
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507556/63_mwwk5a.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507578/65_fjv1gc.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507579/67_pgbjtq.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507580/69_fb2fsz.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507581/70_wuzrrc.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507582/71_huaf1i.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507583/64_px2lsr.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507584/68_cpnc8k.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507584/66_fazatt.png",
     ],
   },
   {
