@@ -132,9 +132,13 @@ const clientsByCategory = [
     category: "Holding",
     color: "bg-slate-50 border-slate-200 text-slate-800",
     dot: "bg-slate-500",
-    clients: [
-      "Al Mada", "Soremar Group", "Holding C",
-      "Zinelec Group", "ARMA",
+    clients: ["1","2","3","4","5"],
+    logos: [
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507832/72_sbfp0q.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507848/74_zwxsrd.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507847/73_udmgki.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507849/75_vknqs0.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507850/76_m9swmn.png",
     ],
   },
   {
