@@ -145,11 +145,13 @@ const clientsByCategory = [
     category: "Négoce & Distribution",
     color: "bg-amber-50 border-amber-200 text-amber-800",
     dot: "bg-amber-500",
-    clients: [
-      "Bodor", "Beko", "Label Vie", "General Tech",
-      "CASEM", "Alumetaux", "Legrand", "ARCOL",
-      "Suptours", "MAN", "TAREC", "McDonald's",
-      "Umuluf", "Le Comptoir",
+    clients: ["1","2","3","4","5"],
+    logos: [
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517702/77_mvz0vs.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517702/77_mvz0vs.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517703/79_k8aoyt.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517704/80_g3uotr.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517706/81_e34br6.png",
     ],
   },
 ];
