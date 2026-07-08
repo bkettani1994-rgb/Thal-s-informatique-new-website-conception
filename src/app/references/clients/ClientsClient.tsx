@@ -148,7 +148,7 @@ const clientsByCategory = [
     clients: ["1","2","3","4","5"],
     logos: [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517702/77_mvz0vs.png",
-      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517702/77_mvz0vs.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517703/78_t2koyz.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517703/79_k8aoyt.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517704/80_g3uotr.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783517706/81_e34br6.png",
