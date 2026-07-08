@@ -64,7 +64,20 @@ const clientsByCategory = [
     clients: [
       "CNSS", "MAP", "onMt", "SDTM",
       "Fonds Mondial", "SOREC", "AMDIE", "Morocco Foodex",
-      "Marsa Maroc", "ONSSA",
+      "Marsa Maroc", "ONSSA", "Client 11",
+    ],
+    logos: [
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506438/41_dcfivi.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506437/40_vfftg6.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506436/39_agqwj5.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506436/38_o9izs7.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506436/37_q954fs.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506418/36_x05pxa.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506418/35_rbvwrv.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506417/33_wp3eyu.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506415/32_ujudyy.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506415/31_cfqiop.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783506414/34_bielfa.png",
     ],
   },
   {
