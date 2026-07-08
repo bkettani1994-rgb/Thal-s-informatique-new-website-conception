@@ -213,7 +213,7 @@ export default function ClientsClient() {
                         initial={{ opacity: 0, scale: 0.92 }}
                         animate={gridInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.35, delay: ci * 0.06 + i * 0.03 }}
-                                                className={`rounded-xl border overflow-hidden hover:shadow-md transition-all duration-200 cursor-default ${logo ? "bg-white border-border h-[72px] p-0" : "px-3 py-3.5 flex items-center justify-center " + cat.color}`}
+                                                className={`rounded-xl border overflow-hidden hover:shadow-md transition-all duration-200 cursor-default ${logo ? "bg-white border-border h-[52px] p-1" : "px-3 py-3.5 flex items-center justify-center " + cat.color}`}
                       >
                         {logo ? (
                           <img
