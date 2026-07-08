@@ -200,14 +200,14 @@ export default function ClientsClient() {
                         initial={{ opacity: 0, scale: 0.92 }}
                         animate={gridInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.35, delay: ci * 0.06 + i * 0.03 }}
-                        className={`rounded-xl border px-3 py-3.5 flex items-center justify-center hover:shadow-md transition-all duration-200 cursor-default ${logo ? "bg-white border-border min-h-[64px]" : cat.color}`}
+                        className={`rounded-xl border px-3 py-3.5 flex items-center justify-center hover:shadow-md transition-all duration-200 cursor-default ${logo ? "bg-white border-border min-h-[80px]" : cat.color}`}
                       >
                         {logo ? (
                           <img
                             src={logo}
                             alt={client}
                             loading="lazy"
-                            className="max-h-10 max-w-full object-contain"
+                            className="max-h-16 max-w-full object-contain"
                           />
                         ) : (
                           <span className="text-xs font-semibold leading-tight block blur-sm select-none">{client}</span>
