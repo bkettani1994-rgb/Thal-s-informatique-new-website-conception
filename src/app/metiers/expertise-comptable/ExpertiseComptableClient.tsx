@@ -4,7 +4,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, Users, Building2, UserCheck } from "lucide-react";
+import {
+  ArrowRight, ChevronRight, CheckCircle,
+  Users, Globe, Award, BookOpen, Download,
+} from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -13,31 +16,16 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
-const features = [
-  { title: "Multi-dossiers clients", desc: "Gérez des centaines de dossiers clients depuis une interface unifiée et sécurisée." },
-  { title: "Revue analytique", desc: "Outils de revue analytique et de contrôle de cohérence des données comptables." },
-  { title: "Tableaux de bord cabinet", desc: "Pilotez l'activité de votre cabinet : missions, délais, facturation et productivité." },
-  { title: "Collaboration équipe", desc: "Partage des dossiers en équipe avec gestion des droits et suivi des modifications." },
-  { title: "Archivage numérique", desc: "Stockage sécurisé des documents clients conforme aux obligations légales marocaines." },
-  { title: "Facturation honoraires", desc: "Émission des notes d'honoraires avec intégration directe à la comptabilité du cabinet." },
+const stats = [
+  { value: "450+", label: "Clients experts-comptables en Afrique francophone" },
+  { value: "3",    label: "Centres de support dédiés" },
+  { value: "7",    label: "Conventions de partenariat avec les ordres des experts-comptables d'Afrique" },
 ];
 
-const profiles = [
-  {
-    icon: UserCheck,
-    title: "Expert-comptable individuel",
-    desc: "Une solution légère et performante pour gérer jusqu'à 50 dossiers clients en toute autonomie.",
-  },
-  {
-    icon: Users,
-    title: "Cabinet structuré",
-    desc: "Multi-utilisateurs, gestion des équipes et supervision centralisée pour les cabinets de 5 à 50 collaborateurs.",
-  },
-  {
-    icon: Building2,
-    title: "Expert-comptable salarié",
-    desc: "Accès sécurisé aux dossiers assignés, avec suivi de temps et reporting à la direction du cabinet.",
-  },
+const guidePoints = [
+  "Témoignages d'experts-comptables et de partenaires Sage",
+  "Retours d'expériences sur l'ouverture au Cloud et à la digitalisation",
+  "Best Practices d'usages de solutions connectées pour les cabinets",
 ];
 
 export default function ExpertiseComptableClient() {
@@ -45,98 +33,273 @@ export default function ExpertiseComptableClient() {
     <>
       <Navbar />
       <main>
-        <section className="pt-32 pb-20 bg-primary">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp}>
-              <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
-                <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                <span>/</span>
-                <Link href="/metiers" className="hover:text-white transition-colors">Métiers</Link>
-                <span>/</span>
-                <span className="text-accent">Expertise Comptable</span>
-              </nav>
-              <span className="text-xs font-bold text-accent tracking-widest">FINANCE</span>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3">Expertise Comptable</h1>
-              <p className="text-white/70 text-lg mt-4 max-w-2xl">
-                Gestion multi-dossiers et outils de productivité pour les cabinets d&apos;expertise comptable marocains.
-              </p>
-              <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
-                Demander une démo <ArrowRight size={16} />
-              </Link>
-            </motion.div>
-          </div>
-        </section>
 
-        <section className="py-16 bg-bg">
+        {/* ── HERO ── */}
+        <section className="pt-32 pb-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div className="max-w-3xl" {...fadeUp}>
-              <h2 className="text-2xl font-bold text-primary">Conçu pour les cabinets d&apos;expertise comptable marocains</h2>
-              <p className="text-secondary mt-4 leading-relaxed">
-                Thalès Informatique propose une solution dédiée aux cabinets d&apos;expertise comptable opérant au Maroc et en Afrique. Gérez plusieurs dossiers clients depuis une interface unique, avec des outils de productivité avancés pour optimiser le temps de vos collaborateurs.
-              </p>
-              <p className="text-secondary mt-3 leading-relaxed">
-                Compatible avec les exigences de l&apos;Ordre des Experts-Comptables du Maroc (OEC), notre solution garantit la conformité réglementaire de chaque dossier traité.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2 className="text-2xl font-bold text-primary mb-10" {...fadeUp}>Fonctionnalités clés</motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((f, i) => (
-                <motion.div
-                  key={f.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.07 }}
-                  className="p-6 border border-border rounded-xl hover:shadow-md transition-shadow duration-200"
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div {...fadeUp}>
+                <nav className="text-sm text-secondary mb-6 flex items-center gap-2">
+                  <Link href="/" className="hover:text-primary transition-colors">Accueil</Link>
+                  <ChevronRight size={14} />
+                  <Link href="/metiers" className="hover:text-primary transition-colors">Métiers</Link>
+                  <ChevronRight size={14} />
+                  <span className="text-primary">Expertise Comptable</span>
+                </nav>
+                <h1 className="text-4xl lg:text-5xl font-bold text-primary leading-tight mb-4">
+                  Solutions Sage pour les cabinets d&apos;expertise comptable
+                </h1>
+                <p className="text-secondary text-lg leading-relaxed mb-8">
+                  Les exigences de vos clients et les nouvelles technologies cloud transforment votre métier. Les solutions Sage vous aident à relever ces nouveaux défis et à développer votre cabinet avec efficacité.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                  <h3 className="font-semibold text-primary">{f.title}</h3>
-                  <p className="text-sm text-secondary mt-2">{f.desc}</p>
-                </motion.div>
-              ))}
+                  Demander une démo <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+              {/* Placeholder image — à remplacer */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="hidden lg:block h-80 rounded-2xl bg-slate-100 border border-border"
+              />
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-bg">
+        {/* ── SECTION 1 — DIGITALISEZ VOTRE CABINET ── */}
+        <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2 className="text-2xl font-bold text-primary mb-10" {...fadeUp}>Une solution adaptée à chaque profil</motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {profiles.map((p, i) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+              <motion.div {...fadeUp}>
+                <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
+                  Sage Génération Expert Connect
+                </span>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  Digitalisez votre cabinet
+                </h2>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    "Démarrer un dossier de production comptable ou sociale n'a jamais été aussi simple et intuitif. Vos outils quotidiens sont les leviers de votre performance.",
+                    "Gagnez du temps en automatisant vos échanges de données en toute sécurité. Digitalisez votre relation client grâce aux services connectés et aux réseaux sociaux.",
+                    "Entrez dans l'ère des solutions en ligne et pilotez votre relation clients à 100 % digitale. Simplifiez au maximum le quotidien du cabinet comptable.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-secondary text-sm leading-relaxed">
+                      <CheckCircle size={16} className="text-cta mt-0.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors duration-200"
+                >
+                  En savoir plus <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+              {/* Placeholder image dashboard */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="h-72 rounded-2xl bg-slate-100 border border-border hidden lg:block"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 2 — GAGNANT-GAGNANT ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+              {/* Placeholder image */}
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="h-72 rounded-2xl bg-slate-100 border border-border hidden lg:block"
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                {/* Badges Sage 50 / Sage 100 */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-10 h-10 rounded-full bg-emerald-500 text-white text-sm font-bold flex items-center justify-center">50</span>
+                  <span className="w-10 h-10 rounded-full bg-cta text-white text-sm font-bold flex items-center justify-center">100</span>
+                </div>
+                <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
+                  Trouvez la bonne solution pour votre client
+                </span>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  Pour vos clients et votre cabinet, c&apos;est gagnant-gagnant
+                </h2>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    "Dynamisez vos échanges de données avec les solutions de vos clients.",
+                    "Sécurisez vos missions et assurez la qualité et la conformité des opérations.",
+                    "Accélérez vos travaux comptables en utilisant le même plan comptable que vos clients.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-secondary text-sm leading-relaxed">
+                      <CheckCircle size={16} className="text-cta mt-0.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors duration-200"
+                >
+                  En savoir plus <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 3 — TÉMOIGNAGE ── */}
+        <section className="py-20 bg-slate-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+              <motion.div {...fadeUp}>
+                <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-snug mb-6 italic">
+                  &ldquo;La gamme Sage, avec sa diversité, nous permet de proposer à chacun de nos clients la solution la plus adaptée à son contexte. Et qu&apos;ils puissent ensuite évoluer quand leur croissance le nécessite.&rdquo;
+                </blockquote>
+                <div className="mb-8">
+                  <p className="font-bold text-white">Directeur de cabinet</p>
+                  <p className="text-white/60 text-sm">Cabinet d&apos;expertise comptable, Casablanca</p>
+                </div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-slate-100 transition-colors duration-200"
+                >
+                  Échanger avec un expert <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+              {/* Photo placeholder */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="h-80 rounded-2xl bg-slate-700 border border-slate-600 hidden lg:flex items-center justify-center"
+              >
+                <span className="text-slate-500 text-sm">Photo à ajouter</span>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 4 — ENGAGEMENT / STATS ── */}
+        <section className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                Vous êtes impliqué, nos équipes aussi. Oui, à l&apos;engagement concret !
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Nos équipes sont sur le terrain pour vous apporter une relation personnalisée et un support technique réactif. Nous sommes également investis auprès de la Profession pour être toujours en phase avec votre actualité. C&apos;est essentiel pour nous !
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {stats.map((s, i) => (
                 <motion.div
-                  key={p.title}
+                  key={s.label}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="p-8 bg-white border border-border rounded-xl text-center hover:shadow-lg transition-shadow duration-200"
+                  className="text-center"
                 >
-                  <div className="w-14 h-14 bg-cta/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <p.icon size={24} className="text-cta" />
-                  </div>
-                  <h3 className="font-bold text-primary">{p.title}</h3>
-                  <p className="text-sm text-secondary mt-2">{p.desc}</p>
+                  <div className="text-5xl font-bold text-cta mb-3">{s.value}</div>
+                  <p className="text-secondary text-sm leading-relaxed">{s.label}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-primary">
+        {/* ── SECTION 5 — GUIDE À TÉLÉCHARGER ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+              <motion.div {...fadeUp}>
+                <div className="flex items-center gap-2 mb-4">
+                  <BookOpen size={18} className="text-cta" />
+                  <span className="text-xs font-bold text-cta uppercase tracking-widest">Guide Gratuit</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                  Oui, à la liberté ! Le guide Sage pour les cabinets d&apos;expertise comptable
+                </h2>
+                <p className="text-secondary leading-relaxed mb-6">
+                  Experts-comptables, votre profession évolue et votre éditeur devient un véritable partenaire du changement grâce à des solutions cloud innovantes et adaptées aux enjeux d&apos;aujourd&apos;hui et de demain, comme à la nouvelle relation avec les clients tournée autour du conseil et du développement. Téléchargez votre guide interactif.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {guidePoints.map((p) => (
+                    <li key={p} className="flex items-start gap-3 text-secondary text-sm">
+                      <CheckCircle size={16} className="text-cta mt-0.5 shrink-0" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors duration-200"
+                >
+                  <Download size={16} />
+                  Télécharger le guide
+                </Link>
+              </motion.div>
+
+              {/* Guide visual placeholder */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="hidden lg:flex flex-col items-center justify-center h-72 rounded-2xl bg-emerald-500 text-white gap-2 p-8"
+              >
+                <div className="text-3xl font-black mb-2">Oui,<br/>à la liberté !</div>
+                <p className="text-white/80 text-sm text-center">
+                  Oui, le cabinet en mode ouvert et agile !
+                </p>
+                <p className="text-white/60 text-xs text-center mt-2">
+                  Une approche essentielle vis-à-vis d&apos;une profession en profonde mutation vers de nouvelles opportunités.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA FINAL ── */}
+        <section className="py-16 bg-cta">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
-              <h2 className="text-2xl font-bold text-white">Développez votre cabinet avec Thalès Informatique</h2>
-              <p className="text-white/70 mt-4">Rejoignez les cabinets marocains qui ont fait confiance à notre solution pour booster leur productivité.</p>
-              <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                Prêt à faire évoluer votre cabinet ?
+              </h2>
+              <p className="text-white/80 mb-8 leading-relaxed">
+                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage adaptée à votre cabinet.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
+              >
                 Discuter de votre projet <ArrowRight size={16} />
               </Link>
             </motion.div>
           </div>
         </section>
+
       </main>
       <Footer />
     </>
