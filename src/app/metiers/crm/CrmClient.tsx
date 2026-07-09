@@ -343,7 +343,7 @@ export default function CrmClient() {
                 Découvrez nos logiciels CRM
               </h2>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {solutions.map((sol, i) => (
                 <motion.div
                   key={sol.name}
