@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Wallet,
   Users2,
@@ -15,56 +16,38 @@ const solutions = [
   {
     icon: Wallet,
     title: "Finance & Trésorerie",
-    desc: "Comptabilité, budgets, clôtures, consolidation et pilotage de la trésorerie en temps réel.",
-    color: "text-blue-600",
-    bgLight: "bg-blue-50",
-    border: "border-blue-100 hover:border-blue-300",
-    tag: "Finance",
+    desc: "Comptabilité, pilotage financier, reporting et gestion de trésorerie en temps réel.",
+    href: "/metiers/comptabilite-finance",
   },
   {
     icon: Users2,
     title: "RH & Paie",
-    desc: "Recrutement, carrières, évaluations et paie multi-conventions sur une seule plateforme.",
-    color: "text-violet-600",
-    bgLight: "bg-violet-50",
-    border: "border-violet-100 hover:border-violet-300",
-    tag: "Ressources humaines",
+    desc: "Digitalisation RH, gestion de la paie, des talents et de l'administration du personnel.",
+    href: "/metiers/paie-rh",
   },
   {
     icon: Cog,
     title: "Processus Opérationnels",
-    desc: "Production, achats, ventes, stocks et logistique optimisés de bout en bout.",
-    color: "text-amber-600",
-    bgLight: "bg-amber-50",
-    border: "border-amber-100 hover:border-amber-300",
-    tag: "Opérations",
+    desc: "ERP, gestion commerciale, supply chain et pilotage de la production au quotidien.",
+    href: "/metiers/erp",
   },
   {
     icon: LineChart,
-    title: "Conseil & Stratégie",
-    desc: "Audit organisationnel, accompagnement au changement et pilotage de la performance.",
-    color: "text-cyan-600",
-    bgLight: "bg-cyan-50",
-    border: "border-cyan-100 hover:border-cyan-300",
-    tag: "Conseil",
+    title: "Conseil",
+    desc: "Audit, accompagnement stratégique et transformation digitale sur-mesure.",
+    href: "/contact",
   },
   {
     icon: Code2,
     title: "Développement Spécifique",
-    desc: "Développements sur mesure, connecteurs et intégrations adaptés à vos besoins métiers.",
-    color: "text-rose-600",
-    bgLight: "bg-rose-50",
-    border: "border-rose-100 hover:border-rose-300",
-    tag: "Développement",
+    desc: "Personnalisation ERP, connecteurs métier et automatisation sur-mesure.",
+    href: "/contact",
   },
   {
     icon: Server,
     title: "Ingénierie IT",
-    desc: "Infrastructure, cloud, sécurité et infogérance de vos systèmes d'information.",
-    color: "text-emerald-600",
-    bgLight: "bg-emerald-50",
-    border: "border-emerald-100 hover:border-emerald-300",
-    tag: "Infrastructure",
+    desc: "Infrastructure, architecture système, réseaux et sécurité informatique.",
+    href: "/contact",
   },
 ];
 
@@ -88,7 +71,7 @@ export default function Solutions() {
           </h2>
           <p className="mt-4 text-base text-secondary max-w-xl mx-auto leading-relaxed">
             Chaque solution est conçue pour répondre aux défis spécifiques de
-            votre métier et s'intègre parfaitement dans votre écosystème
+            votre métier et s&apos;intègre parfaitement dans votre écosystème
             existant.
           </p>
         </motion.div>
@@ -102,37 +85,33 @@ export default function Solutions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5, ease: "easeOut" }}
-              className={`group bg-white border ${sol.border} rounded-2xl p-5 cursor-pointer card-hover transition-all duration-200 relative overflow-hidden`}
             >
-              {/* Tag */}
-              <span
-                className={`inline-block ${sol.bgLight} ${sol.color} text-[10px] font-semibold px-2 py-0.5 rounded-full mb-4 uppercase tracking-wide`}
+              <Link
+                href={sol.href}
+                className="group flex flex-col h-full bg-white border border-border rounded-2xl p-6 hover:bg-cta hover:border-cta transition-all duration-200 cursor-pointer"
               >
-                {sol.tag}
-              </span>
+                {/* Icon */}
+                <div className="w-11 h-11 rounded-xl bg-cta/10 group-hover:bg-white/20 flex items-center justify-center mb-5 transition-colors duration-200">
+                  <sol.icon size={22} className="text-cta group-hover:text-white transition-colors duration-200" />
+                </div>
 
-              {/* Icon */}
-              <div
-                className={`${sol.bgLight} w-10 h-10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200`}
-              >
-                <sol.icon size={20} className={sol.color} />
-              </div>
+                {/* Title */}
+                <h3 className="font-bold text-primary group-hover:text-white text-base mb-2 leading-tight transition-colors duration-200">
+                  {sol.title}
+                </h3>
 
-              {/* Title */}
-              <h3 className="text-sm font-bold text-primary mb-2 leading-tight">
-                {sol.title}
-              </h3>
+                {/* Description */}
+                <p className="text-sm text-cta group-hover:text-white/80 leading-relaxed flex-1 transition-colors duration-200">
+                  {sol.desc}
+                </p>
 
-              {/* Description */}
-              <p className="text-xs text-secondary leading-relaxed">{sol.desc}</p>
-
-              {/* Hover CTA */}
-              <div className="mt-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 translate-y-1 group-hover:translate-y-0">
-                <span className={`text-xs font-semibold ${sol.color}`}>
-                  Découvrir
-                </span>
-                <ArrowRight size={11} className={sol.color} />
-              </div>
+                {/* Arrow */}
+                <div className="mt-5">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border group-hover:border-white/30 group-hover:bg-white/10 transition-all duration-200">
+                    <ArrowRight size={14} className="text-secondary group-hover:text-white transition-colors duration-200" />
+                  </span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -145,13 +124,13 @@ export default function Solutions() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-cta/20 cursor-pointer"
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 bg-cta hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-cta/20"
           >
             Demander une démonstration personnalisée
             <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform duration-200" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
