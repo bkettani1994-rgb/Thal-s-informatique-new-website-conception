@@ -267,33 +267,26 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden"
+                  className="bg-white rounded-2xl border border-border hover:shadow-md transition-shadow duration-200 flex flex-col p-7"
                 >
-                  <div className={`relative h-36 bg-gradient-to-br ${cap.gradient} overflow-hidden`}>
-                    <div className="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-white/15" />
-                    <div className="absolute -right-2 top-4 w-16 h-16 rounded-full bg-white/10" />
-                    <div className="absolute left-6 bottom-3 w-10 h-10 rounded-full bg-white/10" />
-                    <div className="relative h-full flex items-center justify-center">
-                      <cap.icon size={44} className="text-white drop-shadow-md" strokeWidth={1.75} />
-                    </div>
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center mb-5">
+                    <cap.icon size={22} className="text-cta" strokeWidth={1.75} />
                   </div>
-                  <div className="p-7">
-                    <h3 className="font-bold text-primary text-lg mb-4">{cap.title}</h3>
-                    <ul className="space-y-2.5">
-                      {cap.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                          <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href={cap.href}
-                      className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-5"
-                    >
-                      En savoir plus <ArrowRight size={14} />
-                    </Link>
-                  </div>
+                  <h3 className="font-bold text-primary text-lg mb-4">{cap.title}</h3>
+                  <ul className="space-y-2.5 flex-1">
+                    {cap.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                        <CheckCircle2 size={15} className="text-cta shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={cap.href}
+                    className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-5"
+                  >
+                    En savoir plus <ArrowRight size={14} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -459,29 +452,23 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={sectorsInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="bg-bg rounded-2xl border border-border hover:border-cta hover:shadow-lg transition-all duration-200 overflow-hidden"
+                  className="bg-white rounded-2xl border border-border hover:shadow-md transition-shadow duration-200 flex flex-col p-6"
                 >
-                  <div className={`relative h-28 bg-gradient-to-br ${sector.gradient} overflow-hidden`}>
-                    <div className="absolute -right-5 -bottom-5 w-24 h-24 rounded-full bg-white/15" />
-                    <div className="absolute left-5 top-3 w-10 h-10 rounded-full bg-white/10" />
-                    <div className="relative h-full flex items-center justify-center">
-                      <sector.icon size={36} className="text-white drop-shadow-md" strokeWidth={1.75} />
-                    </div>
+                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
+                    <sector.icon size={20} className="text-cta" strokeWidth={1.75} />
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-bold text-primary mb-4">{sector.title}</h3>
-                    <ul className="space-y-2 mb-5">
-                      {sector.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
-                          <CheckCircle2 size={14} className="text-cta shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/secteurs" className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
-                      En savoir plus <ArrowRight size={13} />
-                    </Link>
-                  </div>
+                  <h3 className="font-bold text-primary mb-4">{sector.title}</h3>
+                  <ul className="space-y-2 mb-5 flex-1">
+                    {sector.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-secondary leading-relaxed">
+                        <CheckCircle2 size={14} className="text-cta shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/secteurs" className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
+                    En savoir plus <ArrowRight size={13} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
