@@ -35,21 +35,21 @@ export default function ExpertiseComptableClient() {
       <main>
 
         {/* ── HERO ── */}
-        <section className="pt-32 pb-20 bg-white">
+        <section className="pt-32 pb-20 bg-primary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeUp}>
-                <nav className="text-sm text-secondary mb-6 flex items-center gap-2">
-                  <Link href="/" className="hover:text-primary transition-colors">Accueil</Link>
+                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                  <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
                   <ChevronRight size={14} />
-                  <Link href="/metiers" className="hover:text-primary transition-colors">Métiers</Link>
+                  <Link href="/metiers" className="hover:text-white transition-colors">Métiers</Link>
                   <ChevronRight size={14} />
-                  <span className="text-primary">Expertise Comptable</span>
+                  <span className="text-white">Expertise Comptable</span>
                 </nav>
-                <h1 className="text-4xl lg:text-5xl font-bold text-primary leading-tight mb-4">
+                <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                   Solutions Sage pour les cabinets d&apos;expertise comptable
                 </h1>
-                <p className="text-secondary text-lg leading-relaxed mb-8">
+                <p className="text-white/70 text-lg leading-relaxed mb-8">
                   Les exigences de vos clients et les nouvelles technologies cloud transforment votre métier. Les solutions Sage vous aident à relever ces nouveaux défis et à développer votre cabinet avec efficacité.
                 </p>
                 <Link
