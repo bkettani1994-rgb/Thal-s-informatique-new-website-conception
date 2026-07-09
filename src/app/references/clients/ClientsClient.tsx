@@ -21,7 +21,7 @@ const clientsByCategory = [
     dot: "bg-blue-500",
     clients: [
       "Crédit Agricole", "Chaabi", "Attijari", "Saham",
-      "Saham Bank", "Bourse de Casablanca", "CDG", "Africa",
+      "Saham Bank", "Bourse de Casablanca", "CDG", "Africa", "9",
     ],
     logos: [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504280/15_f0ear9.png",
