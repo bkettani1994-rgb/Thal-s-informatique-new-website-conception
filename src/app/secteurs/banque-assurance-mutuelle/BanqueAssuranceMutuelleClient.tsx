@@ -304,6 +304,20 @@ export default function BanqueAssuranceMutuelleClient() {
         </div>
       </section>
 
+      {/* Logos clients */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs font-bold text-secondary uppercase tracking-widest mb-10">Ils nous font confiance</p>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            <img
+              src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783607804/logos_they_trust_us_500_x_500_px_6_t9osaf.png"
+              alt="Client Banque & Assurance - Thalès Informatique"
+              className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-200"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-indigo-700" ref={ctaRef}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
