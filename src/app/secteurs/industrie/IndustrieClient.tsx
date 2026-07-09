@@ -7,6 +7,7 @@ import Footer from "@/components/ui/Footer";
 import {
   ArrowRight, ChevronRight, CheckCircle,
   TrendingDown, Package, Clock, Zap, AlertTriangle, Star,
+  Factory, Building2, Layers,
 } from "lucide-react";
 
 const fadeUp = {
@@ -69,6 +70,7 @@ const solutions = [
     badge: "Sage 100",
     badgeLabel: "Gestion de Production",
     color: "bg-emerald-600",
+    icon: Factory,
     name: "Sage 100 Gestion de Production",
     subtitle: "Pour les PME et PMI",
     description: "Avec Sage 100 Gestion de Production, vous disposez d'un logiciel GPAO dédié aux PME-PMI qui vous aidera à gérer vos données techniques, planifier vos ordres de fabrication, suivre vos encours de production et analyser vos coûts de revient.",
@@ -87,6 +89,7 @@ const solutions = [
     badge: "Sage 100",
     badgeLabel: "Entreprise Industrie",
     color: "bg-cta",
+    icon: Building2,
     name: "Sage 100cloud Entreprise Industrie",
     subtitle: "Pour les PMI de 50 salariés et plus",
     description: "Avec Sage 100cloud Entreprise Industrie, centralisez toutes vos données à travers un système de gestion de production intégré et composé d'outils de gestion commerciale, de comptabilité et de GPAO, spécialement conçu pour les PMI.",
@@ -106,6 +109,7 @@ const solutions = [
     badge: "Sage Business Cloud",
     badgeLabel: "Sage X3",
     color: "bg-slate-700",
+    icon: Layers,
     name: "Sage Business Cloud Sage X3",
     subtitle: "Pour les moyennes et grandes entreprises",
     description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
@@ -272,30 +276,27 @@ export default function IndustrieClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className={`rounded-2xl border flex flex-col overflow-hidden ${sol.highlight ? "border-cta shadow-lg shadow-cta/10" : "border-border"}`}
+                  className="rounded-2xl border border-border bg-white flex flex-col p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
                 >
-                  <div className={`${sol.color} px-6 py-4`}>
-                    <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">{sol.badge}</p>
-                    <p className="text-white font-bold text-lg">{sol.badgeLabel}</p>
+                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
+                    <sol.icon size={20} className="text-cta" />
                   </div>
-                  <div className="bg-white flex flex-col flex-1 p-6">
-                    <p className="text-xs font-bold text-cta uppercase tracking-widest mb-2">{sol.subtitle}</p>
-                    <p className="text-secondary text-sm leading-relaxed mb-5">{sol.description}</p>
-                    <ul className="space-y-2.5 mb-8 flex-1">
-                      {sol.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-secondary text-sm">
-                          <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href={sol.href}
-                      className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "bg-primary text-white hover:bg-slate-800"}`}
-                    >
-                      {sol.cta} <ArrowRight size={14} />
-                    </Link>
-                  </div>
+                  <h3 className="font-bold text-primary text-lg mb-1">{sol.name}</h3>
+                  {sol.subtitle && (
+                    <p className="text-xs font-semibold text-cta uppercase tracking-widest mb-3">{sol.subtitle}</p>
+                  )}
+                  <p className="text-secondary text-sm leading-relaxed mb-5">{sol.description}</p>
+                  <ul className="space-y-2.5 mb-6 flex-1">
+                    {sol.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-secondary text-sm">
+                        <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href={sol.href} className="inline-flex items-center gap-1 text-cta font-semibold text-sm hover:underline">
+                    En savoir plus <ArrowRight size={14} />
+                  </Link>
                 </motion.div>
               ))}
             </div>
