@@ -32,7 +32,7 @@ const clientsByCategory = [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504320/17_tfe1r0.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504286/16_w9oj7q.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504280/19_f4xuav.png",
-      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783607804/logos_they_trust_us_500_x_500_px_6_t9osaf.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783608900/logos_they_trust_us_500_x_500_px_6_fsn8gp.png",
     ],
   },
   {
