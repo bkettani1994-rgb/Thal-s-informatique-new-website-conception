@@ -103,40 +103,41 @@ export default function PaieRhClient() {
       <Navbar />
       <main>
 
-        {/* ── HERO — image de fond pleine largeur ── */}
-        <section className="relative pt-32 pb-28 bg-primary overflow-hidden">
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
-          {/* Placeholder image de fond */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-10">
-            <span className="text-white/30 text-sm">Image de fond à ajouter</span>
-          </div>
-          <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div {...fadeUp}>
-              <nav className="text-sm text-white/50 mb-6 flex items-center justify-center gap-2">
-                <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                <ChevronRight size={14} />
-                <Link href="/metiers" className="hover:text-white transition-colors">Métiers</Link>
-                <ChevronRight size={14} />
-                <span className="text-white">Paie & RH</span>
-              </nav>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                Nos solutions de Paie et de RH
-              </h1>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Libérez-vous des tâches administratives et facilitez la vie de vos collaborateurs avec une solution paie et RH adaptée aux besoins uniques de votre entreprise.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-slate-100 transition-colors duration-200"
+        {/* ── HERO ── */}
+        <section className="pt-32 pb-20 bg-primary">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div {...fadeUp}>
+                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                  <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+                  <ChevronRight size={14} />
+                  <Link href="/metiers" className="hover:text-white transition-colors">Métiers</Link>
+                  <ChevronRight size={14} />
+                  <span className="text-white">Paie & RH</span>
+                </nav>
+                <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                  Nos solutions de Paie et de RH
+                </h1>
+                <p className="text-white/70 text-lg leading-relaxed mb-8">
+                  Libérez-vous des tâches administratives et facilitez la vie de vos collaborateurs avec une solution paie et RH adaptée aux besoins uniques de votre entreprise.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Discutons ensemble <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="hidden lg:flex h-80 rounded-2xl bg-slate-700 border border-slate-600 items-center justify-center"
               >
-                Discutons ensemble <ArrowRight size={16} />
-              </Link>
-              {/* Illustration placeholder */}
-              <div className="mt-10 h-48 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                <span className="text-white/30 text-sm">Illustration à ajouter</span>
-              </div>
-            </motion.div>
+                <span className="text-slate-400 text-sm">Image à ajouter</span>
+              </motion.div>
+            </div>
           </div>
         </section>
 
