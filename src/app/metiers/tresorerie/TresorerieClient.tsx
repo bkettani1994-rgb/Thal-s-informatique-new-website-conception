@@ -124,7 +124,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 1 — QU'EST-CE QU'UN LOGICIEL DE TRÉSORERIE ? ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="max-w-3xl">
+            <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
               <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
                 Fondamentaux
               </span>
@@ -134,7 +134,7 @@ export default function TresorerieClient() {
               <p className="text-secondary leading-relaxed mb-6">
                 Un logiciel de trésorerie est un outil de gestion financière qui permet aux entreprises de suivre, d&apos;analyser et de prévoir leurs flux de trésorerie. Il centralise toutes les informations relatives aux encaissements et décaissements pour offrir une vision complète et instantanée de la situation financière.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-left">
                 {[
                   "Visualisez vos soldes bancaires en temps réel sur l'ensemble de vos comptes.",
                   "Anticipez vos besoins de financement et évitez les découverts imprévus.",
@@ -195,7 +195,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 3 — EXPÉRIENCE DE RÉFÉRENCE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +222,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 4 — LOGICIEL SUR MESURE ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <motion.div {...fadeUp}>
                 <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
                   Approche personnalisée
@@ -236,7 +236,7 @@ export default function TresorerieClient() {
                 <p className="text-secondary leading-relaxed mb-8">
                   De la TPE qui cherche à simplifier son suivi de trésorerie au groupe international qui exige une gestion multi-entités et une connectivité bancaire avancée, nous disposons d&apos;une gamme complète pour répondre à chaque besoin.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-6 text-left">
                   {strengths.map(({ icon: Icon, title, desc }) => (
                     <div key={title} className="flex flex-col gap-2">
                       <div className="w-9 h-9 rounded-lg bg-cta/10 flex items-center justify-center">
