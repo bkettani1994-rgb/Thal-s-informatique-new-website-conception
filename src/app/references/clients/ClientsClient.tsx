@@ -141,7 +141,7 @@ const clientsByCategory = [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507847/73_udmgki.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507849/75_vknqs0.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507850/76_m9swmn.png",
-      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783605485/logos_they_trust_us_500_x_500_px_5_cjyh9n.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783608092/logos_they_trust_us_500_x_500_px_5_j4urbg.png",
     ],
   },
   {
