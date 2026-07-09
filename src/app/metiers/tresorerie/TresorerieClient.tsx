@@ -124,7 +124,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 1 — QU'EST-CE QU'UN LOGICIEL DE TRÉSORERIE ? ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
+            <motion.div {...fadeUp} className="max-w-3xl">
               <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
                 Fondamentaux
               </span>
@@ -195,7 +195,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 3 — EXPÉRIENCE DE RÉFÉRENCE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +222,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 4 — LOGICIEL SUR MESURE ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl">
               <motion.div {...fadeUp}>
                 <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
                   Approche personnalisée
@@ -255,7 +255,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 5 — COMPARAISON SOLUTIONS ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+            <motion.div {...fadeUp} className="max-w-2xl mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
                 Trouvez le meilleur logiciel de trésorerie pour votre entreprise
               </h2>
@@ -310,7 +310,7 @@ export default function TresorerieClient() {
 
         {/* ── CTA FINAL ── */}
         <section className="py-16 bg-cta">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp}>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 Prêt à optimiser votre gestion de trésorerie ?
