@@ -88,9 +88,13 @@ export default function TresorerieClient() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="hidden lg:flex h-80 rounded-2xl bg-slate-700 border border-slate-600 items-center justify-center"
+                className="hidden lg:block h-80 rounded-2xl overflow-hidden"
               >
-                <span className="text-slate-400 text-sm">Image à ajouter</span>
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783591924/vitaly-gariev-jYg5NFTlOy0-unsplash_fr7neq.webp"
+                  alt="Gestion de trésorerie - Thalès Informatique"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
               <motion.div {...fadeUp}>
                 <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
