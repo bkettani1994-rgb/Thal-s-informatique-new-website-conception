@@ -5,15 +5,15 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight, ChevronDown, FileText, CalendarDays, CalendarClock, MessageSquare, Receipt, BarChart3 } from "lucide-react";
+import { ArrowRight, ChevronRight, ChevronDown, FileText, CalendarDays, CalendarClock, MessageSquare, Receipt, BarChart3, Settings, Shield, Brain, Cloud, MapPin, Handshake } from "lucide-react";
 
 const benefits = [
-  { title: "Moins d'administratif, plus d'humain", desc: "Simplifiez et automatisez vos processus RH, et dématérialisez les données de vos salariés.", icon: "⚙️" },
-  { title: "Soyez conforme", desc: "Gérez sereinement les contraintes légales et réglementaires et faites vos déclarations en un clic. C'est simple et rapide.", icon: "✅" },
-  { title: "Restez informé", desc: "Accédez facilement à toutes les informations et applications métier. Soyez averti des dernières mises à jour et bénéficiez de la veille juridique.", icon: "🧠" },
-  { title: "Faites des économies et optez pour la sécurité", desc: "Avec l'hébergement dans le cloud, oubliez les coûts de maintenance technique des serveurs et profitez d'une sécurité accrue de vos données.", icon: "☁️" },
-  { title: "Travaillez en mobilité", desc: "Où que vous soyez, à partir d'une simple connexion internet vous bénéficiez d'un accès à distance simple et sécurisé.", icon: "📍" },
-  { title: "Soyez accompagné", desc: "Vous pouvez compter sur la proximité et l'expertise métier de nos équipes pour construire avec vous votre solution de Paie & RH sur-mesure.", icon: "🤝" },
+  { title: "Moins d'administratif, plus d'humain", desc: "Simplifiez et automatisez vos processus RH, et dématérialisez les données de vos salariés.", icon: Settings },
+  { title: "Soyez conforme", desc: "Gérez sereinement les contraintes légales et réglementaires et faites vos déclarations en un clic. C'est simple et rapide.", icon: Shield },
+  { title: "Restez informé", desc: "Accédez facilement à toutes les informations et applications métier. Soyez averti des dernières mises à jour et bénéficiez de la veille juridique.", icon: Brain },
+  { title: "Faites des économies et optez pour la sécurité", desc: "Avec l'hébergement dans le cloud, oubliez les coûts de maintenance technique des serveurs et profitez d'une sécurité accrue de vos données.", icon: Cloud },
+  { title: "Travaillez en mobilité", desc: "Où que vous soyez, à partir d'une simple connexion internet vous bénéficiez d'un accès à distance simple et sécurisé.", icon: MapPin },
+  { title: "Soyez accompagné", desc: "Vous pouvez compter sur la proximité et l'expertise métier de nos équipes pour construire avec vous votre solution de Paie & RH sur-mesure.", icon: Handshake },
 ];
 
 const discoveryTabs = [
@@ -217,9 +217,11 @@ export default function Sage100PaieRhClient() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={benefitsInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white rounded-2xl p-6 border border-border hover:border-cta hover:shadow-lg transition-all duration-200"
+                  className="bg-white rounded-2xl p-6 border border-border hover:shadow-md transition-shadow duration-200 flex flex-col"
                 >
-                  <span className="text-3xl mb-4 block">{b.icon}</span>
+                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
+                    <b.icon size={20} className="text-cta" strokeWidth={1.75} />
+                  </div>
                   <h3 className="font-bold text-primary mb-2">{b.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed">{b.desc}</p>
                 </motion.div>
