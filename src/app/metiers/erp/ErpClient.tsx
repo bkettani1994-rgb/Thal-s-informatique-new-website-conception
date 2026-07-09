@@ -164,7 +164,7 @@ export default function ErpClient() {
 
         {/* ── SECTION 1 — QU'EST-CE QU'UN ERP ? ── */}
         <section className="py-20 bg-bg">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp}>
               <h2 className="text-3xl font-bold text-primary mb-6">
                 Qu&apos;est-ce qu&apos;un logiciel ERP ou PGI ?
@@ -178,7 +178,7 @@ export default function ErpClient() {
 
         {/* ── SECTION 2 — COMMENT FONCTIONNE UN ERP ? ── */}
         <section className="py-12 bg-bg">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp}>
               <h2 className="text-3xl font-bold text-primary mb-6">
                 Comment fonctionne un logiciel ERP ?
@@ -193,7 +193,7 @@ export default function ErpClient() {
         {/* ── SECTION 3 — QU'APPORTE L'ERP ? ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center mb-12">
+            <motion.div {...fadeUp} className="max-w-3xl mb-12">
               <h2 className="text-3xl font-bold text-primary mb-6">
                 Qu&apos;apporte le logiciel ERP à l&apos;entreprise ?
               </h2>
@@ -221,7 +221,7 @@ export default function ErpClient() {
         {/* ── SECTION 4 — POURQUOI SAGE ? ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+            <motion.div {...fadeUp} className="max-w-2xl mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
                 Pourquoi choisir les logiciels ERP Sage ?
               </h2>
@@ -253,7 +253,7 @@ export default function ErpClient() {
         {/* ── SECTION 5 — COMPARAISON SOLUTIONS ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+            <motion.div {...fadeUp} className="max-w-2xl mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
                 Découvrez nos ERP disponibles au Maroc et trouvez la solution qui vous correspond
               </h2>
