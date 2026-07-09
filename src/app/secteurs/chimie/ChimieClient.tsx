@@ -1,337 +1,296 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import {
-  ChevronRight,
-  FlaskConical,
-  ShieldCheck,
-  ClipboardList,
-  AlertTriangle,
-  Beaker,
-  PackageX,
-  FileSpreadsheet,
-  Truck,
-  BookOpen,
-} from "lucide-react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import {
+  ArrowRight, ChevronRight, CheckCircle,
+  Scale, ClipboardCheck, Truck,
+  Zap, AlertTriangle, TrendingDown,
+} from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
 };
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.1 } },
-};
+const defis = [
+  {
+    icon: Scale,
+    title: "Une conformité totale",
+    desc: "Aujourd'hui, l'une des difficultés majeures des acteurs mondiaux de la chimie est la nécessité de satisfaire à toutes les exigences réglementaires nationales et mondiales. Le SGH en est un exemple, mais vous devez sûrement relever d'autres défis réglementaires et la non-conformité dans ce domaine peut se solder par des coûts importants. Se perdre dans le dédale des législations et des restrictions mondiales peut avoir des conséquences dévastatrices pour votre entreprise.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Garantie d'une qualité constante",
+    desc: "À l'heure où les procédés de production s'orientent vers des modèles commerciaux de plus en plus spécialisés et multi-produits, la conformité des opérations devient plus essentielle que jamais. Mais veiller en permanence à la qualité, la sécurité et l'efficacité de vos produits peut conférer une certaine rigidité à votre entreprise et vous empêcher de saisir de nouvelles opportunités commerciales.",
+  },
+  {
+    icon: Truck,
+    title: "Gestion de toute votre chaîne logistique",
+    desc: "Les chaînes logistiques s'étendent bien au-delà des murs de votre entreprise, les éléments essentiels de votre entreprise étant maintenant fournis par des entités tierces situées dans le monde entier. Les systèmes locaux vous proposent une gestion réduite de ces partenaires, mais n'offrent pas une vue complète de votre chaîne logistique, entraînant des retards et des erreurs coûteuses.",
+  },
+];
+
+const avantages = [
+  {
+    icon: Zap,
+    title: "Réactivité accrue",
+    desc: "Améliorez votre potentiel de réussite commerciale en répondant plus rapidement aux exigences des clients et du marché. Rationalisez la gestion des fluctuations des achats, de la production et de l'expédition.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Diminution des risques",
+    desc: "Contrôlez en permanence la qualité, la sécurité et l'efficacité de vos produits pour limiter les risques tout en assurant des conditions de travail sécurisées et en respectant les réglementations.",
+  },
+  {
+    icon: TrendingDown,
+    title: "Réduction de vos coûts et de vos déchets",
+    desc: "Réduisez considérablement vos coûts opérationnels et vos déchets, tout en éliminant les risques potentiels de contamination croisée.",
+  },
+];
+
+const solutions = [
+  {
+    badge: "Sage 100",
+    badgeLabel: "Gestion de Production",
+    color: "bg-emerald-600",
+    name: "Sage 100 Gestion de Production",
+    subtitle: "Pour les PME et PMI",
+    description: "Avec Sage 100 Gestion de Production, vous disposez d'un logiciel GPAO dédié aux PME-PMI qui vous aidera à gérer vos données techniques, planifier vos ordres de fabrication, suivre vos encours de production et analyser vos coûts de revient.",
+    features: [
+      "Gérez vos données techniques pour que vos ordres de fabrication reflètent au mieux la réalité de l'atelier",
+      "Respectez vos délais et optimisez votre outil de production",
+      "Optimisez votre stock et vos ressources à terme grâce au CBN et au PIC/PDP",
+      "Anticipez vos achats grâce à l'analyse des mouvements des produits",
+      "Suivez vos encours de production en temps réel grâce à des tableaux de bord",
+    ],
+    cta: "Découvrez Sage 100 Gestion de Production",
+    href: "/contact",
+    highlight: false,
+  },
+  {
+    badge: "Sage Business Cloud",
+    badgeLabel: "Sage X3",
+    color: "bg-cta",
+    name: "Sage Business Cloud Sage X3",
+    subtitle: "Pour les moyennes et grandes entreprises",
+    description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
+    features: [
+      "Maîtrisez vos opérations internationales",
+      "Obtenez des informations pertinentes au moment opportun",
+      "Développez votre activité sur de nouveaux marchés et territoires",
+      "Gagnez en flexibilité et concentrez-vous sur votre cœur de métier",
+      "Disposez de workflows simples à gérer et très intuitifs",
+      "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
+    ],
+    cta: "Découvrez Sage X3",
+    href: "/contact",
+    highlight: true,
+  },
+];
 
 export default function ChimieClient() {
-  const introRef = useRef(null);
-  const challengesRef = useRef(null);
-  const solutionsRef = useRef(null);
-  const conformiteRef = useRef(null);
-  const productsRef = useRef(null);
-  const ctaRef = useRef(null);
-
-  const introInView = useInView(introRef, { once: true, margin: "-100px" });
-  const challengesInView = useInView(challengesRef, { once: true, margin: "-100px" });
-  const solutionsInView = useInView(solutionsRef, { once: true, margin: "-100px" });
-  const conformiteInView = useInView(conformiteRef, { once: true, margin: "-100px" });
-  const productsInView = useInView(productsRef, { once: true, margin: "-100px" });
-  const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
-
-  const challenges = [
-    {
-      icon: AlertTriangle,
-      title: "Gestion des matières dangereuses et des formulations",
-      desc: "Maîtrisez la composition de vos formules et le stockage sécurisé de vos matières classées dangereuses.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Conformité REACH et SEVESO",
-      desc: "Répondez aux exigences réglementaires applicables aux substances chimiques et aux sites à risque.",
-    },
-    {
-      icon: FileSpreadsheet,
-      title: "Fiches de données de sécurité et traçabilité des lots",
-      desc: "Centralisez vos FDS et assurez une traçabilité complète de chaque lot, du fournisseur au client final.",
-    },
-  ];
-
-  const solutions = [
-    {
-      icon: Beaker,
-      title: "Gestion des formulations",
-      desc: "Formules de fabrication, variantes produits, calcul du coût de revient par formule chimique.",
-    },
-    {
-      icon: ClipboardList,
-      title: "Traçabilité des lots",
-      desc: "N° de lot, origine matière première, traçabilité amont/aval complète sur l'ensemble du cycle.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Conformité REACH/SEVESO",
-      desc: "Suivi des seuils réglementaires, gestion documentaire et préparation aux audits de conformité.",
-    },
-    {
-      icon: FileSpreadsheet,
-      title: "Fiches de données de sécurité",
-      desc: "Centralisation des FDS, mise à jour réglementaire et diffusion aux équipes concernées.",
-    },
-    {
-      icon: PackageX,
-      title: "Gestion des stocks ADR",
-      desc: "Stockage réglementé des matières dangereuses, zones de compatibilité, alertes de seuil.",
-    },
-    {
-      icon: BookOpen,
-      title: "Planification production",
-      desc: "Ordonnancement de production chimique, gestion des capacités et des contraintes de fabrication.",
-    },
-  ];
-
-  const products = [
-    {
-      name: "Sage X3",
-      desc: "ERP préconfigurée pour la production chimique, avec traçabilité des lots et gestion des formulations",
-      color: "from-purple-600 to-violet-700",
-    },
-    {
-      name: "Sage X3 RH",
-      desc: "Gestion RH adaptée aux contraintes de sécurité et d'habilitation du secteur chimique",
-      color: "from-violet-600 to-purple-600",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-bg">
+    <>
       <Navbar />
+      <main>
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-purple-400 blur-3xl" />
-          <div className="absolute bottom-10 left-10 w-64 h-64 rounded-full bg-violet-400 blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 text-sm text-white/60 mb-6">
-              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
-              <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">Chimie</span>
+        {/* ── HERO ── */}
+        <section className="pt-32 pb-20 bg-primary">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div {...fadeUp}>
+                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                  <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+                  <ChevronRight size={14} />
+                  <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
+                  <ChevronRight size={14} />
+                  <span className="text-white">Chimie</span>
+                </nav>
+                <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                  Trouvez la formule gagnante grâce à un logiciel de gestion conçu pour votre entreprise de produits chimiques
+                </h1>
+                <p className="text-white/70 text-lg leading-relaxed mb-8">
+                  Prenez de l&apos;avance sur des exigences de conformité en constante évolution.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Demandez plus d&apos;informations <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="hidden lg:flex h-80 rounded-2xl bg-slate-700 border border-slate-600 items-center justify-center"
+              >
+                <span className="text-slate-400 text-sm">Image à ajouter</span>
+              </motion.div>
             </div>
-            <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-4 py-2 mb-6">
-              <FlaskConical size={14} className="text-purple-300" />
-              <span className="text-purple-300 text-sm font-semibold uppercase tracking-wider">SECTEUR CHIMIE</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Chi<span className="text-purple-400">mie</span>
-            </h1>
-            <p className="text-xl text-white/70 max-w-2xl">
-              Traçabilité des lots et conformité REACH/SEVESO — une gestion maîtrisée pour l&apos;industrie chimique marocaine.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Intro 2-col */}
-      <section className="py-20 bg-white" ref={introRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={introInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-          >
-            <motion.div variants={fadeUp}>
-              <h2 className="text-3xl font-bold text-primary mb-6">
-                Une production chimique sécurisée et traçable
+        {/* ── SECTION 1 — CLÉS D'UNE ACTIVITÉ RENTABLE ── */}
+        <section className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <motion.div {...fadeUp}>
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
+                  Cherchez-vous les clés d&apos;une activité plus rentable ?
+                </h2>
+                <p className="text-secondary leading-relaxed mb-4">
+                  Investir dans la bonne solution commerciale pourrait bien être l&apos;élément manquant.
+                </p>
+                <p className="text-secondary leading-relaxed">
+                  La gestion d&apos;une entreprise de produits chimiques peut être complexe. Le système général harmonisé (SGH), les problématiques liées à l&apos;expédition et au transport, la sécurité sur le lieu de travail et d&apos;autres aspects sont autant de défis à relever au quotidien. Pour résister à la pression concurrentielle et optimiser vos ressources les plus précieuses, vous avez besoin d&apos;une solution qui simplifiera radicalement vos opérations, plutôt que d&apos;y ajouter des systèmes plus complexes et des processus rigides.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 2 — 3 DÉFIS ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                Avez-vous tous les outils pour répondre rapidement aux défis d&apos;un environnement en constante évolution ?
               </h2>
-              <p className="text-secondary text-lg leading-relaxed mb-4">
-                L&apos;industrie chimique marocaine doit conjuguer gestion rigoureuse des matières dangereuses, conformité aux référentiels REACH et SEVESO, et traçabilité complète des lots et formulations.
-              </p>
               <p className="text-secondary leading-relaxed">
-                Thalès Informatique propose des solutions ERP adaptées à la production chimique, intégrant la gestion des fiches de données de sécurité, le suivi des stocks ADR et la traçabilité de bout en bout.
+                Aujourd&apos;hui, l&apos;industrie chimique doit satisfaire à des règles de conformité plus strictes que jamais, sans parler du fardeau supplémentaire des reportings financiers. Êtes-vous en mesure de continuer à garantir la conformité que vos clients attendent de vous ?
               </p>
             </motion.div>
-            <motion.div variants={fadeUp} className="grid grid-cols-3 gap-6">
-              {[
-                { value: "Lot", label: "Traçabilité complète" },
-                { value: "ADR", label: "Stocks réglementés" },
-                { value: "FDS", label: "Gestion centralisée" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center p-6 bg-slate-50 rounded-2xl border border-border">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">{stat.value}</div>
-                  <div className="text-sm text-secondary">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Défis */}
-      <section className="py-20 bg-slate-50" ref={challengesRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={challengesInView ? "visible" : "hidden"}
-          >
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <h2 className="text-3xl font-bold text-primary mb-4">Les défis du secteur chimique</h2>
-              <p className="text-secondary max-w-2xl mx-auto">
-                L&apos;industrie chimique marocaine fait face à des exigences de sécurité et de traçabilité strictes.
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {challenges.map((c) => (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {defis.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
-                  key={c.title}
-                  variants={fadeUp}
-                  className="bg-white rounded-2xl p-8 border border-border shadow-sm hover:shadow-md transition-shadow"
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex flex-col gap-3"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-6">
-                    <c.icon size={24} className="text-purple-600" />
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
+                    <Icon size={22} className="text-cta" />
                   </div>
-                  <h3 className="font-bold text-primary mb-3">{c.title}</h3>
-                  <p className="text-secondary text-sm leading-relaxed">{c.desc}</p>
+                  <h3 className="font-bold text-primary text-sm leading-snug">{title}</h3>
+                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Solutions */}
-      <section className="py-20 bg-white" ref={solutionsRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={solutionsInView ? "visible" : "hidden"}
-          >
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <h2 className="text-3xl font-bold text-primary mb-4">Nos solutions pour le secteur chimique</h2>
-              <p className="text-secondary max-w-2xl mx-auto">
-                Des modules ERP préconfigurés pour répondre aux exigences spécifiques de l&apos;industrie chimique.
+        {/* ── SECTION 3 — SOLUTIONS ── */}
+        <section className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                Surpassez les attentes de vos clients et augmentez vos bénéfices
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Dépassez les défis liés au stockage grâce à nos solutions de distribution en gros intelligentes et intuitives.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {solutions.map((s) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {solutions.map((sol, i) => (
                 <motion.div
-                  key={s.title}
-                  variants={fadeUp}
-                  className="p-6 rounded-2xl border border-border bg-slate-50 hover:border-purple-200 hover:bg-purple-50/30 transition-all"
+                  key={sol.name}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className={`rounded-2xl border flex flex-col overflow-hidden ${sol.highlight ? "border-cta shadow-lg shadow-cta/10" : "border-border"}`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center mb-4">
-                    <s.icon size={18} className="text-white" />
+                  <div className={`${sol.color} px-6 py-4`}>
+                    <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">{sol.badge}</p>
+                    <p className="text-white font-bold text-lg">{sol.badgeLabel}</p>
                   </div>
-                  <h3 className="font-bold text-primary mb-2">{s.title}</h3>
-                  <p className="text-secondary text-sm leading-relaxed">{s.desc}</p>
+                  <div className="bg-white flex flex-col flex-1 p-6">
+                    <p className="text-xs font-bold text-cta uppercase tracking-widest mb-2">{sol.subtitle}</p>
+                    <p className="text-secondary text-sm leading-relaxed mb-5">{sol.description}</p>
+                    <ul className="space-y-2.5 mb-8 flex-1">
+                      {sol.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-secondary text-sm">
+                          <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={sol.href}
+                      className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "bg-primary text-white hover:bg-slate-800"}`}
+                    >
+                      {sol.cta} <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Conformité highlight */}
-      <section className="py-16 bg-purple-50 border-y border-purple-100" ref={conformiteRef}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={conformiteInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-10 border-2 border-purple-200 shadow-sm text-center"
-          >
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <ShieldCheck size={32} className="text-purple-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-primary mb-4">
-              Une conformité intégrée pour vos sites de production
-            </h3>
-            <p className="text-secondary text-lg leading-relaxed max-w-2xl mx-auto">
-              Notre solution structure la gestion des matières dangereuses, des fiches de données de sécurité et des stocks ADR, pour répondre aux référentiels REACH et SEVESO tout en assurant une traçabilité complète de vos lots et formulations.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
-              {["REACH", "SEVESO", "FDS", "Stocks ADR", "Traçabilité lots"].map((norm) => (
-                <span key={norm} className="bg-purple-100 text-purple-700 font-semibold text-sm px-4 py-2 rounded-full border border-purple-200">
-                  {norm}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Solutions recommandées */}
-      <section className="py-20 bg-primary" ref={productsRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={productsInView ? "visible" : "hidden"}
-          >
-            <motion.div variants={fadeUp} className="text-center mb-14">
-              <h2 className="text-3xl font-bold text-white mb-4">Solutions recommandées</h2>
-              <p className="text-white/60 max-w-2xl mx-auto">
-                Thalès Informatique sélectionne les meilleures solutions pour les industriels chimiques marocains.
+        {/* ── SECTION 4 — MAÎTRISEZ VOS COÛTS ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                Maîtrisez vos coûts et vos risques grâce à une solution puissante et évolutive
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                La bonne solution de gestion peut transformer votre entreprise de produits chimiques en vous offrant la simplicité, la flexibilité et le contrôle dont vous avez besoin.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {products.map((p) => (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {avantages.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
-                  key={p.name}
-                  variants={fadeUp}
-                  className={`rounded-2xl p-8 bg-gradient-to-br ${p.color} text-white`}
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex flex-col gap-3"
                 >
-                  <h3 className="text-xl font-bold mb-3">{p.name}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">{p.desc}</p>
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
+                    <Icon size={22} className="text-cta" />
+                  </div>
+                  <h3 className="font-bold text-primary text-sm">{title}</h3>
+                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-purple-700" ref={ctaRef}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate={ctaInView ? "visible" : "hidden"}
-          >
-            <motion.h2 variants={fadeUp} className="text-3xl font-bold text-white mb-6">
-              Voir une démonstration pour l&apos;industrie chimique
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-white/80 text-lg mb-10">
-              Découvrez comment Thalès Informatique sécurise la traçabilité et la conformité des industriels chimiques marocains.
-            </motion.p>
-            <motion.div variants={fadeUp}>
+        {/* ── CTA FINAL ── */}
+        <section className="py-16 bg-cta">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div {...fadeUp}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                Prêt à optimiser votre entreprise de produits chimiques ?
+              </h2>
+              <p className="text-white/80 mb-8 leading-relaxed">
+                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée aux spécificités de votre secteur.
+              </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-purple-700 font-bold px-8 py-4 rounded-xl hover:bg-purple-50 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
               >
-                Demander une démo
-                <ChevronRight size={18} />
+                Discuter de votre projet <ArrowRight size={16} />
               </Link>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
 
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
