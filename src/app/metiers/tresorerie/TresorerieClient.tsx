@@ -256,36 +256,29 @@ export default function TresorerieClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className={`rounded-2xl border p-8 flex flex-col ${sol.highlight ? "border-cta shadow-lg shadow-cta/10 bg-white" : "border-border bg-white"}`}
+                  className={`rounded-2xl border flex flex-col overflow-hidden ${sol.highlight ? "border-cta shadow-lg shadow-cta/10" : "border-border"}`}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className={`w-10 h-10 rounded-full ${sol.color} text-white text-sm font-bold flex items-center justify-center shrink-0`}>
-                      {sol.badge}
-                    </span>
-                    <div>
-                      <p className="font-bold text-primary text-sm">{sol.name}</p>
-                      <p className="text-secondary text-xs">{sol.subtitle}</p>
-                    </div>
+                  <div className={`${sol.color} px-6 py-4`}>
+                    <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">{sol.badge}</p>
+                    <p className="text-white font-bold text-lg">{sol.name}</p>
                   </div>
-                  {sol.highlight && (
-                    <span className="text-xs font-bold text-cta bg-cta/10 rounded-full px-3 py-1 w-fit mb-4">
-                      Recommandé PME
-                    </span>
-                  )}
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {sol.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-secondary text-sm">
-                        <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={sol.href}
-                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "border-2 border-primary text-primary hover:bg-primary hover:text-white"}`}
-                  >
-                    {sol.cta} <ArrowRight size={14} />
-                  </Link>
+                  <div className="bg-white flex flex-col flex-1 p-6">
+                    <p className="text-secondary text-sm leading-relaxed mb-5">{sol.subtitle}</p>
+                    <ul className="space-y-2.5 mb-8 flex-1">
+                      {sol.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-secondary text-sm">
+                          <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={sol.href}
+                      className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "bg-primary text-white hover:bg-slate-800"}`}
+                    >
+                      {sol.cta} <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
