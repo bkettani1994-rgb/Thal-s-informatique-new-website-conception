@@ -17,22 +17,6 @@ const fadeUp = {
 
 const solutions = [
   {
-    badge: "50",
-    color: "bg-emerald-500",
-    name: "Sage 50",
-    subtitle: "Pour les TPE & petites entreprises",
-    features: [
-      "Suivi des encaissements et décaissements",
-      "Rapprochement bancaire automatisé",
-      "Prévisions de trésorerie simples",
-      "Tableaux de bord intuitifs",
-      "Export comptable facilité",
-    ],
-    cta: "Découvrir Sage 50",
-    href: "/contact",
-    highlight: false,
-  },
-  {
     badge: "100",
     color: "bg-cta",
     name: "Sage 100 Trésorerie",
