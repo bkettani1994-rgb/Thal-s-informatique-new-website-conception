@@ -164,7 +164,8 @@ export default function ErpClient() {
 
         {/* ── SECTION 1 — QU'EST-CE QU'UN ERP ? ── */}
         <section className="py-20 bg-bg">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
             <motion.div {...fadeUp}>
               <h2 className="text-3xl font-bold text-primary mb-6">
                 Qu&apos;est-ce qu&apos;un logiciel ERP ou PGI ?
@@ -173,12 +174,14 @@ export default function ErpClient() {
                 ERP signifie Enterprise Resources Planning, c&apos;est-à-dire planification des ressources de l&apos;entreprise. L&apos;ERP permet de piloter l&apos;ensemble des processus opérationnels d&apos;une entreprise en intégrant plusieurs fonctions de gestion : gestion commerciale, gestion des stocks et des commandes, chaîne d&apos;approvisionnement, comptabilité, paie et ressources humaines ou encore relation client. En français, le logiciel ERP est appelé logiciel PGI (Progiciel de Gestion Intégré).
               </p>
             </motion.div>
+            </div>
           </div>
         </section>
 
         {/* ── SECTION 2 — COMMENT FONCTIONNE UN ERP ? ── */}
         <section className="py-12 bg-bg">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
             <motion.div {...fadeUp}>
               <h2 className="text-3xl font-bold text-primary mb-6">
                 Comment fonctionne un logiciel ERP ?
@@ -187,6 +190,7 @@ export default function ErpClient() {
                 L&apos;ERP se présente comme une plateforme composée de modules correspondant aux différents services de l&apos;entreprise. Tous les services utilisent simultanément le logiciel ERP pour effectuer les opérations quotidiennes telles que la comptabilité et finance, paie et ressources humaines, gestion de stocks, chaîne logistique, etc. Ainsi, si une action est réalisée (une vente par exemple), le système ERP va mettre les stocks de l&apos;entreprise directement à jour, ce qui garantit une information correcte et fiable.
               </p>
             </motion.div>
+            </div>
           </div>
         </section>
 
@@ -201,7 +205,7 @@ export default function ErpClient() {
                 Une entreprise a besoin d&apos;un progiciel de gestion intégré afin d&apos;optimiser et faciliter l&apos;ensemble des processus de gestion, sa productivité ou encore ses ressources. Acquérir un outil ERP comporte de nombreux avantages pour toute structure.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl">
               {benefits.map((b, i) => (
                 <motion.div
                   key={b.title}
