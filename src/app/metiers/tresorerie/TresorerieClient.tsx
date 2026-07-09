@@ -176,9 +176,13 @@ export default function TresorerieClient() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="hidden lg:flex h-80 rounded-2xl bg-slate-100 border border-border items-center justify-center"
+                className="hidden lg:block h-80 rounded-2xl overflow-hidden"
               >
-                <span className="text-slate-400 text-sm">Schéma / image à ajouter</span>
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783591275/c2d499-LES_ENJEUX_DE_LA_TRESORERIE-thales-informatique_hvc0ez.png"
+                  alt="Les enjeux de la trésorerie - Thalès Informatique"
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
             </div>
           </div>
@@ -187,16 +191,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 3 — EXPÉRIENCE DE RÉFÉRENCE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="hidden lg:flex h-72 rounded-2xl bg-slate-200 border border-border items-center justify-center"
-              >
-                <span className="text-slate-400 text-sm">Image à ajouter</span>
-              </motion.div>
+            <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -223,7 +218,7 @@ export default function TresorerieClient() {
         {/* ── SECTION 4 — LOGICIEL SUR MESURE ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div className="max-w-3xl">
               <motion.div {...fadeUp}>
                 <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2 block">
                   Approche personnalisée
@@ -248,15 +243,6 @@ export default function TresorerieClient() {
                     </div>
                   ))}
                 </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="hidden lg:flex h-80 rounded-2xl bg-slate-100 border border-border items-center justify-center"
-              >
-                <span className="text-slate-400 text-sm">Image à ajouter</span>
               </motion.div>
             </div>
           </div>
