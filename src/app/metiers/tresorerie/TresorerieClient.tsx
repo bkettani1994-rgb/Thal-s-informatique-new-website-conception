@@ -19,7 +19,6 @@ const solutions = [
   {
     badge: "50",
     color: "bg-emerald-500",
-    icon: TrendingUp,
     name: "Sage 50",
     subtitle: "Pour les TPE & petites entreprises",
     features: [
@@ -36,7 +35,6 @@ const solutions = [
   {
     badge: "100",
     color: "bg-cta",
-    icon: TrendingUp,
     name: "Sage 100 Trésorerie",
     subtitle: "Pour les PME en croissance",
     features: [
@@ -53,7 +51,6 @@ const solutions = [
   {
     badge: "XRT",
     color: "bg-slate-700",
-    icon: TrendingUp,
     name: "Sage XRT Solutions",
     subtitle: "Pour les grandes entreprises & groupes",
     features: [
@@ -275,16 +272,23 @@ export default function TresorerieClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="rounded-2xl border border-border bg-white flex flex-col p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+                  className={`rounded-2xl border p-8 flex flex-col ${sol.highlight ? "border-cta shadow-lg shadow-cta/10 bg-white" : "border-border bg-white"}`}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
-                    <sol.icon size={20} className="text-cta" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className={`w-10 h-10 rounded-full ${sol.color} text-white text-sm font-bold flex items-center justify-center shrink-0`}>
+                      {sol.badge}
+                    </span>
+                    <div>
+                      <p className="font-bold text-primary text-sm">{sol.name}</p>
+                      <p className="text-secondary text-xs">{sol.subtitle}</p>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-primary text-lg mb-1">{sol.name}</h3>
-                  {sol.subtitle && (
-                    <p className="text-xs font-semibold text-cta uppercase tracking-widest mb-3">{sol.subtitle}</p>
+                  {sol.highlight && (
+                    <span className="text-xs font-bold text-cta bg-cta/10 rounded-full px-3 py-1 w-fit mb-4">
+                      Recommandé PME
+                    </span>
                   )}
-                  <ul className="space-y-2.5 mb-6 flex-1">
+                  <ul className="space-y-3 mb-8 flex-1">
                     {sol.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-secondary text-sm">
                         <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
@@ -292,8 +296,11 @@ export default function TresorerieClient() {
                       </li>
                     ))}
                   </ul>
-                  <Link href={sol.href} className="inline-flex items-center gap-1 text-cta font-semibold text-sm hover:underline">
-                    En savoir plus <ArrowRight size={14} />
+                  <Link
+                    href={sol.href}
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "border-2 border-primary text-primary hover:bg-primary hover:text-white"}`}
+                  >
+                    {sol.cta} <ArrowRight size={14} />
                   </Link>
                 </motion.div>
               ))}

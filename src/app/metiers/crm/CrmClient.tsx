@@ -72,7 +72,6 @@ const solutions = [
     badge: "Sage 100",
     badgeLabel: "Force de vente",
     color: "bg-emerald-600",
-    icon: Users,
     name: "Sage 100 Force de vente",
     subtitle: "Gagnez en efficacité commerciale pour développer votre activité.",
     features: [
@@ -91,7 +90,6 @@ const solutions = [
     badge: "Sage 100",
     badgeLabel: "Service client",
     color: "bg-cta",
-    icon: Phone,
     name: "Sage 100 Service client",
     subtitle: "Optimisez vos services et fidélisez vos clients.",
     features: [
@@ -353,24 +351,34 @@ export default function CrmClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="rounded-2xl border border-border bg-white flex flex-col p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+                  className={`rounded-2xl border flex flex-col overflow-hidden ${sol.highlight ? "border-cta shadow-lg shadow-cta/10" : "border-border"}`}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
-                    <sol.icon size={20} className="text-cta" />
+                  <div className={`${sol.color} px-6 py-4`}>
+                    <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">{sol.badge}</p>
+                    <p className="text-white font-bold text-lg">{sol.badgeLabel}</p>
                   </div>
-                  <h3 className="font-bold text-primary text-lg mb-1">{sol.name}</h3>
-                  <p className="text-secondary text-sm leading-relaxed mb-5">{sol.subtitle}</p>
-                  <ul className="space-y-2.5 mb-6 flex-1">
-                    {sol.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-secondary text-sm">
-                        <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href={sol.ctas[0].href} className="inline-flex items-center gap-1 text-cta font-semibold text-sm hover:underline">
-                    En savoir plus <ArrowRight size={14} />
-                  </Link>
+                  <div className="bg-white flex flex-col flex-1 p-6">
+                    <p className="text-secondary text-sm leading-relaxed mb-5">{sol.subtitle}</p>
+                    <ul className="space-y-2.5 mb-8 flex-1">
+                      {sol.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-secondary text-sm">
+                          <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-col gap-3">
+                      {sol.ctas.map((cta, ci) => (
+                        <Link
+                          key={cta.label}
+                          href={cta.href}
+                          className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${ci === 0 ? (sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "bg-primary text-white hover:bg-slate-800") : "border-2 border-current text-primary hover:bg-primary hover:text-white"}`}
+                        >
+                          {cta.label} <ArrowRight size={14} />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>

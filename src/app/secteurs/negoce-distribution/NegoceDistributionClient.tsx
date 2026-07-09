@@ -7,7 +7,6 @@ import Footer from "@/components/ui/Footer";
 import {
   ArrowRight, ChevronRight, CheckCircle,
   Package, TrendingUp, Users,
-  ShoppingCart, Building2, Layers,
 } from "lucide-react";
 
 const fadeUp = {
@@ -58,7 +57,6 @@ const solutions = [
     badge: "Sage 100",
     badgeLabel: "Gestion Commerciale",
     color: "bg-emerald-600",
-    icon: ShoppingCart,
     name: "Sage 100 Gestion Commerciale",
     subtitle: "",
     description: "Maîtrisez l'intégralité de la chaîne commerciale avec notre logiciel de gestion commerciale puissant : du devis aux factures en passant par l'approvisionnement, les stocks et la logistique. Notre logiciel de gestion commerciale vous accompagne dans votre productivité.",
@@ -78,7 +76,6 @@ const solutions = [
     badge: "Sage 100",
     badgeLabel: "Entreprise",
     color: "bg-cta",
-    icon: Building2,
     name: "Sage 100 Entreprise",
     subtitle: "Pour les PME",
     description: "Avec Sage 100 Entreprise, votre ERP pour PME s'appuie sur un système unique et cohérent, des informations centralisées, et des fonctions de pilotage pour prendre les bonnes décisions.",
@@ -98,7 +95,6 @@ const solutions = [
     badge: "Sage X3",
     badgeLabel: "Warehousing",
     color: "bg-slate-600",
-    icon: Package,
     name: "Sage X3 Warehousing",
     subtitle: "Des PME aux grandes entreprises",
     description: "Rendez vos opérations logistiques et la gestion de vos entrepôts plus simples que jamais.",
@@ -117,7 +113,6 @@ const solutions = [
     badge: "Sage Business Cloud",
     badgeLabel: "Sage X3",
     color: "bg-slate-700",
-    icon: Layers,
     name: "Sage Business Cloud Sage X3",
     subtitle: "Pour les moyennes et grandes entreprises",
     description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
@@ -310,27 +305,32 @@ export default function NegoceDistributionClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="rounded-2xl border border-border bg-white flex flex-col p-5 shadow-sm hover:shadow-md transition-shadow duration-200"
+                  className={`rounded-2xl border flex flex-col overflow-hidden ${sol.highlight ? "border-cta shadow-lg shadow-cta/10" : "border-border"}`}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
-                    <sol.icon size={20} className="text-cta" />
+                  <div className={`${sol.color} px-4 py-3`}>
+                    <p className="text-white/80 text-xs font-semibold uppercase tracking-widest">{sol.badge}</p>
+                    <p className="text-white font-bold">{sol.badgeLabel}</p>
                   </div>
-                  <h3 className="font-bold text-primary text-base mb-1">{sol.name}</h3>
-                  {sol.subtitle && (
-                    <p className="text-xs font-semibold text-cta uppercase tracking-widest mb-3">{sol.subtitle}</p>
-                  )}
-                  <p className="text-secondary text-xs leading-relaxed mb-4">{sol.description}</p>
-                  <ul className="space-y-2 mb-6 flex-1">
-                    {sol.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-secondary text-xs">
-                        <CheckCircle size={12} className="text-cta mt-0.5 shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href={sol.href} className="inline-flex items-center gap-1 text-cta font-semibold text-xs hover:underline">
-                    En savoir plus <ArrowRight size={12} />
-                  </Link>
+                  <div className="bg-white flex flex-col flex-1 p-5">
+                    {sol.subtitle && (
+                      <p className="text-xs font-bold text-cta uppercase tracking-widest mb-2">{sol.subtitle}</p>
+                    )}
+                    <p className="text-secondary text-xs leading-relaxed mb-4">{sol.description}</p>
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {sol.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-secondary text-xs">
+                          <CheckCircle size={12} className="text-cta mt-0.5 shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={sol.href}
+                      className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold text-xs transition-colors duration-200 ${sol.highlight ? "bg-cta text-white hover:bg-blue-700" : "bg-primary text-white hover:bg-slate-800"}`}
+                    >
+                      {sol.cta} <ArrowRight size={12} />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
