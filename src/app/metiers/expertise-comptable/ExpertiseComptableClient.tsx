@@ -67,7 +67,7 @@ export default function ExpertiseComptableClient() {
                 className="hidden lg:block h-80 rounded-2xl overflow-hidden"
               >
                 <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783590163/istockphoto-2245956599-1024x1024_mry2jt.jpg"
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783591001/lukas-blazek-mcSDtbWXUZU-unsplash_euunas.jpg"
                   alt="Expert-comptable avec solutions Sage - Thalès Informatique"
                   className="w-full h-full object-cover"
                 />
