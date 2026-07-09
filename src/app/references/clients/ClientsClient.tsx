@@ -115,7 +115,7 @@ const clientsByCategory = [
     category: "Éducation & Santé",
     color: "bg-pink-50 border-pink-200 text-pink-800",
     dot: "bg-pink-500",
-    clients: ["1","2","3","4","5","6","7","8","9"],
+    clients: ["1","2","3","4","5","6","7","8","9","10"],
     logos: [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507556/63_mwwk5a.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507578/65_fjv1gc.png",
@@ -126,6 +126,7 @@ const clientsByCategory = [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507583/64_px2lsr.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507584/68_cpnc8k.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507584/66_fazatt.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783595383/logos_they_trust_us_500_x_500_px_4_x2wkna.png",
     ],
   },
   {
