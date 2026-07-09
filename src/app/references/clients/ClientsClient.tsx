@@ -32,6 +32,7 @@ const clientsByCategory = [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504320/17_tfe1r0.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504286/16_w9oj7q.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783504280/19_f4xuav.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783607804/logos_they_trust_us_500_x_500_px_6_t9osaf.png",
     ],
   },
   {
@@ -133,13 +134,14 @@ const clientsByCategory = [
     category: "Holding",
     color: "bg-slate-50 border-slate-200 text-slate-800",
     dot: "bg-slate-500",
-    clients: ["1","2","3","4","5"],
+    clients: ["1","2","3","4","5","6"],
     logos: [
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507832/72_sbfp0q.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507848/74_zwxsrd.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507847/73_udmgki.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507849/75_vknqs0.png",
       "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783507850/76_m9swmn.png",
+      "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783605485/logos_they_trust_us_500_x_500_px_5_cjyh9n.png",
     ],
   },
   {
