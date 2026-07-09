@@ -59,14 +59,19 @@ export default function ExpertiseComptableClient() {
                   Demander une démo <ArrowRight size={16} />
                 </Link>
               </motion.div>
-              {/* Placeholder image — à remplacer */}
               <motion.div
                 initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="hidden lg:block h-80 rounded-2xl bg-slate-100 border border-border"
-              />
+                className="hidden lg:block h-80 rounded-2xl overflow-hidden"
+              >
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783590163/istockphoto-2245956599-1024x1024_mry2jt.jpg"
+                  alt="Expert-comptable avec solutions Sage - Thalès Informatique"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           </div>
         </section>
@@ -101,14 +106,19 @@ export default function ExpertiseComptableClient() {
                   En savoir plus <ArrowRight size={16} />
                 </Link>
               </motion.div>
-              {/* Placeholder image dashboard */}
               <motion.div
                 initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="h-72 rounded-2xl bg-slate-100 border border-border hidden lg:block"
-              />
+                className="h-72 rounded-2xl overflow-hidden hidden lg:block"
+              >
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783590026/fr-ma-accountants-thales-zoverview-ui-3-thales-informatique_fy4thf.webp"
+                  alt="Interface Sage Génération Expert Connect - Thalès Informatique"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           </div>
         </section>
@@ -117,14 +127,19 @@ export default function ExpertiseComptableClient() {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-              {/* Placeholder image */}
               <motion.div
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="h-72 rounded-2xl bg-slate-100 border border-border hidden lg:block"
-              />
+                className="h-72 rounded-2xl overflow-hidden hidden lg:block"
+              >
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783590025/fr-ma-accountants-overview-ui-2a-thales-informatique_nlneq9.webp"
+                  alt="Dashboard comptable Sage X3 - Thalès Informatique"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
