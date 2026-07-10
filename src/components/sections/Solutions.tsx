@@ -18,42 +18,42 @@ const solutions = [
     title: "Finance & Trésorerie",
     desc: "Comptabilité, pilotage financier, reporting et gestion de trésorerie en temps réel.",
     href: "/metiers/comptabilite-finance",
-    image: null,
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676307/magnific_closeup-of-a-modern-metal_rlHIHXIxtc_jyh1xs.webp",
   },
   {
     icon: Users2,
     title: "RH & Paie",
     desc: "Digitalisation RH, gestion de la paie, des talents et de l'administration du personnel.",
     href: "/metiers/paie-rh",
-    image: null,
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676307/magnific_macro-shot-of-a-water-dro_vuBYo8Ia47_dbra67.webp",
   },
   {
     icon: Cog,
     title: "Processus Opérationnels",
     desc: "ERP, gestion commerciale, supply chain et pilotage de la production au quotidien.",
     href: "/metiers/erp",
-    image: null,
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676307/magnific_intricate-network-of-indu_XtT3M3bBfo_moyiit.webp",
   },
   {
     icon: LineChart,
     title: "Conseil",
     desc: "Audit, accompagnement stratégique et transformation digitale sur-mesure.",
     href: "/contact",
-    image: null,
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676306/magnific_abstract-conceptual-lands_8vD2dpcIrU_ftdpqd.webp",
   },
   {
     icon: Code2,
     title: "Développement Spécifique",
     desc: "Personnalisation ERP, connecteurs métier et automatisation sur-mesure.",
     href: "/contact",
-    image: null,
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676306/magnific_a-modern-asphalt-road-tra_DBY9Tzbpcl_bw0agm.webp",
   },
   {
     icon: Server,
     title: "Ingénierie IT",
     desc: "Infrastructure, architecture système, réseaux et sécurité informatique.",
     href: "/contact",
-    image: null,
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676306/magnific_a-solid-tree-trunk-in-a-m_y6gbUHjPW9_uzgwr3.webp",
   },
 ];
 
@@ -96,7 +96,11 @@ export default function Solutions() {
                 {/* Image zone with diagonal cut */}
                 <div className="relative h-48 bg-slate-200" style={{ clipPath: "polygon(0 0, 100% 0, 100% 82%, 0 100%)" }}>
                   {sol.image ? (
-                    <img src={sol.image} alt={sol.title} className="w-full h-full object-cover" />
+                    <img
+                      src={sol.image}
+                      alt={sol.title}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
                   ) : (
                     <div className="w-full h-full bg-slate-200" />
                   )}
