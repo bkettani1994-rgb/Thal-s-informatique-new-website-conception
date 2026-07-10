@@ -38,6 +38,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     nom: "", prenom: "", email: "", telephone: "",
     fonction: "", objet: "", message: "",
@@ -47,8 +48,18 @@ export default function ContactClient() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    try {
+      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL!, {
+        method: "POST",
+        body: JSON.stringify(form),
+      });
+    } catch (_) {
+      // silently ignore network errors — still show confirmation
+    }
+    setLoading(false);
     setSubmitted(true);
   };
 
@@ -198,10 +209,11 @@ export default function ContactClient() {
                       </div>
                       <button
                         type="submit"
-                        className="w-full py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2 text-sm"
+                        disabled={loading}
+                        className="w-full py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2 text-sm disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         <Send size={16} />
-                        Envoyer ma demande
+                        {loading ? "Envoi en cours…" : "Envoyer ma demande"}
                       </button>
                     </form>
                   )}
