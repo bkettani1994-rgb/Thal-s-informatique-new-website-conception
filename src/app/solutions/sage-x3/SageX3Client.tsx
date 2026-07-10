@@ -150,7 +150,7 @@ const complementarySolutions = [
   { title: "Sage X3 Immobilisations", desc: "Gestion complète du parc d'immobilisations et des plans d'amortissement." },
   { title: "Sage X3 Warehousing (Geode)", desc: "Pilotage avancé de vos entrepôts et flux logistiques en temps réel." },
   { title: "Sage X3 Web Scheduling", desc: "Planification visuelle et collaborative des ressources de production." },
-  { title: "Sage Youdoo", desc: "Portail collaboratif pour fluidifier les échanges entre vos équipes." },
+  { title: "Sage Youdoc", desc: "Portail collaboratif pour fluidifier les échanges entre vos équipes." },
 ];
 
 export default function SageX3Client() {
