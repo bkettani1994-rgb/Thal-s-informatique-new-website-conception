@@ -93,21 +93,21 @@ export default function Solutions() {
               transition={{ delay: i * 0.07, duration: 0.5, ease: "easeOut" }}
             >
               <Link href={sol.href} className="group block bg-white border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-200">
-                {/* Image zone */}
-                <div className="relative h-44 bg-slate-200 overflow-hidden">
+                {/* Image zone with diagonal cut */}
+                <div className="relative h-48 bg-slate-200" style={{ clipPath: "polygon(0 0, 100% 0, 100% 82%, 0 100%)" }}>
                   {sol.image ? (
                     <img src={sol.image} alt={sol.title} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-slate-200" />
                   )}
-                  {/* Icon badge */}
-                  <div className="absolute bottom-0 left-5 translate-y-1/2 w-11 h-11 rounded-full bg-cta flex items-center justify-center shadow-md">
-                    <sol.icon size={20} className="text-white" strokeWidth={1.75} />
-                  </div>
+                </div>
+                {/* Icon badge — overlaps the cut */}
+                <div className="relative -mt-6 ml-5 w-11 h-11 rounded-full bg-cta flex items-center justify-center shadow-md z-10">
+                  <sol.icon size={20} className="text-white" strokeWidth={1.75} />
                 </div>
 
                 {/* Content */}
-                <div className="pt-8 px-5 pb-5">
+                <div className="pt-3 px-5 pb-5">
                   <h3 className="font-bold text-primary text-base mb-2 leading-tight">
                     {sol.title}
                   </h3>
