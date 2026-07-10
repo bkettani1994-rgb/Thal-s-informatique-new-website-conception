@@ -55,18 +55,6 @@ const rows = [
       desc: "KPIs et reporting avancé Sage pour mesurer, comparer et améliorer vos performances en continu.",
     },
   },
-  {
-    defi: {
-      icon: ShieldAlert,
-      title: "Conformité incertaine",
-      desc: "Suivi manuel des délais de paiement et des obligations réglementaires, avec un risque d'erreur.",
-    },
-    solution: {
-      icon: ShieldCheck,
-      title: "Conformité automatisée",
-      desc: "Alertes et suivi intégrés, notamment sur les délais de paiement (Loi 69-21), pour rester serein.",
-    },
-  },
 ];
 
 export default function ProblemSolution() {
@@ -102,7 +90,7 @@ export default function ProblemSolution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-3"
+              className="grid grid-cols-2 gap-3"
             >
               {/* Défi */}
               <div className="flex items-start gap-4 bg-slate-800 rounded-2xl px-6 py-5">
