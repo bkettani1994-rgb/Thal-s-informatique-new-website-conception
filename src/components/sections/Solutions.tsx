@@ -18,36 +18,42 @@ const solutions = [
     title: "Finance & Trésorerie",
     desc: "Comptabilité, pilotage financier, reporting et gestion de trésorerie en temps réel.",
     href: "/metiers/comptabilite-finance",
+    image: null,
   },
   {
     icon: Users2,
     title: "RH & Paie",
     desc: "Digitalisation RH, gestion de la paie, des talents et de l'administration du personnel.",
     href: "/metiers/paie-rh",
+    image: null,
   },
   {
     icon: Cog,
     title: "Processus Opérationnels",
     desc: "ERP, gestion commerciale, supply chain et pilotage de la production au quotidien.",
     href: "/metiers/erp",
+    image: null,
   },
   {
     icon: LineChart,
     title: "Conseil",
     desc: "Audit, accompagnement stratégique et transformation digitale sur-mesure.",
     href: "/contact",
+    image: null,
   },
   {
     icon: Code2,
     title: "Développement Spécifique",
     desc: "Personnalisation ERP, connecteurs métier et automatisation sur-mesure.",
     href: "/contact",
+    image: null,
   },
   {
     icon: Server,
     title: "Ingénierie IT",
     desc: "Infrastructure, architecture système, réseaux et sécurité informatique.",
     href: "/contact",
+    image: null,
   },
 ];
 
@@ -77,7 +83,7 @@ export default function Solutions() {
         </motion.div>
 
         {/* Solutions grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutions.map((sol, i) => (
             <motion.div
               key={sol.title}
@@ -86,29 +92,30 @@ export default function Solutions() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5, ease: "easeOut" }}
             >
-              <Link
-                href={sol.href}
-                className="group flex flex-col h-full bg-white border border-border rounded-2xl p-6 hover:bg-cta hover:border-cta transition-all duration-200 cursor-pointer"
-              >
-                {/* Icon */}
-                <div className="w-11 h-11 rounded-xl bg-cta/10 group-hover:bg-white/20 flex items-center justify-center mb-5 transition-colors duration-200">
-                  <sol.icon size={22} className="text-cta group-hover:text-white transition-colors duration-200" />
+              <Link href={sol.href} className="group block bg-white border border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                {/* Image zone */}
+                <div className="relative h-44 bg-slate-200 overflow-hidden">
+                  {sol.image ? (
+                    <img src={sol.image} alt={sol.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-slate-200" />
+                  )}
+                  {/* Icon badge */}
+                  <div className="absolute bottom-0 left-5 translate-y-1/2 w-11 h-11 rounded-full bg-cta flex items-center justify-center shadow-md">
+                    <sol.icon size={20} className="text-white" strokeWidth={1.75} />
+                  </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="font-bold text-primary group-hover:text-white text-base mb-2 leading-tight transition-colors duration-200">
-                  {sol.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-cta group-hover:text-white/80 leading-relaxed flex-1 transition-colors duration-200">
-                  {sol.desc}
-                </p>
-
-                {/* Arrow */}
-                <div className="mt-5">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border group-hover:border-white/30 group-hover:bg-white/10 transition-all duration-200">
-                    <ArrowRight size={14} className="text-secondary group-hover:text-white transition-colors duration-200" />
+                {/* Content */}
+                <div className="pt-8 px-5 pb-5">
+                  <h3 className="font-bold text-primary text-base mb-2 leading-tight">
+                    {sol.title}
+                  </h3>
+                  <p className="text-sm text-cta leading-relaxed mb-4">
+                    {sol.desc}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-cta text-sm font-semibold group-hover:gap-2 transition-all duration-200">
+                    Learn more <ArrowRight size={14} />
                   </span>
                 </div>
               </Link>
