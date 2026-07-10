@@ -19,48 +19,48 @@ const fadeUp = {
 const benefits = [
   {
     icon: TrendingDown,
-    title: "Réduction des coûts",
-    desc: "La GPAO permet une réduction de vos coûts de production de 10 % minimum sur une période de 6 mois.",
+    title: "Maîtrise des coûts de production",
+    desc: "Un ERP industriel vous aide à identifier et éliminer les sources de gaspillage, pour un pilotage précis de vos marges tout au long de la chaîne de production.",
   },
   {
     icon: Package,
-    title: "Limitation des stocks",
-    desc: "Bénéficiez d'une diminution de vos stocks de 20 à 30 % avec un logiciel de gestion de production puissant.",
+    title: "Optimisation des stocks",
+    desc: "Évitez la surproduction et les ruptures grâce à une gestion prévisionnelle des stocks adaptée aux cycles de commande et aux contraintes logistiques du marché marocain et africain.",
   },
   {
     icon: Clock,
-    title: "Meilleure maîtrise des délais",
-    desc: "Le logiciel de production industrielle engendre une baisse du temps de réponse de délai de production vers vos clients (20 %).",
+    title: "Respect des délais de livraison",
+    desc: "Planifiez vos ordres de fabrication avec précision et améliorez votre taux de service client, un levier clé de compétitivité sur les marchés locaux et à l'export.",
   },
   {
     icon: Zap,
-    title: "Gains de productivité",
-    desc: "Le logiciel GPAO permet une division par cinq du temps d'élaboration de vos reportings.",
+    title: "Gain de productivité opérationnelle",
+    desc: "Automatisez la saisie et la consolidation de vos données de production pour libérer vos équipes des tâches à faible valeur ajoutée et accélérer vos reportings.",
   },
   {
     icon: AlertTriangle,
-    title: "Réduction des interruptions",
-    desc: "Votre GPAO entraîne une réduction des arrêts de production ainsi qu'un gain de temps considérable.",
+    title: "Réduction des aléas de production",
+    desc: "Anticipez les pannes, les ruptures de composants et les aléas fournisseurs grâce à une vue en temps réel de vos ressources et de vos encours.",
   },
   {
     icon: Star,
-    title: "Contrôle qualité",
-    desc: "L'identification des non-conformités en amont par votre logiciel GPAO augmente la qualité de vos produits.",
+    title: "Qualité et traçabilité",
+    desc: "Suivez chaque lot, chaque composant et chaque non-conformité pour garantir la qualité de vos produits finis et répondre aux exigences réglementaires locales et internationales.",
   },
 ];
 
 const fonctionnalites = [
   {
-    title: "Des fonctions et des services adaptés à vos spécificités",
-    desc: "Quelle que soit votre spécialité (fabrication à la commande, sur stock ou à l'affaire, en petites ou grandes séries) ou encore votre métier (agroalimentaire, chimie, électronique, plasturgie…), nous avons des logiciels de GPAO pour vous aider à optimiser vos cycles de production et augmenter vos performances industrielles.",
+    title: "Une solution adaptée à votre métier industriel",
+    desc: "Qu'il s'agisse d'agroalimentaire, de plasturgie, de métallurgie, de chimie ou d'électronique, nos solutions de gestion industrielle s'adaptent à vos spécificités métier. Chaque secteur dispose de paramétrages dédiés permettant de modéliser fidèlement vos gammes opératoires, vos nomenclatures et vos flux de production, quelle que soit la taille de votre unité au Maroc ou en Afrique.",
   },
   {
-    title: "Une vision de votre activité à travers des indicateurs performants de GPAO",
-    desc: "Grâce à votre logiciel de GPAO, vous bénéficiez d'une vue à 360° de votre activité. Vous pouvez suivre vos processus de production en temps réel grâce à des tableaux de bord. Vous gardez toujours une vision claire du cycle de fabrication et prenez des décisions stratégiques éclairées. Ceci vous permet de gagner en réactivité quoi qu'il arrive.",
+    title: "Un tableau de bord pour piloter votre activité en temps réel",
+    desc: "Prenez des décisions éclairées grâce à des indicateurs de performance actualisés en continu : taux de rendement synthétique (TRS), coûts de revient, avancement des ordres de fabrication, niveau de stock et prévisions de charge. Vos responsables d'atelier et votre direction disposent d'une vue unifiée de l'activité, où qu'ils se trouvent.",
   },
   {
-    title: "Le pilotage complet de votre production",
-    desc: "Gérez l'ensemble des activités et ressources liées au cycle de production. Votre logiciel de gestion de production centralise toutes les données techniques (articles, clients, fournisseurs), planifie les ordres de fabrication, calcule les rendements et besoins nets, et gère les imprévus et la non-conformité. Anticipez vos achats, simulez la production à venir et contrôlez les temps de fabrication comme la qualité.",
+    title: "Un pilotage complet du cycle de fabrication",
+    desc: "De la création de l'ordre de fabrication jusqu'à la livraison, gérez l'intégralité de votre cycle de production dans un seul outil : planification des ressources (CBN/PIC/PDP), suivi des encours, gestion des aléas et contrôle qualité. Interfacé avec la gestion commerciale et les achats, votre ERP industriel synchronise automatiquement les données entre vos équipes et vos sites de production.",
   },
 ];
 
@@ -70,16 +70,16 @@ const solutions = [
     badgeLabel: "Gestion de Production",
     color: "bg-emerald-600",
     name: "Sage 100 Gestion de Production",
-    subtitle: "Pour les PME et PMI",
-    description: "Avec Sage 100 Gestion de Production, vous disposez d'un logiciel GPAO dédié aux PME-PMI qui vous aidera à gérer vos données techniques, planifier vos ordres de fabrication, suivre vos encours de production et analyser vos coûts de revient.",
+    subtitle: "Pour les PME et PMI industrielles",
+    description: "Sage 100 Gestion de Production est une solution GPAO conçue pour les PME-PMI marocaines. Elle centralise vos données techniques, planifie vos ordres de fabrication et vous donne une vision précise de vos encours et de vos coûts de revient.",
     features: [
-      "Gérez vos données techniques pour que vos ordres de fabrication reflètent au mieux la réalité de l'atelier",
-      "Respectez vos délais et optimisez votre outil de production",
-      "Optimisez votre stock et vos ressources à terme grâce au CBN et au PIC/PDP",
-      "Anticipez vos achats grâce à l'analyse des mouvements des produits",
-      "Suivez vos encours de production en temps réel grâce à des tableaux de bord",
+      "Modélisez vos nomenclatures et gammes opératoires",
+      "Planifiez et lancez vos ordres de fabrication simplement",
+      "Calculez vos besoins nets avec le CBN et ajustez votre plan de charge",
+      "Suivez vos encours de production en temps réel",
+      "Analysez vos coûts de revient et vos écarts de production",
     ],
-    cta: "Découvrez Sage 100 Gestion de Production",
+    cta: "Découvrir Sage 100 Gestion de Production",
     href: "/contact",
     highlight: false,
   },
@@ -88,17 +88,17 @@ const solutions = [
     badgeLabel: "Entreprise Industrie",
     color: "bg-cta",
     name: "Sage 100cloud Entreprise Industrie",
-    subtitle: "Pour les PMI de 50 salariés et plus",
-    description: "Avec Sage 100cloud Entreprise Industrie, centralisez toutes vos données à travers un système de gestion de production intégré et composé d'outils de gestion commerciale, de comptabilité et de GPAO, spécialement conçu pour les PMI.",
+    subtitle: "Pour les PMI de 50 collaborateurs et plus",
+    description: "Sage 100cloud Entreprise Industrie est une suite intégrée qui regroupe gestion commerciale, comptabilité et GPAO dans un environnement unique. Idéale pour les PMI marocaines en croissance qui souhaitent unifier leurs processus de gestion.",
     features: [
-      "Optimisez l'ensemble de vos processus de gestion de production",
-      "Bénéficiez de la richesse d'une suite de gestion complète",
-      "Optimisez votre stock et vos ressources à terme grâce au CBN",
-      "Capitalisez sur un système de gestion agile",
-      "Partagez des données fiables et communes",
-      "Simplifiez l'analyse de votre activité",
+      "Suite de gestion intégrée : production, commerce, comptabilité",
+      "Planification avancée avec PIC, PDP et CBN",
+      "Partage de données fiables entre tous vos services",
+      "Interface intuitive adaptée aux équipes terrain",
+      "Déploiement cloud ou on-premise selon votre infrastructure",
+      "Reporting consolidé pour une vision globale de votre activité",
     ],
-    cta: "Découvrez Sage 100cloud Entreprise Industrie",
+    cta: "Découvrir Sage 100cloud Entreprise Industrie",
     href: "/contact",
     highlight: true,
   },
@@ -106,19 +106,19 @@ const solutions = [
     badge: "Sage Business Cloud",
     badgeLabel: "Sage X3",
     color: "bg-slate-700",
-    name: "Sage Business Cloud Sage X3",
-    subtitle: "Pour les moyennes et grandes entreprises",
-    description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
+    name: "Sage X3 — ERP Industrie",
+    subtitle: "Pour les groupes industriels et ETI",
+    description: "Sage X3 est l'ERP de référence pour les groupes industriels marocains et africains opérant sur plusieurs sites ou marchés. Il couvre l'ensemble de la chaîne de valeur : approvisionnement, production, stockage, ventes et finance.",
     features: [
-      "Maîtrisez vos opérations internationales",
-      "Obtenez des informations pertinentes au moment opportun",
-      "Développez votre activité sur de nouveaux marchés et territoires",
-      "Gagnez en flexibilité et concentrez-vous sur votre cœur de métier",
-      "Disposez de workflows simples à gérer et très intuitifs",
-      "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
+      "Gestion multi-sites et multi-entités en temps réel",
+      "Traçabilité complète de la matière première au produit fini",
+      "Pilotage international et multi-devises",
+      "Workflows configurables selon vos processus métier",
+      "Interfaçage natif avec vos outils métier et IoT d'atelier",
+      "Déploiement cloud SaaS ou on-premise selon vos besoins",
     ],
-    cta: "Découvrez Sage X3",
-    href: "/contact",
+    cta: "Découvrir Sage X3 Industrie",
+    href: "/solutions/sage-x3",
     highlight: false,
   },
 ];
@@ -142,16 +142,16 @@ export default function IndustrieClient() {
                   <span className="text-white">Industrie</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                  Gérez votre production industrielle avec nos logiciels GPAO
+                  Solutions ERP & GPAO pour l&apos;industrie au Maroc et en Afrique
                 </h1>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  Gérez votre cycle de production et gagnez en productivité grâce aux logiciels GPAO de Sage.
+                  Thalès Informatique accompagne les entreprises industrielles marocaines dans leur transformation numérique avec les solutions Sage les mieux adaptées à leurs enjeux de production.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                  Découvrir nos solutions <ArrowRight size={16} />
+                  Parler à un expert <ArrowRight size={16} />
                 </Link>
               </motion.div>
               <motion.div
@@ -167,35 +167,38 @@ export default function IndustrieClient() {
           </div>
         </section>
 
-        {/* ── SECTION 1 — QU'EST-CE QU'UN LOGICIEL GPAO ? ── */}
+        {/* ── SECTION 1 — ERP INDUSTRIEL AU MAROC ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto">
               <motion.div {...fadeUp}>
                 <h2 className="text-3xl font-bold text-primary mb-6">
-                  Qu&apos;est-ce qu&apos;un logiciel GPAO ?
+                  Pourquoi les industriels marocains adoptent un ERP de production ?
                 </h2>
+                <p className="text-secondary leading-relaxed mb-4">
+                  Face à la pression concurrentielle et aux exigences croissantes des donneurs d&apos;ordre locaux et internationaux, les entreprises industrielles au Maroc et en Afrique ont besoin d&apos;outils capables de <strong className="text-primary">piloter leur production en temps réel, de maîtriser leurs coûts et de garantir la qualité</strong> de leurs produits.
+                </p>
                 <p className="text-secondary leading-relaxed">
-                  Un logiciel de GPAO (Gestion de Production Assistée par Ordinateur) permet de <strong className="text-primary">préparer, de planifier, de suivre en temps réel et d&apos;analyser la production des entreprises industrielles</strong>. Le GPAO gère l&apos;intégralité du cycle de production : depuis la génération de l&apos;<strong className="text-primary">ordre de fabrication</strong> à la <strong className="text-primary">planification</strong>, en passant par la gestion des stocks et des délais de livraison. En communiquant en temps réel avec la gestion commerciale, l&apos;atelier et les fournisseurs, les ordres de production sont automatiquement mis en œuvre.
+                  Un ERP industriel intègre la gestion de production assistée par ordinateur (GPAO), la gestion des stocks, les achats et la comptabilité dans une plateforme unique. Il élimine les saisies redondantes, synchronise les données entre les services et donne à chaque responsable une vision claire de l&apos;avancement des fabrications, des ressources disponibles et des délais de livraison.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* ── SECTION 2 — POURQUOI CHOISIR UN LOGICIEL GPAO ? ── */}
+        {/* ── SECTION 2 — ENJEUX INDUSTRIE ── */}
         <section className="py-12 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto">
               <motion.div {...fadeUp}>
                 <h2 className="text-3xl font-bold text-primary mb-6">
-                  Pourquoi choisir un logiciel GPAO ?
+                  Les enjeux de la gestion industrielle aujourd&apos;hui
                 </h2>
                 <p className="text-secondary leading-relaxed mb-4">
-                  La gestion de production doit faire face à de nombreux défis comme de longs délais de livraison, les interruptions dans la chaîne d&apos;approvisionnement, la maintien des normes de qualité, etc. Il est crucial de savoir confronter les imprévus pour permettre à l&apos;entreprise de rester compétitive en minimisant les coûts.
+                  Les industriels marocains font face à des défis complexes : pression sur les délais, hausse des coûts des matières premières, exigences de traçabilité, fluctuations de la demande et besoin de flexibilité dans les cycles de fabrication. Dans ce contexte, piloter la production avec des outils non connectés ou des feuilles de calcul devient un frein à la performance.
                 </p>
                 <p className="text-secondary leading-relaxed">
-                  Le logiciel GPAO simplifie le pilotage de toutes les étapes du cycle de production et vous assure de prendre de meilleures décisions sur le court et long terme. En centralisant les informations dans une base de données unique et en automatisant les processus, il apporte un gain de temps et de productivité considérable à tous vos employés. Un logiciel de gestion de production efficace optimise l&apos;usage des ressources et réduit le gaspillage. Pour rester compétitive, une entreprise industrielle se doit d&apos;investir dans un bon logiciel GPAO.
+                  Investir dans une solution ERP-GPAO adaptée à l&apos;industrie permet de transformer ces contraintes en leviers de compétitivité. En centralisant l&apos;ensemble des données de production et en automatisant les tâches à faible valeur ajoutée, vos équipes se concentrent sur ce qui compte : la qualité, l&apos;innovation et la satisfaction client — que vous opériez sur le marché local ou à l&apos;export vers l&apos;Afrique et l&apos;Europe.
                 </p>
               </motion.div>
             </div>
@@ -207,7 +210,7 @@ export default function IndustrieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary">
-                Les 6 bénéfices-clé du logiciel GPAO
+                6 bénéfices concrets pour votre unité industrielle
               </h2>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -234,12 +237,12 @@ export default function IndustrieClient() {
         {/* ── SECTION 4 — FONCTIONNALITÉS ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="max-w-3xl mb-12">
+            <motion.div {...fadeUp} className="max-w-3xl mx-auto mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Quelles sont les fonctionnalités des logiciels GPAO de Sage ?
+                Ce que nos solutions apportent à votre production
               </h2>
             </motion.div>
-            <div className="max-w-3xl space-y-8">
+            <div className="max-w-3xl mx-auto space-y-8">
               {fonctionnalites.map((f, i) => (
                 <motion.div
                   key={f.title}
@@ -261,7 +264,7 @@ export default function IndustrieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary">
-                Trouvez le logiciel GPAO adapté à votre entreprise
+                Choisissez la solution adaptée à votre entreprise industrielle
               </h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -307,10 +310,10 @@ export default function IndustrieClient() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Prêt à optimiser votre production industrielle ?
+                Transformez votre production avec Thalès Informatique
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement du logiciel GPAO Sage le plus adapté à votre activité industrielle.
+                Nos consultants ERP accompagnent les industriels marocains et africains dans le choix, le déploiement et la prise en main de leur solution Sage — avec un engagement fort sur les résultats.
               </p>
               <Link
                 href="/contact"
