@@ -71,7 +71,7 @@ const rows = [
 
 export default function ProblemSolution() {
   return (
-    <section className="py-24 bg-slate-900" id="transformation">
+    <section className="py-24 bg-bg-base" id="transformation">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -84,10 +84,10 @@ export default function ProblemSolution() {
           <span className="inline-block text-xs font-semibold text-cta uppercase tracking-widest mb-3">
             Transformation
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
             De vos défis à vos succès
           </h2>
-          <p className="mt-4 text-base text-white/60 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base text-secondary max-w-xl mx-auto leading-relaxed">
             Nous comprenons vos enjeux métiers. Voici comment Thalès Informatique
             transforme vos problèmes en leviers de croissance.
           </p>
