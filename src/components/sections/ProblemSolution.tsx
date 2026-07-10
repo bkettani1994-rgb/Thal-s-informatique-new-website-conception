@@ -60,7 +60,7 @@ const rows = [
 export default function ProblemSolution() {
   return (
     <section className="py-24 bg-bg-base" id="transformation">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
