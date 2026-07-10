@@ -102,7 +102,7 @@ export default function ProblemSolution() {
                     Défi {String(i + 1).padStart(2, "0")}
                   </p>
                   <p className="font-bold text-white text-sm mb-1">{row.defi.title}</p>
-                  <p className="text-slate-400 text-xs leading-relaxed">{row.defi.desc}</p>
+                  <p className="hidden md:block text-slate-400 text-xs leading-relaxed">{row.defi.desc}</p>
                 </div>
               </div>
 
@@ -116,7 +116,7 @@ export default function ProblemSolution() {
                     Solution {String(i + 1).padStart(2, "0")}
                   </p>
                   <p className="font-bold text-white text-sm mb-1">{row.solution.title}</p>
-                  <p className="text-white/80 text-xs leading-relaxed">{row.solution.desc}</p>
+                  <p className="hidden md:block text-white/80 text-xs leading-relaxed">{row.solution.desc}</p>
                 </div>
               </div>
             </motion.div>
