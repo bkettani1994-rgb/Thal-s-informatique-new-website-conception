@@ -19,7 +19,6 @@ const offices = [
   { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "+212 5 22 54 87 80", tel: "+212522548780", email: "contact@thales.ma" },
 ];
 
-const secteurs = ["Industrie", "Négoce & Distribution", "Services & Conseil", "BTP & Construction", "Agroalimentaire", "Autre"];
 const objets = ["Demande de démo", "Demande d'informations", "Support technique", "Partenariat", "Recrutement", "Autre"];
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -41,7 +40,7 @@ export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     nom: "", prenom: "", email: "", telephone: "",
-    societe: "", secteur: "", objet: "", message: "",
+    fonction: "", objet: "", message: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -159,30 +158,17 @@ export default function ContactClient() {
                           />
                         </div>
                       </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-primary mb-1.5">Société *</label>
-                        <input
-                          type="text"
-                          name="societe"
-                          value={form.societe}
-                          onChange={handleChange}
-                          required
-                          placeholder="Nom de votre entreprise"
-                          className="w-full px-4 py-3 bg-bg border border-border rounded-xl text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta text-sm transition-all"
-                        />
-                      </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                          <label className="block text-sm font-semibold text-primary mb-1.5">Secteur d'activité</label>
-                          <select
-                            name="secteur"
-                            value={form.secteur}
+                          <label className="block text-sm font-semibold text-primary mb-1.5">Fonction</label>
+                          <input
+                            type="text"
+                            name="fonction"
+                            value={form.fonction}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 bg-bg border border-border rounded-xl text-primary focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta text-sm transition-all appearance-none"
-                          >
-                            <option value="">Sélectionner...</option>
-                            {secteurs.map((s) => <option key={s} value={s}>{s}</option>)}
-                          </select>
+                            placeholder="Ex : Directeur financier, DSI..."
+                            className="w-full px-4 py-3 bg-bg border border-border rounded-xl text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta text-sm transition-all"
+                          />
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-primary mb-1.5">Objet *</label>
