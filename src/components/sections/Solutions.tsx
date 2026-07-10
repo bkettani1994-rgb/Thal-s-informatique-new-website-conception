@@ -18,7 +18,7 @@ const solutions = [
     title: "Finance & Trésorerie",
     desc: "Comptabilité, pilotage financier, reporting et gestion de trésorerie en temps réel.",
     href: "/metiers/comptabilite-finance",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676307/magnific_closeup-of-a-modern-metal_rlHIHXIxtc_jyh1xs.webp",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783677712/magnific_une-image-avec-couleur-sa_9Rw1Ci1NYZ_hiufpm.webp",
   },
   {
     icon: Users2,
@@ -39,7 +39,7 @@ const solutions = [
     title: "Conseil",
     desc: "Audit, accompagnement stratégique et transformation digitale sur-mesure.",
     href: "/contact",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783676306/magnific_abstract-conceptual-lands_8vD2dpcIrU_ftdpqd.webp",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783677678/magnific_merci-denlever-le-blanc-n_l7kCe5Fgv9_ty3xbe.webp",
   },
   {
     icon: Code2,
