@@ -119,7 +119,7 @@ export default function Solutions() {
                     {sol.desc}
                   </p>
                   <span className="inline-flex items-center gap-1 text-cta text-sm font-semibold group-hover:gap-2 transition-all duration-200">
-                    Learn more <ArrowRight size={14} />
+                    En savoir plus <ArrowRight size={14} />
                   </span>
                 </div>
               </Link>
