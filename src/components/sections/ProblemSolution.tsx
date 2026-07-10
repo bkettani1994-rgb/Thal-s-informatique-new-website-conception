@@ -1,158 +1,138 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { XCircle, CheckCircle2, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  AlertTriangle, EyeOff, Database, BarChart2, ShieldAlert,
+  Zap, Eye, GitMerge, TrendingUp, ShieldCheck,
+} from "lucide-react";
 
-const problems = [
+const rows = [
   {
-    icon: XCircle,
-    title: "Processus manuels",
-    desc: "Saisies répétitives, erreurs humaines et perte de temps au quotidien.",
+    defi: {
+      icon: AlertTriangle,
+      title: "Processus manuels",
+      desc: "Saisies répétitives sur Excel, ressaisies entre services, erreurs humaines qui coûtent du temps chaque jour.",
+    },
+    solution: {
+      icon: Zap,
+      title: "Processus automatisés",
+      desc: "Workflows Sage qui suppriment les tâches répétitives, réduisent les erreurs et libèrent vos équipes.",
+    },
   },
   {
-    icon: XCircle,
-    title: "Manque de visibilité",
-    desc: "Décisions prises sans données fiables ni indicateurs en temps réel.",
+    defi: {
+      icon: EyeOff,
+      title: "Manque de visibilité",
+      desc: "Décisions prises sans indicateurs fiables ni vue d'ensemble sur l'activité en temps réel.",
+    },
+    solution: {
+      icon: Eye,
+      title: "Vision en temps réel",
+      desc: "Tableaux de bord Sage live pour des décisions rapides, éclairées et partagées entre équipes.",
+    },
   },
   {
-    icon: XCircle,
-    title: "Données dispersées",
-    desc: "Informations fragmentées entre Excel, emails et outils non connectés.",
+    defi: {
+      icon: Database,
+      title: "Données dispersées",
+      desc: "Informations fragmentées entre Excel, e-mails et outils non connectés entre eux.",
+    },
+    solution: {
+      icon: GitMerge,
+      title: "Données centralisées",
+      desc: "Une source unique de vérité avec Sage X3, Sage 100 ou Sage FRP 1000, accessible à toutes vos équipes.",
+    },
   },
   {
-    icon: XCircle,
-    title: "Pilotage difficile",
-    desc: "Impossible d'avoir une vue consolidée de l'activité et des performances.",
+    defi: {
+      icon: BarChart2,
+      title: "Pilotage difficile",
+      desc: "Impossible d'obtenir une vue consolidée de l'activité, des marges et des performances par site.",
+    },
+    solution: {
+      icon: TrendingUp,
+      title: "Pilotage performant",
+      desc: "KPIs et reporting avancé Sage pour mesurer, comparer et améliorer vos performances en continu.",
+    },
+  },
+  {
+    defi: {
+      icon: ShieldAlert,
+      title: "Conformité incertaine",
+      desc: "Suivi manuel des délais de paiement et des obligations réglementaires, avec un risque d'erreur.",
+    },
+    solution: {
+      icon: ShieldCheck,
+      title: "Conformité automatisée",
+      desc: "Alertes et suivi intégrés, notamment sur les délais de paiement (Loi 69-21), pour rester serein.",
+    },
   },
 ];
-
-const solutions = [
-  {
-    icon: CheckCircle2,
-    title: "Processus automatisés",
-    desc: "Workflows intelligents qui éliminent les tâches répétitives et réduisent les erreurs.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Vision en temps réel",
-    desc: "Tableaux de bord live pour des décisions rapides et éclairées.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Données centralisées",
-    desc: "Une source unique de vérité accessible à toutes vos équipes, partout.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Pilotage performant",
-    desc: "KPIs et reporting avancé pour mesurer et améliorer vos performances.",
-  },
-];
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
-  }),
-};
 
 export default function ProblemSolution() {
   return (
-    <section className="py-24 bg-bg-base" id="transformation">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+    <section className="py-24 bg-slate-900" id="transformation">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <span className="inline-block text-xs font-semibold text-cta uppercase tracking-widest mb-3">
             Transformation
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             De vos défis à vos succès
           </h2>
-          <p className="mt-4 text-base text-secondary max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base text-white/60 max-w-xl mx-auto leading-relaxed">
             Nous comprenons vos enjeux métiers. Voici comment Thalès Informatique
             transforme vos problèmes en leviers de croissance.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-8 items-start">
-          {/* Problems */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 rounded-full bg-red-400" />
-              <span className="text-sm font-semibold text-red-500 uppercase tracking-wide">
-                Vos défis actuels
-              </span>
-            </div>
-            {problems.map((item, i) => (
-              <motion.div
-                key={item.title}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="flex items-start gap-3 bg-red-50/60 border border-red-100 rounded-xl p-4 group"
-              >
-                <item.icon size={18} className="text-red-400 mt-0.5 shrink-0" />
-                <div>
-                  <div className="text-sm font-semibold text-primary">{item.title}</div>
-                  <div className="text-xs text-secondary mt-0.5 leading-relaxed">{item.desc}</div>
+        {/* Rows */}
+        <div className="space-y-4">
+          {rows.map((row, i) => (
+            <motion.div
+              key={row.defi.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-3"
+            >
+              {/* Défi */}
+              <div className="flex items-start gap-4 bg-slate-800 rounded-2xl px-6 py-5">
+                <div className="w-9 h-9 rounded-full bg-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <row.defi.icon size={17} className="text-slate-300" />
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Divider arrow */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="hidden lg:flex flex-col items-center justify-center self-center"
-          >
-            <div className="w-12 h-12 bg-cta rounded-full flex items-center justify-center shadow-lg shadow-cta/30">
-              <ArrowRight size={20} className="text-white" />
-            </div>
-            <div className="w-px h-16 bg-gradient-to-b from-cta/30 to-transparent mt-2" />
-            <div className="text-[9px] font-semibold text-cta uppercase tracking-widest mt-2 rotate-90 whitespace-nowrap">
-              Transformation
-            </div>
-          </motion.div>
-
-          {/* Solutions */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span className="text-sm font-semibold text-emerald-600 uppercase tracking-wide">
-                Avec Thalès Informatique
-              </span>
-            </div>
-            {solutions.map((item, i) => (
-              <motion.div
-                key={item.title}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="flex items-start gap-3 bg-emerald-50/60 border border-emerald-100 rounded-xl p-4 card-hover cursor-default"
-              >
-                <item.icon size={18} className="text-emerald-500 mt-0.5 shrink-0" />
                 <div>
-                  <div className="text-sm font-semibold text-primary">{item.title}</div>
-                  <div className="text-xs text-secondary mt-0.5 leading-relaxed">{item.desc}</div>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
+                    Défi {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <p className="font-bold text-white text-sm mb-1">{row.defi.title}</p>
+                  <p className="text-slate-400 text-xs leading-relaxed">{row.defi.desc}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+
+              {/* Solution */}
+              <div className="flex items-start gap-4 bg-gradient-to-r from-cta to-blue-400 rounded-2xl px-6 py-5">
+                <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <row.solution.icon size={17} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-white/70 uppercase tracking-widest mb-1">
+                    Solution {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <p className="font-bold text-white text-sm mb-1">{row.solution.title}</p>
+                  <p className="text-white/80 text-xs leading-relaxed">{row.solution.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
