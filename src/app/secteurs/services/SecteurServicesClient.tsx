@@ -20,46 +20,46 @@ const fadeUp = {
 const atouts = [
   {
     icon: Clock,
-    title: "Augmentez vos heures facturables",
-    desc: "Optimisez l'automatisation et la productivité grâce à des flux de travail rationalisés et à une collaboration améliorée pour vous concentrer sur les besoins de vos clients.",
+    title: "Plus de temps facturable, moins d'administratif",
+    desc: "Automatisez la saisie des temps, la facturation et les relances pour que vos équipes se concentrent sur leurs missions à valeur ajoutée plutôt que sur des tâches répétitives.",
   },
   {
     icon: BarChart2,
-    title: "Garantissez la satisfaction d'un plus grand nombre de clients",
-    desc: "Grâce à l'analyse des données et à une vision globale de la performance des employés, les sociétés de services professionnels peuvent garantir la rentabilité de chaque engagement client. Une meilleure connaissance de chaque aspect de votre entreprise vous permet de prendre des décisions plus judicieuses dans l'affectation de vos ressources. C'est également la garantie pour tous de maintenir la même ligne de conduite et d'identifier les domaines dans lesquels votre entreprise peut économiser de l'argent.",
+    title: "Rentabilité projet sous contrôle",
+    desc: "Suivez la marge de chaque contrat ou mission en temps réel : coûts engagés, heures passées, facturation avancée. Identifiez rapidement les projets sous-performants avant qu'ils ne pèsent sur votre résultat.",
   },
   {
     icon: Shuffle,
-    title: "Augmentez la souplesse et la flexibilité de votre entreprise",
-    desc: "Des processus commerciaux flexibles et des analyses en temps réel permettent aux entreprises de services professionnels de s'adapter rapidement aux demandes changeantes des clients et aux pressions du marché.",
+    title: "Agilité face aux évolutions du marché",
+    desc: "Le marché des services au Maroc évolue vite. Vos processus de gestion doivent s'adapter aussi vite que vos offres. Un ERP modulaire vous permet d'ajuster votre organisation sans repartir de zéro.",
   },
   {
     icon: Users,
-    title: "Ouvrez la voie aux équipes virtuelles",
-    desc: "Les personnes et les projets étant souvent répartis sur plusieurs sites, il est essentiel de s'assurer que tout le monde travaille à partir de la même source d'informations et avec des outils performants qui permettent une collaboration et une communication en temps réel.",
+    title: "Collaboration multi-sites et télétravail",
+    desc: "Vos équipes sont dispersées entre Casablanca, Rabat ou d'autres villes ? Dotez-les d'un accès commun aux mêmes données en temps réel, depuis n'importe quel appareil, pour travailler ensemble sans friction.",
   },
   {
     icon: Cloud,
-    title: "Assurez la pérennité de votre entreprise de services",
-    desc: "Adoptez les technologies cloud et mobiles pour offrir un service de qualité à vos clients et vous adapter à un environnement en constante évolution.",
+    title: "Continuité et fiabilité de votre activité",
+    desc: "Déployez votre solution de gestion en cloud sécurisé pour garantir la disponibilité de vos données et la continuité de vos opérations, même en cas d'imprévu ou de croissance rapide.",
   },
 ];
 
 const financeAtouts = [
   {
     icon: Shield,
-    title: "Assurez une conformité totale",
-    desc: "Définissez des flux de travail et des notifications pour vous assurer que tout le monde respecte les bonnes procédures et devient également plus efficace dans ses tâches quotidiennes. Créez une procédure simple à suivre par les équipes du service client, en veillant à ce que les équipes financières puissent suivre les activités de près, mais également pour des questions ou soulever tout problème, si nécessaire.",
+    title: "Conformité et traçabilité des engagements",
+    desc: "Structurez vos flux d'approbation et de validation pour garantir le respect de vos procédures internes et des obligations réglementaires marocaines — contrats, TVA, déclarations sociales et fiscales.",
   },
   {
     icon: TrendingUp,
-    title: "Améliorez les flux de trésorerie de votre entreprise de services",
-    desc: "Gérez la facturation, les paiements et les revenus et assurez-vous que les clients soient tenus au courant de leurs échéanciers sans effort supplémentaire. De plus, bénéficiez d'une visibilité accrue sur les paiements et les transactions, la gestion du crédit et les revenus de votre entreprise.",
+    title: "Trésorerie et facturation maîtrisées",
+    desc: "Automatisez la facturation à l'avancement, gérez les acomptes et les retenues de garantie, et bénéficiez d'une visibilité précise sur votre encours client pour améliorer votre cycle de trésorerie.",
   },
   {
     icon: Eye,
-    title: "Prenez des décisions plus éclairées",
-    desc: "Avec une vision claire de votre entreprise, ventes comprises, votre service financier sera en mesure de prendre des décisions plus rapidement et en toute connaissance de cause. De plus, vous pouvez partager les résultats afin que les services clients sachent sur quelles lacunes ou sources de revenus se concentrer.",
+    title: "Décisions stratégiques basées sur les données",
+    desc: "Tableaux de bord consolidés, reporting par activité ou par client, analyse des marges par type de prestation : donnez à votre direction et à vos responsables opérationnels les indicateurs dont ils ont besoin pour piloter efficacement.",
   },
 ];
 
@@ -69,37 +69,37 @@ const solutions = [
     badgeLabel: "Gestion Commerciale",
     color: "bg-emerald-600",
     name: "Sage 100 Gestion Commerciale",
-    subtitle: "",
-    description: "Maîtrisez l'intégralité de la chaîne commerciale de votre PME avec un logiciel de gestion commerciale puissant : du devis aux factures en passant par l'approvisionnement, les stocks et le pilotage, notre logiciel de gestion commerciale vous accompagne dans votre activité.",
+    subtitle: "Pour les TPE et PME de services",
+    description: "Sage 100 Gestion Commerciale couvre l'ensemble du cycle de facturation des entreprises de services marocaines : devis, bons de commande, factures, avoirs et suivi des paiements dans une solution simple et connectée à la comptabilité.",
     features: [
-      "Processus de facturation automatisé et chaîné : devis, commande, livraison, facture, retour, avoir, etc.",
-      "Historique commercial et informations financières centralisés dans votre solution",
-      "Base de données de produits et services totalement personnalisable",
-      "Tableaux de bord personnalisables et mis à jour en temps réel",
-      "Gestion de stock à flux tendu et réapprovisionnements maîtrisée",
-      "Ergonomie intuitive et intégration automatique des factures dans Sage 100 Comptabilité",
+      "Création et suivi des devis, commandes et factures",
+      "Gestion des contrats de prestation et des abonnements",
+      "Tableaux de bord de suivi d'activité en temps réel",
+      "Relances clients automatisées et suivi des encaissements",
+      "Intégration directe avec Sage 100 Comptabilité",
+      "Personnalisation des documents aux couleurs de votre entreprise",
     ],
-    cta: "Découvrez Sage 100 Gestion Commerciale",
+    cta: "Découvrir Sage 100 Gestion Commerciale",
     href: "/contact",
     highlight: false,
   },
   {
-    badge: "Sage Business Cloud",
-    badgeLabel: "Sage X3",
+    badge: "Sage X3",
+    badgeLabel: "ERP Services",
     color: "bg-cta",
-    name: "Sage Business Cloud Sage X3",
-    subtitle: "Pour les moyennes et grandes entreprises",
-    description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
+    name: "Sage X3 — ERP pour les sociétés de services",
+    subtitle: "Pour les ETI et groupes de services",
+    description: "Sage X3 est l'ERP de référence pour les sociétés de services marocaines et africaines à forte volumétrie ou multi-entités. Il centralise la gestion des projets, des ressources, de la finance et des RH dans une plateforme unique.",
     features: [
-      "Maîtrisez vos opérations internationales",
-      "Obtenez des informations pertinentes au moment opportun",
-      "Développez votre activité sur de nouveaux marchés et territoires",
-      "Gagnez en flexibilité et concentrez-vous sur votre cœur de métier",
-      "Disposez de workflows simples à gérer et très intuitifs",
-      "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
+      "Gestion des projets et des affaires : planification, suivi des coûts et facturation",
+      "Portail collaboratif et saisie des temps en ligne",
+      "Gestion multi-entités, multi-devises et multi-langues",
+      "Reporting financier consolidé par activité ou par région",
+      "Workflows de validation configurables selon votre organisation",
+      "Déploiement cloud SaaS ou on-premise selon vos contraintes IT",
     ],
-    cta: "Découvrez Sage X3",
-    href: "/contact",
+    cta: "Découvrir Sage X3 Services",
+    href: "/solutions/sage-x3",
     highlight: true,
   },
 ];
@@ -123,16 +123,16 @@ export default function SecteurServicesClient() {
                   <span className="text-white">Services</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                  Offrez des services de qualité dans les délais et le budget impartis
+                  Solutions ERP pour les sociétés de services au Maroc et en Afrique
                 </h1>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  Libérez du temps pour innover et développer votre entreprise à l&apos;aide d&apos;un logiciel de gestion d&apos;entreprise flexible qui vous procure un avantage certain.
+                  Thalès Informatique accompagne les entreprises de services marocaines dans la digitalisation de leur gestion : facturation, projets, ressources humaines et pilotage financier en temps réel.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                  Découvrir nos solutions <ArrowRight size={16} />
+                  Parler à un expert <ArrowRight size={16} />
                 </Link>
               </motion.div>
               <motion.div
@@ -148,18 +148,37 @@ export default function SecteurServicesClient() {
           </div>
         </section>
 
-        {/* ── SECTION 1 — SOLUTIONS INTELLIGENTES ── */}
+        {/* ── SECTION 1 — CONTEXTE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
-                Des solutions professionnelles plus intelligentes qui vous permettent de vous concentrer sur vos clients et non sur les tâches administratives
+            <div className="max-w-3xl mx-auto">
+              <motion.div {...fadeUp}>
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  Les enjeux de la gestion pour les entreprises de services
+                </h2>
+                <p className="text-secondary leading-relaxed mb-4">
+                  Cabinets de conseil, sociétés d&apos;ingénierie, prestataires IT, agences de communication, bureaux d&apos;études : les entreprises de services marocaines partagent un défi commun — piloter des ressources humaines qualifiées, des projets complexes et des cycles de facturation souvent décalés par rapport à la réalité terrain.
+                </p>
+                <p className="text-secondary leading-relaxed">
+                  Sans outil de gestion adapté, les risques sont réels : dépassements de budget, pertes de temps sur la facturation, manque de visibilité sur la rentabilité par mission, et difficultés à coordonner des équipes réparties sur plusieurs sites au Maroc ou en Afrique. Un ERP dédié aux services transforme ces contraintes en leviers de performance.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 2 — 5 ATOUTS OPÉRATIONNELS ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                5 bénéfices opérationnels pour votre société de services
               </h2>
               <p className="text-secondary leading-relaxed">
-                Le temps est précieux dans le secteur très concurrentiel des services. Vous devez concentrer votre attention sur la satisfaction client, la réalisation du projet et la gestion de vos ressources. Passez à Sage et bénéficiez de puissantes solutions de gestion financière et de gestion d&apos;entreprise conçues pour des organisations telles que la vôtre. Vous pourrez ainsi vous concentrer sur votre cœur de métier et fournir une expérience client extraordinaire.
+                Des gains concrets sur votre productivité, votre rentabilité et la satisfaction de vos clients.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {atouts.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
                   key={title}
@@ -172,23 +191,23 @@ export default function SecteurServicesClient() {
                   <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
                     <Icon size={22} className="text-cta" />
                   </div>
-                  <h3 className="font-bold text-primary text-sm leading-snug">{title}</h3>
-                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
+                  <h3 className="font-bold text-primary">{title}</h3>
+                  <p className="text-secondary text-sm leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── SECTION 2 — LONGUEUR D'AVANCE / FINANCE ── */}
-        <section className="py-20 bg-white">
+        {/* ── SECTION 3 — FINANCE & PILOTAGE ── */}
+        <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Prenez une longueur d&apos;avance sur la concurrence avec une solution de gestion financière à la pointe
+                Une gestion financière rigoureuse pour vos engagements clients
               </h2>
               <p className="text-secondary leading-relaxed">
-                Accélérez l&apos;exécution des projets, prenez des décisions plus éclairées et augmentez vos profits.
+                Conformité, trésorerie et pilotage : les trois piliers d&apos;une gestion financière saine pour les entreprises de services marocaines.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -204,20 +223,20 @@ export default function SecteurServicesClient() {
                   <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
                     <Icon size={22} className="text-cta" />
                   </div>
-                  <h3 className="font-bold text-primary text-sm">{title}</h3>
-                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
+                  <h3 className="font-bold text-primary">{title}</h3>
+                  <p className="text-secondary text-sm leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── SECTION 3 — SOLUTIONS ── */}
-        <section className="py-20 bg-bg">
+        {/* ── SECTION 4 — SOLUTIONS ── */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary">
-                Gérez tous les domaines de votre entreprise de services
+                La solution adaptée à votre taille et votre métier
               </h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -265,10 +284,10 @@ export default function SecteurServicesClient() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Prêt à développer votre entreprise de services ?
+                Faites évoluer votre gestion avec Thalès Informatique
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée à votre secteur de services.
+                Nos consultants accompagnent les sociétés de services marocaines et africaines dans le choix, le déploiement et la prise en main de leur solution Sage — avec un suivi personnalisé à chaque étape.
               </p>
               <Link
                 href="/contact"
