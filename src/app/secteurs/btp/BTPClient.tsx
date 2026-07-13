@@ -111,12 +111,12 @@ const products = [
   {
     name: "ERP BTP intégré",
     desc: "Une solution complète pour gérer l'ensemble du cycle de vie d'un projet de construction : devis, chantier, facturation, comptabilité et RH dans un seul système.",
-    color: "from-amber-600 to-orange-700",
+    color: "from-cta to-blue-700",
   },
   {
     name: "GMAO Parc Matériel",
     desc: "Gestion de la maintenance préventive et corrective de vos engins et véhicules. Suivi des coûts d'utilisation, des pannes et des planifications d'entretien.",
-    color: "from-orange-600 to-amber-600",
+    color: "from-blue-600 to-cta",
   },
   {
     name: "Module Paie Chantier",
@@ -144,48 +144,48 @@ export default function BTPClient() {
     <div className="min-h-screen bg-bg">
       <Navbar />
 
-      {/* ── HERO centré ── */}
-      <section className="pt-32 pb-24 bg-primary relative overflow-hidden">
-        <img
-          src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782828246/magnific_an-active-construction-thales-informatique-BTP_eehz9a.webp"
-          alt="Chantier de construction BTP Maroc - Thalès Informatique"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-slate-900/90 to-slate-900/95" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center justify-center gap-2 text-sm text-white/60 mb-6">
-              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
-              <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">BTP & Construction</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/30 rounded-full px-4 py-2 mb-6">
-              <Building2 size={14} className="text-amber-300" />
-              <span className="text-amber-300 text-sm font-semibold uppercase tracking-wider">SECTEUR BTP & CONSTRUCTION</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Gérez simplement votre activité BTP :<br />
-              <span className="text-amber-400">du devis au suivi de chantier</span>
-            </h1>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto mb-4">
-              Pilotez vos chantiers, maîtrisez vos coûts et gagnez en réactivité grâce à des outils de gestion pensés pour les entreprises BTP marocaines.
-            </p>
-            <p className="text-white/50 max-w-xl mx-auto mb-10">
-              Prenez de meilleures décisions et boostez votre activité avec une solution mobile, intuitive et dédiée aux entrepreneurs et artisans du bâtiment au Maroc et en Afrique.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg shadow-amber-500/30"
+      {/* ── HERO ── */}
+      <section className="pt-32 pb-20 bg-primary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              Demander une démo <ArrowRight size={18} />
-            </Link>
-          </motion.div>
+              <div className="flex items-center gap-2 text-sm text-white/60 mb-6">
+                <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+                <ChevronRight size={14} />
+                <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
+                <ChevronRight size={14} />
+                <span className="text-white">BTP & Construction</span>
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                Gérez simplement votre activité BTP : du devis au suivi de chantier
+              </h1>
+              <p className="text-white/70 text-lg leading-relaxed mb-8">
+                Pilotez vos chantiers, maîtrisez vos coûts et gagnez en réactivité grâce à des outils de gestion pensés pour les entreprises BTP marocaines et africaines.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              >
+                Demander une démo <ArrowRight size={16} />
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="hidden lg:block h-80 rounded-2xl overflow-hidden"
+            >
+              <img
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782828246/magnific_an-active-construction-thales-informatique-BTP_eehz9a.webp"
+                alt="Chantier de construction BTP Maroc - Thalès Informatique"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -216,7 +216,7 @@ export default function BTPClient() {
                 { value: "Multi", label: "Gestion multi-chantiers" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center p-6 bg-slate-50 rounded-2xl border border-border">
-                  <div className="text-3xl font-bold text-amber-600 mb-2">{stat.value}</div>
+                  <div className="text-3xl font-bold text-cta mb-2">{stat.value}</div>
                   <div className="text-sm text-secondary">{stat.label}</div>
                 </div>
               ))}
@@ -246,10 +246,10 @@ export default function BTPClient() {
                 <motion.div
                   key={f.title}
                   variants={fadeUp}
-                  className="bg-white rounded-2xl p-7 border border-border hover:border-amber-200 hover:shadow-md transition-all"
+                  className="bg-white rounded-2xl p-7 border border-border hover:border-cta/30 hover:shadow-md transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-5">
-                    <f.icon size={24} className="text-amber-600" />
+                  <div className="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-5">
+                    <f.icon size={24} className="text-cta" />
                   </div>
                   <h3 className="font-bold text-primary mb-3">{f.title}</h3>
                   <p className="text-secondary text-sm leading-relaxed">{f.desc}</p>
@@ -279,10 +279,10 @@ export default function BTPClient() {
                 <motion.div
                   key={c.title}
                   variants={fadeUp}
-                  className="bg-amber-50 rounded-2xl p-8 border border-amber-100"
+                  className="bg-slate-50 rounded-2xl p-8 border border-border"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-6">
-                    <c.icon size={24} className="text-amber-600" />
+                  <div className="w-12 h-12 rounded-xl bg-cta/10 flex items-center justify-center mb-6">
+                    <c.icon size={24} className="text-cta" />
                   </div>
                   <h3 className="font-bold text-primary mb-3">{c.title}</h3>
                   <p className="text-secondary text-sm leading-relaxed">{c.desc}</p>
@@ -312,9 +312,9 @@ export default function BTPClient() {
                 <motion.div
                   key={a.title}
                   variants={fadeUp}
-                  className="bg-white rounded-2xl p-6 border border-border hover:border-amber-200 transition-all"
+                  className="bg-white rounded-2xl p-6 border border-border hover:border-cta/30 transition-all"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-amber-600 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-cta flex items-center justify-center mb-4">
                     <a.icon size={18} className="text-white" />
                   </div>
                   <h3 className="font-bold text-primary mb-2">{a.title}</h3>
@@ -357,7 +357,7 @@ export default function BTPClient() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 bg-amber-600" ref={ctaRef}>
+      <section className="py-20 bg-cta" ref={ctaRef}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             variants={stagger}
@@ -373,7 +373,7 @@ export default function BTPClient() {
             <motion.div variants={fadeUp}>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-amber-700 font-bold px-8 py-4 rounded-xl hover:bg-amber-50 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
               >
                 Demander une démo
                 <ChevronRight size={18} />
