@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
@@ -23,6 +23,56 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+
+const heroImages = [
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783936564/BTP-ERP-thales-informatique_dzqnbs.jpg",
+    alt: "Chantier de construction BTP Maroc - Thalès Informatique",
+  },
+  {
+    src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783936082/cover-product-Batigest-ERP-thales-informatique_pzoxug.png",
+    alt: "Batigest ERP - Thalès Informatique",
+  },
+];
+
+function HeroSlider() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((p) => (p + 1) % heroImages.length), 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 24 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
+      className="hidden lg:block relative h-80 rounded-2xl overflow-hidden"
+    >
+      {heroImages.map((img, i) => (
+        <motion.img
+          key={img.src}
+          src={img.src}
+          alt={img.alt}
+          animate={{ opacity: i === active ? 1 : 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ))}
+      {/* dots */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+        {heroImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === active ? "bg-white scale-125" : "bg-white/40"}`}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -173,18 +223,7 @@ export default function BTPClient() {
                 Demander une démo <ArrowRight size={16} />
               </Link>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="hidden lg:block h-80 rounded-2xl overflow-hidden"
-            >
-              <img
-                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783936564/BTP-ERP-thales-informatique_dzqnbs.jpg"
-                alt="Chantier de construction BTP Maroc - Thalès Informatique"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            <HeroSlider />
           </div>
         </div>
       </section>
