@@ -131,7 +131,7 @@ export default function LogistiqueClient() {
                 className="hidden lg:block h-80 rounded-2xl overflow-hidden"
               >
                 <img
-                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783938223/Chimie-ERP-thales-informatique_f8ld5q.jpg"
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783939928/Logistique-ERP-thales-informatique_ax47nu.jpg"
                   alt="Logistique ERP - Thalès Informatique"
                   className="w-full h-full object-cover"
                 />
