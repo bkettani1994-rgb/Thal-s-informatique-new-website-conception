@@ -20,72 +20,72 @@ const fadeUp = {
 const defis = [
   {
     icon: Scale,
-    title: "Une conformité totale",
-    desc: "Aujourd'hui, l'une des difficultés majeures des acteurs mondiaux de la chimie est la nécessité de satisfaire à toutes les exigences réglementaires nationales et mondiales. Le SGH en est un exemple, mais vous devez sûrement relever d'autres défis réglementaires et la non-conformité dans ce domaine peut se solder par des coûts importants. Se perdre dans le dédale des législations et des restrictions mondiales peut avoir des conséquences dévastatrices pour votre entreprise.",
+    title: "Conformité réglementaire multi-niveaux",
+    desc: "Les entreprises chimiques marocaines et africaines doivent jongler entre les normes locales, les réglementations SGH et les exigences de leurs clients internationaux. Sans outil centralisé, chaque mise à jour réglementaire devient une source de risque et de coût supplémentaire.",
   },
   {
     icon: ClipboardCheck,
-    title: "Garantie d'une qualité constante",
-    desc: "À l'heure où les procédés de production s'orientent vers des modèles commerciaux de plus en plus spécialisés et multi-produits, la conformité des opérations devient plus essentielle que jamais. Mais veiller en permanence à la qualité, la sécurité et l'efficacité de vos produits peut conférer une certaine rigidité à votre entreprise et vous empêcher de saisir de nouvelles opportunités commerciales.",
+    title: "Maintien d'une qualité irréprochable",
+    desc: "Dans un secteur où la moindre déviation de formule peut entraîner des rappels produits ou des accidents, la traçabilité lot par lot et le contrôle qualité en continu sont non négociables. La diversification des gammes amplifie cette complexité.",
   },
   {
     icon: Truck,
-    title: "Gestion de toute votre chaîne logistique",
-    desc: "Les chaînes logistiques s'étendent bien au-delà des murs de votre entreprise, les éléments essentiels de votre entreprise étant maintenant fournis par des entités tierces situées dans le monde entier. Les systèmes locaux vous proposent une gestion réduite de ces partenaires, mais n'offrent pas une vue complète de votre chaîne logistique, entraînant des retards et des erreurs coûteuses.",
+    title: "Pilotage d'une supply chain internationale",
+    desc: "Matières premières importées, transporteurs multiples, délais douaniers au Maroc, livraisons vers l'Afrique subsaharienne : sans vision unifiée de votre chaîne logistique, les ruptures et les surcoûts se multiplient.",
   },
 ];
 
 const avantages = [
   {
     icon: Zap,
-    title: "Réactivité accrue",
-    desc: "Améliorez votre potentiel de réussite commerciale en répondant plus rapidement aux exigences des clients et du marché. Rationalisez la gestion des fluctuations des achats, de la production et de l'expédition.",
+    title: "Prise de décision plus rapide",
+    desc: "Des tableaux de bord en temps réel sur vos indicateurs de production, de qualité et de stock vous permettent d'anticiper les aléas et de réajuster votre plan de charge sans délai.",
   },
   {
     icon: AlertTriangle,
-    title: "Diminution des risques",
-    desc: "Contrôlez en permanence la qualité, la sécurité et l'efficacité de vos produits pour limiter les risques tout en assurant des conditions de travail sécurisées et en respectant les réglementations.",
+    title: "Réduction de l'exposition aux risques",
+    desc: "Automatisez vos contrôles qualité, tracez chaque lot du fournisseur au client final et documentez vos processus pour répondre sereinement à tout audit ou incident terrain.",
   },
   {
     icon: TrendingDown,
-    title: "Réduction de vos coûts et de vos déchets",
-    desc: "Réduisez considérablement vos coûts opérationnels et vos déchets, tout en éliminant les risques potentiels de contamination croisée.",
+    title: "Optimisation des coûts de production",
+    desc: "Identifiez les sources de gaspillage, réduisez les écarts entre coûts prévisionnels et réels, et pilotez votre marge par produit et par lot pour maximiser la rentabilité de chaque fabrication.",
   },
 ];
 
 const solutions = [
   {
-    badge: "Sage 100",
+    badge: "ERP Production",
     badgeLabel: "Gestion de Production",
     color: "bg-emerald-600",
-    name: "Sage 100 Gestion de Production",
-    subtitle: "Pour les PME et PMI",
-    description: "Avec Sage 100 Gestion de Production, vous disposez d'un logiciel GPAO dédié aux PME-PMI qui vous aidera à gérer vos données techniques, planifier vos ordres de fabrication, suivre vos encours de production et analyser vos coûts de revient.",
+    name: "ERP Gestion de Production Chimie",
+    subtitle: "Pour les PME et PMI chimiques",
+    description: "Une solution ERP dédiée aux PME-PMI de l'industrie chimique marocaine : gestion des formules, suivi des lots, planification des ordres de fabrication et analyse des coûts de revient pour chaque produit.",
     features: [
-      "Gérez vos données techniques pour que vos ordres de fabrication reflètent au mieux la réalité de l'atelier",
-      "Respectez vos délais et optimisez votre outil de production",
-      "Optimisez votre stock et vos ressources à terme grâce au CBN et au PIC/PDP",
-      "Anticipez vos achats grâce à l'analyse des mouvements des produits",
-      "Suivez vos encours de production en temps réel grâce à des tableaux de bord",
+      "Gestion des formules et des nomenclatures chimiques",
+      "Traçabilité complète des lots de matières premières et produits finis",
+      "Planification des ordres de fabrication et des ressources atelier",
+      "Calcul des besoins nets (CBN) pour anticiper les approvisionnements",
+      "Suivi des encours et tableaux de bord de production en temps réel",
     ],
     cta: "Demander une démo",
     href: "/contact",
     highlight: false,
   },
   {
-    badge: "Sage Business Cloud",
-    badgeLabel: "Sage X3",
+    badge: "ERP Multi-sites",
+    badgeLabel: "ERP Chimie Avancé",
     color: "bg-cta",
-    name: "Sage Business Cloud Sage X3",
+    name: "ERP Chimie — Groupes et ETI",
     subtitle: "Pour les moyennes et grandes entreprises",
-    description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
+    description: "Pour les groupes chimiques marocains et africains opérant sur plusieurs sites ou marchés : une plateforme ERP unifiée qui couvre l'ensemble du cycle — achats, production, qualité, logistique, finance et RH.",
     features: [
-      "Maîtrisez vos opérations internationales",
-      "Obtenez des informations pertinentes au moment opportun",
-      "Développez votre activité sur de nouveaux marchés et territoires",
-      "Gagnez en flexibilité et concentrez-vous sur votre cœur de métier",
-      "Disposez de workflows simples à gérer et très intuitifs",
-      "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
+      "Gestion multi-sites, multi-entités et multi-devises",
+      "Module qualité intégré : contrôles, non-conformités, certificats d'analyse",
+      "Conformité SGH et gestion des fiches de données de sécurité (FDS)",
+      "Supply chain internationale avec suivi des flux douaniers",
+      "Reporting consolidé et indicateurs de performance par site",
+      "Déploiement cloud sécurisé ou on-premise selon vos exigences",
     ],
     cta: "Demander une démo",
     href: "/contact",
@@ -112,16 +112,16 @@ export default function ChimieClient() {
                   <span className="text-white">Chimie</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                  Trouvez la formule gagnante grâce à un logiciel de gestion conçu pour votre entreprise de produits chimiques
+                  ERP pour l&apos;industrie chimique au Maroc et en Afrique
                 </h1>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  Prenez de l&apos;avance sur des exigences de conformité en constante évolution.
+                  Thalès Informatique accompagne les entreprises chimiques marocaines dans la digitalisation de leur production, de leur conformité réglementaire et de leur supply chain.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                  Demandez plus d&apos;informations <ArrowRight size={16} />
+                  Parler à un expert <ArrowRight size={16} />
                 </Link>
               </motion.div>
               <motion.div
@@ -147,13 +147,13 @@ export default function ChimieClient() {
             <div className="max-w-3xl mx-auto text-center">
               <motion.div {...fadeUp}>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
-                  Cherchez-vous les clés d&apos;une activité plus rentable ?
+                  Comment transformer la complexité chimique en avantage compétitif ?
                 </h2>
                 <p className="text-secondary leading-relaxed mb-4">
-                  Investir dans la bonne solution commerciale pourrait bien être l&apos;élément manquant.
+                  La clé réside dans la capacité à centraliser et à piloter l&apos;ensemble de vos opérations depuis une plateforme unique, conçue pour les contraintes spécifiques de votre secteur.
                 </p>
                 <p className="text-secondary leading-relaxed">
-                  La gestion d&apos;une entreprise de produits chimiques peut être complexe. Le système général harmonisé (SGH), les problématiques liées à l&apos;expédition et au transport, la sécurité sur le lieu de travail et d&apos;autres aspects sont autant de défis à relever au quotidien. Pour résister à la pression concurrentielle et optimiser vos ressources les plus précieuses, vous avez besoin d&apos;une solution qui simplifiera radicalement vos opérations, plutôt que d&apos;y ajouter des systèmes plus complexes et des processus rigides.
+                  Les entreprises chimiques marocaines et africaines évoluent dans un environnement de plus en plus exigeant : normes SGH, traçabilité des substances dangereuses, sécurité sur site, pression sur les marges et digitalisation des échanges avec les clients et fournisseurs. Un ERP spécialisé vous permet d&apos;absorber cette complexité sans alourdir vos processus, et de concentrer l&apos;énergie de vos équipes sur ce qui crée vraiment de la valeur.
                 </p>
               </motion.div>
             </div>
@@ -165,10 +165,10 @@ export default function ChimieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Avez-vous tous les outils pour répondre rapidement aux défis d&apos;un environnement en constante évolution ?
+                Les 3 défis majeurs des entreprises chimiques au Maroc et en Afrique
               </h2>
               <p className="text-secondary leading-relaxed">
-                Aujourd&apos;hui, l&apos;industrie chimique doit satisfaire à des règles de conformité plus strictes que jamais, sans parler du fardeau supplémentaire des reportings financiers. Êtes-vous en mesure de continuer à garantir la conformité que vos clients attendent de vous ?
+                Réglementation, qualité et logistique : trois dimensions interdépendantes qui exigent une gestion rigoureuse et des outils adaptés aux réalités du marché local et des échanges internationaux.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -197,10 +197,10 @@ export default function ChimieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Surpassez les attentes de vos clients et augmentez vos bénéfices
+                La solution adaptée à votre taille et à vos enjeux
               </h2>
               <p className="text-secondary leading-relaxed">
-                Dépassez les défis liés au stockage grâce à nos solutions de distribution en gros intelligentes et intuitives.
+                PME chimique ou groupe multi-sites, Thalès Informatique dispose d&apos;une solution qui s&apos;adapte à votre organisation et aux spécificités du secteur chimique marocain et africain.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -246,10 +246,10 @@ export default function ChimieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Maîtrisez vos coûts et vos risques grâce à une solution puissante et évolutive
+                3 bénéfices concrets pour votre entreprise chimique
               </h2>
               <p className="text-secondary leading-relaxed">
-                La bonne solution de gestion peut transformer votre entreprise de produits chimiques en vous offrant la simplicité, la flexibilité et le contrôle dont vous avez besoin.
+                Des résultats mesurables sur votre performance opérationnelle, votre maîtrise des risques et votre rentabilité globale.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -278,10 +278,10 @@ export default function ChimieClient() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Prêt à optimiser votre entreprise de produits chimiques ?
+                Transformez votre gestion chimique avec Thalès Informatique
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée aux spécificités de votre secteur.
+                Nos consultants accompagnent les entreprises chimiques marocaines et africaines dans le déploiement de solutions ERP adaptées — conformité, production, qualité et supply chain intégrées.
               </p>
               <Link
                 href="/contact"
