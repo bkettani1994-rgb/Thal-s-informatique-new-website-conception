@@ -16,7 +16,7 @@ const rows = [
     solution: {
       icon: Zap,
       title: "Processus automatisés",
-      desc: "Workflows Sage qui suppriment les tâches répétitives, réduisent les erreurs et libèrent vos équipes.",
+      desc: "Des workflows intelligents qui suppriment les tâches répétitives, réduisent les erreurs et libèrent vos équipes.",
     },
   },
   {
@@ -28,7 +28,7 @@ const rows = [
     solution: {
       icon: Eye,
       title: "Vision en temps réel",
-      desc: "Tableaux de bord Sage live pour des décisions rapides, éclairées et partagées entre équipes.",
+      desc: "Des tableaux de bord en temps réel pour des décisions rapides, éclairées et partagées entre équipes.",
     },
   },
   {
@@ -40,7 +40,7 @@ const rows = [
     solution: {
       icon: GitMerge,
       title: "Données centralisées",
-      desc: "Une source unique de vérité avec Sage X3, Sage 100 ou Sage FRP 1000, accessible à toutes vos équipes.",
+      desc: "Une source unique de vérité, centralisée et accessible à toutes vos équipes en temps réel.",
     },
   },
   {
@@ -52,7 +52,7 @@ const rows = [
     solution: {
       icon: TrendingUp,
       title: "Pilotage performant",
-      desc: "KPIs et reporting avancé Sage pour mesurer, comparer et améliorer vos performances en continu.",
+      desc: "KPIs et reporting avancé pour mesurer, comparer et améliorer vos performances en continu.",
     },
   },
 ];
