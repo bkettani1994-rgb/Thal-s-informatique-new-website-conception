@@ -144,7 +144,7 @@ export default function ChimieClient() {
         {/* ── SECTION 1 — CLÉS D'UNE ACTIVITÉ RENTABLE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
               <motion.div {...fadeUp}>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
                   Cherchez-vous les clés d&apos;une activité plus rentable ?
