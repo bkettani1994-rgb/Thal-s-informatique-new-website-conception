@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ChatBot from "@/components/ui/ChatBot";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
@@ -120,6 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-bg-base text-primary">
+        <GoogleAnalytics />
         {children}
         <ChatBot />
         <WhatsAppButton />
