@@ -145,7 +145,7 @@ export default function AgroalimentaireClient() {
         {/* ── SECTION 1 — RECETTE MIRACLE ? ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto">
               <motion.div {...fadeUp}>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
                   Avez-vous la recette miracle pour créer une entreprise à forte rentabilité ?
