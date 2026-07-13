@@ -128,9 +128,13 @@ export default function AssociationClient() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="hidden lg:flex h-80 rounded-2xl bg-slate-700 border border-slate-600 items-center justify-center"
+                className="hidden lg:block h-80 rounded-2xl overflow-hidden"
               >
-                <span className="text-slate-400 text-sm">Image à ajouter</span>
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783940966/Association-ERP-thales-informatique_onumrq.jpg"
+                  alt="Associations ERP - Thalès Informatique"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
             </div>
           </div>
