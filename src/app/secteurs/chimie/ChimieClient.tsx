@@ -68,7 +68,7 @@ const solutions = [
       "Anticipez vos achats grâce à l'analyse des mouvements des produits",
       "Suivez vos encours de production en temps réel grâce à des tableaux de bord",
     ],
-    cta: "Découvrez Sage 100 Gestion de Production",
+    cta: "Demander une démo",
     href: "/contact",
     highlight: false,
   },
@@ -87,7 +87,7 @@ const solutions = [
       "Disposez de workflows simples à gérer et très intuitifs",
       "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
     ],
-    cta: "Découvrez Sage X3",
+    cta: "Demander une démo",
     href: "/contact",
     highlight: true,
   },
@@ -144,7 +144,7 @@ export default function ChimieClient() {
         {/* ── SECTION 1 — CLÉS D'UNE ACTIVITÉ RENTABLE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto">
               <motion.div {...fadeUp}>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
                   Cherchez-vous les clés d&apos;une activité plus rentable ?
