@@ -113,6 +113,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        <GoogleAnalytics />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
@@ -121,7 +122,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-bg-base text-primary">
-        <GoogleAnalytics />
         {children}
         <ChatBot />
         <WhatsAppButton />
