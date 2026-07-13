@@ -4,7 +4,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import { ArrowRight, ChevronRight, CheckCircle } from "lucide-react";
+import {
+  ArrowRight, ChevronRight, CheckCircle,
+  Warehouse, Truck, BarChart2, Zap, MapPin, RefreshCw,
+} from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -13,41 +16,77 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
+const defis = [
+  {
+    icon: Warehouse,
+    title: "Gestion d'entrepôt sous pression",
+    desc: "Entre la multiplication des références, les pics d'activité saisonniers et les exigences de traçabilité, piloter un entrepôt au Maroc ou en Afrique sans outil dédié expose votre entreprise à des erreurs de préparation, des ruptures et des coûts de stockage non maîtrisés.",
+  },
+  {
+    icon: Truck,
+    title: "Visibilité limitée sur les flux de transport",
+    desc: "Transporteurs multiples, douanes, routes à géométrie variable : sans suivi centralisé de vos expéditions et livraisons, les retards s'accumulent et la satisfaction client en pâtit. La coordination entre l'entrepôt et les équipes terrain reste un défi quotidien.",
+  },
+  {
+    icon: BarChart2,
+    title: "Pilotage des coûts logistiques complexe",
+    desc: "Frais de transport, coûts de manutention, taux de service, taux de remplissage : sans tableau de bord centralisé, il est difficile d'identifier les leviers d'optimisation et de négocier efficacement avec vos prestataires et fournisseurs.",
+  },
+];
+
+const avantages = [
+  {
+    icon: Zap,
+    title: "Productivité en entrepôt améliorée",
+    desc: "Optimisez les déplacements de vos équipes, attribuez les missions selon les compétences et les zones, et réduisez les temps d'attente grâce à une organisation intelligente de votre espace de stockage.",
+  },
+  {
+    icon: MapPin,
+    title: "Traçabilité de bout en bout",
+    desc: "De la réception fournisseur jusqu'à la livraison client final, chaque mouvement de marchandise est enregistré et consultable en temps réel. Gérez les lots, les numéros de série et les dates de péremption sans effort.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Intégration avec vos systèmes existants",
+    desc: "Connectez votre solution logistique à votre ERP, à vos partenaires EDI et à vos outils de géolocalisation. Une donnée saisie une seule fois circule automatiquement dans toute votre chaîne d'information, sans ressaisie.",
+  },
+];
+
 const solutions = [
   {
-    badge: "Sage X3",
-    badgeLabel: "Warehousing",
+    badge: "WMS",
+    badgeLabel: "Gestion d'Entrepôt",
     color: "bg-emerald-600",
-    name: "Sage X3 Warehousing",
-    subtitle: "Des PME aux grandes entreprises",
-    description: "Rendez vos opérations logistiques et la gestion de vos entrepôts plus simples que jamais.",
+    name: "Solution WMS — Gestion d'entrepôt",
+    subtitle: "Pour les opérateurs logistiques et distributeurs",
+    description: "Une solution de gestion d'entrepôt (WMS) conçue pour les entreprises logistiques marocaines et africaines : optimisation des emplacements, gestion des entrées/sorties, préparation de commandes et inventaires tournants en temps réel.",
     features: [
-      "Améliorez la productivité en organisant et rationalisant l'activité des collaborateurs (déplacement, préparations…) au sein de l'entrepôt",
-      "Pilotez plus efficacement vos moyens industriels en attribuant à chacun des missions compatibles avec sa fonction, son métier, sa localisation",
-      "Renforcez la qualité et la flabilité de vos flux logistiques",
-      "Valorisez vos espaces d'entreposage grâce à un algorithme qui modélise l'espace de stockage en 3 dimensions et les déplacements",
-      "Disposez d'une solution modulable qui vous accompagne à chaque étape de l'évolution de votre organisation, en France comme à l'international",
+      "Gestion multi-zones : racks, masse, picking, zones de quarantaine",
+      "Optimisation des emplacements et des tournées de préparation",
+      "Traçabilité par lot, numéro de série et date de péremption",
+      "Compatibilité code-barres, RFID et terminaux mobiles RF",
+      "Suivi des stocks en temps réel avec alertes de seuil",
     ],
-    cta: "Découvrez Sage X3 Warehousing",
+    cta: "Demander une démo",
     href: "/contact",
     highlight: false,
   },
   {
-    badge: "Sage Business Cloud",
-    badgeLabel: "Sage X3",
+    badge: "ERP Logistique",
+    badgeLabel: "Supply Chain Intégrée",
     color: "bg-cta",
-    name: "Sage Business Cloud Sage X3",
-    subtitle: "Pour les moyennes et grandes entreprises",
-    description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
+    name: "ERP Logistique — Supply Chain globale",
+    subtitle: "Pour les ETI et groupes multi-sites",
+    description: "Pour les opérateurs logistiques et industriels marocains et africains opérant sur plusieurs sites : une plateforme ERP qui unifie la gestion des entrepôts, du transport, des achats et de la finance dans un système unique et performant.",
     features: [
-      "Maîtrisez vos opérations internationales",
-      "Obtenez des informations pertinentes au moment opportun",
-      "Développez votre activité sur de nouveaux marchés et territoires",
-      "Gagnez en flexibilité et concentrez-vous sur votre cœur de métier",
-      "Disposez de workflows simples à gérer et très intuitifs",
-      "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
+      "Gestion multi-entrepôts, multi-sites et multi-devises",
+      "Module transport intégré : planification, géolocalisation, facturation",
+      "Échanges EDI avec fournisseurs, clients et transporteurs",
+      "Reporting logistique consolidé : taux de service, coûts, délais",
+      "Workflows de validation configurables selon votre organisation",
+      "Déploiement cloud sécurisé ou on-premise selon vos exigences IT",
     ],
-    cta: "Découvrez Sage X3",
+    cta: "Demander une démo",
     href: "/contact",
     highlight: true,
   },
@@ -72,16 +111,16 @@ export default function LogistiqueClient() {
                   <span className="text-white">Logistique</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                  Maîtrisez votre logistique
+                  Solutions ERP & WMS pour les opérateurs logistiques au Maroc et en Afrique
                 </h1>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  Avec nos logiciels, maîtrisez l&apos;entreposage et le transport pour gagner en efficacité et améliorer votre productivité.
+                  Thalès Informatique accompagne les entreprises logistiques marocaines dans la digitalisation de leurs entrepôts, de leur transport et de leur supply chain — pour gagner en productivité et réduire leurs coûts opérationnels.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                  Découvrir les fonctionnalités <ArrowRight size={16} />
+                  Parler à un expert <ArrowRight size={16} />
                 </Link>
               </motion.div>
               <motion.div
@@ -89,51 +128,79 @@ export default function LogistiqueClient() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="hidden lg:flex h-80 rounded-2xl bg-slate-700 border border-slate-600 items-center justify-center"
+                className="hidden lg:block h-80 rounded-2xl overflow-hidden"
               >
-                <span className="text-slate-400 text-sm">Image à ajouter</span>
+                <img
+                  src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783938223/Chimie-ERP-thales-informatique_f8ld5q.jpg"
+                  alt="Logistique ERP - Thalès Informatique"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* ── SECTION 1 — SOLUTIONS QUI CONNAISSENT VOTRE MÉTIER ── */}
+        {/* ── SECTION 1 — CONTEXTE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <motion.div {...fadeUp}>
-                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                  Des solutions qui connaissent votre métier
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
+                  Pourquoi la logistique marocaine a besoin d&apos;outils de gestion dédiés ?
                 </h2>
-                <p className="text-secondary leading-relaxed mb-10">
-                  En tant que professionnel de la logistique, vous travaillez dans l&apos;urgence. Pour tenir vos engagements, vous devez maîtriser vos flux, optimiser vos espaces de stockage et améliorer l&apos;efficacité de vos collaborateurs. Chez Thalès Informatique, nous développons depuis plus de 20 ans des logiciels de gestion en collaboration avec des professionnels de la logistique.
+                <p className="text-secondary leading-relaxed mb-4">
+                  Le secteur logistique au Maroc connaît une transformation profonde : essor du e-commerce, développement des zones industrielles, montée en puissance des corridors vers l&apos;Afrique subsaharienne. Cette dynamique crée de nouvelles opportunités, mais aussi une pression accrue sur les délais, les coûts et la qualité de service.
                 </p>
-
-                <h3 className="text-xl font-bold text-primary mb-3">
-                  Des fonctions dédiées à l&apos;entreposage
-                </h3>
-                <p className="text-secondary leading-relaxed mb-8">
-                  Nos <strong className="text-primary">solutions de gestion d&apos;entrepôt</strong> (WMS ou Warehouse Management System) gèrent les différents types de stockage : racks, masse, picking, quais… Grâce à une représentation graphique mise à jour en temps réel, elles vous permettent de suivre l&apos;état exact de vos stocks, d&apos;optimiser les rangements et les déplacements. Nos solutions sont compatibles avec les technologies d&apos;identification et de communication spécifiques à votre activité : RFID, code-barres, communication vocale, pistolet RF et bien d&apos;autres encore.
-                </p>
-
-                <h3 className="text-xl font-bold text-primary mb-3">
-                  Gagnez en efficacité et en productivité
-                </h3>
                 <p className="text-secondary leading-relaxed">
-                  Nos solutions répondent aux exigences de la supply chain execution. Réduisez vos coûts et vos délais, améliorez l&apos;interopérabilité de vos différents sites, gagnez en visibilité sur l&apos;ensemble de vos activités, améliorez vos prestations et la satisfaction de vos commanditaires.
+                  Pour rester compétitifs, les prestataires logistiques, les grossistes et les industriels marocains doivent digitaliser leurs opérations d&apos;entrepôt et de transport. Un ERP ou un WMS adapté à votre réalité terrain vous permet de centraliser la gestion, d&apos;éliminer les ressaisies et de prendre des décisions éclairées en temps réel.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* ── SECTION 2 — SOLUTIONS ENTREPÔTS ── */}
+        {/* ── SECTION 2 — 3 DÉFIS ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
-              <h2 className="text-2xl sm:text-3xl font-bold text-primary">
-                Nos solutions de gestion des entrepôts
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                Les 3 défis clés des opérateurs logistiques au Maroc et en Afrique
               </h2>
+              <p className="text-secondary leading-relaxed">
+                Entrepôt, transport, pilotage des coûts : trois axes prioritaires pour toute entreprise logistique qui veut gagner en compétitivité sur le marché marocain et africain.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {defis.map(({ icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex flex-col gap-3"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
+                    <Icon size={22} className="text-cta" />
+                  </div>
+                  <h3 className="font-bold text-primary text-sm leading-snug">{title}</h3>
+                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 3 — SOLUTIONS ── */}
+        <section className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                La solution adaptée à votre organisation logistique
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Opérateur logistique, distributeur ou industriel marocain : Thalès Informatique dispose d&apos;une solution qui s&apos;adapte à votre taille, à vos flux et aux spécificités du marché local et régional.
+              </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {solutions.map((sol, i) => (
@@ -173,62 +240,34 @@ export default function LogistiqueClient() {
           </div>
         </section>
 
-        {/* ── SECTION 3 — OPÉRATIONS & FLUX ── */}
-        <section className="py-20 bg-bg">
+        {/* ── SECTION 4 — AVANTAGES ── */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <motion.div {...fadeUp}>
-                <h2 className="text-xl font-bold text-primary mb-4">
-                  Gagnez du temps et simplifiez les opérations répétitives :
-                </h2>
-                <ul className="space-y-2 mb-10">
-                  {[
-                    "Limitez les ressaisies et évitez les erreurs",
-                    "Prenez en charge les échanges de documents en EDI",
-                    "Assurez la traçabilité de vos flux de marchandises",
-                    "Fluidifiez la communication avec vos équipes",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-secondary text-sm">
-                      <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <h2 className="text-xl font-bold text-primary mb-3">
-                  Des logiciels pour optimiser vos flux
-                </h2>
-                <p className="text-secondary text-sm leading-relaxed mb-4">
-                  Allégez vos tâches quotidiennes et améliorez vos processus avec nos <strong className="text-primary">solutions de gestion de transport (TMS)</strong>.
-                </p>
-                <ul className="space-y-2 mb-10">
-                  {[
-                    "Enregistrez les commandes et validez les opérations d'enlèvement et de livraison",
-                    "Gérez automatiquement la taxation et la facturation des ordres de transport",
-                    "Planifiez vos ressources",
-                    "Géolocalisez vos véhicules et suivez vos marchandises",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-secondary text-sm">
-                      <CheckCircle size={14} className="text-cta mt-0.5 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <h2 className="text-xl font-bold text-primary mb-3">
-                  Des services sur mesure
-                </h2>
-                <p className="text-secondary text-sm leading-relaxed mb-10">
-                  Pour répondre à vos besoins et s&apos;intégrer à votre système d&apos;information, nos <strong className="text-primary">solutions logistiques</strong> sont disponibles en mode licence, DEL/DUA ou SaaS, ou encore intégrées à un ERP. Elles s&apos;accompagnent de services sur mesure, tant pour le conseil et l&apos;assistance que pour la formation. Nos équipes et nos partenaires sont à vos côtés pour vous aider à chaque étape de vos projets, de la conception à l&apos;exploitation en passant par l&apos;installation, la personnalisation et la formation.
-                </p>
-
-                <h2 className="text-xl font-bold text-primary mb-3">
-                  Gérez vos entrepôts en toute sérénité
-                </h2>
-                <p className="text-secondary text-sm leading-relaxed">
-                  Quels que soient vos besoins logistiques, Sage X3 Warehousing vous aide à tirer le meilleur parti de vos entrepôts. De la réception à l&apos;expédition, maîtrisez et optimisez vos flux à distance.
-                </p>
-              </motion.div>
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                3 bénéfices concrets pour votre activité logistique
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Des résultats mesurables sur votre efficacité opérationnelle, votre traçabilité et votre intégration avec l&apos;écosystème de vos partenaires.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {avantages.map(({ icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex flex-col gap-3"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
+                    <Icon size={22} className="text-cta" />
+                  </div>
+                  <h3 className="font-bold text-primary text-sm">{title}</h3>
+                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -238,10 +277,10 @@ export default function LogistiqueClient() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Prêt à optimiser votre chaîne logistique ?
+                Optimisez votre chaîne logistique avec Thalès Informatique
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée à votre activité logistique.
+                Nos consultants accompagnent les opérateurs logistiques marocains et africains dans le déploiement de solutions WMS et ERP adaptées à leurs flux, leurs entrepôts et leurs ambitions de croissance.
               </p>
               <Link
                 href="/contact"
