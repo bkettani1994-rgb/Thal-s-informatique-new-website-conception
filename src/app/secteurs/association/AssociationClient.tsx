@@ -6,6 +6,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import {
   ArrowRight, ChevronRight, CheckCircle,
+  BookOpen, Users, ShieldCheck, PieChart, HeartHandshake, FileText,
 } from "lucide-react";
 
 const fadeUp = {
@@ -15,42 +16,77 @@ const fadeUp = {
   transition: { duration: 0.5 },
 };
 
+const defis = [
+  {
+    icon: PieChart,
+    title: "Transparence financière et conformité",
+    desc: "Les associations marocaines sont soumises à des obligations de reporting envers leurs membres, leurs financeurs et les autorités compétentes. Sans outil de gestion adapté, produire des états financiers fiables et conformes dans les délais devient un véritable casse-tête.",
+  },
+  {
+    icon: Users,
+    title: "Pilotage des ressources humaines et bénévoles",
+    desc: "Salariés, prestataires, bénévoles : gérer des équipes aux statuts variés, coordonner les disponibilités et assurer le suivi des missions nécessite une organisation rigoureuse que les tableurs ne peuvent plus soutenir au-delà d'une certaine taille.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Diversification et suivi des financements",
+    desc: "Subventions publiques, cotisations membres, dons, appels à projets : chaque source de financement a ses propres règles d'affectation et de justification. Centraliser ce suivi permet d'éviter les erreurs d'imputation et de maximiser l'impact de chaque dirham reçu.",
+  },
+];
+
+const avantages = [
+  {
+    icon: ShieldCheck,
+    title: "Conformité réglementaire assurée",
+    desc: "Automatisez la production de vos états comptables, de vos rapports d'activité et de vos déclarations fiscales et sociales selon les normes marocaines en vigueur.",
+  },
+  {
+    icon: BookOpen,
+    title: "Visibilité en temps réel sur vos budgets",
+    desc: "Suivez l'avancement de chaque projet, programme ou action par rapport à son budget alloué. Identifiez immédiatement les écarts et réallouez les ressources en conséquence.",
+  },
+  {
+    icon: FileText,
+    title: "Reporting simplifié pour vos financeurs",
+    desc: "Générez en quelques clics les rapports d'utilisation des fonds exigés par vos partenaires institutionnels, bailleurs de fonds ou donateurs privés.",
+  },
+];
+
 const solutions = [
   {
-    badge: "Sage Business Cloud",
-    badgeLabel: "Sage X3",
-    color: "bg-cta",
-    name: "Sage Business Cloud Sage X3",
-    subtitle: "Pour les moyennes et grandes entreprises",
-    description: "De l'approvisionnement à la gestion production en passant par le stockage, le commerce électronique, les ventes, la comptabilité ou les RH, vous disposez d'un logiciel de gestion de production industrielle qui vous permet de gérer l'ensemble de votre activité dans le monde entier et à moindre coût.",
+    badge: "Gestion Comptable",
+    badgeLabel: "PME & Associations",
+    color: "bg-emerald-600",
+    name: "Solution Comptable — Associations et ONG",
+    subtitle: "Pour les petites et moyennes structures",
+    description: "Une solution de gestion comptable et financière pensée pour les associations marocaines : suivi des budgets par projet, gestion des cotisations membres, édition des états financiers et tableau de bord de pilotage en temps réel.",
     features: [
-      "Maîtrisez vos opérations internationales",
-      "Obtenez des informations pertinentes au moment opportun",
-      "Développez votre activité sur de nouveaux marchés et territoires",
-      "Gagnez en flexibilité et concentrez-vous sur votre cœur de métier",
-      "Disposez de workflows simples à gérer et très intuitifs",
-      "Tirez parti d'une solution dédiée à votre secteur d'activité (distribution, industrie, services…)",
+      "Comptabilité générale et analytique par projet ou programme",
+      "Gestion des cotisations, dons et subventions avec affectation budgétaire",
+      "Suivi des encaissements et décaissements en temps réel",
+      "Édition des états financiers conformes aux normes marocaines",
+      "Tableaux de bord personnalisables pour le conseil d'administration",
     ],
-    cta: "Découvrez Sage X3",
+    cta: "Demander une démo",
     href: "/contact",
     highlight: false,
   },
   {
-    badge: "Sage",
-    badgeLabel: "FRP 1000",
-    color: "bg-emerald-600",
-    name: "Sage FRP 1000",
-    subtitle: "Pour les moyennes et grandes entreprises",
-    description: "Sage FRP 1000 est une suite financière intégrée basée sur une plateforme collaborative et productive pour des institutions à la carte et une ouverture fonctionnelle experte.",
+    badge: "ERP Associations",
+    badgeLabel: "Gestion Intégrée",
+    color: "bg-cta",
+    name: "ERP — Grandes associations et fédérations",
+    subtitle: "Pour les fédérations et réseaux associatifs",
+    description: "Pour les grandes associations, fédérations et ONG marocaines et africaines opérant sur plusieurs sites ou projets : une plateforme de gestion unifiée qui couvre la comptabilité, les ressources humaines, la gestion de projets et le reporting consolidé.",
     features: [
-      "Bénéficiez d'une solution de gestion comptable et financière complète",
-      "Gérez vos opérations commerciales : achats, ventes, stocks…",
-      "Consultez toutes les données de l'association et partagez-les en un clic",
-      "Optez pour une approche flexible avec des options à la carte",
-      "Disposez d'une solution tout en un pour fluidifier le partage de l'information dans l'organisation",
-      "Optez pour la robustesse et la sécurité en contexte de gros volumes",
+      "Gestion multi-entités et multi-projets avec consolidation automatique",
+      "Module RH intégré : paie, congés, notes de frais, bénévoles",
+      "Suivi des financements multi-bailleurs avec reporting dédié",
+      "Workflows de validation configurables selon vos procédures internes",
+      "Portail collaboratif pour les équipes terrain et les antennes régionales",
+      "Déploiement cloud sécurisé ou on-premise selon vos contraintes",
     ],
-    cta: "Découvrez Sage FRP 1000",
+    cta: "Demander une démo",
     href: "/contact",
     highlight: true,
   },
@@ -75,16 +111,16 @@ export default function AssociationClient() {
                   <span className="text-white">Associations</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                  Logiciels de comptabilité pour associations
+                  Solutions de gestion pour associations et ONG au Maroc et en Afrique
                 </h1>
                 <p className="text-white/70 text-lg leading-relaxed mb-8">
-                  Avec Sage Business Cloud, assurez-vous que les fonds sont maintenus et utilisés efficacement. Recrutez, gérez et intéragissez activement avec vos équipes dans le monde entier, quel que soit le pays, le continent ou le fuseau horaire.
+                  Thalès Informatique accompagne les associations, fédérations et ONG marocaines dans la digitalisation de leur gestion financière, de leurs projets et de leurs ressources humaines.
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                  Découvrir nos solutions <ArrowRight size={16} />
+                  Parler à un expert <ArrowRight size={16} />
                 </Link>
               </motion.div>
               <motion.div
@@ -100,31 +136,66 @@ export default function AssociationClient() {
           </div>
         </section>
 
-        {/* ── SECTION 1 — SECRET DE LA RÉUSSITE ── */}
+        {/* ── SECTION 1 — CONTEXTE ── */}
         <section className="py-20 bg-bg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <motion.div {...fadeUp}>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
-                  Connaissez-vous le secret de la réussite des organismes à but non lucratif ?
+                  La gestion d&apos;une association, un défi à part entière
                 </h2>
                 <p className="text-secondary leading-relaxed mb-4">
-                  Les organisations à but non lucratif fonctionnent comme des entreprises, à une différence près : ils se vendent des idées et non des produits. Les organismes à but non lucratif ont pas seulement besoin de dons ; ils ont également besoin de solutions technologiques pour faire avancer leur mission. Avec des budgets restreints et la besoin de diversifier les sources de financement, les organismes de bienfaisance, quelle que soit leur taille, souhaitent davantage faire fructifier leur argent pour servir leur mission.
+                  Les associations, ONG et fondations marocaines partagent une réalité commune : elles doivent gérer des ressources limitées avec une rigueur équivalente à celle d&apos;une entreprise, tout en justifiant chaque dépense à leurs financeurs et à leurs membres.
+                </p>
+                <p className="text-secondary leading-relaxed">
+                  Les contraintes réglementaires s&apos;ajoutent à la complexité opérationnelle : comptabilité analytique par projet, gestion des subventions multi-bailleurs, suivi des bénévoles et production de rapports d&apos;activité détaillés. Un logiciel de gestion adapté aux spécificités du secteur associatif marocain vous permet d&apos;automatiser ces tâches chronophages et de concentrer votre énergie sur votre mission.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* ── SECTION 2 — SOLUTIONS ── */}
+        {/* ── SECTION 2 — 3 DÉFIS ── */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Contrôlez vos coûts et travaillez plus efficacement grâce à une solution flexible et ergonomique
+                Les 3 défis majeurs des associations et ONG au Maroc
               </h2>
               <p className="text-secondary leading-relaxed">
-                Avec le bon outil cloud, vous pouvez réduire votre cycle de reporting de plusieurs semaines et ainsi libérer du budget et du temps pour d&apos;autres actions. Trouvez votre solution dès maintenant.
+                Transparence financière, coordination des équipes et diversification des financements : trois enjeux incontournables pour toute structure associative qui veut durer et grandir.
+              </p>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {defis.map(({ icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex flex-col gap-3"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
+                    <Icon size={22} className="text-cta" />
+                  </div>
+                  <h3 className="font-bold text-primary text-sm leading-snug">{title}</h3>
+                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 3 — SOLUTIONS ── */}
+        <section className="py-20 bg-bg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
+                La solution adaptée à votre structure et à vos enjeux
+              </h2>
+              <p className="text-secondary leading-relaxed">
+                Petite association locale ou grande fédération nationale, Thalès Informatique vous propose une solution qui s&apos;adapte à vos besoins réels, à votre budget et aux exigences de vos partenaires financeurs.
               </p>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -165,75 +236,34 @@ export default function AssociationClient() {
           </div>
         </section>
 
-        {/* ── SECTION 3 — TÉMOIGNAGE ── */}
-        <section className="py-20 bg-slate-900">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div {...fadeUp}>
-              <div className="text-5xl text-white/20 font-serif mb-6">&ldquo;&rdquo;</div>
-              <blockquote className="text-xl sm:text-2xl font-semibold text-white leading-snug mb-8 italic">
-                Utiliser Sage X3 nous a permis de gagner trois semaines sur le cycle de rapport mensuel. Notre organisation est gérée par des employés à temps partiel et cela est dû en grande partie aux gains d&apos;efficacité obtenus grâce à la solution Sage.
-              </blockquote>
-              <p className="font-bold text-white">Directeur financier</p>
-              <p className="text-white/60 text-sm mt-1">Organisation à but non lucratif, Maroc</p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── SECTION 4 — CONSEILS D'EXPERTS ── */}
-        <section className="py-20 bg-bg">
+        {/* ── SECTION 4 — AVANTAGES ── */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-10">
+            <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">
-                Souhaitez-vous recevoir des conseils d&apos;experts pour les organismes à but non lucratif ?
+                3 bénéfices concrets pour votre organisation
               </h2>
               <p className="text-secondary leading-relaxed">
-                Lisez nos articles, guides et astuces.
+                Des résultats mesurables sur votre conformité, votre visibilité budgétaire et la qualité de votre reporting envers vos financeurs.
               </p>
             </motion.div>
-            {/* Articles placeholder */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
-              {[
-                {
-                  title: "Facturation électronique au Maroc : pourquoi les entreprises les mieux préparées seront en avance",
-                  tag: "Comptabilité",
-                },
-                {
-                  title: "Facturation électronique au Maroc : comment préparer concrètement votre entreprise",
-                  tag: "Comptabilité",
-                },
-                {
-                  title: "Facturation électronique au Maroc en 2026 : ce qui va réellement changer pour les entreprises",
-                  tag: "Comptabilité",
-                },
-              ].map((article, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {avantages.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
-                  key={article.title}
+                  key={title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="rounded-2xl border border-border bg-white overflow-hidden flex flex-col"
+                  className="flex flex-col gap-3"
                 >
-                  <div className="h-40 bg-slate-100 flex items-center justify-center">
-                    <span className="text-slate-400 text-sm">Image à ajouter</span>
+                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center">
+                    <Icon size={22} className="text-cta" />
                   </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <span className="text-xs font-bold text-cta uppercase tracking-widest mb-2">{article.tag}</span>
-                    <p className="text-primary font-semibold text-sm leading-snug mb-4 flex-1">{article.title}</p>
-                    <Link href="/blog" className="inline-flex items-center gap-1 text-cta text-xs font-semibold hover:underline">
-                      Lire l&apos;article <ArrowRight size={12} />
-                    </Link>
-                  </div>
+                  <h3 className="font-bold text-primary text-sm">{title}</h3>
+                  <p className="text-secondary text-xs leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
-            </div>
-            <div className="text-center">
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors duration-200 text-sm"
-              >
-                En savoir plus <ArrowRight size={14} />
-              </Link>
             </div>
           </div>
         </section>
@@ -243,10 +273,10 @@ export default function AssociationClient() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Prêt à moderniser la gestion de votre association ?
+                Modernisez la gestion de votre association avec Thalès Informatique
               </h2>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée à votre organisation.
+                Nos consultants accompagnent les associations et ONG marocaines dans le déploiement de solutions de gestion adaptées — comptabilité, projets, ressources humaines et reporting intégrés.
               </p>
               <Link
                 href="/contact"
