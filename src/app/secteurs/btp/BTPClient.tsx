@@ -180,7 +180,7 @@ export default function BTPClient() {
               className="hidden lg:block h-80 rounded-2xl overflow-hidden"
             >
               <img
-                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782828246/magnific_an-active-construction-thales-informatique-BTP_eehz9a.webp"
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783936564/BTP-ERP-thales-informatique_dzqnbs.jpg"
                 alt="Chantier de construction BTP Maroc - Thalès Informatique"
                 className="w-full h-full object-cover"
               />
