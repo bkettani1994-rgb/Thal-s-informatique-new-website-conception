@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import { trackEvent } from "@/lib/analytics";
 
 const offices = [
   { city: "Casablanca", tag: "Siège social", address: "310 Rue Hadj Omar Riffi, Casablanca 20120", phone: "+212 5 22 54 87 80", tel: "+212522548780", email: "contact@thales.ma" },
@@ -61,6 +62,7 @@ export default function ContactClient() {
     }
     setLoading(false);
     setSubmitted(true);
+    trackEvent("form_submit", { form_name: "contact" });
   };
 
   return (
@@ -237,7 +239,7 @@ export default function ContactClient() {
                   <div className="space-y-2 text-sm text-secondary">
                     <div>310 Rue Hadj Omar Riffi</div>
                     <div>Casablanca 20120, Maroc</div>
-                    <a href="tel:+212522548780" className="block text-primary hover:text-cta transition-colors font-medium">+212 5 22 54 87 80</a>
+                    <a href="tel:+212522548780" onClick={() => trackEvent("phone_click", { location: "contact_page" })} className="block text-primary hover:text-cta transition-colors font-medium">+212 5 22 54 87 80</a>
                     <a href="mailto:contact@thales.ma" className="block text-primary hover:text-cta transition-colors font-medium">contact@thales.ma</a>
                     <a href="https://www.thales.ma" target="_blank" rel="noopener noreferrer" className="block text-cta hover:text-primary transition-colors font-medium">www.thales.ma</a>
                   </div>
@@ -282,6 +284,7 @@ export default function ContactClient() {
                     href="https://wa.me/212661168354"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent("whatsapp_click", { location: "contact_page" })}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-700 transition-colors duration-200"
                   >
                     <MessageCircle size={14} />
@@ -349,7 +352,7 @@ export default function ContactClient() {
                   </div>
                   <div className="space-y-1.5 text-xs text-secondary">
                     <div className="leading-relaxed">{office.address}</div>
-                    <a href={`tel:${office.tel}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                    <a href={`tel:${office.tel}`} onClick={() => trackEvent("phone_click", { location: "contact_office_card" })} className="flex items-center gap-1.5 hover:text-primary transition-colors">
                       <Phone size={11} className="text-cta" />{office.phone}
                     </a>
                     <a href={`mailto:${office.email}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">

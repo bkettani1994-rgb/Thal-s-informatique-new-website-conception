@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 
 export default function WhatsAppButton() {
   return (
@@ -9,6 +10,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactez-nous sur WhatsApp"
+      onClick={() => trackEvent("whatsapp_click", { location: "floating_button" })}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
       className="fixed bottom-6 left-6 z-[300] w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] shadow-lg flex items-center justify-center"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Bot, Minimize2, Sparkles, Phone, Mail } from "lucide-react";
 
@@ -358,6 +359,7 @@ export default function ChatBot() {
   const [typing, setTyping] = useState(false);
   const [unread, setUnread] = useState(1);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const chatbotStartedRef = useRef(false);
 
   useLayoutEffect(() => {
     setHidden(!!document.querySelector("[data-maintenance-page]"));
@@ -373,6 +375,10 @@ export default function ChatBot() {
 
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
+    if (!chatbotStartedRef.current) {
+      trackEvent("chatbot_started");
+      chatbotStartedRef.current = true;
+    }
     const userMsg: Message = { id: Date.now(), from: "user", text, time: getTime() };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
