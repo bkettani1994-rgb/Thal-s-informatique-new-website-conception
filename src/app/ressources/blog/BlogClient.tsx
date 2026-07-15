@@ -296,7 +296,7 @@ export default function BlogClient() {
                           alt={article.imageAlt}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-cta/70 via-cta/20 to-transparent" />
                       </div>
                     )}
                         <div className="p-5 flex flex-col flex-1">
