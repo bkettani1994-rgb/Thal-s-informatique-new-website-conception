@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import SageX3Client from "./SageX3Client";
 
 export const metadata: Metadata = {
-  title: "Sage X3 : ERP pour Grandes Entreprises et Industries",
+  title: "Sage X3 Maroc | ERP de gestion d'entreprise | Thalès Informatique",
   description:
-    "Sage X3, l'ERP de référence pour groupes industriels et entreprises de taille intermédiaire. Sage Business Partner Platinum depuis plus de 15 ans, déployé par Thalès Informatique au Maroc et en Afrique.",
+    "Découvrez Sage X3 Maroc, l'ERP de référence pour les entreprises industrielles, la distribution et le négoce. Thalès Informatique, Sage Business Partner Platinum, vous accompagne dans le déploiement de Sage X3 au Maroc et en Afrique.",
   alternates: {
     canonical: "/solutions/sage-x3",
   },
