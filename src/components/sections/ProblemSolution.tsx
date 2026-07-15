@@ -76,7 +76,7 @@ export default function ProblemSolution() {
             Transformez vos défis métiers en opportunités de croissance
           </h2>
           <p className="mt-4 text-base text-secondary max-w-xl mx-auto leading-relaxed">
-            Les entreprises qui réussissent leur transformation digitale s&apos;appuient sur des solutions ERP et de gestion d&apos;entreprise qui unifient leurs données, automatisent leurs processus et leur donnent une vision claire pour prendre les bonnes décisions.
+            Nous accompagnons les entreprises avec des solutions ERP et de gestion qui simplifient les processus, centralisent les données et améliorent durablement les performances.
           </p>
         </motion.div>
 
