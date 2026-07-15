@@ -40,7 +40,7 @@ const faqGroups: { label: string; items: FAQItem[] }[] = [
     items: [
       {
         q: "Quelles sont vos heures de support ?",
-        a: "Notre hotline est disponible du lundi au vendredi de 8h30 à 17h30 (+212 5 22 54 87 80). Pour les contrats Premium, nous assurons une astreinte 24h/24 et 7j/7. WhatsApp disponible pour les urgences : +212 6 61 16 83 54.",
+        a: "Notre hotline est disponible du lundi au vendredi de 8h30 à 17h30 (+212 5 22 54 87 80). En cas de forte charge ou d'urgences critiques, une astreinte peut être mise en place ponctuellement. WhatsApp disponible pour les urgences : +212 6 61 16 83 54.",
       },
       {
         q: "Comment soumettre un ticket de support ?",
@@ -48,7 +48,7 @@ const faqGroups: { label: string; items: FAQItem[] }[] = [
       },
       {
         q: "Quelle est la durée d'intervention en cas de blocage ?",
-        a: "Selon votre contrat : Essentiel (48h), Business (4h), Premium (1h). En cas de blocage critique impactant la production, nous priorisons l'intervention quelle que soit la formule.",
+        a: "Nous faisons de notre mieux pour intervenir dans les meilleurs délais. En cas de blocage critique impactant votre activité, notre équipe priorise l'intervention pour vous remettre en production le plus rapidement possible.",
       },
       {
         q: "Les mises à jour légales sont-elles incluses ?",
