@@ -19,7 +19,7 @@ const faqGroups: { label: string; items: FAQItem[] }[] = [
       },
       {
         q: "Quel est le coût d'un ERP ?",
-        a: "Le coût dépend de la solution choisie (Sage X3, Sage 100), du nombre d'utilisateurs et des modules. Nous proposons des offres adaptées aux PME à partir de 150 000 MAD et aux grandes entreprises sur devis. Contactez-nous pour un chiffrage personnalisé.",
+        a: "Le coût d'un ERP varie en fonction de nombreux critères propres à chaque entreprise : la solution retenue, le nombre d'utilisateurs, les modules activés, le mode de déploiement (Cloud ou On-Premise) et la complexité des processus à couvrir. Il n'existe pas de tarif fixe — chaque projet fait l'objet d'une analyse de vos besoins et d'un chiffrage personnalisé. Contactez-nous pour obtenir une proposition adaptée à votre situation.",
       },
       {
         q: "Peut-on migrer depuis un autre ERP ?",
