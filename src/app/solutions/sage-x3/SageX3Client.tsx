@@ -198,10 +198,10 @@ export default function SageX3Client() {
                 SAGE X3
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Bien plus qu&apos;un ERP
+                Sage X3 : l&apos;ERP de référence pour les entreprises industrielles
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Prenez le contrôle de toute votre entreprise, des approvisionnements à la production en passant par la finance, et anticipez les transformations de votre marché avec Sage X3.
+                Sage X3 est un ERP complet qui centralise la gestion financière, la production, les achats, les stocks et la supply chain. Thalès Informatique accompagne les entreprises au Maroc et en Afrique dans le déploiement et l&apos;évolution de Sage X3.
               </p>
               <Link
                 href="/contact"
