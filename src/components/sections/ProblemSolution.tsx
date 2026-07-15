@@ -73,11 +73,10 @@ export default function ProblemSolution() {
             Transformation
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
-            De vos défis à vos succès
+            Transformez vos défis métiers en opportunités de croissance
           </h2>
           <p className="mt-4 text-base text-secondary max-w-xl mx-auto leading-relaxed">
-            Nous comprenons vos enjeux métiers. Voici comment Thalès Informatique
-            transforme vos problèmes en leviers de croissance.
+            Les entreprises qui réussissent leur transformation digitale s&apos;appuient sur des solutions ERP et de gestion d&apos;entreprise qui unifient leurs données, automatisent leurs processus et leur donnent une vision claire pour prendre les bonnes décisions.
           </p>
         </motion.div>
 

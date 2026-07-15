@@ -173,17 +173,15 @@ export default function Hero() {
         <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible"
           className="text-4xl sm:text-5xl lg:text-[64px] font-bold text-white leading-[1.1] tracking-tight"
         >
-          Votre partenaire de confiance<br className="hidden sm:block" />
-          {" "}pour réussir votre{" "}
-          <span className="gradient-text">transformation digitale</span>
+          Accélérez votre<br className="hidden sm:block" />
+          {" "}<span className="gradient-text">transformation digitale</span>{" "}
+          avec un partenaire de confiance
         </motion.h1>
 
         <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible"
           className="mt-7 text-base sm:text-lg text-white/52 leading-relaxed max-w-2xl mx-auto"
         >
-          Depuis plus de 30 ans, nous accompagnons les entreprises dans
-          l'optimisation de leur gestion, l'automatisation de leurs processus
-          et l'amélioration de leurs performances.
+          Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises au Maroc dans leur transformation digitale grâce à des solutions ERP, Finance, RH, GMAO et à un accompagnement métier adapté à chaque secteur d&apos;activité.
         </motion.p>
 
         <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible"
