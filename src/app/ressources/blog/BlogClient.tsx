@@ -16,7 +16,7 @@ const articles = [
     date: "Juin 2026",
     readTime: "6 min",
     href: "/ressources/blog/facturation-electronique-maroc",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782380899/comptabilit%C3%A9_cabinet_sage_100_maroc_thal%C3%A8s_informatique_mqxbz1.jpg",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1784108388/2_ecw2u7.jpg",
     imageAlt: "Expert-comptable analysant des factures électroniques sur Sage au Maroc",
   },
   {
@@ -27,7 +27,7 @@ const articles = [
     date: "Mai 2026",
     readTime: "5 min",
     href: "/ressources/blog/sirh-7-taches-automatisees",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383567/worker-giving-her-opinion-office_wwbkyb.jpg",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1784108388/3_f7o9ex.jpg",
     imageAlt: "Collaboratrice RH gérant les processus automatisés avec un SIRH moderne",
   },
   {
@@ -38,7 +38,7 @@ const articles = [
     date: "Mai 2026",
     readTime: "4 min",
     href: "/ressources/blog/erp-sage-depasse-excel",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375122/sage_x3_hero_image_bfjdfy.png",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1784108388/4_sqlwcm.jpg",
     imageAlt: "Interface Sage X3 remplaçant les fichiers Excel dans une PME",
   },
   {
@@ -49,7 +49,7 @@ const articles = [
     date: "Avril 2026",
     readTime: "5 min",
     href: "/ressources/blog/indicateurs-financiers-daf",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850274/FINANCE_IT_cmtvdf.png",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1784108388/5_rrdzvu.jpg",
     imageAlt: "Tableau de bord financier avec indicateurs clés pour un directeur financier",
   },
   {
@@ -60,7 +60,7 @@ const articles = [
     date: "Mars 2026",
     readTime: "4 min",
     href: "/ressources/blog/cnss-amo-2026",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1784108389/6_jzmb54.jpg",
     imageAlt: "Gestion des déclarations CNSS et AMO 2026 avec un logiciel de paie Sage",
   },
   {
@@ -71,7 +71,7 @@ const articles = [
     date: "Mars 2026",
     readTime: "6 min",
     href: "/ressources/blog/lean-manufacturing-erp",
-    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Industry_4.0_Production_Line_thal%C3%A8s_informatique_wqxuar.jpg",
+    image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1784108389/7_ayhq8v.jpg",
     imageAlt: "Ligne de production industrielle pilotée par un ERP Sage X3 en mode Lean",
   },
   {
@@ -163,6 +163,15 @@ const articles = [
     imageAlt: "Réunion de sélection d'un intégrateur ERP Sage avec une équipe projet",
   },
 ];
+
+const articlesWithImage = new Set([
+  "/ressources/blog/facturation-electronique-maroc",
+  "/ressources/blog/sirh-7-taches-automatisees",
+  "/ressources/blog/erp-sage-depasse-excel",
+  "/ressources/blog/indicateurs-financiers-daf",
+  "/ressources/blog/cnss-amo-2026",
+  "/ressources/blog/lean-manufacturing-erp",
+]);
 
 const categories = ["Tous", "Réglementation", "RH & SIRH", "ERP", "Finance", "RH & Paie", "Production", "Technologie", "Stratégie"];
 
@@ -280,6 +289,16 @@ export default function BlogClient() {
                     transition={{ duration: 0.5, delay: i * 0.08 }}
                     className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col group"
                   >
+                    {articlesWithImage.has(article.href) && (
+                      <div className="relative h-44 overflow-hidden shrink-0">
+                        <img
+                          src={article.image}
+                          alt={article.imageAlt}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
+                      </div>
+                    )}
                         <div className="p-5 flex flex-col flex-1">
                       <span className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full mb-3 w-fit ${categoryColors[article.category] || "bg-slate-100 text-slate-600"}`}>
                         {article.category}
