@@ -10,6 +10,50 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://thales.ma" },
+    { "@type": "ListItem", position: 2, name: "Solutions", item: "https://thales.ma/solutions" },
+    { "@type": "ListItem", position: 3, name: "Sage X3", item: "https://thales.ma/solutions/sage-x3" },
+  ],
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Sage X3",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web, Cloud",
+  description:
+    "Sage X3 est un ERP de gestion d'entreprise pour les industries, la distribution et le négoce. Déployé par Thalès Informatique au Maroc et en Afrique.",
+  url: "https://thales.ma/solutions/sage-x3",
+  publisher: {
+    "@type": "Organization",
+    name: "Thalès Informatique",
+    url: "https://thales.ma",
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "MAD",
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "Organization", name: "Thalès Informatique" },
+  },
+};
+
 export default function Page() {
-  return <SageX3Client />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <SageX3Client />
+    </>
+  );
 }

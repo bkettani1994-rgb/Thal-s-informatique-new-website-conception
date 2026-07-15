@@ -58,7 +58,7 @@ const completeManagementTabs = [
     key: "complete",
     label: "Gestion d'entreprise complète",
     title: "Gestion d'entreprise complète",
-    desc: "Tous vos processus opérationnels peuvent être gérés et configurés depuis un seul et même endroit. Planifiez vos finances en temps réel, restez en conformité et automatisez votre comptabilité. Prenez le contrôle de la gestion de la chaîne logistique en matière de stocks, d'achats et de logistique. Optimisez la manière dont vous supervisez les processus de fabrication, la production et le contrôle qualité.",
+    desc: "Gérez finances, achats, stocks et production depuis une seule plateforme. Sage X3 centralise vos processus opérationnels pour plus de réactivité et de conformité.",
     image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782376656/Screenshot_2026-06-25_at_09-37-17_Sage_X3_Sage_Maroc_znqbvy.png",
     imageAlt: "Tableau de bord Sage X3 pour la gestion d'entreprise complète : finance, achats, stocks et production",
   },
@@ -107,36 +107,42 @@ const completeManagementTabs = [
 const sectors = [
   {
     title: "Secteur agroalimentaire",
+    href: "/secteurs/agroalimentaire",
     icon: Wheat,
     gradient: "from-lime-500 via-green-500 to-emerald-600",
     items: ["Traçabilité", "Gestion des lots et dates de péremption", "Conformité sanitaire", "Ventes et marketing"],
   },
   {
     title: "Industrie de transformation",
+    href: "/secteurs/industrie",
     icon: Cog,
     gradient: "from-amber-500 via-orange-500 to-red-500",
     items: ["Suivi des coûts de revient", "Planification de production", "Contrôle qualité", "Gestion des sous-traitants"],
   },
   {
     title: "Industrie",
+    href: "/secteurs/industrie",
     icon: Factory,
     gradient: "from-slate-500 via-slate-600 to-slate-800",
     items: ["Maintenance des équipements", "Gestion multi-sites", "Suivi des stocks techniques", "Pilotage de la performance"],
   },
   {
     title: "Distribution",
+    href: "/secteurs/negoce-distribution",
     icon: Truck,
     gradient: "from-sky-500 via-blue-500 to-indigo-600",
     items: ["Gestion des points de vente", "Transport et logistique", "Gestion des promotions", "Pilotage des marges"],
   },
   {
     title: "Produits chimiques",
+    href: "/secteurs/chimie",
     icon: FlaskConical,
     gradient: "from-fuchsia-500 via-purple-500 to-violet-700",
     items: ["Traçabilité réglementaire", "Conformité HSE et fiches de sécurité", "Suivi des formules", "Gestion des risques produit"],
   },
   {
     title: "Services",
+    href: "/secteurs/services",
     icon: Briefcase,
     gradient: "from-cyan-500 via-teal-500 to-blue-600",
     items: ["Facturation à l'affaire", "Suivi de projet et rentabilité", "Gestion des ressources", "Reporting client"],
@@ -255,9 +261,11 @@ export default function SageX3Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-primary">Des capacités puissantes</h2>
+              <h2 className="text-3xl font-bold text-primary">Les principales fonctionnalités de Sage X3</h2>
               <p className="text-secondary mt-3">
-                Pensé pour la complexité de votre entreprise, des opérations courantes à la stratégie, Sage X3 réunit tous vos métiers dans une seule solution intégrée.
+                Pensé pour la complexité de votre entreprise, Sage X3 réunit tous vos métiers dans une seule solution intégrée. Vous gérez une PME ? Découvrez aussi{" "}
+                <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100</Link> ou{" "}
+                <Link href="/solutions/sage-frp-1000" className="text-cta font-semibold hover:underline">Sage FRP 1000</Link>.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -336,7 +344,7 @@ export default function SageX3Client() {
               className="text-center mb-12"
             >
               <span className="text-xs font-bold text-cta tracking-widest uppercase">VUE D&apos;ENSEMBLE</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Gestion d&apos;entreprise complète</h2>
+              <h2 className="text-3xl font-bold text-primary mt-2">Pilotez toute votre entreprise avec Sage X3</h2>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -437,7 +445,7 @@ export default function SageX3Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-primary">Des solutions sur mesure pour votre secteur d&apos;activité</h2>
+              <h2 className="text-3xl font-bold text-primary">Sage X3 adapté à votre secteur d&apos;activité</h2>
               <Link
                 href="/secteurs"
                 className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
@@ -466,7 +474,7 @@ export default function SageX3Client() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/secteurs" className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
+                  <Link href={sector.href} className="inline-flex items-center gap-1 text-cta text-sm font-semibold">
                     En savoir plus <ArrowRight size={13} />
                   </Link>
                 </motion.div>
@@ -484,7 +492,7 @@ export default function SageX3Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-primary">Solutions complémentaires</h2>
+              <h2 className="text-3xl font-bold text-primary">Modules et solutions complémentaires pour Sage X3</h2>
               <p className="text-secondary mt-3">
                 Étendez les capacités de Sage X3 avec des modules complémentaires pensés pour aller plus loin selon vos enjeux métiers.
               </p>
