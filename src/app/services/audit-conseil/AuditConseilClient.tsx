@@ -92,13 +92,13 @@ export default function AuditConseilClient() {
         <section className="pt-32 pb-20 bg-primary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-white/50 text-sm mb-8">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight aria-hidden="true" size={14} />
               <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-              <ChevronRight size={14} />
-              <span className="text-accent">Audit & Conseil</span>
-            </div>
+              <ChevronRight aria-hidden="true" size={14} />
+              <span aria-current="page" className="text-accent">Audit & Conseil</span>
+            </nav>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}

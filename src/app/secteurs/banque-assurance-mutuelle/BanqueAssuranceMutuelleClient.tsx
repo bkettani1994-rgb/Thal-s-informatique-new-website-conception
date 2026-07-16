@@ -122,13 +122,13 @@ export default function BanqueAssuranceMutuelleClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-2 text-sm text-white/60 mb-6">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-sm text-white/60 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight aria-hidden="true" size={14} />
               <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">Banque, Assurance & Mutuelle</span>
-            </div>
+              <ChevronRight aria-hidden="true" size={14} />
+              <span aria-current="page" className="text-white">Banque, Assurance & Mutuelle</span>
+            </nav>
             <div className="inline-flex items-center gap-2 bg-indigo-500/20 border border-indigo-400/30 rounded-full px-4 py-2 mb-6">
               <Landmark size={14} className="text-indigo-300" />
               <span className="text-indigo-300 text-sm font-semibold uppercase tracking-wider">SECTEUR BANQUE, ASSURANCE & MUTUELLE</span>

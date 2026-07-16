@@ -115,12 +115,12 @@ export default function SecteurServicesClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeUp}>
-                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                <nav aria-label="Fil d'Ariane" className="text-sm text-white/50 mb-6 flex items-center gap-2">
                   <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                  <ChevronRight size={14} />
+                  <ChevronRight aria-hidden="true" size={14} />
                   <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-                  <ChevronRight size={14} />
-                  <span className="text-white">Services</span>
+                  <ChevronRight aria-hidden="true" size={14} />
+                  <span aria-current="page" className="text-white">Services</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                   Solutions ERP pour les sociétés de services au Maroc et en Afrique
@@ -144,7 +144,7 @@ export default function SecteurServicesClient() {
               >
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783935496/Service-ERP-thales-informatique_ptyaau.jpg"
-                  alt="Services ERP - Thalès Informatique"
+                  alt="Équipe de conseil et services au Maroc — ERP facturation projet et gestion des ressources"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

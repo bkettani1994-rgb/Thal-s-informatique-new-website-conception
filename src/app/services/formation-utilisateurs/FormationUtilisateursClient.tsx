@@ -52,13 +52,13 @@ export default function FormationUtilisateursClient() {
         {/* Hero */}
         <section className="pt-32 pb-20 bg-primary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 text-white/50 text-sm mb-8">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight aria-hidden="true" size={14} />
               <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-              <ChevronRight size={14} />
-              <span className="text-accent">Formation Utilisateurs</span>
-            </div>
+              <ChevronRight aria-hidden="true" size={14} />
+              <span aria-current="page" className="text-accent">Formation Utilisateurs</span>
+            </nav>
             <div className="flex items-center gap-3 mb-6">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold tracking-wider uppercase">
                 <BookOpen size={14} />

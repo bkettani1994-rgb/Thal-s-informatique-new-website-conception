@@ -55,15 +55,15 @@ export default function ConseilItSupportTechniqueClient() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-slate-800/90 to-slate-900/85" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 text-white/50 text-sm mb-8 flex-wrap">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8 flex-wrap">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight aria-hidden="true" size={14} />
               <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-              <ChevronRight size={14} />
+              <ChevronRight aria-hidden="true" size={14} />
               <Link href="/services/infogerance" className="hover:text-white transition-colors">Infogérance</Link>
-              <ChevronRight size={14} />
-              <span className="text-accent">Conseil IT et Support Technique</span>
-            </div>
+              <ChevronRight aria-hidden="true" size={14} />
+              <span aria-current="page" className="text-accent">Conseil IT et Support Technique</span>
+            </nav>
             <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-accent text-xs font-semibold tracking-widest mb-6">
                 <Headset size={12} /> ACCOMPAGNEMENT & HELPDESK

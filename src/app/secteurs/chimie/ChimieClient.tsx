@@ -104,12 +104,12 @@ export default function ChimieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeUp}>
-                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                <nav aria-label="Fil d'Ariane" className="text-sm text-white/50 mb-6 flex items-center gap-2">
                   <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                  <ChevronRight size={14} />
+                  <ChevronRight aria-hidden="true" size={14} />
                   <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-                  <ChevronRight size={14} />
-                  <span className="text-white">Chimie</span>
+                  <ChevronRight aria-hidden="true" size={14} />
+                  <span aria-current="page" className="text-white">Chimie</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                   ERP pour l&apos;industrie chimique au Maroc et en Afrique
@@ -133,7 +133,7 @@ export default function ChimieClient() {
               >
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783938223/Chimie-ERP-thales-informatique_f8ld5q.jpg"
-                  alt="Chimie ERP - Thalès Informatique"
+                  alt="Industrie chimique marocaine — ERP gestion des formules et traçabilité des lots"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

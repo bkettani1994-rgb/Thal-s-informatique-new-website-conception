@@ -103,12 +103,12 @@ export default function AssociationClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeUp}>
-                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                <nav aria-label="Fil d'Ariane" className="text-sm text-white/50 mb-6 flex items-center gap-2">
                   <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                  <ChevronRight size={14} />
+                  <ChevronRight aria-hidden="true" size={14} />
                   <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-                  <ChevronRight size={14} />
-                  <span className="text-white">Associations</span>
+                  <ChevronRight aria-hidden="true" size={14} />
+                  <span aria-current="page" className="text-white">Associations</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                   Solutions de gestion pour associations et ONG au Maroc et en Afrique
@@ -132,7 +132,7 @@ export default function AssociationClient() {
               >
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783940966/Association-ERP-thales-informatique_onumrq.jpg"
-                  alt="Associations ERP - Thalès Informatique"
+                  alt="Gestion association et ONG au Maroc — logiciel comptabilité et reporting bailleurs"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

@@ -27,11 +27,11 @@ import Footer from "@/components/ui/Footer";
 const heroImages = [
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783936564/BTP-ERP-thales-informatique_dzqnbs.jpg",
-    alt: "Chantier de construction BTP Maroc - Thalès Informatique",
+    alt: "Chantier de construction BTP au Maroc — suivi de chantier et gestion ERP",
   },
   {
     src: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1783936082/cover-product-Batigest-ERP-thales-informatique_pzoxug.png",
-    alt: "Batigest ERP - Thalès Informatique",
+    alt: "Logiciel Batigest ERP pour le BTP — gestion de chantiers et déboursés d'ouvrages",
   },
 ];
 
@@ -203,13 +203,13 @@ export default function BTPClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center gap-2 text-sm text-white/60 mb-6">
+              <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-sm text-white/60 mb-6">
                 <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                <ChevronRight size={14} />
+                <ChevronRight aria-hidden="true" size={14} />
                 <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-                <ChevronRight size={14} />
-                <span className="text-white">BTP & Construction</span>
-              </div>
+                <ChevronRight aria-hidden="true" size={14} />
+                <span aria-current="page" className="text-white">BTP & Construction</span>
+              </nav>
               <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                 Gérez simplement votre activité BTP : du devis au suivi de chantier
               </h1>

@@ -109,12 +109,12 @@ export default function AgroalimentaireClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeUp}>
-                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                <nav aria-label="Fil d'Ariane" className="text-sm text-white/50 mb-6 flex items-center gap-2">
                   <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                  <ChevronRight size={14} />
+                  <ChevronRight aria-hidden="true" size={14} />
                   <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-                  <ChevronRight size={14} />
-                  <span className="text-white">Agroalimentaire</span>
+                  <ChevronRight aria-hidden="true" size={14} />
+                  <span aria-current="page" className="text-white">Agroalimentaire</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                   Améliorez la rentabilité de votre entreprise du secteur de l&apos;agroalimentaire grâce à un logiciel d&apos;entreprise dédié à votre métier
@@ -138,7 +138,7 @@ export default function AgroalimentaireClient() {
               >
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783937853/Agroalimentaire_ERP_thales_informatique_dmvjmw.jpg"
-                  alt="Agroalimentaire ERP - Thalès Informatique"
+                  alt="Usine agroalimentaire marocaine — ERP traçabilité et conformité HACCP"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

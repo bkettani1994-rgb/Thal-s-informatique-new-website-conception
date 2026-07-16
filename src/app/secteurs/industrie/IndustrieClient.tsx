@@ -134,12 +134,12 @@ export default function IndustrieClient() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeUp}>
-                <nav className="text-sm text-white/50 mb-6 flex items-center gap-2">
+                <nav aria-label="Fil d'Ariane" className="text-sm text-white/50 mb-6 flex items-center gap-2">
                   <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-                  <ChevronRight size={14} />
+                  <ChevronRight aria-hidden="true" size={14} />
                   <Link href="/secteurs" className="hover:text-white transition-colors">Secteurs</Link>
-                  <ChevronRight size={14} />
-                  <span className="text-white">Industrie</span>
+                  <ChevronRight aria-hidden="true" size={14} />
+                  <span aria-current="page" className="text-white">Industrie</span>
                 </nav>
                 <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                   Solutions ERP & GPAO pour l&apos;industrie au Maroc et en Afrique
@@ -163,7 +163,7 @@ export default function IndustrieClient() {
               >
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1783697260/homa-appliances-pWUyHVJgLhg-unsplash_iiggnd.webp"
-                  alt="Industrie manufacturière au Maroc"
+                  alt="Industrie manufacturière au Maroc — ERP production GPAO et gestion des stocks"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
