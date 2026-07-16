@@ -160,7 +160,6 @@ const complementarySolutions = [
 ];
 
 export default function SageX3Client() {
-  const introRef = useRef(null);
   const capabilitiesRef = useRef(null);
   const copilotRef = useRef(null);
   const managementRef = useRef(null);
@@ -168,7 +167,6 @@ export default function SageX3Client() {
   const sectorsRef = useRef(null);
   const complementaryRef = useRef(null);
 
-  const introInView = useInView(introRef, { once: true, margin: "-80px" });
   const capabilitiesInView = useInView(capabilitiesRef, { once: true, margin: "-80px" });
   const copilotInView = useInView(copilotRef, { once: true, margin: "-80px" });
   const managementInView = useInView(managementRef, { once: true, margin: "-80px" });
@@ -187,12 +185,12 @@ export default function SageX3Client() {
         <section className="pt-32 pb-16 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-white/50 text-sm mb-8">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={14} aria-hidden="true" />
               <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">Sage X3</span>
+              <ChevronRight size={14} aria-hidden="true" />
+              <span className="text-white" aria-current="page">Sage X3</span>
             </nav>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -427,9 +425,10 @@ export default function SageX3Client() {
                   href="https://drive.google.com/file/d/1ppOLIQZnNlAPRfIsdzT4KrDSnmn6ExN7/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Télécharger le guide des fonctionnalités Sage X3 (ouvre dans un nouvel onglet)"
                   className="inline-flex items-center gap-2 text-cta font-semibold text-sm hover:text-blue-700 transition-colors"
                 >
-                  <Download size={16} /> Télécharger le guide
+                  <Download size={16} aria-hidden="true" /> Télécharger le guide
                 </a>
               </div>
             </motion.div>
