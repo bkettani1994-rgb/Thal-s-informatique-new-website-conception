@@ -305,7 +305,7 @@ export default function Sage100Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-primary">Choisissez votre solution</h2>
+              <h2 className="text-3xl font-bold text-primary">Les modules Sage 100 adaptés à votre PME</h2>
               <p className="text-secondary mt-3">Gérez la comptabilité, la gestion commerciale, ou les deux.</p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6 items-stretch">
@@ -394,6 +394,9 @@ export default function Sage100Client() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl font-bold text-primary mb-4">Comment continuer ma découverte de Sage 100 ?</h2>
+              <p className="text-secondary mb-4">
+                Vous pilotez un groupe multi-entités ? Découvrez aussi <Link href="/solutions/sage-frp-1000" className="text-cta font-semibold hover:underline">Sage FRP 1000</Link> pour la consolidation financière.
+              </p>
               <p className="text-secondary mb-10">
                 Vous pouvez dès maintenant demander une démo à un expert qui pourra répondre à toutes vos questions ou appeler le{" "}
                 <a href="tel:+212522548780" className="text-cta font-semibold hover:underline">+212 5 22 54 87 80</a>.
@@ -426,7 +429,7 @@ export default function Sage100Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white">FAQs sur Sage 100</h2>
+              <h2 className="text-3xl font-bold text-white">Questions fréquentes sur Sage 100 Maroc</h2>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

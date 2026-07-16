@@ -61,7 +61,7 @@ export default function EloficashClient() {
                 Eloficash
               </h1>
               <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
-                Recouvrement &amp; gestion du crédit client
+                Solution de gestion de trésorerie, de recouvrement et de gestion des encours clients pour les entreprises au Maroc et en Afrique.
               </p>
             </motion.div>
           </div>
@@ -86,6 +86,7 @@ export default function EloficashClient() {
                 <p className="text-secondary leading-relaxed">
                   Intégrée et supportée par <strong className="text-primary">Thalès Informatique</strong> au Maroc et en Afrique, Eloficash se connecte directement à vos solutions Sage pour une gestion unifiée de votre poste client.
                 </p>
+                <p className="text-secondary leading-relaxed mt-4">Eloficash se connecte nativement à <Link href="/solutions/sage-x3" className="text-cta font-semibold hover:underline">Sage X3</Link> et <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100</Link> pour une gestion unifiée de votre poste client.</p>
               </motion.div>
             </div>
           </div>
@@ -101,7 +102,7 @@ export default function EloficashClient() {
               className="text-center mb-12"
             >
               <span className="text-xs font-bold text-amber-600 tracking-widest uppercase">FONCTIONNALITÉS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Une gestion du crédit complète</h2>
+              <h2 className="text-3xl font-bold text-primary mt-2">Fonctionnalités de gestion de trésorerie et de recouvrement</h2>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feat, i) => (

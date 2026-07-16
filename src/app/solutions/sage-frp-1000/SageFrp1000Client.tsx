@@ -113,7 +113,7 @@ export default function SageFrp1000Client() {
                 Sage FRP 1000
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                La plateforme financière qui centralise la consolidation, le reporting groupe et le pilotage multi-entités de vos filiales et holdings.
+                La solution de gestion financière qui centralise la consolidation, le reporting groupe et le pilotage multi-entités pour les holdings et filiales au Maroc et en Afrique.
               </p>
               <Link
                 href="/contact"
@@ -300,9 +300,10 @@ export default function SageFrp1000Client() {
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                 Pilotez votre groupe avec Sage FRP 1000
               </h2>
-              <p className="text-white/70 mb-8 max-w-xl mx-auto">
+              <p className="text-white/70 mb-4 max-w-xl mx-auto">
                 Thalès Informatique vous accompagne dans le déploiement de Sage FRP 1000 au Maroc et en Afrique.
               </p>
+              <p className="text-white/50 text-sm mt-4 mb-8">Vous gérez une PME ? Découvrez <Link href="/solutions/sage-100" className="text-white/70 hover:text-white underline">Sage 100</Link> ou <Link href="/solutions/sage-x3" className="text-white/70 hover:text-white underline">Sage X3</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"

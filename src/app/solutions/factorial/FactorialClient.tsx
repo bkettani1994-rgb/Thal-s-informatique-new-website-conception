@@ -285,7 +285,7 @@ export default function FactorialClient() {
               className="text-center max-w-2xl mx-auto mb-12"
             >
               <h2 className="text-3xl font-bold text-primary mb-3">
-                Une alliance stratégique pour votre succès
+                Thalès Informatique et Factorial : votre SIRH RH au Maroc
               </h2>
               <p className="text-secondary leading-relaxed">
                 L&apos;alliance de l&apos;expertise locale de Thalès Informatique et de la puissance technologique de Factorial.
@@ -618,9 +618,10 @@ export default function FactorialClient() {
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                 Modernisez votre RH avec Factorial
               </h2>
-              <p className="text-white/70 mb-8 max-w-xl mx-auto">
+              <p className="text-white/70 mb-4 max-w-xl mx-auto">
                 Thalès Informatique vous accompagne dans le déploiement et l&apos;adoption de Factorial au Maroc et en Afrique.
               </p>
+              <p className="text-white/50 text-sm mb-6">Besoin d&apos;un logiciel de paie ? Découvrez aussi <Link href="/solutions/sage-100-paie-rh" className="text-white/70 hover:text-white underline">Sage 100 Paie &amp; RH</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"

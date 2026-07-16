@@ -56,7 +56,7 @@ export default function DimomaintGmaoClient() {
                 DimoMaint GMAO
               </h1>
               <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
-                Gestion de maintenance préventive et corrective
+                Le logiciel GMAO pour la gestion de maintenance industrielle préventive et corrective au Maroc et en Afrique.
               </p>
             </motion.div>
           </div>
@@ -81,6 +81,7 @@ export default function DimomaintGmaoClient() {
                 <p className="text-secondary leading-relaxed">
                   <strong className="text-primary">Thalès Informatique</strong> en est distributeur et intégrateur officiel au Maroc et en Afrique. Nos techniciens certifiés DimoMaint assurent le déploiement, la formation et le support de proximité.
                 </p>
+                <p className="text-secondary leading-relaxed mt-4">DimoMaint s&apos;intègre avec les solutions ERP de votre entreprise. Découvrez nos solutions <Link href="/solutions/sage-x3" className="text-cta font-semibold hover:underline">Sage X3</Link> et <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100</Link>.</p>
               </motion.div>
             </div>
           </div>
@@ -161,7 +162,7 @@ export default function DimomaintGmaoClient() {
               className="text-center mb-10"
             >
               <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase">SECTEURS</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Industries couvertes</h2>
+              <h2 className="text-3xl font-bold text-primary mt-2">Secteurs d&apos;activité couverts par DimoMaint GMAO</h2>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

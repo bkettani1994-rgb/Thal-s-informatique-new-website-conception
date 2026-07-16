@@ -152,7 +152,7 @@ export default function Sage100PaieRhClient() {
                 Gérez votre paie et vos RH avec Sage 100
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Réalisez facilement et rapidement vos bulletins de paie et vos déclarations sociales, en toute conformité.
+                Automatisez vos bulletins de paie, déclarations CNSS, IR et AMO en toute conformité avec la législation marocaine.
               </p>
               <Link
                 href="/contact"
@@ -337,7 +337,7 @@ export default function Sage100PaieRhClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white">FAQ</h2>
+              <h2 className="text-3xl font-bold text-white">Questions fréquentes sur Sage 100 Paie &amp; RH</h2>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -364,9 +364,10 @@ export default function Sage100PaieRhClient() {
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
                 Prêt à automatiser votre paie avec Sage 100 Paie & RH ?
               </h2>
-              <p className="text-secondary mb-8 max-w-xl mx-auto">
+              <p className="text-secondary mb-4 max-w-xl mx-auto">
                 Contactez nos experts Thalès Informatique pour une démonstration gratuite adaptée à votre entreprise.
               </p>
+              <p className="text-secondary text-sm mb-8">Besoin d&apos;un SIRH complet ? Découvrez <Link href="/solutions/factorial" className="text-cta hover:underline font-medium">Factorial</Link>, notre solution RH cloud.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
