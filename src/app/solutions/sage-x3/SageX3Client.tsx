@@ -9,48 +9,45 @@ import { ArrowRight, CheckCircle2, ChevronRight, Download, Factory, Truck, LineC
 
 const capabilities = [
   {
-    title: "Gestion de la production",
+    title: "Production et gestion industrielle",
     href: "/metiers/gestion-production",
     icon: Factory,
-    gradient: "from-orange-500 via-amber-500 to-yellow-400",
     items: [
-      "Suivi en temps réel des ordres de fabrication",
-      "Planification et ordonnancement des ateliers",
-      "Traçabilité complète des lots et numéros de série",
-      "Gestion de la qualité à chaque étape",
+      "Planification et suivi des ordres de fabrication",
+      "Ordonnancement des ateliers et des ressources",
+      "Traçabilité des lots et des numéros de série",
+      "Contrôle qualité tout au long du processus industriel",
     ],
   },
   {
-    title: "Gestion de la chaîne d'approvisionnement",
+    title: "Achats, stocks et supply chain",
     href: "/metiers/gestion-chaine-approvisionnement",
     icon: Truck,
-    gradient: "from-emerald-500 via-teal-500 to-cyan-400",
     items: [
-      "Pilotage des achats et des fournisseurs",
-      "Optimisation des niveaux de stock multi-sites",
-      "Gestion des entrepôts et de la logistique",
+      "Gestion des achats et des fournisseurs",
+      "Optimisation des stocks sur plusieurs sites",
+      "Gestion des entrepôts et des flux logistiques",
       "Prévision de la demande et réapprovisionnement",
     ],
   },
   {
-    title: "Gestion financière",
+    title: "Finance et pilotage d'entreprise",
     href: "/metiers/comptabilite-finance",
     icon: LineChart,
-    gradient: "from-blue-600 via-indigo-500 to-violet-500",
     items: [
       "Comptabilité multi-sociétés et multi-devises",
-      "Clôtures accélérées et consolidation groupe",
-      "Pilotage budgétaire et contrôle de gestion",
-      "Conformité fiscale et réglementaire au Maroc et en Afrique",
+      "Consolidation et accélération des clôtures",
+      "Budgets, reporting et contrôle de gestion",
+      "Conformité fiscale au Maroc et en Afrique",
     ],
   },
 ];
 
 const copilotPoints = [
-  "Réduisez les tâches répétitives grâce à l'automatisation intelligente des processus de production et de distribution",
-  "Accédez à des recommandations contextuelles directement dans vos écrans Sage X3 au quotidien",
-  "Identifiez plus rapidement les anomalies financières grâce à l'analyse augmentée des données",
-  "Gagnez du temps sur les opérations courantes pour vous concentrer sur les décisions stratégiques",
+  "Automatisez certaines tâches répétitives liées à la finance, à la production et à la distribution",
+  "Accédez à des recommandations contextuelles directement dans l'interface Sage X3",
+  "Détectez plus rapidement les anomalies et les écarts dans vos données",
+  "Libérez du temps pour l'analyse, le pilotage et la prise de décision",
 ];
 
 const completeManagementTabs = [
@@ -106,45 +103,39 @@ const completeManagementTabs = [
 
 const sectors = [
   {
-    title: "Secteur agroalimentaire",
+    title: "Agroalimentaire",
     href: "/secteurs/agroalimentaire",
     icon: Wheat,
-    gradient: "from-lime-500 via-green-500 to-emerald-600",
     items: ["Traçabilité", "Gestion des lots et dates de péremption", "Conformité sanitaire", "Ventes et marketing"],
   },
   {
-    title: "Industrie de transformation",
+    title: "Industrie manufacturière",
     href: "/secteurs/industrie",
     icon: Cog,
-    gradient: "from-amber-500 via-orange-500 to-red-500",
     items: ["Suivi des coûts de revient", "Planification de production", "Contrôle qualité", "Gestion des sous-traitants"],
   },
   {
-    title: "Industrie",
+    title: "Industrie et gestion multi-sites",
     href: "/secteurs/industrie",
     icon: Factory,
-    gradient: "from-slate-500 via-slate-600 to-slate-800",
     items: ["Maintenance des équipements", "Gestion multi-sites", "Suivi des stocks techniques", "Pilotage de la performance"],
   },
   {
-    title: "Distribution",
+    title: "Négoce et distribution",
     href: "/secteurs/negoce-distribution",
     icon: Truck,
-    gradient: "from-sky-500 via-blue-500 to-indigo-600",
     items: ["Gestion des points de vente", "Transport et logistique", "Gestion des promotions", "Pilotage des marges"],
   },
   {
-    title: "Produits chimiques",
+    title: "Chimie et produits réglementés",
     href: "/secteurs/chimie",
     icon: FlaskConical,
-    gradient: "from-fuchsia-500 via-purple-500 to-violet-700",
     items: ["Traçabilité réglementaire", "Conformité HSE et fiches de sécurité", "Suivi des formules", "Gestion des risques produit"],
   },
   {
-    title: "Services",
+    title: "Services et gestion à l'affaire",
     href: "/secteurs/services",
     icon: Briefcase,
-    gradient: "from-cyan-500 via-teal-500 to-blue-600",
     items: ["Facturation à l'affaire", "Suivi de projet et rentabilité", "Gestion des ressources", "Reporting client"],
   },
 ];
@@ -199,19 +190,20 @@ export default function SageX3Client() {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
-                SAGE X3
+                INTÉGRATEUR SAGE X3 AU MAROC
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Sage X3 ERP
+                Sage X3 Maroc : ERP pour l&apos;industrie et la distribution
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Centralisez la finance, la production, les achats et les stocks avec Sage X3. Thalès Informatique accompagne les entreprises au Maroc et en Afrique dans le déploiement et l&apos;intégration de cet ERP.
+                Centralisez la finance, la production, les achats, les ventes, les stocks et la supply chain avec Sage X3. Thalès Informatique accompagne les entreprises marocaines dans le conseil, l&apos;intégration, le paramétrage, la migration, la formation et le support de cet ERP évolutif.
               </p>
               <Link
                 href="/contact"
+                aria-label="Demander une démonstration personnalisée de Sage X3"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Demander une démo Sage X3 <ArrowRight size={18} />
               </Link>
             </motion.div>
 
@@ -227,7 +219,7 @@ export default function SageX3Client() {
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375123/Smart_Manufacturing_Factory_thal%C3%A8s_informatique_ht9xvt.jpg"
                   alt="Usine de production intelligente pilotée avec l'ERP Sage X3 au Maroc et en Afrique"
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  fetchPriority="high"
                 />
               </div>
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
@@ -235,7 +227,7 @@ export default function SageX3Client() {
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782375122/sage_x3_hero_image_bfjdfy.png"
                   alt="Interface de l'ERP Sage X3 affichant un tableau de bord de gestion d'entreprise"
                   className="w-full h-full object-contain p-3"
-                  loading="lazy"
+                  fetchPriority="high"
                 />
               </div>
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden">
@@ -261,9 +253,10 @@ export default function SageX3Client() {
             >
               <h2 className="text-3xl font-bold text-primary">Les principales fonctionnalités de Sage X3</h2>
               <p className="text-secondary mt-3">
-                Pensé pour la complexité de votre entreprise, Sage X3 réunit tous vos métiers dans une seule solution intégrée. Vous gérez une PME ? Découvrez aussi{" "}
-                <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100</Link> ou{" "}
-                <Link href="/solutions/sage-frp-1000" className="text-cta font-semibold hover:underline">Sage FRP 1000</Link>.
+                Sage X3 réunit les processus financiers, industriels, commerciaux et logistiques au sein d&apos;un ERP unique. La solution aide les entreprises à centraliser leurs données, automatiser leurs opérations et piloter leurs activités en temps réel. Pour les besoins des PME, découvrez également{" "}
+                <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100</Link>, ou{" "}
+                <Link href="/solutions/sage-frp-1000" className="text-cta font-semibold hover:underline">Sage FRP 1000</Link>{" "}
+                pour le pilotage financier des groupes.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -273,9 +266,9 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={capabilitiesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-2xl border border-border hover:shadow-md transition-shadow duration-200 flex flex-col p-7"
+                  className="bg-white rounded-2xl border border-slate-200 hover:border-cta/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 flex flex-col p-7"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-cta/10 flex items-center justify-center mb-5">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
                     <cap.icon size={22} className="text-cta" strokeWidth={1.75} />
                   </div>
                   <h3 className="font-bold text-primary text-lg mb-4">{cap.title}</h3>
@@ -326,7 +319,7 @@ export default function SageX3Client() {
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-primary font-bold px-7 py-3.5 rounded-xl hover:bg-white/90 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Découvrir Sage X3 avec nos experts <ArrowRight size={18} />
               </Link>
             </motion.div>
           </div>
@@ -342,7 +335,7 @@ export default function SageX3Client() {
               className="text-center mb-12"
             >
               <span className="text-xs font-bold text-cta tracking-widest uppercase">VUE D&apos;ENSEMBLE</span>
-              <h2 className="text-3xl font-bold text-primary mt-2">Pilotez toute votre entreprise avec Sage X3</h2>
+              <h2 className="text-3xl font-bold text-primary mt-2">Pilotez vos processus avec l&apos;ERP Sage X3</h2>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -351,10 +344,19 @@ export default function SageX3Client() {
               className="grid lg:grid-cols-[280px_1fr] gap-8"
             >
               {/* Tab list */}
-              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
+              <div
+                role="tablist"
+                aria-label="Fonctionnalités de Sage X3"
+                aria-orientation="vertical"
+                className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2"
+              >
                 {completeManagementTabs.map((tab) => (
                   <button
                     key={tab.key}
+                    id={`sagex3-tab-${tab.key}`}
+                    role="tab"
+                    aria-selected={activeTab === tab.key}
+                    aria-controls={`sagex3-panel-${tab.key}`}
                     onClick={() => setActiveTab(tab.key)}
                     className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
                       activeTab === tab.key
@@ -368,7 +370,12 @@ export default function SageX3Client() {
               </div>
 
               {/* Tab content */}
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div
+                role="tabpanel"
+                id={`sagex3-panel-${selectedTab.key}`}
+                aria-labelledby={`sagex3-tab-${selectedTab.key}`}
+                className="grid md:grid-cols-2 gap-8 items-center"
+              >
                 <div>
                   <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
                   <p className="text-secondary leading-relaxed mb-6">{selectedTab.desc}</p>
@@ -376,7 +383,7 @@ export default function SageX3Client() {
                     href="/contact"
                     className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm"
                   >
-                    Demander une démo
+                    Demander une démo Sage X3
                   </Link>
                 </div>
                 <div className="h-56 sm:h-72 md:h-80 rounded-2xl border border-border overflow-hidden bg-white flex items-center justify-center p-4">
@@ -419,7 +426,7 @@ export default function SageX3Client() {
                   Guide des fonctionnalités Sage X3
                 </h2>
                 <p className="text-secondary leading-relaxed mb-6">
-                  Les solutions Sage X3 sont régulièrement enrichies pour étendre la couverture fonctionnelle de votre ERP. Téléchargez notre guide pour découvrir l&apos;ensemble des capacités à votre portée.
+                  Consultez le guide des fonctionnalités Sage X3 pour découvrir sa couverture en finance, production, achats, ventes, stocks, logistique, reporting et gestion multi-sociétés.
                 </p>
                 <a
                   href="https://drive.google.com/file/d/1ppOLIQZnNlAPRfIsdzT4KrDSnmn6ExN7/view?usp=sharing"
@@ -444,7 +451,7 @@ export default function SageX3Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-primary">Sage X3 adapté à votre secteur d&apos;activité</h2>
+              <h2 className="text-3xl font-bold text-primary">Sage X3 pour l&apos;industrie, la distribution et les services</h2>
               <Link
                 href="/secteurs"
                 className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
@@ -459,9 +466,9 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={sectorsInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="bg-white rounded-2xl border border-border hover:shadow-md transition-shadow duration-200 flex flex-col p-6"
+                  className="bg-white rounded-2xl border border-slate-200 hover:border-cta/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 flex flex-col p-6"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
                     <sector.icon size={20} className="text-cta" strokeWidth={1.75} />
                   </div>
                   <h3 className="font-bold text-primary mb-4">{sector.title}</h3>
@@ -491,9 +498,9 @@ export default function SageX3Client() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-primary">Modules et solutions complémentaires pour Sage X3</h2>
+              <h2 className="text-3xl font-bold text-primary">Modules et solutions complémentaires de Sage X3</h2>
               <p className="text-secondary mt-3">
-                Étendez les capacités de Sage X3 avec des modules complémentaires pensés pour aller plus loin selon vos enjeux métiers.
+                Complétez Sage X3 avec des solutions de recouvrement, de Business Intelligence, de gestion à l&apos;affaire, d&apos;immobilisations, de gestion d&apos;entrepôt et de planification industrielle.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -503,7 +510,7 @@ export default function SageX3Client() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={complementaryInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="bg-white rounded-2xl p-6 border border-border flex flex-col"
+                  className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-cta/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
                 >
                   <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed flex-1">{sol.desc}</p>
@@ -541,13 +548,13 @@ export default function SageX3Client() {
                 Demandez une démo Sage X3 personnalisée
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Nos experts Thalès Informatique vous présentent Sage X3 adapté à votre secteur et à vos enjeux.
+                Échangez avec nos consultants pour découvrir comment Sage X3 peut répondre aux besoins de votre entreprise, de votre secteur et de vos différents sites au Maroc ou en Afrique.
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Planifier une démo Sage X3 <ArrowRight size={18} />
               </Link>
             </motion.div>
           </div>

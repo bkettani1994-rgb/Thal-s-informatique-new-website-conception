@@ -5,9 +5,9 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Sage X3 Maroc | ERP de gestion d'entreprise | Thalès Informatique",
+  title: "Sage X3 Maroc | Intégration ERP par Thalès Informatique",
   description:
-    "Découvrez Sage X3 Maroc, l'ERP de référence pour les entreprises industrielles, la distribution et le négoce. Thalès Informatique, Sage Business Partner Platinum, vous accompagne dans le déploiement de Sage X3 au Maroc et en Afrique.",
+    "Thalès Informatique, intégrateur Sage X3 au Maroc, accompagne les entreprises industrielles, de distribution et de négoce dans le conseil, le déploiement, le paramétrage, la formation et le support de leur ERP.",
   alternates: {
     canonical: "/solutions/sage-x3",
   },
@@ -16,16 +16,16 @@ export const metadata: Metadata = {
     locale: "fr_MA",
     url: `${SITE_URL}/solutions/sage-x3`,
     siteName: "Thalès Informatique",
-    title: "Sage X3 Maroc | ERP de gestion d'entreprise | Thalès Informatique",
+    title: "Sage X3 Maroc | Intégration ERP par Thalès Informatique",
     description:
-      "Découvrez Sage X3 Maroc, l'ERP de référence pour les entreprises industrielles, la distribution et le négoce. Thalès Informatique, Sage Business Partner Platinum, vous accompagne dans le déploiement de Sage X3 au Maroc et en Afrique.",
-    images: [{ url: OG_IMAGE, width: 800, height: 800, alt: "Thalès Informatique - Sage X3 Maroc" }],
+      "Thalès Informatique, intégrateur Sage X3 au Maroc, accompagne les entreprises industrielles, de distribution et de négoce dans le conseil, le déploiement, le paramétrage, la formation et le support de leur ERP.",
+    images: [{ url: OG_IMAGE, width: 800, height: 800, alt: "Sage X3 Maroc intégré par Thalès Informatique" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sage X3 Maroc | ERP de gestion d'entreprise | Thalès Informatique",
+    title: "Sage X3 Maroc | Intégration ERP par Thalès Informatique",
     description:
-      "Sage X3 Maroc : l'ERP de référence pour les entreprises industrielles, la distribution et le négoce. Déployé par Thalès Informatique au Maroc et en Afrique.",
+      "Découvrez Sage X3 au Maroc avec Thalès Informatique : intégration, paramétrage, migration, formation et support d'un ERP adapté à l'industrie, au négoce et à la distribution.",
     images: [OG_IMAGE],
   },
 };
@@ -46,9 +46,20 @@ const softwareSchema = {
   name: "Sage X3",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web, Cloud",
+  softwareVersion: "Sage X3",
   description:
-    "Sage X3 est un ERP de gestion d'entreprise pour les industries, la distribution et le négoce. Déployé par Thalès Informatique au Maroc et en Afrique.",
+    "Sage X3 est un ERP destiné aux entreprises industrielles, aux sociétés de distribution et aux groupes multisites. Thalès Informatique assure son intégration, son paramétrage, sa migration et son support au Maroc et en Afrique.",
   url: "https://thales.ma/solutions/sage-x3",
+  featureList: [
+    "Gestion financière",
+    "Gestion de la production",
+    "Gestion des achats",
+    "Gestion des ventes",
+    "Gestion des stocks",
+    "Supply chain",
+    "Gestion multi-sociétés",
+    "Reporting et pilotage",
+  ],
   publisher: {
     "@type": "Organization",
     name: "Thalès Informatique",
@@ -56,7 +67,6 @@ const softwareSchema = {
   },
   offers: {
     "@type": "Offer",
-    priceCurrency: "MAD",
     availability: "https://schema.org/InStock",
     seller: { "@type": "Organization", name: "Thalès Informatique" },
   },
