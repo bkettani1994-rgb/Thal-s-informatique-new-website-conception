@@ -56,13 +56,23 @@ const rightCollageImages = [
 
 function CollageSlot({ images }: { images: { src: string; alt: string }[] }) {
   const [index, setIndex] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(mq.matches);
+    const onChange = () => setReduceMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) return;
     const interval = setInterval(() => {
       setIndex((i) => (i + 1) % images.length);
     }, 3500);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, reduceMotion]);
 
   return (
     <div className="relative w-full h-full">
@@ -71,10 +81,12 @@ function CollageSlot({ images }: { images: { src: string; alt: string }[] }) {
           key={img.src}
           src={img.src}
           alt={img.alt}
+          width={640}
+          height={480}
           animate={{ opacity: i === index ? 1 : 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: reduceMotion ? 0 : 1, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full object-cover object-right"
-          loading="lazy"
+          loading={i === 0 ? "eager" : "lazy"}
         />
       ))}
     </div>
@@ -84,46 +96,46 @@ function CollageSlot({ images }: { images: { src: string; alt: string }[] }) {
 const alliancePillars = [
   {
     icon: ShieldCheck,
-    title: "Thalès Informatique",
-    desc: "Plus de 30 ans d'expertise dans la transformation digitale des entreprises au Maroc et en Afrique, avec un accompagnement de proximité.",
+    title: "Expertise Thalès Informatique",
+    desc: "Thalès Informatique accompagne les entreprises marocaines dans leurs projets de transformation digitale et dans l'intégration de solutions de gestion.",
   },
   {
     icon: Sparkles,
-    title: "Factorial",
-    desc: "Le SIRH Cloud nouvelle génération, conçu pour simplifier la gestion RH des PME et ETI grâce à une interface moderne et intuitive.",
+    title: "SIRH Cloud Factorial",
+    desc: "Factorial centralise les principaux processus RH dans une plateforme Cloud accessible aux équipes RH, aux managers et aux collaborateurs.",
   },
   {
     icon: MapPin,
-    title: "Accompagnement Local",
-    desc: "Nos consultants RH vous accompagnent en français comme en arabe, du paramétrage initial jusqu'à l'adoption par vos équipes.",
+    title: "Accompagnement de proximité",
+    desc: "Nos consultants vous accompagnent dans l'analyse des besoins, le paramétrage, la formation des utilisateurs et l'adoption de la solution.",
   },
 ];
 
 const painPoints = [
-  { icon: Clock3, title: "Gestion chronophage", desc: "Suivi des congés et absences géré manuellement sur Excel ou par email, source d'erreurs et de perte de temps." },
-  { icon: FileWarning, title: "Paie sujette à erreurs", desc: "Saisie manuelle des éléments variables de paie, risques d'erreurs et d'oublis chaque fin de mois." },
-  { icon: Settings2, title: "Dossiers dispersés", desc: "Contrats, avenants et documents RH éparpillés entre plusieurs outils et classeurs papier." },
-  { icon: AlertTriangle, title: "Risques de conformité", desc: "Difficulté à garantir la conformité légale et la confidentialité des données RH sensibles." },
+  { icon: Clock3, title: "Processus administratifs chronophages", desc: "Suivi des congés et absences géré manuellement sur Excel ou par email, source d'erreurs et de perte de temps." },
+  { icon: FileWarning, title: "Préparation de la paie peu fiable", desc: "La collecte manuelle des congés, absences, primes et autres variables augmente les risques d'erreur lors de la préparation mensuelle de la paie." },
+  { icon: Settings2, title: "Documents RH dispersés", desc: "Contrats, avenants et documents RH éparpillés entre plusieurs outils et classeurs papier." },
+  { icon: AlertTriangle, title: "Données sensibles difficiles à sécuriser", desc: "La dispersion des données et l'absence de règles d'accès centralisées compliquent la protection et le suivi des informations RH sensibles." },
 ];
 
 const modernFeatures = [
-  { icon: Calendar, title: "Congés & Absences", desc: "Validez en un clic, visibilité immédiate sur le planning d'équipe." },
-  { icon: Timer, title: "Gestion du temps", desc: "Pointage digital, suivi automatisé des heures de travail." },
-  { icon: FolderLock, title: "Dossiers salariés", desc: "Stockage centralisé (Cloud), conforme à la loi marocaine et sécurisé." },
-  { icon: LineChart, title: "Performance & Reporting", desc: "Tableaux de bord RH personnalisables en temps réel." },
-  { icon: Workflow, title: "Workflows automatisés", desc: "Automatisez les processus RH répétitifs, des onboardings aux approbations." },
-  { icon: Lock, title: "Conformité RGPD", desc: "Données hébergées dans le Cloud, conformes aux normes de sécurité internationales." },
+  { icon: Calendar, title: "Congés et absences", desc: "Validez en un clic, visibilité immédiate sur le planning d'équipe." },
+  { icon: Timer, title: "Temps de travail et pointage", desc: "Pointage digital, suivi automatisé des heures de travail." },
+  { icon: FolderLock, title: "Dossiers salariés", desc: "Centralisez les informations, contrats et documents RH de vos collaborateurs dans un espace sécurisé et organisé." },
+  { icon: LineChart, title: "Reporting RH", desc: "Tableaux de bord RH personnalisables en temps réel." },
+  { icon: Workflow, title: "Workflows et validations", desc: "Automatisez les processus RH répétitifs, des onboardings aux approbations." },
+  { icon: Lock, title: "Gestion des accès et des données", desc: "Définissez les rôles, les autorisations et les accès selon les responsabilités de chaque utilisateur." },
 ];
 
 const automationTabs = [
   {
     key: "rh-paie",
     label: "RH & Paie",
-    title: "Sécurisez le cycle de paie",
-    desc: "Synchronisez les éléments variables de paie (congés, absences, primes) directement depuis Factorial pour fiabiliser et accélérer votre processus de paie mensuel.",
+    title: "Fiabilisez la préparation de votre paie",
+    desc: "Centralisez les congés, les absences, les primes et les autres variables RH afin de préparer et transmettre des informations de paie plus fiables à votre service comptable ou à votre logiciel de paie.",
     image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1771850275/RH_PAIE_mghhm1.png",
     points: [
-      { icon: Workflow, title: "Export des éléments variables", desc: "Transmettez automatiquement les variables de paie validées à votre service comptable ou cabinet." },
+      { icon: Workflow, title: "Préparation des variables de paie", desc: "Regroupez les variables validées avant leur transmission au service chargé de produire la paie." },
       { icon: ShieldCheck, title: "Traçabilité complète", desc: "Historique de chaque validation et modification pour sécuriser vos audits et contrôles." },
       { icon: Lock, title: "Confidentialité garantie", desc: "Accès aux données de paie strictement limité aux personnes habilitées." },
     ],
@@ -167,29 +179,29 @@ const automationTabs = [
   {
     key: "gestion-it",
     label: "Gestion IT",
-    title: "Pilotez tout votre parc IT depuis une seule plateforme",
-    desc: "Thalès Informatique vous aide à reprendre la main sur votre environnement IT : équipements, accès et licences sont centralisés et suivis au même endroit que vos processus RH, pour une gestion plus simple et plus sûre au quotidien.",
+    title: "Centralisez les équipements et les accès de vos collaborateurs",
+    desc: "Suivez les équipements, les licences et les accès attribués à chaque collaborateur afin de faciliter les arrivées, les changements de poste et les départs.",
     image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782484948/Factorial_Logiciel_de_gestion_d_entreprise_thales_informatique_giymio.png",
     points: [
       { icon: Settings2, title: "Suivi du parc informatique", desc: "Gardez une vue d'ensemble sur vos équipements : affectation, état et coûts associés, du jour de l'acquisition à la mise au rebut." },
       { icon: FolderLock, title: "Maîtrise des accès et licences", desc: "Octroyez les accès dès l'arrivée d'un collaborateur, révoquez-les à son départ et identifiez les licences inutilisées pour optimiser votre budget IT." },
-      { icon: ShieldCheck, title: "Sécurité et conformité", desc: "Encadrez vos appareils par des politiques de sécurité, intervenez à distance en cas de besoin et disposez d'un historique fiable pour vos audits." },
+      { icon: ShieldCheck, title: "Suivi et historique", desc: "Conservez un historique fiable des équipements et des accès attribués pour faciliter vos audits et le suivi de votre parc." },
     ],
   },
 ];
 
 const proximityAdvantages = [
-  { icon: UserCog, title: "Conseil personnalisé", desc: "Nos consultants RH analysent vos besoins pour configurer Factorial selon vos process internes." },
-  { icon: MapPin, title: "Déploiement clé en main", desc: "De l'installation à la migration de vos données, nous gérons tout le déploiement au Maroc et en Afrique." },
-  { icon: GraduationCap, title: "Formation des équipes", desc: "Vos équipes RH et managers sont formés pour une adoption rapide et durable de l'outil." },
-  { icon: HeadphonesIcon, title: "Support technique local", desc: "Une équipe support basée au Maroc et en Afrique, disponible en français et en arabe pour vous accompagner." },
+  { icon: UserCog, title: "Analyse et conseil", desc: "Nos consultants RH analysent vos besoins pour configurer Factorial selon vos process internes." },
+  { icon: MapPin, title: "Paramétrage et déploiement", desc: "De l'installation à la migration de vos données, nous gérons tout le déploiement au Maroc et en Afrique." },
+  { icon: GraduationCap, title: "Formation des utilisateurs", desc: "Vos équipes RH et managers sont formés pour une adoption rapide et durable de l'outil." },
+  { icon: HeadphonesIcon, title: "Assistance de proximité", desc: "Une équipe support basée au Maroc et en Afrique, disponible en français et en arabe pour vous accompagner." },
 ];
 
 const audiences = [
-  { icon: Briefcase, title: "Responsables RH", desc: "Libérez-vous des tâches administratives répétitives pour vous concentrer sur le pilotage stratégique." },
-  { icon: BarChart3, title: "CFOs", desc: "Visualisez la masse salariale et les coûts RH en temps réel pour des décisions plus éclairées." },
+  { icon: Briefcase, title: "Équipes RH", desc: "Libérez-vous des tâches administratives répétitives pour vous concentrer sur le pilotage stratégique." },
+  { icon: BarChart3, title: "Directions financières", desc: "Visualisez la masse salariale et les coûts RH en temps réel pour des décisions plus éclairées." },
   { icon: UserCog, title: "Managers", desc: "Gérez les congés et la performance de vos équipes en quelques clics, sans solliciter les RH." },
-  { icon: Users, title: "Employés", desc: "Accédez à votre espace personnel RH à tout moment, depuis votre ordinateur ou votre mobile." },
+  { icon: Users, title: "Collaborateurs", desc: "Accédez à votre espace personnel RH à tout moment, depuis votre ordinateur ou votre mobile." },
 ];
 
 export default function FactorialClient() {
@@ -220,12 +232,12 @@ export default function FactorialClient() {
         <section className="pt-32 pb-16 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-white/50 text-sm mb-8">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={14} aria-hidden="true" />
               <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">Factorial</span>
+              <ChevronRight size={14} aria-hidden="true" />
+              <span className="text-white" aria-current="page">Factorial</span>
             </nav>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -234,19 +246,20 @@ export default function FactorialClient() {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
-                SIRH CLOUD
+                SOLUTION FACTORIAL AU MAROC
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Gérez vos RH avec Factorial
+                Factorial Maroc : logiciel RH et SIRH Cloud
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Le SIRH Cloud qui centralise congés, fiches de paie, recrutement et formations. Accessible partout, à tout moment, pour vos équipes RH et vos collaborateurs.
+                Centralisez les congés, les absences, le temps de travail, les dossiers salariés, le recrutement, les formations et la gestion des talents avec Factorial. Thalès Informatique accompagne les entreprises marocaines dans le paramétrage, le déploiement, la formation et l&apos;adoption de ce SIRH Cloud.
               </p>
               <Link
                 href="/contact"
+                aria-label="Demander une démonstration personnalisée de Factorial"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Demander une démo Factorial <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </motion.div>
 
@@ -264,8 +277,10 @@ export default function FactorialClient() {
                 <img
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1772537401/Home_Factorial_phone_FR_znv9zy.png"
                   alt="Application mobile Factorial affichant l'espace collaborateur SIRH"
+                  width={480}
+                  height={640}
                   className="w-full h-full object-contain p-4"
-                  loading="lazy"
+                  fetchPriority="high"
                 />
               </div>
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
@@ -285,10 +300,10 @@ export default function FactorialClient() {
               className="text-center max-w-2xl mx-auto mb-12"
             >
               <h2 className="text-3xl font-bold text-primary mb-3">
-                Thalès Informatique et Factorial : votre SIRH RH au Maroc
+                Factorial au Maroc avec l&apos;accompagnement de Thalès Informatique
               </h2>
               <p className="text-secondary leading-relaxed">
-                L&apos;alliance de l&apos;expertise locale de Thalès Informatique et de la puissance technologique de Factorial.
+                Associez les fonctionnalités du SIRH Factorial à l&apos;expertise de proximité de Thalès Informatique pour structurer et digitaliser vos processus RH.
               </p>
             </motion.div>
             <div className="grid sm:grid-cols-3 gap-6">
@@ -298,10 +313,10 @@ export default function FactorialClient() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={allianceInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-slate-50 border border-border rounded-2xl p-6 text-center"
+                  className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
                 >
-                  <div className="w-12 h-12 bg-cta/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <p.icon size={22} className="text-cta" />
+                  <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <p.icon size={22} className="text-cta" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-primary mb-2">{p.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed">{p.desc}</p>
@@ -320,15 +335,15 @@ export default function FactorialClient() {
                 animate={painInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
               >
-                <span className="text-xs font-bold text-cta tracking-widest uppercase">LE CONSTAT ACTUEL</span>
+                <span className="text-xs font-bold text-cta tracking-widest uppercase">VOS ENJEUX RH</span>
                 <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
                   Vos processus RH freinent-ils votre croissance ?
                 </h2>
                 <div className="space-y-5">
                   {painPoints.map((pt) => (
                     <div key={pt.title} className="flex items-start gap-4">
-                      <div className="w-9 h-9 rounded-lg bg-red-50 flex items-center justify-center shrink-0">
-                        <pt.icon size={18} className="text-red-500" />
+                      <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                        <pt.icon size={18} className="text-cta" aria-hidden="true" />
                       </div>
                       <div>
                         <h3 className="font-bold text-primary text-sm mb-1">{pt.title}</h3>
@@ -345,16 +360,16 @@ export default function FactorialClient() {
                 className="grid grid-cols-2 gap-4"
               >
                 <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-cta/15 to-accent/10 border border-border flex items-center justify-center">
-                  <FileWarning size={36} className="text-cta/60" />
+                  <FileWarning size={36} className="text-cta/60" aria-hidden="true" />
                 </div>
                 <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-accent/15 to-cta/10 border border-border flex items-center justify-center">
-                  <Clock3 size={36} className="text-accent/60" />
+                  <Clock3 size={36} className="text-accent/60" aria-hidden="true" />
                 </div>
                 <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-cta/10 to-primary/10 border border-border flex items-center justify-center">
-                  <FolderLock size={36} className="text-primary/50" />
+                  <FolderLock size={36} className="text-primary/50" aria-hidden="true" />
                 </div>
                 <div className="h-32 sm:h-40 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/15 border border-border flex items-center justify-center">
-                  <AlertTriangle size={36} className="text-orange-400" />
+                  <AlertTriangle size={36} className="text-cta/60" aria-hidden="true" />
                 </div>
               </motion.div>
             </div>
@@ -371,9 +386,9 @@ export default function FactorialClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-white mt-2 mb-3">Une solution pensée pour les RH modernes</h2>
-              <p className="text-white/70">
-                Factorial centralise tous les besoins dans une plateforme unique, intuitive et évolutive.
+              <h2 className="text-3xl font-bold text-white mt-2 mb-3">Les principales fonctionnalités RH de Factorial</h2>
+              <p className="text-white/75">
+                Factorial réunit les processus administratifs, la gestion du temps, les documents salariés, le recrutement et le suivi des talents au sein d&apos;une plateforme RH unique.
               </p>
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
@@ -386,10 +401,10 @@ export default function FactorialClient() {
                   className="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15 hover:bg-white/15 transition-colors duration-200"
                 >
                   <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center mb-4">
-                    <feat.icon size={18} className="text-white" />
+                    <feat.icon size={18} className="text-white" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-white mb-2 text-sm">{feat.title}</h3>
-                  <p className="text-sm text-white/70 leading-relaxed">{feat.desc}</p>
+                  <p className="text-sm text-white/75 leading-relaxed">{feat.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -399,14 +414,14 @@ export default function FactorialClient() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-center"
             >
-              <p className="text-white/60 text-sm mb-5">
-                Rejoignez plus de 10 000 entreprises qui ont déjà adopté Factorial.
+              <p className="text-white/75 text-sm mb-5">
+                Découvrez comment Factorial peut simplifier la gestion quotidienne de vos ressources humaines.
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors duration-200"
               >
-                Réservez une démo gratuite
+                Découvrir Factorial avec un expert
               </Link>
             </motion.div>
           </div>
@@ -422,10 +437,10 @@ export default function FactorialClient() {
               className="text-center max-w-2xl mx-auto mb-12"
             >
               <h2 className="text-3xl font-bold text-primary mb-3">
-                L&apos;Intelligence Artificielle au cœur de votre plateforme RH avec Factorial
+                L&apos;intelligence artificielle au service de la gestion RH
               </h2>
               <p className="text-secondary leading-relaxed">
-                Moins de paperasse, plus de temps pour vos équipes. L&apos;IA vous aide à transformer vos données en informations fiables et à accélérer l&apos;impact de vos équipes RH.
+                Les fonctionnalités assistées par l&apos;intelligence artificielle peuvent aider les équipes RH à analyser leurs données, retrouver plus rapidement certaines informations et réduire le temps consacré aux tâches administratives.
               </p>
             </motion.div>
             <motion.div
@@ -437,6 +452,9 @@ export default function FactorialClient() {
               <img
                 src="https://res.cloudinary.com/dmutnjgp8/image/upload/q_auto,f_auto/v1782482570/Factorial_Logiciel_de_gestion_d_entreprise_pour_Thal%C3%A8s_Informatique_nti6ux.png"
                 alt="Assistant IA Factorial intégré à la plateforme RH"
+                width={800}
+                height={500}
+                loading="lazy"
                 className="w-full h-auto rounded-3xl"
               />
             </motion.div>
@@ -453,17 +471,22 @@ export default function FactorialClient() {
               className="text-center max-w-2xl mx-auto mb-10"
             >
               <h2 className="text-3xl font-bold text-primary mb-3">
-                Automatisez ce qui vous empêche d&apos;avancer
+                Centralisez vos processus RH avec Factorial
               </h2>
               <p className="text-secondary leading-relaxed">
-                Factorial automatise les processus RH chronophages, pour vous redonner du temps et recentrer vos efforts sur la croissance de vos équipes.
+                Découvrez les modules de Factorial pour gérer les informations salariés, le temps de travail, les talents, les données financières RH et les équipements attribués aux collaborateurs.
               </p>
             </motion.div>
 
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <div role="tablist" aria-label="Modules Factorial" className="flex flex-wrap justify-center gap-3 mb-12">
               {automationTabs.map((tab) => (
                 <button
                   key={tab.key}
+                  id={`factorial-tab-${tab.key}`}
+                  role="tab"
+                  aria-selected={activeTab === tab.key}
+                  aria-controls={`factorial-panel-${tab.key}`}
+                  tabIndex={activeTab === tab.key ? 0 : -1}
                   onClick={() => setActiveTab(tab.key)}
                   className={`text-sm font-semibold px-5 py-2.5 rounded-full border transition-colors duration-200 cursor-pointer ${
                     activeTab === tab.key
@@ -478,6 +501,9 @@ export default function FactorialClient() {
 
             <motion.div
               key={activeTab}
+              role="tabpanel"
+              id={`factorial-panel-${selectedTab.key}`}
+              aria-labelledby={`factorial-tab-${selectedTab.key}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -490,13 +516,13 @@ export default function FactorialClient() {
               <div className="max-w-3xl mx-auto mb-12">
                 {selectedTab.image ? (
                   <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img src={selectedTab.image} alt={selectedTab.title} className="w-full h-auto" />
+                    <img src={selectedTab.image} alt={selectedTab.title} loading="lazy" className="w-full h-auto" />
                   </div>
                 ) : (
                   <div className="bg-white border border-border rounded-2xl p-6 shadow-sm">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-xs font-semibold text-secondary">Évolution des effectifs</span>
-                      <PenLine size={14} className="text-slate-300" />
+                      <PenLine size={14} className="text-slate-300" aria-hidden="true" />
                     </div>
                     <div className="flex items-end gap-1.5 h-20 mb-4">
                       {[40, 55, 48, 62, 70, 58, 75, 68, 80].map((h, i) => (
@@ -514,7 +540,7 @@ export default function FactorialClient() {
               <div className="grid sm:grid-cols-3 gap-6">
                 {selectedTab.points.map((pt) => (
                   <div key={pt.title} className="bg-white border border-border rounded-xl p-5">
-                    <pt.icon size={18} className="text-cta mb-3" />
+                    <pt.icon size={18} className="text-cta mb-3" aria-hidden="true" />
                     <h4 className="font-bold text-primary text-sm mb-1.5">{pt.title}</h4>
                     <p className="text-xs text-secondary leading-relaxed">{pt.desc}</p>
                   </div>
@@ -535,8 +561,8 @@ export default function FactorialClient() {
                 className="grid grid-cols-2 gap-5 order-2 lg:order-1"
               >
                 {proximityAdvantages.map((adv) => (
-                  <div key={adv.title} className="bg-slate-50 border border-border rounded-xl p-5">
-                    <adv.icon size={20} className="text-cta mb-3" />
+                  <div key={adv.title} className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                    <adv.icon size={20} className="text-cta mb-3" aria-hidden="true" />
                     <h4 className="font-bold text-primary text-sm mb-1.5">{adv.title}</h4>
                     <p className="text-xs text-secondary leading-relaxed">{adv.desc}</p>
                   </div>
@@ -550,19 +576,19 @@ export default function FactorialClient() {
               >
                 <span className="text-xs font-bold text-cta tracking-widest uppercase">POURQUOI THALÈS INFORMATIQUE ?</span>
                 <h2 className="text-3xl font-bold text-primary mt-2 mb-5">
-                  Plus qu&apos;un logiciel, un véritable partenaire de proximité
+                  Déployez Factorial avec un partenaire de proximité
                 </h2>
                 <p className="text-secondary leading-relaxed mb-5">
-                  Au-delà de la souscription, notre équipe vous accompagne dans son intégration. En choisissant Thalès Informatique, vous bénéficiez de 30 ans d&apos;expérience IT au Maroc et en Afrique, d&apos;un véritable interlocuteur dédié.
+                  Thalès Informatique vous accompagne dans le cadrage du projet, le paramétrage de Factorial, la reprise des données, la formation des utilisateurs et l&apos;adoption de la solution par vos équipes.
                 </p>
                 <ul className="space-y-3">
                   {[
                     "Implémentation rapide et accompagnement sur-mesure",
-                    "Certification et expertise éprouvée sur Factorial",
-                    "Support local au Maroc et en Afrique, pas de plateforme RH lointaine",
+                    "Connaissance fonctionnelle de la solution Factorial",
+                    "Un interlocuteur de proximité pour accompagner vos équipes pendant le projet",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-secondary text-sm">
-                      <ShieldCheck size={16} className="text-cta shrink-0 mt-0.5" />
+                      <ShieldCheck size={16} className="text-cta shrink-0 mt-0.5" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -581,9 +607,9 @@ export default function FactorialClient() {
               transition={{ duration: 0.6 }}
               className="text-center max-w-2xl mx-auto mb-12"
             >
-              <h2 className="text-3xl font-bold text-primary mb-3">Qui que vous soyez, nous pouvons vous aider</h2>
+              <h2 className="text-3xl font-bold text-primary mb-3">Factorial pour les RH, les managers et les collaborateurs</h2>
               <p className="text-secondary leading-relaxed">
-                Factorial ne se résume pas à un logiciel RH. C&apos;est une solution complète permettant aux managers et aux équipes de mieux collaborer, décider et avancer ensemble.
+                Chaque profil accède aux informations et fonctionnalités utiles à son rôle afin de mieux collaborer et de simplifier les échanges avec le service des ressources humaines.
               </p>
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -593,10 +619,10 @@ export default function FactorialClient() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={audiencesInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="bg-white border border-border rounded-2xl p-6"
+                  className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
                 >
-                  <div className="w-10 h-10 bg-cta/10 rounded-lg flex items-center justify-center mb-4">
-                    <a.icon size={18} className="text-cta" />
+                  <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                    <a.icon size={18} className="text-cta" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-primary text-sm mb-2">{a.title}</h3>
                   <p className="text-xs text-secondary leading-relaxed">{a.desc}</p>
@@ -616,17 +642,18 @@ export default function FactorialClient() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Modernisez votre RH avec Factorial
+                Digitalisez vos processus RH avec Factorial
               </h2>
               <p className="text-white/70 mb-4 max-w-xl mx-auto">
-                Thalès Informatique vous accompagne dans le déploiement et l&apos;adoption de Factorial au Maroc et en Afrique.
+                Thalès Informatique vous accompagne dans le déploiement, le paramétrage, la formation et l&apos;adoption de Factorial au Maroc.
               </p>
-              <p className="text-white/50 text-sm mb-6">Besoin d&apos;un logiciel de paie ? Découvrez aussi <Link href="/solutions/sage-100-paie-rh" className="text-white/70 hover:text-white underline">Sage 100 Paie &amp; RH</Link>.</p>
+              <p className="text-white/70 text-sm mb-6">Pour la production et la gestion réglementaire de la paie, découvrez également <Link href="/solutions/sage-100-paie-rh" className="text-white hover:text-accent underline">Sage 100 Paie &amp; RH</Link>.</p>
               <Link
                 href="/contact"
+                aria-label="Parler à un expert au sujet de Factorial"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Parler à un expert Factorial <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
