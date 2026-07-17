@@ -87,22 +87,33 @@ const faqs = [
   },
 ];
 
-function FaqAccordionItem({ item }: { item: { q: string; a: string } }) {
+function FaqAccordionItem({ item, index }: { item: { q: string; a: string }; index: number }) {
   const [open, setOpen] = useState(false);
+  const btnId = `paierh-faq-button-${index}`;
+  const panelId = `paierh-faq-panel-${index}`;
   return (
     <div className="border border-white/15 rounded-xl overflow-hidden">
       <button
+        id={btnId}
+        aria-expanded={open}
+        aria-controls={panelId}
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left bg-white/5 hover:bg-white/10 transition-colors cursor-pointer"
       >
         <span className="font-semibold text-white text-sm md:text-base">{item.q}</span>
         <ChevronDown
           size={18}
+          aria-hidden="true"
           className={`text-accent shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         />
       </button>
       {open && (
-        <div className="px-6 py-4 bg-black/20 border-t border-white/10">
+        <div
+          id={panelId}
+          role="region"
+          aria-labelledby={btnId}
+          className="px-6 py-4 bg-black/20 border-t border-white/10"
+        >
           <p className="text-white/65 text-sm leading-relaxed">{item.a}</p>
         </div>
       )}
@@ -132,12 +143,12 @@ export default function Sage100PaieRhClient() {
         <section className="pt-32 pb-16 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-white/50 text-sm mb-8">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={14} aria-hidden="true" />
               <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">Sage 100 Paie & RH</span>
+              <ChevronRight size={14} aria-hidden="true" />
+              <span className="text-white" aria-current="page">Sage 100 Paie & RH</span>
             </nav>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -146,19 +157,20 @@ export default function Sage100PaieRhClient() {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
-                SAGE 100 PAIE & RH
+                SOLUTION PAIE & RH AU MAROC
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Gérez votre paie et vos RH avec Sage 100
+                Sage 100 Paie &amp; RH Maroc : logiciel de paie et gestion des ressources humaines
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Automatisez vos bulletins de paie, déclarations CNSS, IR et AMO en toute conformité avec la législation marocaine.
+                Automatisez la gestion de votre paie, de vos collaborateurs et de vos déclarations sociales avec Sage 100 Paie &amp; RH. Thalès Informatique accompagne les entreprises marocaines dans le déploiement et la prise en main de la solution.
               </p>
               <Link
                 href="/contact"
+                aria-label="Demander une démonstration de Sage 100 Paie & RH"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Demander une démonstration <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </motion.div>
 
@@ -174,7 +186,8 @@ export default function Sage100PaieRhClient() {
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782383568/senior-people-school-class-with-laptop-computer_jz358t.jpg"
                   alt="Processus de gestion de la paie et des ressources humaines accompagné par Sage 100 Paie & RH"
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
@@ -206,7 +219,8 @@ export default function Sage100PaieRhClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-primary">
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">AVANTAGES</span>
+              <h2 className="text-3xl font-bold text-primary mt-2">
                 Optimisez votre gestion de la paie et des ressources humaines grâce à Sage 100 Paie & RH
               </h2>
             </motion.div>
@@ -220,7 +234,7 @@ export default function Sage100PaieRhClient() {
                   className="bg-white rounded-2xl p-6 border border-border hover:shadow-md transition-shadow duration-200 flex flex-col"
                 >
                   <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
-                    <b.icon size={20} className="text-cta" strokeWidth={1.75} />
+                    <b.icon size={20} className="text-cta" strokeWidth={1.75} aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-primary mb-2">{b.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed">{b.desc}</p>
@@ -251,10 +265,20 @@ export default function Sage100PaieRhClient() {
               className="grid lg:grid-cols-[280px_1fr] gap-8"
             >
               {/* Tab list */}
-              <div className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2">
+              <div
+                role="tablist"
+                aria-label="Fonctionnalités de Sage 100 Paie & RH"
+                aria-orientation="vertical"
+                className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-2"
+              >
                 {discoveryTabs.map((tab) => (
                   <button
                     key={tab.key}
+                    id={`paierh-tab-${tab.key}`}
+                    role="tab"
+                    aria-selected={activeTab === tab.key}
+                    aria-controls={`paierh-panel-${tab.key}`}
+                    tabIndex={activeTab === tab.key ? 0 : -1}
                     onClick={() => setActiveTab(tab.key)}
                     className={`text-left px-4 py-3 rounded-lg text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors duration-150 cursor-pointer ${
                       activeTab === tab.key ? "bg-cta/10 text-cta" : "text-secondary hover:bg-bg hover:text-primary"
@@ -266,7 +290,12 @@ export default function Sage100PaieRhClient() {
               </div>
 
               {/* Tab content */}
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div
+                role="tabpanel"
+                id={`paierh-panel-${selectedTab.key}`}
+                aria-labelledby={`paierh-tab-${selectedTab.key}`}
+                className="grid md:grid-cols-2 gap-8 items-center"
+              >
                 <div>
                   <h3 className="text-2xl font-bold text-primary mb-4">{selectedTab.title}</h3>
                   <p className="text-secondary leading-relaxed">{selectedTab.desc}</p>
@@ -301,6 +330,9 @@ export default function Sage100PaieRhClient() {
               <p className="text-secondary mt-3">
                 Adaptez notre solution à votre activité. Gérez les plannings, créez des reportings et digitalisez vos processus pour couvrir tous vos besoins.
               </p>
+              <p className="text-secondary text-sm mt-3">
+                Pour un SIRH cloud complet, découvrez également <Link href="/solutions/factorial" className="text-cta font-semibold hover:underline">Factorial</Link>.
+              </p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {complementary.map((sol, i) => (
@@ -312,7 +344,7 @@ export default function Sage100PaieRhClient() {
                   className="bg-white rounded-2xl border border-border hover:shadow-md transition-shadow duration-200 flex flex-col p-6"
                 >
                   <div className="w-10 h-10 rounded-xl bg-cta/10 flex items-center justify-center mb-4">
-                    <sol.icon size={20} className="text-cta" strokeWidth={1.75} />
+                    <sol.icon size={20} className="text-cta" strokeWidth={1.75} aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-primary mb-2">{sol.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed flex-1">{sol.desc}</p>
@@ -320,7 +352,7 @@ export default function Sage100PaieRhClient() {
                     href={sol.href}
                     className="inline-flex items-center gap-1 text-cta text-sm font-semibold mt-4"
                   >
-                    {sol.linkLabel} <ArrowRight size={13} />
+                    {sol.linkLabel} <ArrowRight size={13} aria-hidden="true" />
                   </Link>
                 </motion.div>
               ))}
@@ -345,8 +377,8 @@ export default function Sage100PaieRhClient() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="space-y-3"
             >
-              {faqs.map((item) => (
-                <FaqAccordionItem key={item.q} item={item} />
+              {faqs.map((item, i) => (
+                <FaqAccordionItem key={item.q} item={item} index={i} />
               ))}
             </motion.div>
           </div>
@@ -362,17 +394,18 @@ export default function Sage100PaieRhClient() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
-                Prêt à automatiser votre paie avec Sage 100 Paie & RH ?
+                Prêt à moderniser votre gestion de la paie ?
               </h2>
               <p className="text-secondary mb-4 max-w-xl mx-auto">
-                Contactez nos experts Thalès Informatique pour une démonstration gratuite adaptée à votre entreprise.
+                Nos équipes vous accompagnent dans l&apos;analyse de vos besoins, le paramétrage, la migration des données, la formation et le déploiement de Sage 100 Paie &amp; RH.
               </p>
               <p className="text-secondary text-sm mb-8">Besoin d&apos;un SIRH complet ? Découvrez <Link href="/solutions/factorial" className="text-cta hover:underline font-medium">Factorial</Link>, notre solution RH cloud.</p>
               <Link
                 href="/contact"
+                aria-label="Parler à un expert au sujet de Sage 100 Paie & RH"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Parler à un expert Paie &amp; RH <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
