@@ -1,27 +1,32 @@
 import type { Metadata } from "next";
 import EloficashClient from "./EloficashClient";
 
+const SITE_URL = "https://thales.ma";
+const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
+
 export const metadata: Metadata = {
-  title: "Gestion de trésorerie Maroc | Eloficash | Recouvrement | Thalès Informatique",
+  title: "Eloficash Maroc | Logiciel de recouvrement client | Thalès Informatique",
   description:
-    "Eloficash : logiciel de gestion de trésorerie, recouvrement et gestion des encours clients au Maroc. Scoring client, relances automatiques, connecté à Sage. Thalès Informatique.",
+    "Thalès Informatique accompagne les entreprises marocaines dans le déploiement d'Eloficash, une solution de gestion du risque client, des encours, des relances et du recouvrement de créances.",
   alternates: {
     canonical: "/solutions/eloficash",
   },
   openGraph: {
-    title: "Gestion de trésorerie Maroc | Eloficash | Recouvrement | Thalès Informatique",
+    title: "Eloficash Maroc | Logiciel de recouvrement client | Thalès Informatique",
     description:
-      "Eloficash : logiciel de gestion de trésorerie, recouvrement et gestion des encours clients au Maroc. Scoring client, relances automatiques, connecté à Sage. Thalès Informatique.",
-    url: "https://www.thales-informatique.ma/solutions/eloficash",
+      "Thalès Informatique accompagne les entreprises marocaines dans le déploiement d'Eloficash, une solution de gestion du risque client, des encours, des relances et du recouvrement de créances.",
+    url: `${SITE_URL}/solutions/eloficash`,
     siteName: "Thalès Informatique",
     locale: "fr_MA",
     type: "website",
+    images: [{ url: OG_IMAGE, width: 800, height: 800, alt: "Eloficash Maroc déployé par Thalès Informatique" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gestion de trésorerie Maroc | Eloficash | Recouvrement | Thalès Informatique",
+    title: "Eloficash Maroc | Logiciel de recouvrement client | Thalès Informatique",
     description:
-      "Eloficash : logiciel de gestion de trésorerie, recouvrement et gestion des encours clients au Maroc. Scoring client, relances automatiques, connecté à Sage. Thalès Informatique.",
+      "Découvrez Eloficash au Maroc avec Thalès Informatique : scoring client, suivi des encours, relances automatisées et pilotage du recouvrement.",
+    images: [OG_IMAGE],
   },
 };
 
@@ -31,9 +36,9 @@ export default function Page() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.thales-informatique.ma/" },
-        { "@type": "ListItem", position: 2, name: "Solutions", item: "https://www.thales-informatique.ma/solutions" },
-        { "@type": "ListItem", position: 3, name: "Eloficash", item: "https://www.thales-informatique.ma/solutions/eloficash" },
+        { "@type": "ListItem", position: 1, name: "Accueil", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Solutions", item: `${SITE_URL}/solutions` },
+        { "@type": "ListItem", position: 3, name: "Eloficash", item: `${SITE_URL}/solutions/eloficash` },
       ],
     },
     {
@@ -41,15 +46,27 @@ export default function Page() {
       "@type": "SoftwareApplication",
       name: "Eloficash",
       applicationCategory: "BusinessApplication",
-      operatingSystem: "Cloud",
+      operatingSystem: "Cloud, Web",
+      url: `${SITE_URL}/solutions/eloficash`,
       description:
-        "Logiciel de gestion de trésorerie, recouvrement et gestion des encours clients pour les entreprises au Maroc et en Afrique.",
+        "Eloficash est une solution de gestion du poste client et du recouvrement. Elle permet de suivre les encours, évaluer le risque client, organiser les relances, traiter les litiges et piloter les créances. Thalès Informatique accompagne son intégration et son déploiement au Maroc.",
+      softwareVersion: "Eloficash",
+      featureList: [
+        "Scoring du risque client",
+        "Suivi des encours clients",
+        "Gestion des limites de crédit",
+        "Relances automatisées",
+        "Gestion des litiges",
+        "Suivi des créances",
+        "Tableaux de bord de recouvrement",
+        "Intégration aux logiciels de gestion",
+      ],
       offers: {
         "@type": "Offer",
         seller: {
           "@type": "Organization",
           name: "Thalès Informatique",
-          url: "https://www.thales-informatique.ma",
+          url: SITE_URL,
         },
       },
     },
