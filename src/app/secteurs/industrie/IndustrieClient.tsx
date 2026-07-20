@@ -319,6 +319,7 @@ export default function IndustrieClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos consultants ERP accompagnent les industriels marocains et africains dans le choix, le déploiement et la prise en main de leur solution Sage — avec un engagement fort sur les résultats.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link>, <Link href="/solutions/gestion-production" className="text-white underline hover:text-accent">Gestion de Production</Link> et <Link href="/metiers/gestion-production" className="text-white underline hover:text-accent">GPAO</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

@@ -275,6 +275,7 @@ export default function PaieRhClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée à vos équipes.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez nos solutions <Link href="/solutions/sage-100-paie-rh" className="text-white underline hover:text-accent">Sage 100 Paie &amp; RH</Link> et <Link href="/solutions/gestion-rh-paie" className="text-white underline hover:text-accent">Gestion RH &amp; Paie</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

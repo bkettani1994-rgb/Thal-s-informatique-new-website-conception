@@ -283,6 +283,7 @@ export default function ChimieClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos consultants accompagnent les entreprises chimiques marocaines et africaines dans le déploiement de solutions ERP adaptées — conformité, production, qualité et supply chain intégrées.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/metiers/gestion-production" className="text-white underline hover:text-accent">Gestion de Production</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

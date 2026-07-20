@@ -282,6 +282,7 @@ export default function AssociationClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos consultants accompagnent les associations et ONG marocaines dans le déploiement de solutions de gestion adaptées — comptabilité, projets, ressources humaines et reporting intégrés.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link> et <Link href="/metiers/comptabilite-finance" className="text-white underline hover:text-accent">Comptabilité &amp; Finance</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

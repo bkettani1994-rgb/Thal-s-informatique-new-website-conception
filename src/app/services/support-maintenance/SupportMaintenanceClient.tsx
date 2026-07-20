@@ -214,6 +214,7 @@ export default function SupportMaintenanceClient() {
               <p className="text-secondary mb-8 max-w-xl mx-auto">
                 Nos experts vous accompagnent dans la mise en place de votre contrat de maintenance.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions Sage maintenues : <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200"

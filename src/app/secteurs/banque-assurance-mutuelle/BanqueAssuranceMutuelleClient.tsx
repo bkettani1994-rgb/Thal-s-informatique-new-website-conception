@@ -333,6 +333,7 @@ export default function BanqueAssuranceMutuelleClient() {
               Découvrez comment Thalès Informatique sécurise la conformité réglementaire des banques, assurances et mutuelles marocaines.
             </motion.p>
             <motion.div variants={fadeUp}>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-frp-1000" className="text-white underline hover:text-accent">Sage FRP 1000</Link> et <Link href="/metiers/reporting" className="text-white underline hover:text-accent">Reporting &amp; BI</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold px-8 py-4 rounded-xl hover:bg-indigo-50 transition-colors shadow-lg"

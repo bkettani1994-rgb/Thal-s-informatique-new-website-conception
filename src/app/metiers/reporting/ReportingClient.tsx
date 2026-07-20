@@ -121,6 +121,7 @@ export default function ReportingClient() {
             <motion.div {...fadeUp}>
               <h2 className="text-2xl font-bold text-white">Pilotez votre entreprise par les données</h2>
               <p className="text-white/70 mt-4">Demandez une démonstration du module Reporting de Thalès Informatique.</p>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez notre solution <Link href="/solutions/reporting-pilotage" className="text-white underline hover:text-accent">Reporting &amp; Pilotage</Link>.</p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Voir une démo <ArrowRight size={16} />
               </Link>

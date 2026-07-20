@@ -109,6 +109,7 @@ export default function ImmobilisationsClient() {
             <motion.div {...fadeUp}>
               <h2 className="text-2xl font-bold text-white">Optimisez la gestion de vos actifs</h2>
               <p className="text-white/70 mt-4">Avec Thalès Informatique, zéro erreur sur vos plans d&apos;amortissement et une intégration comptable automatique.</p>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez notre solution <Link href="/solutions/sage-frp-1000" className="text-white underline hover:text-accent">Sage FRP 1000</Link>.</p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Démarrer <ArrowRight size={16} />
               </Link>

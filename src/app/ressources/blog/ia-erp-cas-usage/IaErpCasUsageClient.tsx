@@ -121,6 +121,7 @@ export default function IaErpCasUsageClient() {
               <p className="text-white/70 mb-6">
                 Nos experts évaluent votre système d&apos;information actuel et vous accompagnent vers les fonctionnalités d&apos;IA disponibles sur Sage X3 et Sage 100, étape par étape.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-6">Découvrez l'ERP <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et son IA intégrée.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"

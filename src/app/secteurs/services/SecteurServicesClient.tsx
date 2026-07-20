@@ -293,6 +293,7 @@ export default function SecteurServicesClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos consultants accompagnent les sociétés de services marocaines et africaines dans le choix, le déploiement et la prise en main de leur solution Sage — avec un suivi personnalisé à chaque étape.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link> et <Link href="/metiers/comptabilite-finance" className="text-white underline hover:text-accent">Comptabilité &amp; Finance</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

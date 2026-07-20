@@ -115,6 +115,7 @@ export default function SirhClient() {
             <motion.div {...fadeUp}>
               <h2 className="text-2xl font-bold text-primary">Transformez vos RH en centre de valeur</h2>
               <p className="text-secondary mt-4">Découvrez comment Thalès Informatique peut aider votre DRH à devenir un partenaire stratégique de la direction générale.</p>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez nos solutions <Link href="/solutions/factorial" className="text-white underline hover:text-accent">Factorial</Link> et <Link href="/solutions/sage-espace-employes" className="text-white underline hover:text-accent">Sage Espace Employés</Link>.</p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Planifier une démonstration <ArrowRight size={16} />
               </Link>

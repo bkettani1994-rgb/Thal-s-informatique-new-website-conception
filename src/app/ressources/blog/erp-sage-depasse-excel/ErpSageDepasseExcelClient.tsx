@@ -147,6 +147,7 @@ export default function ErpSageDepasseExcelClient() {
             <p className="text-white/70 mb-6 max-w-xl mx-auto">
               Nos experts vous proposent une démonstration gratuite adaptée à votre secteur et à la taille de votre entreprise.
             </p>
+            <p data-ilink className="text-white/60 text-sm mb-6">Passez à l'ERP <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link>.</p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-7 py-3 rounded-lg hover:bg-blue-700 transition-colors"

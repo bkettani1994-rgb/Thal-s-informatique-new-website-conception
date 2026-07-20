@@ -129,6 +129,7 @@ export default function PaieClient() {
         <section className="py-16 bg-bg">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez notre solution <Link href="/solutions/sage-100-paie-rh" className="text-white underline hover:text-accent">Sage 100 Paie &amp; RH</Link>.</p>
               <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Démarrer votre projet paie <ArrowRight size={16} />
               </Link>

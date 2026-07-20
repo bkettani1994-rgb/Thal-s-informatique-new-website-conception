@@ -217,6 +217,7 @@ export default function LoiFinances2026ErpClient() {
               <p className="text-white/70 mb-6">
                 Notre équipe de consultants Sage réalise l&apos;audit de conformité de votre ERP et effectue toutes les mises à jour nécessaires. Intervention planifiée et documentée.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-6">Voir notre module <Link href="/metiers/etats-comptables-fiscaux" className="text-white underline hover:text-accent">États comptables &amp; fiscaux</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"

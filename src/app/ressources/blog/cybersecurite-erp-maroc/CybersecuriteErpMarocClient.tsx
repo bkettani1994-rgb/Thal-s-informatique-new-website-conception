@@ -121,6 +121,7 @@ export default function CybersecuriteErpMarocClient() {
               <p className="text-white/70 mb-6">
                 Nos équipes réalisent un état des lieux de la sécurité de votre système d&apos;information et vous proposent un plan d&apos;action priorisé, adapté à votre budget.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-6">Voir notre service de <Link href="/services/infogerance/cybersecurite" className="text-white underline hover:text-accent">cybersécurité informatique</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"

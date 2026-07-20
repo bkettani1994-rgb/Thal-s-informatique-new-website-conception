@@ -282,6 +282,7 @@ export default function LogistiqueClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos consultants accompagnent les opérateurs logistiques marocains et africains dans le déploiement de solutions WMS et ERP adaptées à leurs flux, leurs entrepôts et leurs ambitions de croissance.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/metiers/gestion-chaine-approvisionnement" className="text-white underline hover:text-accent">Chaîne d&apos;approvisionnement</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

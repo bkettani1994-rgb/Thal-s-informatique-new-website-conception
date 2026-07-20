@@ -213,6 +213,7 @@ export default function FormationUtilisateursClient() {
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
                 Contactez-nous pour définir le programme adapté à vos équipes et planifier les sessions.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Formations sur <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-cta text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200"

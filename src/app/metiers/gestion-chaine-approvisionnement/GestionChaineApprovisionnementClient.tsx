@@ -108,6 +108,7 @@ export default function GestionChaineApprovisionnementClient() {
             <motion.div {...fadeUp}>
               <h2 className="text-2xl font-bold text-white">Fiabilisez votre chaîne d&apos;approvisionnement</h2>
               <p className="text-white/70 mt-4">Réduisez vos ruptures de stock et optimisez vos coûts logistiques grâce à notre module supply chain.</p>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez notre solution <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link>.</p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Planifier une démo <ArrowRight size={16} />
               </Link>

@@ -263,6 +263,7 @@ export default function AssistanceUtilisateursClient() {
                   <Phone size={18} />
                   +212 5 22 54 87 80
                 </a>
+                <p data-ilink className="text-white/60 text-sm mb-8">Assistance sur <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link> et <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link>.</p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors duration-200 border border-white/20"

@@ -169,6 +169,7 @@ export default function ReussirProjetErpClient() {
               <p className="text-white/70 mb-6">
                 Nos experts Thalès Informatique vous accompagnent de la définition des besoins à la mise en production. Parlons de votre projet.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-6">Découvrez notre <Link href="/services/integration-erp" className="text-white underline hover:text-accent">service d'intégration ERP</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"

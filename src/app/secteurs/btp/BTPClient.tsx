@@ -410,6 +410,7 @@ export default function BTPClient() {
               Nos consultants BTP vous accompagnent dans le choix et le déploiement de la solution adaptée à votre activité — avec une connaissance approfondie des pratiques du secteur au Maroc et en Afrique.
             </motion.p>
             <motion.div variants={fadeUp}>
+              <p data-ilink className="text-white/60 text-sm mb-8">Solutions adaptées : <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/metiers/gestion-production" className="text-white underline hover:text-accent">Gestion de Production</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

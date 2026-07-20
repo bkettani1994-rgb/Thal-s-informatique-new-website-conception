@@ -295,6 +295,7 @@ export default function TresorerieClient() {
               <p className="text-white/80 mb-8 leading-relaxed">
                 Nos experts Thalès Informatique vous accompagnent dans le choix et le déploiement de la solution Sage la plus adaptée à votre entreprise.
               </p>
+              <p data-ilink className="text-white/60 text-sm mb-8">Découvrez notre solution <Link href="/solutions/sage-frp-1000" className="text-white underline hover:text-accent">Sage FRP 1000</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-cta font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"

@@ -134,6 +134,7 @@ export default function EtatsComptablesFiscauxClient() {
             <motion.div {...fadeUp}>
               <h2 className="text-2xl font-bold text-primary">Simplifiez vos déclarations fiscales dès aujourd&apos;hui</h2>
               <p className="text-secondary mt-4">Contactez nos experts pour une démonstration de la module fiscal de Thalès Informatique.</p>
+              <p data-ilink className="text-white/60 text-sm mb-4">Découvrez notre solution <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link>.</p>
               <Link href="/contact" className="mt-8 inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                 Contacter un expert <ArrowRight size={16} />
               </Link>
