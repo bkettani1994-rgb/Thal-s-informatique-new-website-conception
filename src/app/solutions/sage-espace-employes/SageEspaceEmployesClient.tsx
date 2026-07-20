@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/ui/Navbar";
@@ -8,10 +8,10 @@ import Footer from "@/components/ui/Footer";
 import { ArrowRight, ChevronRight, Sparkles, RefreshCw, Smartphone, ShieldCheck, X, ZoomIn } from "lucide-react";
 
 const topHighlights = [
-  { title: "Simple et accessible", desc: "Sage Espace Employés se prend en main sans formation lourde : vos collaborateurs deviennent acteurs de leur dossier RH dès la première connexion.", icon: Sparkles },
-  { title: "Connecté et évolutif", desc: "Le portail s'intègre nativement à Sage 100 Paie & RH : les demandes de congés et absences sont déjà traitées par votre service paie sans ressaisie.", icon: RefreshCw },
-  { title: "Mobile", desc: "Accessible depuis l'App Store et Google Play, l'application permet de consulter son planning, ses congés ou de poser une demande où que vous soyez.", icon: Smartphone },
-  { title: "Conforme et sécurisé", desc: "L'accès aux données est contrôlé selon le profil de chaque utilisateur, avec des sauvegardes régulières pour garantir la disponibilité et la sécurité des informations.", icon: ShieldCheck },
+  { title: "Simple à utiliser", desc: "Permettez aux collaborateurs de consulter leurs informations et d'effectuer leurs demandes depuis une interface claire.", icon: Sparkles },
+  { title: "Connecté à la paie", desc: "Facilitez la transmission des congés, absences et données RH vers Sage 100 Paie & RH selon le paramétrage retenu.", icon: RefreshCw },
+  { title: "Accessible en mobilité", desc: "Donnez accès aux principales fonctions depuis un ordinateur, une tablette ou un smartphone.", icon: Smartphone },
+  { title: "Accès sécurisé", desc: "Gérez les droits d'accès selon le rôle de chaque collaborateur, manager ou membre de l'équipe RH.", icon: ShieldCheck },
 ];
 
 const featureBlocks = [
@@ -46,10 +46,10 @@ const featureBlocks = [
     imageAlt: "Planning des congés et absences partagé en temps réel dans Sage Espace Employés",
   },
   {
-    title: "Une paie prête dans les délais",
+    title: "Des données RH mieux préparées pour la paie",
     paragraphs: [
-      "En fin de mois, vous gagnez un temps précieux et évitez le stress de la paie en retard.",
-      "Grâce à la synchronisation automatique des congés et absences traités dans Sage Espace Employés, Sage 100 Paie & RH dispose de toutes les données nécessaires pour préparer votre paie.",
+      "Les congés, absences et éléments variables validés peuvent être transmis au processus de paie afin de limiter les ressaisies et de mieux préparer les traitements de fin de mois.",
+      "L'intégration avec Sage 100 Paie & RH permet de centraliser les informations nécessaires selon le périmètre et le paramétrage de votre solution.",
     ],
     imagePos: "left",
     image: "https://res.cloudinary.com/dmutnjgp8/image/upload/v1782395333/4-sage-dematerialisation-rh-projet-distribution-thal%C3%A8s-informatique_hzzxam.jpg",
@@ -106,9 +106,9 @@ const dailyTime = [
     ],
   },
   {
-    title: "Les soldes de vos collaborateurs sont mis à jour automatiquement",
+    title: "Suivez les soldes de congés et d'absences",
     items: [
-      "Gérez tous les types de congés et absences : congés payés, RTT, récupération, télétravail, maladie, congés de paternité et de maternité.",
+      "Gérez différents types d'absences et mettez à disposition des collaborateurs les soldes calculés selon les règles définies dans votre organisation.",
     ],
   },
 ];
@@ -123,6 +123,20 @@ export default function SageEspaceEmployesClient() {
   const featuresInView = useInView(featuresRef, { once: true, margin: "-80px" });
   const dailyTimeInView = useInView(dailyTimeRef, { once: true, margin: "-80px" });
 
+  useEffect(() => {
+    if (!lightboxImg) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxImg(null);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [lightboxImg]);
+
   return (
     <>
       <Navbar />
@@ -131,12 +145,12 @@ export default function SageEspaceEmployesClient() {
         <section className="pt-32 pb-16 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-2 text-white/50 text-sm mb-8">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-8">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={14} aria-hidden="true" />
               <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
-              <ChevronRight size={14} />
-              <span className="text-white">Sage Espace Employés</span>
+              <ChevronRight size={14} aria-hidden="true" />
+              <span className="text-white" aria-current="page">Sage Espace Employés</span>
             </nav>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -145,19 +159,20 @@ export default function SageEspaceEmployesClient() {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-xs font-bold text-accent tracking-widest bg-accent/10 px-3 py-1.5 rounded-full mb-4">
-                PORTAIL COLLABORATEUR
+                PORTAIL RH AU MAROC
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Sage Espace Employés
+                Sage Espace Employés Maroc : portail RH self-service
               </h1>
               <p className="text-xl text-white/70 leading-relaxed mb-8">
-                Le portail RH self-service qui donne à vos collaborateurs un accès autonome à leurs informations RH, à tout moment.
+                Digitalisez les échanges entre vos équipes RH, vos managers et vos collaborateurs avec Sage Espace Employés. Centralisez les congés, absences, dossiers salariés, notes de frais et demandes administratives dans un portail accessible en ligne.
               </p>
               <Link
                 href="/contact"
+                aria-label="Demander une démonstration de Sage Espace Employés"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Demander une démo Sage Espace Employés <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </motion.div>
 
@@ -173,7 +188,8 @@ export default function SageEspaceEmployesClient() {
                   src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1782396164/man-wheelchair-having-office-job_zta3ni.jpg"
                   alt="Collaborateur en situation de handicap travaillant au bureau avec Sage Espace Employés"
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
               <div className="sm:col-span-1 h-48 sm:h-64 rounded-2xl border border-white/15 overflow-hidden bg-white">
@@ -205,11 +221,18 @@ export default function SageEspaceEmployesClient() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl mx-auto text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-primary mb-6">
-                Fluidifiez la gestion de vos congés et absences avec un portail simple et intuitif
+              <span className="text-xs font-bold text-cta tracking-widest uppercase">PORTAIL COLLABORATEUR</span>
+              <h2 className="text-3xl font-bold text-primary mt-2 mb-6">
+                Simplifiez les démarches RH de vos collaborateurs
               </h2>
+              <p className="text-secondary leading-relaxed mb-4">
+                Sage Espace Employés permet aux collaborateurs et aux managers d&apos;effectuer leurs principales démarches RH depuis une interface centralisée. Les équipes RH disposent ainsi d&apos;informations mieux structurées et de circuits de validation plus simples à suivre.
+              </p>
+              <p className="text-secondary leading-relaxed mb-4">
+                Thalès Informatique accompagne les entreprises marocaines dans l&apos;analyse des besoins, le paramétrage, la formation et le déploiement de la solution.
+              </p>
               <p className="text-secondary leading-relaxed">
-                Sage Espace Employés aide vos équipes RH à gérer efficacement les salariés de votre entreprise et permet à chaque collaborateur d&apos;interagir facilement avec elles. Déployé et paramétré par <strong className="text-primary">Thalès Informatique</strong>, il devient le premier réflexe de vos collaborateurs dès qu&apos;il s&apos;agit d&apos;une démarche RH.
+                Sage Espace Employés complète <Link href="/solutions/sage-100-paie-rh" className="text-cta font-semibold hover:underline">Sage 100 Paie &amp; RH</Link> en facilitant les échanges entre les collaborateurs, les managers et le service RH. Vous pouvez aussi <Link href="/solutions/factorial" className="text-cta font-semibold hover:underline">découvrir également Factorial</Link>.
               </p>
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -222,7 +245,7 @@ export default function SageEspaceEmployesClient() {
                   className="text-center"
                 >
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cta/10 text-cta mb-4">
-                    <item.icon size={24} strokeWidth={1.75} />
+                    <item.icon size={24} strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <h3 className="font-bold text-primary mb-2">{item.title}</h3>
                   <p className="text-sm text-secondary leading-relaxed">{item.desc}</p>
@@ -241,7 +264,7 @@ export default function SageEspaceEmployesClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl font-bold text-primary">Fonctionnalités de Sage Espace Employés</h2>
+              <h2 className="text-3xl font-bold text-primary">Les principales fonctionnalités de Sage Espace Employés</h2>
             </motion.div>
             <div className="space-y-16">
               {featureBlocks.map((block, i) => (
@@ -278,7 +301,7 @@ export default function SageEspaceEmployesClient() {
                       />
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center">
                         <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white rounded-full p-2 shadow-lg">
-                          <ZoomIn size={18} className="text-primary" />
+                          <ZoomIn size={18} className="text-primary" aria-hidden="true" />
                         </span>
                       </div>
                     </button>
@@ -300,6 +323,9 @@ export default function SageEspaceEmployesClient() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Aperçu agrandi de l'interface Sage Espace Employés"
               className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center px-4"
               onClick={() => setLightboxImg(null)}
             >
@@ -308,7 +334,7 @@ export default function SageEspaceEmployesClient() {
                 className="absolute top-5 right-5 text-white/70 hover:text-white transition-colors cursor-pointer"
                 aria-label="Fermer"
               >
-                <X size={28} />
+                <X size={28} aria-hidden="true" />
               </button>
               <motion.img
                 initial={{ opacity: 0, scale: 0.92 }}
@@ -334,7 +360,7 @@ export default function SageEspaceEmployesClient() {
               className="text-center mb-12 max-w-2xl mx-auto"
             >
               <h2 className="text-3xl font-bold text-primary">
-                Au quotidien, vous gagnez vraiment du temps avec Sage Espace Employés
+                Centralisez les demandes RH du quotidien
               </h2>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -371,16 +397,17 @@ export default function SageEspaceEmployesClient() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Offrez l&apos;autonomie RH à vos équipes
+                Digitalisez vos démarches RH avec Sage Espace Employés
               </h2>
               <p className="text-white/70 mb-8 max-w-xl mx-auto">
-                Thalès Informatique vous accompagne dans le déploiement de Sage Espace Employés au Maroc et en Afrique.
+                Thalès Informatique vous accompagne dans l&apos;étude, le paramétrage, la formation et le déploiement de Sage Espace Employés au Maroc.
               </p>
               <Link
                 href="/contact"
+                aria-label="Parler à un expert au sujet de Sage Espace Employés"
                 className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
               >
-                Demander une démo <ArrowRight size={18} />
+                Parler à un expert portail RH <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </motion.div>
           </div>
