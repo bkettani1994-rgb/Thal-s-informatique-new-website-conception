@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Sauvegarde & Reprise d'Activité | Thalès",
+  title: "Sauvegarde & Reprise d'Activité",
   description:
     "Sauvegardes automatisées, PRA et tests de restauration pour garantir la continuité de vos données et systèmes avec Thalès Informatique au Maroc et en Afrique.",
   alternates: { canonical: "/services/infogerance/sauvegarde-reprise-activite" },

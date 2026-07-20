@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Business Intelligence & Reporting ERP | Thalès",
+  title: "Business Intelligence & Reporting ERP",
   description:
     "Tableaux de bord Business Intelligence et KPI temps réel connectés à votre ERP : reporting financier, RH, production et commercial. Décisionnel pour dirigeants au Maroc.",
   alternates: { canonical: "/metiers/reporting" },

@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Logiciel CRM | Gestion Relation Client | Thalès",
+  title: "Logiciel CRM | Gestion Relation Client",
   description:
     "CRM entreprise connecté à votre ERP Sage : pipeline commercial, gestion des ventes, SAV et tableaux de bord relation client. CRM PME au Maroc. Demandez une démo.",
   alternates: { canonical: "/metiers/crm" },

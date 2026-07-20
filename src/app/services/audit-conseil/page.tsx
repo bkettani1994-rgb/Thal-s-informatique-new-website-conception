@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Audit ERP & Conseil SI au Maroc | Thalès Informatique",
+  title: "Audit ERP & Conseil SI au Maroc",
   description:
     "Diagnostic ERP et conseil SI par des consultants certifiés Sage : cartographie des flux, feuille de route de transformation digitale au Maroc et en Afrique.",
   alternates: { canonical: "/services/audit-conseil" },

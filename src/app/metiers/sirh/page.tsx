@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "SIRH | Logiciel RH Maroc | Thalès Informatique",
+  title: "SIRH | Logiciel RH Maroc",
   description:
     "SIRH pour PME et ETI au Maroc : gestion RH, GPEC, plans de formation, organigramme et compétences avec Sage RH. Pilotez stratégiquement vos ressources humaines.",
   alternates: { canonical: "/metiers/sirh" },

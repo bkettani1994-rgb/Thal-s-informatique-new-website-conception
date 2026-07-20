@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Expertise Comptable Maroc | Sage | Thalès Informatique",
+  title: "Expertise Comptable Maroc | Sage",
   description:
     "Solutions Sage pour cabinets d'expertise comptable au Maroc : multi-dossiers, revue analytique, collaboration d'équipe et conformité OEC. Demandez une démonstration.",
   alternates: { canonical: "/metiers/expertise-comptable" },

@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Infogérance Informatique au Maroc | Thalès",
+  title: "Infogérance Informatique au Maroc",
   description:
     "Supervision proactive, cybersécurité, sauvegardes et cloud : Thalès Informatique gère votre infrastructure IT au Maroc et en Afrique avec des SLA garantis.",
   alternates: { canonical: "/services/infogerance" },

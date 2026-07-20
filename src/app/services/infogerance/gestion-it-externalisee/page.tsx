@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Gestion IT Externalisée Maroc | Thalès",
+  title: "Gestion IT Externalisée Maroc",
   description:
     "Prise en charge complète de votre infrastructure IT : postes, serveurs, réseau et cloud supervisés et maintenus au quotidien par Thalès Informatique à Casablanca.",
   alternates: { canonical: "/services/infogerance/gestion-it-externalisee" },

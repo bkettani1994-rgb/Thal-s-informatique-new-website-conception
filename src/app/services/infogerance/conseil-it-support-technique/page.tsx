@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Conseil IT & Support Technique | Thalès",
+  title: "Conseil IT & Support Technique",
   description:
     "Conseil stratégique sur votre roadmap IT et helpdesk réactif pour accompagner vos équipes au quotidien à Casablanca et dans tout le Maroc par Thalès Informatique.",
   alternates: { canonical: "/services/infogerance/conseil-it-support-technique" },

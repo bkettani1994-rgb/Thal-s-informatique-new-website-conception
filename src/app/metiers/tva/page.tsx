@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Gestion TVA Maroc | Déclaration TVA ERP | Thalès",
+  title: "Gestion TVA Maroc | Déclaration TVA ERP",
   description:
     "Gérez la TVA marocaine sur encaissements et débits, le prorata de déduction et transmettez vos déclarations TVA automatiquement via EDI Simpl-IS. Fiscalité TVA conforme DGI.",
   alternates: { canonical: "/metiers/tva" },

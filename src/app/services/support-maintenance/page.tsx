@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Maintenance ERP Sage | Contrat TMA | Thalès",
+  title: "Maintenance ERP Sage | Contrat TMA",
   description:
     "Contrat de maintenance ERP pour Sage X3 et Sage 100 : correctifs, mises à jour légales, sauvegardes et SLA garantis par Thalès Informatique au Maroc.",
   alternates: { canonical: "/services/support-maintenance" },

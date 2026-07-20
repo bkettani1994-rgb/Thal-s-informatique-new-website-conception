@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Cybersécurité Informatique Maroc | Thalès",
+  title: "Cybersécurité Informatique Maroc",
   description:
     "Protégez votre SI contre les cybermenaces : pare-feu avancé, EDR, audits de sécurité et sensibilisation des équipes par Thalès Informatique au Maroc et en Afrique.",
   alternates: { canonical: "/services/infogerance/cybersecurite" },

@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "ERP Banque, Assurance & Mutuelle au Maroc et en Afrique | Thalès Informatique",
+  title: "ERP Banque, Assurance & Mutuelle au Maroc et en Afrique",
   description:
     "Solution de gestion pour les banques, assurances et mutuelles au Maroc : conformité Bank Al-Maghrib et ACAPS, gestion des contrats et sinistres, reporting prudentiel et trésorerie multi-agences.",
   alternates: {

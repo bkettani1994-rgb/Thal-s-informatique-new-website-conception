@@ -6,8 +6,7 @@ const OG_IMAGE =
   "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title:
-    "Intégrateur ERP Maroc | Solutions ERP Sage X3, Sage 100 & Logiciels Métiers | Thalès Informatique",
+  title: "Intégrateur ERP Maroc | Solutions ERP Sage X3, Sage 100 & Logiciels Métiers",
   description:
     "Découvrez les solutions ERP proposées par Thalès Informatique, intégrateur ERP au Maroc. Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH pour accompagner la transformation digitale des entreprises marocaines.",
   alternates: { canonical: `${SITE_URL}/solutions` },

@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Eloficash Maroc | Logiciel de recouvrement client | Thalès Informatique",
+  title: "Eloficash Maroc | Logiciel de recouvrement client",
   description:
     "Thalès Informatique accompagne les entreprises marocaines dans le déploiement d'Eloficash, une solution de gestion du risque client, des encours, des relances et du recouvrement de créances.",
   alternates: {

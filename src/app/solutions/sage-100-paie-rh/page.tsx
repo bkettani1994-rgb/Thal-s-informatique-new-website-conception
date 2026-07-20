@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Sage 100 Paie & RH Maroc | Logiciel de paie | Thalès Informatique",
+  title: "Sage 100 Paie & RH Maroc | Logiciel de paie",
   description:
     "Thalès Informatique accompagne les entreprises marocaines dans le déploiement de Sage 100 Paie & RH pour automatiser la paie, gérer les ressources humaines et produire les déclarations sociales conformément à la réglementation marocaine.",
   alternates: {

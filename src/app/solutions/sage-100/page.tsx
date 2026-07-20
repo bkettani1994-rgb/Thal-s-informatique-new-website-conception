@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Sage 100 Maroc | Logiciel de gestion PME | Thalès Informatique",
+  title: "Sage 100 Maroc | Logiciel de gestion PME",
   description:
     "Thalès Informatique, intégrateur Sage 100 au Maroc, accompagne les PME dans le déploiement de leurs solutions de comptabilité, gestion commerciale, stocks, trésorerie et gestion d'entreprise.",
   alternates: {

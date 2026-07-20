@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "États Comptables & Fiscaux Maroc | EDI DGI | Thalès",
+  title: "États Comptables & Fiscaux Maroc | EDI DGI",
   description:
     "Automatisez vos états comptables et fiscaux au Maroc : liasse fiscale, bilan, CPC, IS et TVA transmis via EDI Simpl-IS. Conformité DGI garantie. Découvrez notre solution.",
   alternates: { canonical: "/metiers/etats-comptables-fiscaux" },

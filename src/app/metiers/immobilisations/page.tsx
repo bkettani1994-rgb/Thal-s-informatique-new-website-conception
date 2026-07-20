@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Gestion des Immobilisations | Amortissements | Thalès",
+  title: "Gestion des Immobilisations | Amortissements",
   description:
     "Gérez vos immobilisations et amortissements avec Sage : fiches actifs, calcul linéaire/dégressif, suivi du parc et inventaire conformes aux règles fiscales marocaines.",
   alternates: { canonical: "/metiers/immobilisations" },

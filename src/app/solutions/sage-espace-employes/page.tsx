@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Sage Espace Employés Maroc | Portail RH | Thalès Informatique",
+  title: "Sage Espace Employés Maroc | Portail RH",
   description:
     "Thalès Informatique accompagne les entreprises marocaines dans le déploiement de Sage Espace Employés, un portail RH permettant de gérer les congés, absences, dossiers salariés, notes de frais et demandes collaborateurs.",
   alternates: {

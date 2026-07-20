@@ -5,7 +5,7 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "ERP Chimie au Maroc et en Afrique | Thalès Informatique",
+  title: "ERP Chimie au Maroc et en Afrique",
   description:
     "Solution ERP pour l'industrie chimique au Maroc : gestion des matières dangereuses, conformité REACH et SEVESO, fiches de données de sécurité et traçabilité des lots.",
   alternates: {
