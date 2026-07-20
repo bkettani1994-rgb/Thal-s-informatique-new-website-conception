@@ -54,67 +54,11 @@ const serviceSchema = {
   url: `${SITE_URL}/metiers/crm`,
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Qu'est-ce qu'un logiciel CRM et à quoi sert-il ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Un logiciel CRM (Customer Relationship Management) centralise toutes les informations liées à vos clients et prospects : historique des contacts, opportunités commerciales, devis, commandes et réclamations. Il permet aux équipes commerciales de prioriser leurs actions, de suivre le pipeline de vente et d'améliorer la satisfaction client.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quels logiciels CRM Sage propose Thalès Informatique au Maroc ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Thalès Informatique propose Sage 100 Force de Vente pour la gestion commerciale (pipeline, devis, commandes) et Sage 100 Service Client pour la gestion du SAV (tickets, interventions, contrats de maintenance). Ces deux solutions CRM sont nativement intégrées à la comptabilité Sage 100.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Comment le CRM améliore-t-il la productivité des commerciaux ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Un CRM bien configuré centralise toutes les informations client en un seul endroit, élimine les oublis de relance grâce aux rappels automatiques, génère des devis professionnels en quelques minutes et fournit des tableaux de bord en temps réel sur les performances de chaque commercial. Les équipes gagnent en moyenne 2h par jour sur les tâches administratives.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Le CRM est-il connecté à l'ERP pour éviter la double saisie ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, les CRM Sage 100 sont totalement intégrés à l'ERP Sage 100. Un devis validé dans le CRM se transforme automatiquement en commande dans la gestion commerciale, sans aucune ressaisie. Les stocks, prix tarifaires et conditions clients sont synchronisés en temps réel entre le CRM et l'ERP.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Un CRM PME est-il adapté aux entreprises marocaines ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, Sage 100 Force de Vente est spécialement conçu pour les PME avec une interface intuitive qui ne nécessite pas de formation longue. Il s'adapte aux processus commerciaux marocains (devis en dirhams, gestion de la TVA, conditions de paiement locales) et peut être déployé rapidement par les équipes de Thalès Informatique.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Peut-on accéder au CRM depuis un smartphone en déplacement ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, Sage 100 Force de Vente propose une application mobile qui permet aux commerciaux d'accéder à leurs clients, opportunités et devis depuis leur smartphone, même sans connexion internet. Les données sont synchronisées automatiquement dès que la connexion est rétablie.",
-      },
-    },
-  ],
-};
-
 export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <CrmClient />
     </>
   );
