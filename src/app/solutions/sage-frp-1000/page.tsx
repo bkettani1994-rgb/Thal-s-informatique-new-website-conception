@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Sage FRP 1000 Maroc | Gestion financière des groupes",
   description:
-    "Thalès Informatique, intégrateur Sage FRP 1000 au Maroc, accompagne les groupes, holdings et directions financières dans la comptabilité multi-sociétés, la trésorerie, les paiements et le pilotage financier.",
+    "Intégrateur Sage FRP 1000 au Maroc pour groupes et holdings : comptabilité multi-sociétés, trésorerie, paiements et pilotage financier. Par Thalès Informatique.",
   alternates: {
     canonical: "/solutions/sage-frp-1000",
   },

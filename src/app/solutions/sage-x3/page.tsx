@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Sage X3 Maroc | Intégration ERP",
   description:
-    "Thalès Informatique, intégrateur Sage X3 au Maroc, accompagne les entreprises industrielles, de distribution et de négoce dans le conseil, le déploiement, le paramétrage, la formation et le support de leur ERP.",
+    "Intégrateur Sage X3 au Maroc : conseil, déploiement, paramétrage, formation et support pour l'industrie, la distribution et le négoce. Par Thalès Informatique.",
   alternates: {
     canonical: "/solutions/sage-x3",
   },

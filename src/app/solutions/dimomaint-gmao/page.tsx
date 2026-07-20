@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "DimoMaint GMAO Maroc | Logiciel de maintenance",
   description:
-    "Thalès Informatique accompagne les entreprises marocaines dans le déploiement de DimoMaint, un logiciel GMAO pour gérer les équipements, les interventions, la maintenance préventive, les pannes et les pièces de rechange.",
+    "DimoMaint, logiciel GMAO déployé par Thalès Informatique : équipements, interventions, maintenance préventive, pannes et pièces de rechange au Maroc.",
   alternates: {
     canonical: "/solutions/dimomaint-gmao",
   },

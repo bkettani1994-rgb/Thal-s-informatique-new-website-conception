@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Factorial Maroc | Logiciel RH et SIRH Cloud",
   description:
-    "Thalès Informatique accompagne les entreprises marocaines dans le déploiement de Factorial, un SIRH Cloud pour gérer les congés, le temps de travail, les dossiers salariés, le recrutement et les talents.",
+    "Déployez Factorial, le SIRH Cloud, avec Thalès Informatique : congés, temps de travail, dossiers salariés, recrutement et gestion des talents au Maroc.",
   alternates: {
     canonical: "/solutions/factorial",
   },

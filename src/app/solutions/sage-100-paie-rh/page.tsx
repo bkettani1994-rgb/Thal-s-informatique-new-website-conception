@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Sage 100 Paie & RH Maroc | Logiciel de paie",
   description:
-    "Thalès Informatique accompagne les entreprises marocaines dans le déploiement de Sage 100 Paie & RH pour automatiser la paie, gérer les ressources humaines et produire les déclarations sociales conformément à la réglementation marocaine.",
+    "Sage 100 Paie & RH par Thalès Informatique : automatisez la paie, la gestion RH et les déclarations sociales conformes à la réglementation marocaine.",
   alternates: {
     canonical: "/solutions/sage-100-paie-rh",
   },

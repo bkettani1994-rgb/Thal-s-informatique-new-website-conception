@@ -4,7 +4,7 @@ import GestionFinanciereClient from "./GestionFinanciereClient";
 export const metadata: Metadata = {
   title: "Gestion Financière & Comptable ERP au Maroc et en Afrique",
   description:
-    "Pilotez comptabilité, trésorerie et déclarations fiscales (TVA, IS, IR) avec un module ERP conforme à la réglementation marocaine, déployé par Thalès Informatique.",
+    "Pilotez comptabilité, trésorerie et déclarations fiscales (TVA, IS, IR) via un module ERP conforme à la réglementation marocaine, par Thalès Informatique.",
   alternates: {
     canonical: "/solutions/gestion-financiere",
   },
