@@ -17,7 +17,7 @@ import Footer from "@/components/ui/Footer";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Thalès Informatique | ERP, RH, Finance & Transformation Digitale au Maroc",
+  title: "ERP, RH, Finance & Transformation Digitale au Maroc",
   description:
     "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises au Maroc avec des solutions ERP Sage X3, Sage FRP 1000, RH, Finance, GMAO et des services de transformation digitale.",
   alternates: {

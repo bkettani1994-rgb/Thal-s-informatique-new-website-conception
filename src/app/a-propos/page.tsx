@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AProposClient from "./AProposClient";
 
 export const metadata: Metadata = {
-  title: "À Propos de Thalès Informatique",
+  title: "À Propos",
   description:
     "Plus de 30 ans d'expertise ERP au Maroc et en Afrique : découvrez l'histoire, les valeurs, l'équipe dirigeante et les bureaux de Thalès Informatique à Casablanca.",
   alternates: {
