@@ -4,7 +4,7 @@ import FacturationElectroniqueMarocClient from "./FacturationElectroniqueMarocCl
 export const metadata: Metadata = {
   title: "Facturation électronique au Maroc et en Afrique : comment anticiper",
   description:
-    "Facturation électronique obligatoire au Maroc : enjeux DGI, bénéfices, risques d'un retard et comment Sage 100, Sage X3 et Thalès Informatique facilitent votre mise en conformité.",
+    "Facturation électronique au Maroc : enjeux DGI, bénéfices et mise en conformité avec Sage 100, Sage X3 et Thalès Informatique. Découvrez comment anticiper.",
   alternates: {
     canonical: "/ressources/blog/facturation-electronique-maroc",
   },

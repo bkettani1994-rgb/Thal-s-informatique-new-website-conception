@@ -4,7 +4,7 @@ import AtelierPilotagePerformanceBiClient from "./AtelierPilotagePerformanceBiCl
 export const metadata: Metadata = {
   title: "Atelier Pilotage de la Performance BI",
   description:
-    "Atelier pratique le 10 juillet 2026 à Casablanca : construisez votre tableau de bord BI avec nos consultants Sage et repartez avec une méthode applicable de suite.",
+    "Atelier le 10 juillet 2026 à Casablanca : construisez votre tableau de bord BI avec nos consultants Sage et une méthode applicable. Inscrivez-vous.",
   alternates: {
     canonical: "/evenements/atelier-pilotage-performance-bi",
   },

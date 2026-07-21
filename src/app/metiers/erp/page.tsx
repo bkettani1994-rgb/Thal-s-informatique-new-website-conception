@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Entreprise au Maroc | Sage X3 & Sage 100",
   description:
-    "Logiciel ERP pour PME et ETI au Maroc : Sage X3 et Sage 100 pour une gestion intégrée, ERP Cloud et transformation digitale. +30 ans d'expertise. Demandez une démo.",
+    "ERP pour PME et ETI au Maroc : Sage X3 et Sage 100 pour une gestion intégrée, cloud et transformation digitale. +30 ans d'expertise. Demandez une démo.",
   alternates: { canonical: "/metiers/erp" },
   openGraph: {
     type: "website",

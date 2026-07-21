@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Gestion TVA Maroc | Déclaration TVA ERP",
   description:
-    "Gérez la TVA marocaine sur encaissements et débits, le prorata de déduction et transmettez vos déclarations TVA automatiquement via EDI Simpl-IS. Fiscalité TVA conforme DGI.",
+    "Gérez la TVA marocaine (encaissements, débits, prorata) et transmettez vos déclarations via EDI Simpl-IS, conformes DGI. Découvrez notre solution.",
   alternates: { canonical: "/metiers/tva" },
   openGraph: {
     type: "website",

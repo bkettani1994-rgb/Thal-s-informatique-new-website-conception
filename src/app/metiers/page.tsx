@@ -6,7 +6,7 @@ const SITE_URL = "https://thales.ma";
 export const metadata: Metadata = {
   title: "Nos Métiers ERP : Finance, RH, Production, CRM",
   description:
-    "Découvrez les modules métiers Thalès Informatique adaptés aux PME en Afrique et à l'international : comptabilité, paie, RH, CRM, production, trésorerie et conformité fiscale DGI.",
+    "Modules métiers ERP au Maroc : comptabilité, paie, RH, CRM, production, trésorerie et conformité fiscale DGI. Découvrez les solutions Thalès Informatique.",
   alternates: {
     canonical: "/metiers",
   },

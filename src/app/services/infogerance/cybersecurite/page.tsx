@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Cybersécurité Informatique Maroc",
   description:
-    "Protégez votre SI contre les cybermenaces : pare-feu avancé, EDR, audits de sécurité et sensibilisation des équipes par Thalès Informatique au Maroc et en Afrique.",
+    "Protégez votre SI : pare-feu avancé, EDR, audits de sécurité et sensibilisation des équipes par Thalès Informatique au Maroc. Contactez nos experts.",
   alternates: { canonical: "/services/infogerance/cybersecurite" },
   openGraph: {
     type: "website",

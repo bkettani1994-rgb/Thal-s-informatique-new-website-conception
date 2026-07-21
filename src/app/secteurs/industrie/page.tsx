@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Industrie au Maroc et en Afrique : GPAO & production",
   description:
-    "ERP industriel au Maroc et en Afrique : ordonnancement GPAO, gestion des nomenclatures, stocks multi-dépôts, contrôle qualité et maintenance avec Sage X3 et DimoMaint GMAO. 30 ans d'expertise.",
+    "ERP industriel au Maroc : ordonnancement GPAO, nomenclatures, stocks multi-dépôts, qualité et maintenance avec Sage X3 et DimoMaint. Demandez une démo.",
   alternates: {
     canonical: "/secteurs/industrie",
   },

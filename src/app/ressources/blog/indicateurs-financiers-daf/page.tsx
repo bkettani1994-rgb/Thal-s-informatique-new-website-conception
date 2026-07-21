@@ -4,7 +4,7 @@ import IndicateursFinanciersDafClient from "./IndicateursFinanciersDafClient";
 export const metadata: Metadata = {
   title: "5 indicateurs financiers que tout DAF marocain doit suivre",
   description:
-    "BFR, DMP, marge nette, taux d'endettement, cash-flow : découvrez les 5 KPIs financiers essentiels pour les DAF marocains et comment Sage 100 les calcule automatiquement.",
+    "BFR, DMP, marge nette, endettement, cash-flow : les 5 KPIs financiers clés pour les DAF marocains, calculés par Sage 100. Découvrez comment les piloter.",
   alternates: {
     canonical: "/ressources/blog/indicateurs-financiers-daf",
   },

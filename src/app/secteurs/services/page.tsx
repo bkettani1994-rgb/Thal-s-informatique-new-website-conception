@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP pour Sociétés de Services & Conseil au Maroc et en Afrique",
   description:
-    "ERP dédié aux ESN et cabinets de conseil au Maroc et en Afrique : suivi du taux de charge, facturation projet, CRM, SIRH Factorial et reporting de rentabilité. Sage X3 pour piloter vos marges.",
+    "ERP pour ESN et cabinets de conseil au Maroc : taux de charge, facturation projet, CRM, SIRH et rentabilité avec Sage X3. Découvrez notre solution.",
   alternates: {
     canonical: "/secteurs/services",
   },

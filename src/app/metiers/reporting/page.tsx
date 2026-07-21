@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Business Intelligence & Reporting ERP",
   description:
-    "Tableaux de bord Business Intelligence et KPI temps réel connectés à votre ERP : reporting financier, RH, production et commercial. Décisionnel pour dirigeants au Maroc.",
+    "Tableaux de bord Business Intelligence et KPI temps réel connectés à votre ERP : finance, RH, production et commercial au Maroc. Demandez une démo.",
   alternates: { canonical: "/metiers/reporting" },
   openGraph: {
     type: "website",

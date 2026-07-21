@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Gestion de la Paie Maroc | Sage Paie",
   description:
-    "Logiciel de paie conforme au Code du Travail marocain : barème IR 2024, cotisations CNSS/AMO, bulletins de paie et régularisation annuelle avec Sage Paie. Demandez une démo.",
+    "Logiciel de paie conforme au Code du Travail marocain : barème IR, cotisations CNSS/AMO, bulletins et régularisation avec Sage Paie. Demandez une démo.",
   alternates: { canonical: "/metiers/paie" },
   openGraph: {
     type: "website",

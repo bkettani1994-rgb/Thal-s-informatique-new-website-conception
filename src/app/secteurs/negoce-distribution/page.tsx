@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Négoce & Distribution au Maroc et en Afrique",
   description:
-    "Solution ERP pour le négoce et la distribution au Maroc et en Afrique : gestion commerciale, multi-dépôts, EDI fournisseurs, recouvrement Eloficash. Sage X3 et Sage 100 pour optimiser vos stocks.",
+    "ERP négoce et distribution au Maroc : gestion commerciale, multi-dépôts, EDI fournisseurs et recouvrement avec Sage X3 et Sage 100. Découvrez la solution.",
   alternates: {
     canonical: "/secteurs/negoce-distribution",
   },

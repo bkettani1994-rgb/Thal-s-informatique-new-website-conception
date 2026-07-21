@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Gestion de Trésorerie | Sage 100",
   description:
-    "Pilotez votre trésorerie en temps réel avec Sage 100 : cash management, prévisions de trésorerie à 90 jours, rapprochement bancaire et recouvrement clients au Maroc.",
+    "Pilotez votre trésorerie avec Sage 100 : cash management, prévisions à 90 jours, rapprochement bancaire et recouvrement clients au Maroc. Demandez une démo.",
   alternates: { canonical: "/metiers/tresorerie" },
   openGraph: {
     type: "website",

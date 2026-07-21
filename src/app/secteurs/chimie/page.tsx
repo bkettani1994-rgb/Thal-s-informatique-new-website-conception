@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Chimie au Maroc et en Afrique",
   description:
-    "Solution ERP pour l'industrie chimique au Maroc : gestion des matières dangereuses, conformité REACH et SEVESO, fiches de données de sécurité et traçabilité des lots.",
+    "ERP pour l'industrie chimique au Maroc : matières dangereuses, conformité REACH et SEVESO, fiches de sécurité et traçabilité des lots. Découvrez la solution.",
   alternates: {
     canonical: "/secteurs/chimie",
   },

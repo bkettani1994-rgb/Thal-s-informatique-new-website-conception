@@ -4,7 +4,7 @@ import GuidesErpClient from "./GuidesErpClient";
 export const metadata: Metadata = {
   title: "Guides ERP Gratuits : CDC, Audit, ROI et Benchmark",
   description:
-    "Téléchargez nos guides pratiques ERP au Maroc et en Afrique : cahier des charges, audit des processus, calculateur ROI, conduite du changement et benchmark PME 2025.",
+    "Téléchargez nos guides ERP au Maroc : cahier des charges, audit des processus, calculateur ROI et benchmark PME. Découvrez les ressources Thalès Informatique.",
   alternates: {
     canonical: "/ressources/guides-erp",
   },

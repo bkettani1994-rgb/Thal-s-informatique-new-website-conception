@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP BTP & Construction au Maroc et en Afrique : suivi de chantiers",
   description:
-    "ERP dédié au BTP au Maroc et en Afrique : suivi budget/réalisé des chantiers, déboursés d'ouvrages, situations de travaux, gestion du parc matériel et paie chantier avec Sage X3 et Sage 100.",
+    "ERP dédié au BTP au Maroc : suivi budget/réalisé des chantiers, situations de travaux, parc matériel et paie chantier avec Sage X3 et Sage 100. Découvrez.",
   alternates: {
     canonical: "/secteurs/btp",
   },

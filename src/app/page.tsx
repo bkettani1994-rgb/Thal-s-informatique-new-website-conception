@@ -19,7 +19,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP, RH, Finance & Transformation Digitale au Maroc",
   description:
-    "Depuis plus de 30 ans, Thalès Informatique accompagne les entreprises au Maroc avec des solutions ERP Sage X3, Sage FRP 1000, RH, Finance, GMAO et des services de transformation digitale.",
+    "Depuis plus de 30 ans, Thalès Informatique déploie des ERP Sage X3, Sage 100, RH, finance et GMAO au Maroc et en Afrique. Découvrez nos solutions.",
   alternates: {
     canonical: "https://thales.ma/",
   },

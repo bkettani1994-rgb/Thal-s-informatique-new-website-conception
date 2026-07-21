@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Dématérialisation RH | Coffre-fort RH",
   description:
-    "Passez au zéro papier RH avec Thalès Informatique : coffre-fort numérique RH, signature électronique, dossier salarié numérique et GED RH conformes à la réglementation marocaine.",
+    "Passez au zéro papier RH avec Thalès Informatique : coffre-fort numérique, signature électronique et dossier salarié conformes au Maroc. Découvrez la solution.",
   alternates: { canonical: "/metiers/demat-rh" },
   openGraph: {
     type: "website",

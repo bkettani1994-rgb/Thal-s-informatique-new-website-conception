@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Agroalimentaire au Maroc : ONSSA & HACCP",
   description:
-    "Solution ERP pour l'agroalimentaire au Maroc : traçabilité des lots, conformité ONSSA et HACCP, gestion des DLC/DLUO et recettes. Sage X3 préconfiguré pour l'industrie IAA.",
+    "ERP agroalimentaire au Maroc : traçabilité des lots, conformité ONSSA et HACCP, gestion des DLC/DLUO et recettes avec Sage X3. Découvrez la solution.",
   alternates: {
     canonical: "/secteurs/agroalimentaire",
   },

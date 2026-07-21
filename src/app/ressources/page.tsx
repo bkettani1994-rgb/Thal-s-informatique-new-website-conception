@@ -4,7 +4,7 @@ import RessourcesClient from "./RessourcesClient";
 export const metadata: Metadata = {
   title: "Ressources ERP : Blog, Guides, Actualités & FAQ",
   description:
-    "Explorez nos ressources ERP au Maroc : blog décisionnel, guides pratiques, actualités réglementaires (CNSS, TVA, IS) et FAQ pour réussir votre projet Sage.",
+    "Blog, guides, actualités et FAQ ERP au Maroc et en Afrique : finance, RH, production et transformation digitale. Découvrez les ressources Thalès.",
   alternates: {
     canonical: "/ressources",
   },

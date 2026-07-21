@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Gestion des Immobilisations | Amortissements",
   description:
-    "Gérez vos immobilisations et amortissements avec Sage : fiches actifs, calcul linéaire/dégressif, suivi du parc et inventaire conformes aux règles fiscales marocaines.",
+    "Gérez immobilisations et amortissements avec Sage : fiches actifs, calcul linéaire/dégressif et inventaire conformes aux règles fiscales marocaines. Découvrez.",
   alternates: { canonical: "/metiers/immobilisations" },
   openGraph: {
     type: "website",

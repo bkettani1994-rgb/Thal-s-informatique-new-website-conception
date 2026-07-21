@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP pour Associations & ONG au Maroc et en Afrique",
   description:
-    "Solution de gestion pour associations et ONG au Maroc et en Afrique : suivi des adhérents, des subventions et des dons, comptabilité associative et reporting bailleurs de fonds.",
+    "Solution de gestion pour associations et ONG au Maroc : suivi des adhérents, subventions, dons, comptabilité associative et reporting bailleurs. Découvrez.",
   alternates: {
     canonical: "/secteurs/association",
   },

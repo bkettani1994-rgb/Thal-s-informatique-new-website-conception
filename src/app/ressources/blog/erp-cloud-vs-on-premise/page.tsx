@@ -4,7 +4,7 @@ import ErpCloudVsOnPremiseClient from "./ErpCloudVsOnPremiseClient";
 export const metadata: Metadata = {
   title: "ERP Cloud vs On-Premise : que choisir en 2026 ?",
   description:
-    "Cloud, on-premise ou hybride : comparatif complet pour choisir l'architecture ERP adaptée aux entreprises en Afrique et à l'international en 2026, avec les recommandations de Thalès Informatique.",
+    "Cloud, on-premise ou hybride : comparatif pour choisir l'architecture ERP adaptée à votre entreprise en 2026. Découvrez les conseils de Thalès Informatique.",
   alternates: {
     canonical: "/ressources/blog/erp-cloud-vs-on-premise",
   },

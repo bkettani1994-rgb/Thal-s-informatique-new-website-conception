@@ -6,7 +6,7 @@ const SITE_URL = "https://thales.ma";
 export const metadata: Metadata = {
   title: "Gestion de la Chaîne d'Approvisionnement | ERP Sage",
   description:
-    "Module de gestion de la chaîne d'approvisionnement Thalès Informatique : achats, stocks multi-sites, entrepôts et prévision de la demande, au Maroc, en Afrique et à l'international.",
+    "Gestion de la chaîne d'approvisionnement : achats, stocks multi-sites, entrepôts et prévision de la demande au Maroc. Découvrez la solution Thalès Informatique.",
   alternates: {
     canonical: "/metiers/gestion-chaine-approvisionnement",
   },

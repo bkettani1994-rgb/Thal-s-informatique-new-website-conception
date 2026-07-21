@@ -4,7 +4,7 @@ import ReussirProjetErpClient from "./ReussirProjetErpClient";
 export const metadata: Metadata = {
   title: "Comment réussir votre projet ERP en 6 étapes",
   description:
-    "Cadrage, choix de Sage X3 ou Sage 100, équipe projet, paramétrage, formation et suivi post-démarrage : la méthode en 6 étapes de Thalès Informatique pour réussir votre projet ERP.",
+    "Cadrage, choix de Sage X3 ou Sage 100, équipe, paramétrage et formation : la méthode en 6 étapes pour réussir votre projet ERP. Découvrez le guide Thalès.",
   alternates: {
     canonical: "/ressources/blog/reussir-projet-erp",
   },

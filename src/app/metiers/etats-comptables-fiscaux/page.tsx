@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "États Comptables & Fiscaux Maroc | EDI DGI",
   description:
-    "Automatisez vos états comptables et fiscaux au Maroc : liasse fiscale, bilan, CPC, IS et TVA transmis via EDI Simpl-IS. Conformité DGI garantie. Découvrez notre solution.",
+    "Automatisez vos états comptables et fiscaux au Maroc : liasse fiscale, bilan, CPC, IS et TVA via EDI Simpl-IS, conformes DGI. Découvrez notre solution.",
   alternates: { canonical: "/metiers/etats-comptables-fiscaux" },
   openGraph: {
     type: "website",

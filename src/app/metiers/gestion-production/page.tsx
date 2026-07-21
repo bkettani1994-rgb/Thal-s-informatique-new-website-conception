@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Production & GPAO | Sage X3",
   description:
-    "Pilotez votre production avec Sage X3 : GPAO, ordres de fabrication, nomenclatures, suivi d'atelier en temps réel et coûts de revient pour industriels marocains.",
+    "Pilotez votre production avec Sage X3 : GPAO, ordres de fabrication, suivi d'atelier temps réel et coûts de revient pour industriels. Demandez une démo.",
   alternates: { canonical: "/metiers/gestion-production" },
   openGraph: {
     type: "website",

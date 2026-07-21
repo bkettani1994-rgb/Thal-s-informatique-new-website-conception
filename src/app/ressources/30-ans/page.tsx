@@ -4,7 +4,7 @@ import TrenteAnsClient from "./TrenteAnsClient";
 export const metadata: Metadata = {
   title: "30 ans d'expertise : notre anniversaire",
   description:
-    "Thalès Informatique fête 30 ans d'expertise au service de la transformation digitale des entreprises en Afrique et à l'international. Découvrez notre histoire, nos chiffres clés et nos ambitions.",
+    "Thalès Informatique fête 30 ans au service de la transformation digitale des entreprises au Maroc et en Afrique. Découvrez notre histoire et nos chiffres clés.",
   alternates: {
     canonical: "/ressources/30-ans",
   },

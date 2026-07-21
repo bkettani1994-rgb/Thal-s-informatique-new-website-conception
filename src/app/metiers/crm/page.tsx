@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Logiciel CRM | Gestion Relation Client",
   description:
-    "CRM entreprise connecté à votre ERP Sage : pipeline commercial, gestion des ventes, SAV et tableaux de bord relation client. CRM PME au Maroc. Demandez une démo.",
+    "CRM connecté à votre ERP Sage : pipeline commercial, ventes, SAV et tableaux de bord relation client pour les PME au Maroc. Demandez une démonstration.",
   alternates: { canonical: "/metiers/crm" },
   openGraph: {
     type: "website",

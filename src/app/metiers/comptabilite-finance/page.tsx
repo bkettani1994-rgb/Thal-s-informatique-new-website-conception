@@ -6,7 +6,7 @@ const SITE_URL = "https://thales.ma";
 export const metadata: Metadata = {
   title: "Comptabilité & Finance : ERP conforme CGNC Maroc",
   description:
-    "Logiciel de comptabilité générale, analytique et budgétaire conforme au CGNC marocain : saisie automatisée, rapprochement bancaire, clôtures et reporting financier.",
+    "Comptabilité générale, analytique et budgétaire conforme au CGNC marocain : saisie automatisée, rapprochement bancaire et reporting. Demandez une démonstration.",
   alternates: {
     canonical: "/metiers/comptabilite-finance",
   },

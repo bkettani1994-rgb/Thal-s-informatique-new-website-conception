@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "ERP Logistique au Maroc et en Afrique",
   description:
-    "Solution ERP pour la logistique au Maroc et en Afrique : gestion multi-entrepôts (WMS), optimisation du transport, traçabilité temps réel et échanges EDI avec vos partenaires.",
+    "ERP logistique au Maroc : gestion multi-entrepôts (WMS), optimisation du transport, traçabilité temps réel et échanges EDI. Découvrez notre solution.",
   alternates: {
     canonical: "/secteurs/logistique",
   },

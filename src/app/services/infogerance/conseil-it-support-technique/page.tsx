@@ -7,7 +7,7 @@ const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/
 export const metadata: Metadata = {
   title: "Conseil IT & Support Technique",
   description:
-    "Conseil stratégique sur votre roadmap IT et helpdesk réactif pour accompagner vos équipes au quotidien à Casablanca et dans tout le Maroc par Thalès Informatique.",
+    "Conseil sur votre roadmap IT et helpdesk réactif pour accompagner vos équipes au quotidien à Casablanca et au Maroc. Contactez les experts Thalès Informatique.",
   alternates: { canonical: "/services/infogerance/conseil-it-support-technique" },
   openGraph: {
     type: "website",
