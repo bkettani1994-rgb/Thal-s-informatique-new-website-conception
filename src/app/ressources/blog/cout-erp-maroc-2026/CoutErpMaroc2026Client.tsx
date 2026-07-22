@@ -165,7 +165,7 @@ export default function CoutErpMaroc2026Client() {
               <p className="text-white/70 mb-6">
                 Chaque entreprise est différente. Nos consultants étudient votre activité, vos processus et vos contraintes pour vous proposer un devis détaillé et transparent, sans surprise.
               </p>
-              <p data-ilink className="text-white/60 text-sm mb-6">Découvrez les solutions <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100</Link>.</p>
+              <p data-ilink className="text-white/60 text-sm mb-6">Découvrez les solutions <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3 Maroc</Link> et <Link href="/solutions/sage-100" className="text-white underline hover:text-accent">Sage 100 Maroc</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"

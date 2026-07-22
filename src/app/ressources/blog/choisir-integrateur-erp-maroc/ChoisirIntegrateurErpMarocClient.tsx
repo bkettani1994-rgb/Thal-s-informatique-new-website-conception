@@ -138,7 +138,7 @@ export default function ChoisirIntegrateurErpMarocClient() {
               <p className="text-white/70 mb-6">
                 Partenaire certifié Sage basé à Casablanca, Thalès Informatique accompagne plus de 500 entreprises en Afrique et à l'international depuis 1996. Discutons de votre projet.
               </p>
-              <p data-ilink className="text-white/60 text-sm mb-6">À lire aussi : notre <Link href="/services/integration-erp" className="text-white underline hover:text-accent">service d'intégration ERP</Link> et la solution <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link>.</p>
+              <p data-ilink className="text-white/60 text-sm mb-6">À lire aussi : notre <Link href="/services/integration-erp" className="text-white underline hover:text-accent">intégrateur ERP Maroc</Link> et la solution <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3 Maroc</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"

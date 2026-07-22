@@ -230,7 +230,7 @@ export default function GestionProductionClient() {
               <h2 className="text-2xl font-bold text-white">Optimisez votre production avec Thalès Informatique</h2>
               <p className="text-white/70 mt-4">Réduisez vos coûts de production et améliorez votre taux de service grâce à notre module GPAO.</p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <p data-ilink className="text-white/60 text-sm mb-4">Découvrez nos solutions <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3</Link> et <Link href="/solutions/gestion-production" className="text-white underline hover:text-accent">Gestion de Production</Link>.</p>
+                <p data-ilink className="text-white/60 text-sm mb-4">Découvrez nos solutions <Link href="/solutions/sage-x3" className="text-white underline hover:text-accent">Sage X3 Maroc</Link> et <Link href="/solutions/gestion-production" className="text-white underline hover:text-accent">Gestion de Production</Link>.</p>
                 <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200">
                   Planifier une démo <ArrowRight size={16} />
                 </Link>

@@ -135,6 +135,9 @@ export default function Solutions() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12"
         >
+          <p data-ilink className="text-secondary text-sm mb-6">
+            Découvrez aussi <Link href="/solutions/sage-x3" className="text-cta font-semibold hover:underline">Sage X3 Maroc</Link>, <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100 Maroc</Link> et notre <Link href="/services/integration-erp" className="text-cta font-semibold hover:underline">service d&apos;intégrateur ERP Maroc</Link>.
+          </p>
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 bg-cta hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-cta/20"

@@ -6,9 +6,9 @@ const OG_IMAGE =
   "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Intégrateur ERP Maroc | Solutions ERP Sage X3, Sage 100 & Logiciels Métiers",
+  title: "Solutions ERP Maroc | Sage X3, Sage 100 & Logiciels Métiers",
   description:
-    "Intégrateur ERP au Maroc : Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH. Conseil et déploiement par Thalès Informatique.",
+    "Solutions ERP au Maroc : Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH. Conseil et déploiement par Thalès Informatique.",
   alternates: { canonical: `${SITE_URL}/solutions` },
   openGraph: {
     type: "website",
@@ -16,24 +16,24 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/solutions`,
     siteName: "Thalès Informatique",
     title:
-      "Intégrateur ERP Maroc | Solutions ERP Sage X3, Sage 100 & Logiciels Métiers | Thalès Informatique",
+      "Solutions ERP Maroc | Sage X3, Sage 100 & Logiciels Métiers | Thalès Informatique",
     description:
-      "Découvrez les solutions ERP proposées par Thalès Informatique, intégrateur ERP au Maroc. Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH pour accompagner la transformation digitale des entreprises marocaines.",
+      "Découvrez les solutions ERP proposées par Thalès Informatique au Maroc. Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH pour accompagner la transformation digitale des entreprises marocaines.",
     images: [
       {
         url: OG_IMAGE,
         width: 800,
         height: 800,
-        alt: "Thalès Informatique — Intégrateur ERP Maroc",
+        alt: "Thalès Informatique — Solutions ERP Maroc",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Intégrateur ERP Maroc | Solutions ERP Sage X3, Sage 100 & Logiciels Métiers | Thalès Informatique",
+      "Solutions ERP Maroc | Sage X3, Sage 100 & Logiciels Métiers | Thalès Informatique",
     description:
-      "Découvrez les solutions ERP proposées par Thalès Informatique, intégrateur ERP au Maroc. Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH.",
+      "Découvrez les solutions ERP proposées par Thalès Informatique au Maroc. Sage X3, Sage 100, Sage FRP 1000, DimoMaint, Eloficash, Factorial et solutions RH.",
     images: [OG_IMAGE],
   },
 };
@@ -55,16 +55,16 @@ const breadcrumbSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Intégration ERP au Maroc — Sage X3 & Sage 100",
+  name: "Solutions ERP au Maroc — Sage X3 & Sage 100",
   description:
-    "Intégration, déploiement et support de logiciels ERP Sage pour PME et ETI marocaines. Partenaire Sage Business Partner Platinum.",
+    "Portfolio de solutions ERP Sage pour PME et ETI marocaines. Partenaire Sage Business Partner Platinum.",
   provider: {
     "@type": "Organization",
     name: "Thalès Informatique",
     url: SITE_URL,
   },
   areaServed: "MA",
-  serviceType: "Intégration ERP",
+  serviceType: "Solutions ERP",
   url: `${SITE_URL}/solutions`,
 };
 
@@ -75,7 +75,7 @@ const organizationSchema = {
   url: SITE_URL,
   logo: OG_IMAGE,
   description:
-    "Intégrateur ERP de référence au Maroc depuis plus de 30 ans. Partenaire certifié Sage Business Partner Platinum.",
+    "Éditeur de solutions ERP de référence au Maroc depuis plus de 30 ans. Partenaire certifié Sage Business Partner Platinum.",
   areaServed: "MA",
   hasOfferCatalog: {
     "@type": "OfferCatalog",

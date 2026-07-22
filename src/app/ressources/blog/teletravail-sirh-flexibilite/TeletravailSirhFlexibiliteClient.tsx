@@ -111,7 +111,7 @@ export default function TeletravailSirhFlexibiliteClient() {
               <p className="text-white/70 mb-6">
                 Découvrez comment nos solutions SIRH et de gestion de la paie s&apos;adaptent aux organisations hybrides et accompagnent la flexibilité de vos équipes.
               </p>
-              <p data-ilink className="text-white/60 text-sm mb-6">Découvrez le SIRH cloud <Link href="/solutions/factorial" className="text-white underline hover:text-accent">Factorial</Link> et notre module <Link href="/metiers/sirh" className="text-white underline hover:text-accent">SIRH</Link>.</p>
+              <p data-ilink className="text-white/60 text-sm mb-6">Découvrez le SIRH cloud <Link href="/solutions/factorial" className="text-white underline hover:text-accent">Factorial</Link> et notre module <Link href="/metiers/sirh" className="text-white underline hover:text-accent">SIRH Maroc</Link>.</p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-cta text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
