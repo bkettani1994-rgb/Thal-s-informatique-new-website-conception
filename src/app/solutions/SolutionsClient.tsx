@@ -33,6 +33,13 @@ const categories = [
         href: "/solutions/sage-frp-1000",
         desc: "Sage FRP 1000 accompagne les groupes et grandes entreprises dans la gestion financière, la consolidation, le reporting et le pilotage multi-sociétés.",
       },
+      {
+        title: "Sage 100 Expérience",
+        sub: "Une nouvelle étape à venir",
+        badge: "BIENTÔT",
+        href: "/solutions/sage-100-experience",
+        desc: "Thalès Informatique prépare une nouvelle expérience autour de Sage 100. Plus d'informations seront communiquées très prochainement.",
+      },
     ],
   },
   {
