@@ -144,7 +144,7 @@ export default function Sage100ExperienceClient() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL!, {
+      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEET_SAGE100_URL!, {
         method: "POST",
         body: JSON.stringify({ ...form, source: "sage-100-experience-teaser" }),
       });
