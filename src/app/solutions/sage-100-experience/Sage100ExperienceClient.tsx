@@ -202,8 +202,8 @@ export default function Sage100ExperienceClient() {
         </section>
 
         {/* Countdown */}
-        <section className="py-16 bg-slate-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 to-slate-900" />
+        <section className="py-16 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
           <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeIn>
               <span className="inline-flex items-center gap-2 text-xs font-bold text-accent tracking-widest bg-accent/10 px-4 py-1.5 rounded-full mb-6">
