@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { trackEvent } from "@/lib/analytics";
@@ -190,7 +189,7 @@ export default function Sage100ExperienceClient() {
                 Sage 100 Expérience
               </h1>
               <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-10">
-                Thalès Informatique prépare une nouvelle étape pour Sage 100. Nous en dévoilerons progressivement les contours dans les prochaines semaines — revenez bientôt sur cette page.
+                Une nouvelle expérience Sage 100 se prépare chez Thalès Informatique. Inscrivez-vous dès aujourd&apos;hui pour être parmi les premiers à la découvrir.
               </p>
               <a
                 href="#avant-premiere"
@@ -199,22 +198,6 @@ export default function Sage100ExperienceClient() {
               >
                 Être informé en avant-première <ArrowRight size={18} aria-hidden="true" />
               </a>
-            </motion.div>
-
-            {/* Visuel héros de la campagne */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="mt-14 relative mx-auto max-w-md aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5"
-            >
-              <Image
-                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1785140487/Ramadan_Kareem_40_abbiri.png"
-                alt="Sage 100 Expérience — visuel de campagne"
-                fill
-                className="object-cover"
-                priority
-              />
             </motion.div>
           </div>
         </section>
