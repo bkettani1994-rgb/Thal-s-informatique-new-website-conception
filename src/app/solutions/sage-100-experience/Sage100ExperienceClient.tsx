@@ -201,18 +201,18 @@ export default function Sage100ExperienceClient() {
               </a>
             </motion.div>
 
-            {/* Visuel héros — à remplacer par le visuel officiel de la campagne */}
+            {/* Visuel héros de la campagne */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mt-14 relative mx-auto max-w-3xl aspect-video rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+              className="mt-14 relative mx-auto max-w-md aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5"
             >
               <Image
-                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png"
-                alt="Sage 100 Expérience — visuel à venir"
+                src="https://res.cloudinary.com/dmutnjgp8/image/upload/v1785140487/Ramadan_Kareem_40_abbiri.png"
+                alt="Sage 100 Expérience — visuel de campagne"
                 fill
-                className="object-contain p-16 opacity-80"
+                className="object-cover"
                 priority
               />
             </motion.div>
