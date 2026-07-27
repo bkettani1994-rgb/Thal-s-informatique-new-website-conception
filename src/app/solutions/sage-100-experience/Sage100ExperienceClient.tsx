@@ -112,12 +112,12 @@ function Countdown() {
       {units.map((u) => (
         <div
           key={u.label}
-          className="bg-white/5 border border-white/10 rounded-2xl py-4 sm:py-6 text-center backdrop-blur-sm"
+          className="bg-blue-50 border border-blue-100 rounded-2xl py-4 sm:py-6 text-center"
         >
-          <div className="text-2xl sm:text-4xl font-bold text-white tabular-nums">
+          <div className="text-2xl sm:text-4xl font-bold text-primary tabular-nums">
             {u.value !== undefined ? String(u.value).padStart(2, "0") : "--"}
           </div>
-          <div className="text-[10px] sm:text-xs text-white/50 font-semibold tracking-widest uppercase mt-1">
+          <div className="text-[10px] sm:text-xs text-secondary font-semibold tracking-widest uppercase mt-1">
             {u.label}
           </div>
         </div>
@@ -202,14 +202,13 @@ export default function Sage100ExperienceClient() {
         </section>
 
         {/* Countdown */}
-        <section className="py-16 bg-primary relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
+        <section className="py-16 bg-white relative overflow-hidden">
           <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <FadeIn>
-              <span className="inline-flex items-center gap-2 text-xs font-bold text-accent tracking-widest bg-accent/10 px-4 py-1.5 rounded-full mb-6">
+              <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-6">
                 LE COMPTE À REBOURS EST LANCÉ
               </span>
-              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-8">
+              <h2 className="text-2xl lg:text-3xl font-bold text-primary mb-8">
                 Revenez à cette date pour en savoir plus
               </h2>
               <Countdown />
