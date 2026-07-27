@@ -227,7 +227,7 @@ export default function Sage100ExperienceClient() {
                   UN AVANT-GOÛT
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-bold text-primary">
-                  Trois nouveautés en préparation
+                  Trois innovations en préparation
                 </h2>
                 <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
                   Sans dévoiler tous les détails aujourd&apos;hui, voici un aperçu de l&apos;esprit de Sage 100 Expérience.
