@@ -163,15 +163,17 @@ export default function Sage100ExperienceClient() {
         {/* Hero — teaser */}
         <section className="pt-32 pb-20 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-800 to-slate-900" />
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm mb-10">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <nav aria-label="Fil d'Ariane" className="flex items-center gap-2 text-white/50 text-sm">
               <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
               <ChevronRight aria-hidden="true" size={14} />
               <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
               <ChevronRight aria-hidden="true" size={14} />
               <span aria-current="page" className="text-accent">Sage 100 Expérience</span>
             </nav>
+          </div>
 
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
