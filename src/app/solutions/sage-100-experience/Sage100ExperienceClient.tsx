@@ -208,7 +208,7 @@ export default function Sage100ExperienceClient() {
                 LE COMPTE À REBOURS EST LANCÉ
               </span>
               <h2 className="text-2xl lg:text-3xl font-bold text-white mb-8">
-                Le lancement approche
+                Revenez à cette date pour en savoir plus
               </h2>
               <Countdown />
             </FadeIn>
