@@ -66,6 +66,15 @@ const nextConfig: NextConfig = {
 
       // ── Article blog générique (transformation digitale) ──
       { source: "/digitalisation-des-entreprises-au-maroc-avec-les-solutions-sage", destination: "/ressources/blog", permanent: true },
+
+      // ── Anciennes URLs Sage courtes (legacy WordPress) ──
+      { source: "/sage-x3", destination: "/solutions/sage-x3", permanent: true },
+      { source: "/sage-100", destination: "/solutions/sage-100", permanent: true },
+      { source: "/sage-frp-1000", destination: "/solutions/sage-frp-1000", permanent: true },
+      { source: "/les-solutions-sage", destination: "/solutions", permanent: true },
+      { source: "/revendeur-solution-sage-casablanca", destination: "/solutions", permanent: true },
+      { source: "/votre-partenaire-sage-au-maroc", destination: "/a-propos", permanent: true },
+      { source: "/sage-maroc-thales-informatique-integrateur-et-revendeur", destination: "/services/integration-erp", permanent: true },
     ];
   },
 };
