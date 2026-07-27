@@ -321,7 +321,8 @@ export default function Sage100ExperienceClient() {
                           value={form.prenom}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors"
+                          placeholder="Mohammed"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
                         />
                       </div>
                       <div>
@@ -332,7 +333,8 @@ export default function Sage100ExperienceClient() {
                           value={form.nom}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors"
+                          placeholder="Berrada"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
                         />
                       </div>
                     </div>
@@ -344,7 +346,8 @@ export default function Sage100ExperienceClient() {
                         value={form.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors"
+                        placeholder="mohammed.berrada@entreprise.ma"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
                       />
                     </div>
                     <div>
@@ -354,7 +357,8 @@ export default function Sage100ExperienceClient() {
                         name="entreprise"
                         value={form.entreprise}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors"
+                        placeholder="Nom de votre entreprise"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
                       />
                     </div>
                     <button
