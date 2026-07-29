@@ -18,6 +18,11 @@ import {
   Gift,
   Users,
   ShieldCheck,
+  Cloud,
+  Zap,
+  DatabaseBackup,
+  Lock,
+  TrendingUp,
 } from "lucide-react";
 
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
@@ -38,6 +43,29 @@ const teaserFeatures = [
     icon: Workflow,
     title: "Votre chef d'orchestre",
     metaphor: "Vos tâches s'enchaînent, sans que vous ayez à y penser.",
+  },
+];
+
+const cloudAdvantages = [
+  {
+    icon: Zap,
+    title: "Accès temps réel",
+    desc: "Consultez vos données de gestion à jour, à tout moment et depuis n'importe où.",
+  },
+  {
+    icon: DatabaseBackup,
+    title: "Sauvegardes auto",
+    desc: "Vos données sont sauvegardées automatiquement, sans intervention de votre part.",
+  },
+  {
+    icon: Lock,
+    title: "Sécurité renforcée",
+    desc: "Un environnement cloud sécurisé pour protéger vos informations sensibles.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Évolutivité",
+    desc: "Une solution qui s'adapte à la croissance de votre entreprise, sans rupture.",
   },
 ];
 
@@ -243,6 +271,40 @@ export default function Sage100ExperienceClient() {
                     </div>
                     <h3 className="text-lg font-bold text-primary mb-2">{feature.title}</h3>
                     <p className="text-secondary text-sm leading-relaxed">{feature.metaphor}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Cloud — avantages */}
+        <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeIn>
+              <div className="text-center mb-14">
+                <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
+                  <Cloud size={12} aria-hidden="true" />
+                  DANS LE CLOUD
+                </span>
+                <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+                  Pensé pour le cloud
+                </h2>
+                <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
+                  Sage 100 Expérience s&apos;appuie sur le cloud pour vous offrir plus de simplicité et de sérénité au quotidien.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {cloudAdvantages.map((c, i) => (
+                <FadeIn key={c.title} delay={i * 0.08}>
+                  <div className="bg-bg rounded-2xl border border-slate-200 p-6 h-full">
+                    <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">
+                      <c.icon size={20} className="text-cta" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-base font-bold text-primary mb-1.5">{c.title}</h3>
+                    <p className="text-secondary text-sm leading-relaxed">{c.desc}</p>
                   </div>
                 </FadeIn>
               ))}
