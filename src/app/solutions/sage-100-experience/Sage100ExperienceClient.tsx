@@ -244,42 +244,8 @@ export default function Sage100ExperienceClient() {
           </div>
         </section>
 
-        {/* Teaser fonctionnalités — sans détails, en métaphore */}
-        <section className="py-20 bg-bg">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn>
-              <div className="text-center mb-14">
-                <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
-                  <Sparkles size={12} aria-hidden="true" />
-                  UN AVANT-GOÛT
-                </span>
-                <h2 className="text-3xl lg:text-4xl font-bold text-primary">
-                  Trois innovations en préparation
-                </h2>
-                <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
-                  Sans dévoiler tous les détails aujourd&apos;hui, voici un aperçu de l&apos;esprit de Sage 100 Expérience.
-                </p>
-              </div>
-            </FadeIn>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {teaserFeatures.map((feature, i) => (
-                <FadeIn key={feature.title} delay={i * 0.1}>
-                  <div className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-5">
-                      <feature.icon size={22} className="text-cta" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-lg font-bold text-primary mb-2">{feature.title}</h3>
-                    <p className="text-secondary text-sm leading-relaxed">{feature.metaphor}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Cloud — avantages */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-bg">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeIn>
               <div className="text-center mb-14">
@@ -299,12 +265,58 @@ export default function Sage100ExperienceClient() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {cloudAdvantages.map((c, i) => (
                 <FadeIn key={c.title} delay={i * 0.08}>
-                  <div className="bg-bg rounded-2xl border border-slate-200 p-6 h-full">
+                  <div className="bg-white rounded-2xl border border-slate-200 p-6 h-full">
                     <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">
                       <c.icon size={20} className="text-cta" aria-hidden="true" />
                     </div>
                     <h3 className="text-base font-bold text-primary mb-1.5">{c.title}</h3>
                     <p className="text-secondary text-sm leading-relaxed">{c.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn delay={0.2}>
+              <p data-ilink className="text-secondary text-sm text-center mt-10 max-w-2xl mx-auto leading-relaxed">
+                Cette infrastructure s&apos;appuie sur notre expertise{" "}
+                <Link href="/services/infogerance" className="text-cta font-semibold hover:underline">infogérance</Link>,{" "}
+                nos solutions de{" "}
+                <Link href="/services/infogerance/sauvegarde-reprise-activite" className="text-cta font-semibold hover:underline">sauvegarde et reprise d&apos;activité</Link>{" "}
+                et notre approche{" "}
+                <Link href="/services/infogerance/cybersecurite" className="text-cta font-semibold hover:underline">cybersécurité</Link>, déjà déployées sur{" "}
+                <Link href="/solutions/sage-100" className="text-cta font-semibold hover:underline">Sage 100</Link>.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* Teaser fonctionnalités — sans détails, en métaphore */}
+        <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeIn>
+              <div className="text-center mb-14">
+                <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
+                  <Sparkles size={12} aria-hidden="true" />
+                  UN AVANT-GOÛT
+                </span>
+                <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+                  Trois innovations en préparation
+                </h2>
+                <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
+                  Sans dévoiler tous les détails aujourd&apos;hui, voici un aperçu de l&apos;esprit de Sage 100 Expérience.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {teaserFeatures.map((feature, i) => (
+                <FadeIn key={feature.title} delay={i * 0.1}>
+                  <div className="bg-bg rounded-2xl border border-slate-200 p-8 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 h-full">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-5">
+                      <feature.icon size={22} className="text-cta" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-lg font-bold text-primary mb-2">{feature.title}</h3>
+                    <p className="text-secondary text-sm leading-relaxed">{feature.metaphor}</p>
                   </div>
                 </FadeIn>
               ))}
