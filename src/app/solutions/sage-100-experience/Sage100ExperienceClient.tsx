@@ -174,9 +174,9 @@ export default function Sage100ExperienceClient() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEET_SAGE100_URL!, {
+      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SHEET_SAGE100_CLOUD_URL!, {
         method: "POST",
-        body: JSON.stringify({ ...form, source: "sage-100-experience-teaser" }),
+        body: JSON.stringify({ ...form, source: "sage-100-experience-cloud" }),
       });
     } catch (_) {
       // silently ignore network errors — still show confirmation
