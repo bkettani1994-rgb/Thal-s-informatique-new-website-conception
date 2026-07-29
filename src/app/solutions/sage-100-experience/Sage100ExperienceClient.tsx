@@ -444,10 +444,11 @@ export default function Sage100ExperienceClient() {
                         name="demoRequested"
                         checked={form.demoRequested}
                         onChange={handleChange}
+                        required
                         className="mt-0.5 w-4 h-4 rounded border-slate-300 text-cta focus:ring-cta focus:ring-1 cursor-pointer"
                       />
                       <span className="text-sm text-secondary leading-relaxed">
-                        Je souhaite également demander une démo de Sage 100 Expérience dès sa disponibilité.
+                        Je souhaite demander une démo de Sage 100 Expérience dès sa disponibilité. *
                       </span>
                     </label>
                     <button
