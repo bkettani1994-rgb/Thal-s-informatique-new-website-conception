@@ -162,10 +162,12 @@ export default function Sage100ExperienceClient() {
     nom: "",
     email: "",
     entreprise: "",
+    demoRequested: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -436,6 +438,18 @@ export default function Sage100ExperienceClient() {
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
                       />
                     </div>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="demoRequested"
+                        checked={form.demoRequested}
+                        onChange={handleChange}
+                        className="mt-0.5 w-4 h-4 rounded border-slate-300 text-cta focus:ring-cta focus:ring-1 cursor-pointer"
+                      />
+                      <span className="text-sm text-secondary leading-relaxed">
+                        Je souhaite également demander une démo de Sage 100 Expérience dès sa disponibilité.
+                      </span>
+                    </label>
                     <button
                       type="submit"
                       disabled={loading}
