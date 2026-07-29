@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -103,7 +103,7 @@ const navLinks: NavLink[] = [
 ];
 
 
-export default function Navbar() {
+export default function Navbar({ topBar }: { topBar?: ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -172,6 +172,7 @@ export default function Navbar() {
       }`}
       style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }}
     >
+      {topBar}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}

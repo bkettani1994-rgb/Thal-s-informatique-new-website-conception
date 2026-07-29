@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/ui/Navbar";
+import AnnouncementBar from "@/components/ui/AnnouncementBar";
 import Hero from "@/components/sections/Hero";
 import LogoMarquee from "@/components/sections/LogoMarquee";
 import ProblemSolution from "@/components/sections/ProblemSolution";
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="overflow-x-hidden">
-      <Navbar />
+      <Navbar topBar={<AnnouncementBar />} />
       <Hero />
       <LogoMarquee />
       <ProblemSolution />
