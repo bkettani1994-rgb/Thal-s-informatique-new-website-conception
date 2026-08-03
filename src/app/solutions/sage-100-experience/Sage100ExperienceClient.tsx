@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { trackEvent } from "@/lib/analytics";
@@ -24,6 +25,13 @@ import {
   Lock,
   TrendingUp,
   PlayCircle,
+  Wallet,
+  Landmark,
+  FileText,
+  ReceiptText,
+  BadgeCheck,
+  BarChart2,
+  ImageIcon,
 } from "lucide-react";
 
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
@@ -32,6 +40,60 @@ const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
 /** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
 const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
 const VIDEO_2_ID = "XL4CsKGb7yg";
+
+/** Visuel de la section modules — à renseigner dès réception du lien Cloudinary. */
+const MODULES_IMAGE_SRC = "";
+
+const modules = [
+  {
+    icon: Wallet,
+    title: "Comptabilité & Finance",
+    desc: "Centralisez votre comptabilité générale, analytique et vos états financiers.",
+    href: "/metiers/comptabilite-finance",
+  },
+  {
+    icon: Landmark,
+    title: "Trésorerie",
+    desc: "Suivez vos flux de trésorerie et anticipez vos besoins de financement.",
+    href: "/metiers/tresorerie",
+  },
+  {
+    icon: FileText,
+    title: "Immobilisations",
+    desc: "Gérez le cycle de vie de vos immobilisations et leurs amortissements.",
+    href: "/metiers/immobilisations",
+  },
+  {
+    icon: ReceiptText,
+    title: "TVA",
+    desc: "Automatisez vos déclarations de TVA et sécurisez votre conformité fiscale.",
+    href: "/metiers/tva",
+  },
+  {
+    icon: BadgeCheck,
+    title: "États Comptables & Fiscaux",
+    desc: "Produisez vos états comptables et fiscaux conformes à la réglementation marocaine.",
+    href: "/metiers/etats-comptables-fiscaux",
+  },
+  {
+    icon: Users,
+    title: "Paie & RH",
+    desc: "Gérez la paie et les ressources humaines directement depuis Sage 100.",
+    href: "/solutions/sage-100-paie-rh",
+  },
+  {
+    icon: BarChart2,
+    title: "Reporting",
+    desc: "Pilotez votre activité avec des tableaux de bord et indicateurs en temps réel.",
+    href: "/metiers/reporting",
+  },
+  {
+    icon: Sparkles,
+    title: "Expertise Comptable",
+    desc: "Un environnement pensé pour les cabinets d'expertise comptable et leurs clients.",
+    href: "/metiers/expertise-comptable",
+  },
+];
 
 const teaserFeatures = [
   {
@@ -413,6 +475,65 @@ export default function Sage100ExperienceClient() {
           videoTitle="Sage 100 Expérience — Nouveautés"
           bg="bg-bg"
         />
+
+        {/* Modules Sage 100 Expérience */}
+        <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeIn>
+              <div className="text-center mb-14">
+                <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
+                  <Sparkles size={12} aria-hidden="true" />
+                  MODULES
+                </span>
+                <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+                  Les modules que couvre Sage 100 Expérience
+                </h2>
+                <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
+                  Une même expérience pour couvrir l&apos;ensemble de votre gestion, du plus opérationnel au plus stratégique.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.1}>
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-bg mb-10">
+                {MODULES_IMAGE_SRC ? (
+                  <Image
+                    src={MODULES_IMAGE_SRC}
+                    alt="Modules Sage 100 Expérience"
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-secondary">
+                    <ImageIcon size={40} className="text-slate-300" aria-hidden="true" />
+                    <span className="text-sm font-medium">Image à venir</span>
+                  </div>
+                )}
+              </div>
+            </FadeIn>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {modules.map((m, i) => (
+                <FadeIn key={m.title} delay={i * 0.06}>
+                  <Link
+                    href={m.href}
+                    aria-label={`Découvrir le module ${m.title}`}
+                    className="block bg-bg rounded-2xl border border-slate-200 p-6 h-full hover:border-cta/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">
+                      <m.icon size={20} className="text-cta" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-base font-bold text-primary mb-1.5">{m.title}</h3>
+                    <p className="text-secondary text-sm leading-relaxed mb-3">{m.desc}</p>
+                    <span className="inline-flex items-center gap-1 text-cta text-xs font-semibold">
+                      Découvrir <ArrowRight size={12} aria-hidden="true" />
+                    </span>
+                  </Link>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Pourquoi s'inscrire en avant-première */}
         <section className="py-20 bg-white">
