@@ -5,25 +5,25 @@ const SITE_URL = "https://thales.ma";
 const OG_IMAGE = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1780666585/thales_logo_bleu_petit_bjyxww.png";
 
 export const metadata: Metadata = {
-  title: "Sage 100 Expérience | Bientôt disponible | Thalès Informatique",
+  title: "Sage 100 Expérience | Avant-première | Thalès Informatique",
   description:
-    "Thalès Informatique prépare Sage 100 Expérience. Restez informé et soyez parmi les premiers à en savoir plus très prochainement.",
+    "Sage 100 Expérience arrive bientôt. Inscrivez-vous dès maintenant en avant-première auprès de Thalès Informatique et soyez parmi les premiers informés.",
   alternates: { canonical: "/solutions/sage-100-experience" },
   openGraph: {
     type: "website",
     locale: "fr_MA",
     url: `${SITE_URL}/solutions/sage-100-experience`,
     siteName: "Thalès Informatique",
-    title: "Sage 100 Expérience | Bientôt disponible | Thalès Informatique",
+    title: "Sage 100 Expérience | Avant-première | Thalès Informatique",
     description:
-      "Thalès Informatique prépare Sage 100 Expérience. Restez informé et soyez parmi les premiers à en savoir plus très prochainement.",
+      "Sage 100 Expérience arrive bientôt. Inscrivez-vous dès maintenant en avant-première auprès de Thalès Informatique et soyez parmi les premiers informés.",
     images: [{ url: OG_IMAGE, width: 800, height: 800, alt: "Sage 100 Expérience — Thalès Informatique" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sage 100 Expérience | Bientôt disponible | Thalès Informatique",
+    title: "Sage 100 Expérience | Avant-première | Thalès Informatique",
     description:
-      "Thalès Informatique prépare Sage 100 Expérience. Restez informé très prochainement.",
+      "Sage 100 Expérience arrive bientôt. Inscrivez-vous en avant-première auprès de Thalès Informatique.",
     images: [OG_IMAGE],
   },
 };

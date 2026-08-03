@@ -35,10 +35,10 @@ const categories = [
       },
       {
         title: "Sage 100 Expérience",
-        sub: "Une nouvelle étape à venir",
-        badge: "BIENTÔT",
+        sub: "Inscriptions en avant-première ouvertes",
+        badge: "AVANT-PREMIÈRE",
         href: "/solutions/sage-100-experience",
-        desc: "Thalès Informatique prépare une nouvelle expérience autour de Sage 100. Plus d'informations seront communiquées très prochainement.",
+        desc: "Thalès Informatique prépare une nouvelle expérience autour de Sage 100. Inscrivez-vous dès maintenant pour être parmi les premiers informés.",
       },
     ],
   },

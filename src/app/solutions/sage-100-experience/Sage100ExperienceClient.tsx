@@ -212,7 +212,7 @@ export default function Sage100ExperienceClient() {
             >
               <span className="inline-flex items-center gap-2 text-xs font-bold text-accent tracking-widest bg-accent/10 px-4 py-1.5 rounded-full mb-6">
                 <Sparkles size={12} aria-hidden="true" />
-                BIENTÔT DISPONIBLE
+                AVANT-PREMIÈRE EN COURS
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Sage 100 Expérience
