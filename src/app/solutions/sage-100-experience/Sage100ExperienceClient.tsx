@@ -31,18 +31,18 @@ const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
 const teaserFeatures = [
   {
     icon: Bot,
-    title: "Votre assistant intelligent",
-    metaphor: "Une présence discrète, prête à vous simplifier le quotidien dans votre gestion.",
+    title: "Ask AI",
+    metaphor: "Un agent IA, un peu comme ChatGPT, capable de répondre à vos questions directement au cœur de votre gestion.",
   },
   {
     icon: Wand2,
-    title: "Votre atelier de personnalisation",
-    metaphor: "Plus de liberté pour façonner votre outil, à votre image.",
+    title: "Builder AI",
+    metaphor: "Un architecte numérique à vos côtés, qui vous aide à construire et personnaliser sans écrire une seule ligne de code.",
   },
   {
     icon: Workflow,
-    title: "Votre chef d'orchestre",
-    metaphor: "Vos tâches s'enchaînent, sans que vous ayez à y penser.",
+    title: "Workflows",
+    metaphor: "Un chef d'orchestre discret qui coordonne vos tâches et vos process, pour que tout s'enchaîne naturellement.",
   },
 ];
 
