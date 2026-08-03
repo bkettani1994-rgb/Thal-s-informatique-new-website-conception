@@ -31,7 +31,7 @@ const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
 
 /** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
 const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
-const VIDEO_2_ID = "";
+const VIDEO_2_ID = "XL4CsKGb7yg";
 
 const teaserFeatures = [
   {
