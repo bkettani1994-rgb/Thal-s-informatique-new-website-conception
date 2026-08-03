@@ -23,10 +23,15 @@ import {
   DatabaseBackup,
   Lock,
   TrendingUp,
+  PlayCircle,
 } from "lucide-react";
 
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
 const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
+
+/** IDs YouTube des 2 vidéos pub Sage 100 Expérience — à renseigner dès réception des liens. */
+const VIDEO_1_ID = "";
+const VIDEO_2_ID = "";
 
 const teaserFeatures = [
   {
@@ -154,6 +159,57 @@ function Countdown() {
   );
 }
 
+function VideoSection({
+  eyebrow,
+  title,
+  description,
+  videoId,
+  videoTitle,
+  bg = "bg-bg",
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  videoId: string;
+  videoTitle: string;
+  bg?: string;
+}) {
+  return (
+    <section className={`py-20 ${bg}`}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
+              <PlayCircle size={12} aria-hidden="true" />
+              {eyebrow}
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary">{title}</h2>
+            <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">{description}</p>
+          </div>
+
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+            {videoId ? (
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+                title={videoTitle}
+                loading="lazy"
+                allow="accelerated-video; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            ) : (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-secondary">
+                <PlayCircle size={40} className="text-slate-300" aria-hidden="true" />
+                <span className="text-sm font-medium">Vidéo à venir</span>
+              </div>
+            )}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
 export default function Sage100ExperienceClient() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -246,6 +302,16 @@ export default function Sage100ExperienceClient() {
           </div>
         </section>
 
+        {/* Vidéo 1 — présentation */}
+        <VideoSection
+          eyebrow="EN VIDÉO"
+          title="Découvrez Sage 100 Expérience"
+          description="Une présentation vidéo de la nouvelle expérience Sage 100 préparée par Thalès Informatique."
+          videoId={VIDEO_1_ID}
+          videoTitle="Sage 100 Expérience — Présentation"
+          bg="bg-white"
+        />
+
         {/* Cloud — avantages */}
         <section className="py-20 bg-bg">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -325,6 +391,16 @@ export default function Sage100ExperienceClient() {
             </div>
           </div>
         </section>
+
+        {/* Vidéo 2 — fonctionnalités */}
+        <VideoSection
+          eyebrow="ZOOM SUR LES NOUVEAUTÉS"
+          title="Ask AI, Builder AI et Workflows en images"
+          description="Un second aperçu vidéo pour découvrir l'esprit des nouveautés de Sage 100 Expérience."
+          videoId={VIDEO_2_ID}
+          videoTitle="Sage 100 Expérience — Nouveautés"
+          bg="bg-bg"
+        />
 
         {/* Pourquoi s'inscrire en avant-première */}
         <section className="py-20 bg-white">
