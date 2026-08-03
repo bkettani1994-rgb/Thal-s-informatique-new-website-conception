@@ -29,8 +29,8 @@ import {
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
 const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
 
-/** IDs YouTube des 2 vidéos pub Sage 100 Expérience — à renseigner dès réception des liens. */
-const VIDEO_1_ID = "";
+/** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
+const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
 const VIDEO_2_ID = "";
 
 const teaserFeatures = [
@@ -164,13 +164,15 @@ function VideoSection({
   title,
   description,
   videoId,
+  videoSrc,
   videoTitle,
   bg = "bg-bg",
 }: {
   eyebrow: string;
   title: string;
   description: string;
-  videoId: string;
+  videoId?: string;
+  videoSrc?: string;
   videoTitle: string;
   bg?: string;
 }) {
@@ -188,7 +190,17 @@ function VideoSection({
           </div>
 
           <div className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
-            {videoId ? (
+            {videoSrc ? (
+              <video
+                src={videoSrc}
+                title={videoTitle}
+                controls
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                Votre navigateur ne prend pas en charge la lecture vidéo.
+              </video>
+            ) : videoId ? (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${videoId}`}
                 title={videoTitle}
@@ -307,7 +319,7 @@ export default function Sage100ExperienceClient() {
           eyebrow="EN VIDÉO"
           title="Découvrez Sage 100 Expérience"
           description="Une présentation vidéo de la nouvelle expérience Sage 100 préparée par Thalès Informatique."
-          videoId={VIDEO_1_ID}
+          videoSrc={VIDEO_1_SRC}
           videoTitle="Sage 100 Expérience — Présentation"
           bg="bg-white"
         />
