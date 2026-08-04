@@ -485,7 +485,7 @@ export default function Sage100ExperienceClient() {
                   Une interface repensée
                 </h2>
                 <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
-                  Faites glisser le curseur pour comparer l&apos;ancienne et la nouvelle interface Sage 100.
+                  Faites glisser le curseur pour comparer l&apos;ancienne et la nouvelle interface du module Gestion commerciale. Les autres modules Sage 100 Expérience bénéficient eux aussi de cette nouvelle interface.
                 </p>
               </div>
             </FadeIn>
@@ -495,7 +495,7 @@ export default function Sage100ExperienceClient() {
                 oldSrc={INTERFACE_OLD_SRC}
                 newSrc={INTERFACE_NEW_SRC}
                 oldLabel="Ancienne interface"
-                newLabel="Nouvelle interface"
+                newLabel="Nouvelle interface — Gestion commerciale"
               />
             </FadeIn>
           </div>
