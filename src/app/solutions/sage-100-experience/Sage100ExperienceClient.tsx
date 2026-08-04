@@ -28,7 +28,7 @@ import {
   Wallet,
   Landmark,
   FileText,
-  ReceiptText,
+  ShoppingCart,
   BadgeCheck,
   BarChart2,
   ImageIcon,
@@ -64,22 +64,16 @@ const modules = [
     href: "/metiers/immobilisations",
   },
   {
-    icon: ReceiptText,
-    title: "TVA",
-    desc: "Automatisez vos déclarations de TVA et sécurisez votre conformité fiscale.",
-    href: "/metiers/tva",
+    icon: ShoppingCart,
+    title: "Gestion commerciale",
+    desc: "Maîtrisez l'intégralité de votre chaîne commerciale, de la vente à la facturation.",
+    href: "/solutions/sage-100",
   },
   {
     icon: BadgeCheck,
     title: "États Comptables & Fiscaux",
     desc: "Produisez vos états comptables et fiscaux conformes à la réglementation marocaine.",
     href: "/metiers/etats-comptables-fiscaux",
-  },
-  {
-    icon: Users,
-    title: "Paie & RH",
-    desc: "Gérez la paie et les ressources humaines directement depuis Sage 100.",
-    href: "/solutions/sage-100-paie-rh",
   },
   {
     icon: BarChart2,
@@ -512,13 +506,13 @@ export default function Sage100ExperienceClient() {
               </div>
             </FadeIn>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {modules.map((m, i) => (
                 <FadeIn key={m.title} delay={i * 0.06}>
                   <Link
                     href={m.href}
                     aria-label={`Découvrir le module ${m.title}`}
-                    className="block bg-bg rounded-2xl border border-slate-200 p-6 h-full hover:border-cta/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+                    className="block w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-bg rounded-2xl border border-slate-200 p-6 h-full hover:border-cta/40 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
                   >
                     <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">
                       <m.icon size={20} className="text-cta" aria-hidden="true" />
