@@ -33,7 +33,7 @@ import {
 } from "lucide-react";
 
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
-const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
+const LAUNCH_DATE = new Date("2026-08-05T10:00:00+01:00");
 
 /** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
 const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
