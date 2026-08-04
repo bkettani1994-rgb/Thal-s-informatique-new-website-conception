@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Sparkles, X } from "lucide-react";
 
-const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
+const LAUNCH_DATE = new Date("2026-08-05T10:00:00+01:00");
 
 function getTimeLeft() {
   const diff = LAUNCH_DATE.getTime() - Date.now();
