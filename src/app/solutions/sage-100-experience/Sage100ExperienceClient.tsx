@@ -495,7 +495,7 @@ export default function Sage100ExperienceClient() {
                 oldSrc={INTERFACE_OLD_SRC}
                 newSrc={INTERFACE_NEW_SRC}
                 oldLabel="Ancienne interface"
-                newLabel="Nouvelle interface — Gestion commerciale"
+                newLabel="Nouvelle interface"
               />
             </FadeIn>
           </div>
