@@ -288,7 +288,7 @@ function BeforeAfterSlider({
       <span className="absolute top-4 left-4 bg-primary/80 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
         {newLabel}
       </span>
-      <span className="absolute top-4 right-4 bg-white/85 text-primary text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
+      <span className="absolute top-4 right-4 bg-primary/80 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
         {oldLabel}
       </span>
 
