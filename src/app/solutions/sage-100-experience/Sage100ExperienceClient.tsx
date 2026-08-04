@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { trackEvent } from "@/lib/analytics";
@@ -31,7 +30,6 @@ import {
   ShoppingCart,
   BadgeCheck,
   BarChart2,
-  ImageIcon,
 } from "lucide-react";
 
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
@@ -40,9 +38,6 @@ const LAUNCH_DATE = new Date("2026-08-03T09:00:00+01:00");
 /** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
 const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
 const VIDEO_2_ID = "XL4CsKGb7yg";
-
-/** Visuel de la section modules — à renseigner dès réception du lien Cloudinary. */
-const MODULES_IMAGE_SRC = "";
 
 const modules = [
   {
@@ -486,24 +481,6 @@ export default function Sage100ExperienceClient() {
                 <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
                   Une même expérience pour couvrir l&apos;ensemble de votre gestion, du plus opérationnel au plus stratégique.
                 </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.1}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-bg mb-10">
-                {MODULES_IMAGE_SRC ? (
-                  <Image
-                    src={MODULES_IMAGE_SRC}
-                    alt="Modules Sage 100 Expérience"
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-secondary">
-                    <ImageIcon size={40} className="text-slate-300" aria-hidden="true" />
-                    <span className="text-sm font-medium">Image à venir</span>
-                  </div>
-                )}
               </div>
             </FadeIn>
 
