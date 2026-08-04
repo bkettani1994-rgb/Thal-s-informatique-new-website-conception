@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import { trackEvent } from "@/lib/analytics";
@@ -30,6 +31,7 @@ import {
   ShoppingCart,
   BadgeCheck,
   BarChart2,
+  ChevronsLeftRight,
 } from "lucide-react";
 
 /** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
@@ -38,6 +40,10 @@ const LAUNCH_DATE = new Date("2026-08-05T10:00:00+01:00");
 /** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
 const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
 const VIDEO_2_ID = "XL4CsKGb7yg";
+
+/** Comparatif interface — nouvelle vs ancienne interface Sage 100. */
+const INTERFACE_NEW_SRC = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1785840083/dataven-new_vjtafd.png";
+const INTERFACE_OLD_SRC = "https://res.cloudinary.com/dmutnjgp8/image/upload/v1785840083/current-ux-sage100_quyqvd.jpg";
 
 const modules = [
   {
@@ -211,6 +217,106 @@ function Countdown() {
   );
 }
 
+function BeforeAfterSlider({
+  oldSrc,
+  newSrc,
+  oldLabel,
+  newLabel,
+}: {
+  oldSrc: string;
+  newSrc: string;
+  oldLabel: string;
+  newLabel: string;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState(50);
+  const [dragging, setDragging] = useState(false);
+
+  const updateFromClientX = useCallback((clientX: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const pct = ((clientX - rect.left) / rect.width) * 100;
+    setPosition(Math.min(100, Math.max(0, pct)));
+  }, []);
+
+  useEffect(() => {
+    if (!dragging) return;
+    const handleMove = (e: PointerEvent) => updateFromClientX(e.clientX);
+    const handleUp = () => setDragging(false);
+    window.addEventListener("pointermove", handleMove);
+    window.addEventListener("pointerup", handleUp);
+    return () => {
+      window.removeEventListener("pointermove", handleMove);
+      window.removeEventListener("pointerup", handleUp);
+    };
+  }, [dragging, updateFromClientX]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 select-none cursor-ew-resize touch-none"
+      onPointerDown={(e) => {
+        setDragging(true);
+        updateFromClientX(e.clientX);
+      }}
+    >
+      {/* Ancienne interface — en dessous, pleine largeur */}
+      <Image
+        src={oldSrc}
+        alt={oldLabel}
+        fill
+        className="object-cover pointer-events-none"
+        draggable={false}
+      />
+
+      {/* Nouvelle interface — révélée depuis la gauche via clip-path */}
+      <div
+        className="absolute inset-0"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+      >
+        <Image
+          src={newSrc}
+          alt={newLabel}
+          fill
+          className="object-cover pointer-events-none"
+          draggable={false}
+        />
+      </div>
+
+      {/* Étiquettes */}
+      <span className="absolute top-4 left-4 bg-primary/80 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
+        {newLabel}
+      </span>
+      <span className="absolute top-4 right-4 bg-white/85 text-primary text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
+        {oldLabel}
+      </span>
+
+      {/* Ligne de séparation + poignée */}
+      <div
+        className="absolute inset-y-0 w-0.5 bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.1)]"
+        style={{ left: `${position}%` }}
+      >
+        <div
+          role="slider"
+          tabIndex={0}
+          aria-label="Comparer l'ancienne et la nouvelle interface Sage 100"
+          aria-valuenow={Math.round(position)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft") setPosition((p) => Math.max(0, p - 5));
+            if (e.key === "ArrowRight") setPosition((p) => Math.min(100, p + 5));
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center cursor-ew-resize outline-none focus-visible:ring-2 focus-visible:ring-cta"
+        >
+          <ChevronsLeftRight size={18} className="text-primary" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function VideoSection({
   eyebrow,
   title,
@@ -362,6 +468,35 @@ export default function Sage100ExperienceClient() {
                 Revenez à cette date pour en savoir plus
               </h2>
               <Countdown />
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* Comparatif interface — ancienne vs nouvelle */}
+        <section className="py-20 bg-bg">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <FadeIn>
+              <div className="text-center mb-10">
+                <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
+                  <ChevronsLeftRight size={12} aria-hidden="true" />
+                  AVANT / APRÈS
+                </span>
+                <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+                  Une interface repensée
+                </h2>
+                <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
+                  Faites glisser le curseur pour comparer l&apos;ancienne et la nouvelle interface Sage 100.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.1}>
+              <BeforeAfterSlider
+                oldSrc={INTERFACE_OLD_SRC}
+                newSrc={INTERFACE_NEW_SRC}
+                oldLabel="Ancienne interface"
+                newLabel="Nouvelle interface"
+              />
             </FadeIn>
           </div>
         </section>
