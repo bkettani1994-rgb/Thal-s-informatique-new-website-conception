@@ -387,6 +387,8 @@ export default function Sage100ExperienceClient() {
     prenom: "",
     nom: "",
     email: "",
+    telephone: "",
+    fonction: "",
     entreprise: "",
     demoRequested: false,
   });
@@ -750,6 +752,30 @@ export default function Sage100ExperienceClient() {
                         placeholder="mohammed.berrada@entreprise.ma"
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
                       />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-semibold text-primary mb-1.5">Numéro de téléphone</label>
+                        <input
+                          type="tel"
+                          name="telephone"
+                          value={form.telephone}
+                          onChange={handleChange}
+                          placeholder="+212 6 00 00 00 00"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-primary mb-1.5">Fonction</label>
+                        <input
+                          type="text"
+                          name="fonction"
+                          value={form.fonction}
+                          onChange={handleChange}
+                          placeholder="Directeur Administratif et Financier"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-cta focus:ring-1 focus:ring-cta outline-none transition-colors placeholder:text-slate-400"
+                        />
+                      </div>
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-primary mb-1.5">Entreprise</label>
