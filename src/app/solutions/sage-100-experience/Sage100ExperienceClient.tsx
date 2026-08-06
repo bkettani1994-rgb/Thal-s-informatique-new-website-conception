@@ -255,7 +255,7 @@ function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 select-none cursor-ew-resize touch-none"
+      className="relative aspect-video rounded-2xl overflow-hidden border-2 border-cta select-none cursor-ew-resize touch-none"
       onPointerDown={(e) => {
         setDragging(true);
         updateFromClientX(e.clientX);
@@ -491,12 +491,20 @@ export default function Sage100ExperienceClient() {
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <BeforeAfterSlider
-                oldSrc={INTERFACE_OLD_SRC}
-                newSrc={INTERFACE_NEW_SRC}
-                oldLabel="Ancienne interface"
-                newLabel="Nouvelle interface"
-              />
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-cta via-accent to-cta opacity-70 blur-lg animate-pulse"
+                />
+                <div className="relative">
+                  <BeforeAfterSlider
+                    oldSrc={INTERFACE_OLD_SRC}
+                    newSrc={INTERFACE_NEW_SRC}
+                    oldLabel="Ancienne interface"
+                    newLabel="Nouvelle interface"
+                  />
+                </div>
+              </div>
             </FadeIn>
           </div>
         </section>
