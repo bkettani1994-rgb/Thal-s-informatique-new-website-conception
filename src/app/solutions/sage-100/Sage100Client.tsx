@@ -424,6 +424,9 @@ export default function Sage100Client() {
               <p className="text-secondary mb-4">
                 Votre PME a besoin d&apos;une solution plus complète pour piloter sa comptabilité, ses ventes, ses stocks et sa trésorerie ? Nos consultants vous aident à identifier les modules Sage 100 adaptés à votre organisation. Pour les groupes multi-entités et les besoins de consolidation financière, découvrez également <Link href="/solutions/sage-frp-1000" className="text-cta font-semibold hover:underline">Sage FRP 1000</Link>.
               </p>
+              <p className="text-secondary mb-4">
+                Découvrez également <Link href="/solutions/sage-100-experience" className="text-cta font-semibold hover:underline">Sage 100 Expérience</Link>, la nouvelle interface de Sage 100 avec Ask AI, Builder AI et Workflows, actuellement en avant-première.
+              </p>
               <p className="text-secondary mb-10">
                 Vous pouvez dès maintenant demander une démo à un expert qui pourra répondre à toutes vos questions ou appeler le{" "}
                 <a href="tel:+212522548780" className="text-cta font-semibold hover:underline">+212 5 22 54 87 80</a>.
