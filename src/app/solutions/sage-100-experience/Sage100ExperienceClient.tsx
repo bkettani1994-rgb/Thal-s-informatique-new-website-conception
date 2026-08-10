@@ -536,13 +536,13 @@ export default function Sage100ExperienceClient() {
           </div>
         </section>
 
-        {/* Vidéo 2 — fonctionnalités */}
+        {/* Vidéo 2 — esprit des nouveautés */}
         <VideoSection
-          eyebrow="ZOOM SUR LES NOUVEAUTÉS"
-          title="Ask AI, Builder AI et Workflows en images"
-          description="Un second aperçu vidéo pour découvrir l'esprit des nouveautés de Sage 100 Expérience."
+          eyebrow="L'ESPRIT DE SAGE 100 EXPÉRIENCE"
+          title="Une idée, et tout devient possible"
+          description="Comme un simple stylo entre de bonnes mains peut tout créer, Sage 100 Expérience vous donne le pouvoir de transformer vos idées en réalité, sans limite."
           videoId={VIDEO_2_ID}
-          videoTitle="Sage 100 Expérience — Nouveautés"
+          videoTitle="Sage 100 Expérience — L'esprit de l'innovation"
           bg="bg-bg"
         />
 
