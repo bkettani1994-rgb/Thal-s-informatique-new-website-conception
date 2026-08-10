@@ -34,9 +34,6 @@ import {
   ChevronsLeftRight,
 } from "lucide-react";
 
-/** Date cible de la campagne — à ajuster dès que la date officielle de lancement est confirmée. */
-const LAUNCH_DATE = new Date("2026-08-05T10:00:00+01:00");
-
 /** Vidéos pub Sage 100 Expérience — vidéo 1 hébergée sur Cloudinary, vidéo 2 en attente (YouTube). */
 const VIDEO_1_SRC = "https://res.cloudinary.com/dmutnjgp8/video/upload/v1785755019/SAGE_EXPERIENCE_VIDEO_PRODUIT_svgomc.mp4";
 const VIDEO_2_ID = "XL4CsKGb7yg";
@@ -167,53 +164,6 @@ function FadeIn({ children, delay = 0, className }: { children: React.ReactNode;
     >
       {children}
     </motion.div>
-  );
-}
-
-function getTimeLeft() {
-  const diff = LAUNCH_DATE.getTime() - Date.now();
-  const clamped = Math.max(diff, 0);
-  return {
-    days: Math.floor(clamped / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((clamped / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((clamped / (1000 * 60)) % 60),
-    seconds: Math.floor((clamped / 1000) % 60),
-    ended: diff <= 0,
-  };
-}
-
-function Countdown() {
-  const [time, setTime] = useState<ReturnType<typeof getTimeLeft> | null>(null);
-
-  useEffect(() => {
-    setTime(getTimeLeft());
-    const interval = setInterval(() => setTime(getTimeLeft()), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const units = [
-    { label: "Jours", value: time?.days },
-    { label: "Heures", value: time?.hours },
-    { label: "Minutes", value: time?.minutes },
-    { label: "Secondes", value: time?.seconds },
-  ];
-
-  return (
-    <div className="grid grid-cols-4 gap-3 sm:gap-4 max-w-lg mx-auto">
-      {units.map((u) => (
-        <div
-          key={u.label}
-          className="bg-blue-50 border border-blue-100 rounded-2xl py-4 sm:py-6 text-center"
-        >
-          <div className="text-2xl sm:text-4xl font-bold text-primary tabular-nums">
-            {u.value !== undefined ? String(u.value).padStart(2, "0") : "--"}
-          </div>
-          <div className="text-[10px] sm:text-xs text-secondary font-semibold tracking-widest uppercase mt-1">
-            {u.label}
-          </div>
-        </div>
-      ))}
-    </div>
   );
 }
 
@@ -459,21 +409,6 @@ export default function Sage100ExperienceClient() {
           </div>
         </section>
 
-        {/* Countdown */}
-        <section className="py-16 bg-white relative overflow-hidden">
-          <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <FadeIn>
-              <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-6">
-                LE COMPTE À REBOURS EST LANCÉ
-              </span>
-              <h2 className="text-2xl lg:text-3xl font-bold text-primary mb-8">
-                Revenez à cette date pour en savoir plus
-              </h2>
-              <Countdown />
-            </FadeIn>
-          </div>
-        </section>
-
         {/* Comparatif interface — ancienne vs nouvelle */}
         <section className="py-20 bg-bg">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -574,13 +509,13 @@ export default function Sage100ExperienceClient() {
               <div className="text-center mb-14">
                 <span className="inline-flex items-center gap-2 text-xs font-bold text-cta tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-4">
                   <Sparkles size={12} aria-hidden="true" />
-                  UN AVANT-GOÛT
+                  NOUVEAUTÉS
                 </span>
                 <h2 className="text-3xl lg:text-4xl font-bold text-primary">
-                  Trois innovations en préparation
+                  Trois innovations à découvrir
                 </h2>
                 <p className="text-secondary max-w-2xl mx-auto mt-4 leading-relaxed">
-                  Sans dévoiler tous les détails aujourd&apos;hui, voici un aperçu de l&apos;esprit de Sage 100 Expérience.
+                  Ask AI, Builder AI et Workflows : voici ce que Sage 100 Expérience vous réserve.
                 </p>
               </div>
             </FadeIn>
