@@ -450,7 +450,7 @@ export default function Sage100ExperienceClient() {
         <VideoSection
           eyebrow="EN VIDÉO"
           title="Découvrez Sage 100 Expérience"
-          description="Une présentation vidéo de la nouvelle expérience Sage 100 préparée par Thalès Informatique."
+          description="Une présentation vidéo de la nouvelle expérience Sage 100."
           videoSrc={VIDEO_1_SRC}
           videoTitle="Sage 100 Expérience — Présentation"
           bg="bg-white"
