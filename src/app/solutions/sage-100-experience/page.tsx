@@ -50,12 +50,33 @@ const breadcrumbSchema = {
   ],
 };
 
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Sage 100 Expérience",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Cloud, Web",
+  url: `${SITE_URL}/solutions/sage-100-experience`,
+  description:
+    "Sage 100 Expérience est la nouvelle interface de Sage 100, intégrant Ask AI, Builder AI et Workflows. Thalès Informatique accompagne les entreprises marocaines lors de son avant-première.",
+  featureList: ["Ask AI", "Builder AI", "Workflows"],
+  seller: {
+    "@type": "Organization",
+    name: "Thalès Informatique",
+    url: SITE_URL,
+  },
+};
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
       />
       <Sage100ExperienceClient />
     </>
