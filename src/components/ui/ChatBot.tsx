@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Bot, Minimize2, Sparkles, Phone, Mail } from "lucide-react";
@@ -10,6 +11,8 @@ type Message = {
   from: "bot" | "user";
   text: string;
   time: string;
+  followUps?: string[];
+  animate?: boolean;
 };
 
 const quickReplies = [
@@ -21,36 +24,86 @@ const quickReplies = [
   "Événements & webinaires",
 ];
 
-const botResponses: { keywords: string[]; response: string }[] = [
+// Messages et suggestions de relance adaptés à la page consultée par le visiteur.
+const contextualGreetings: { match: (path: string) => boolean; text: string; followUps: string[] }[] = [
+  {
+    match: (p) => p.startsWith("/solutions/sage-100-experience"),
+    text: "Bonjour ! 👋 Je vois que vous découvrez **Sage 100 Expérience**, notre nouvelle interface avec Ask AI, Builder AI et Workflows. Une question sur cette nouveauté ?",
+    followUps: ["C'est quoi Ask AI ?", "Comment m'inscrire ?", "Demander une démo"],
+  },
+  {
+    match: (p) => p.startsWith("/solutions/sage-x3"),
+    text: "Bonjour ! 👋 Vous consultez **Sage X3**, notre ERP pour ETI et groupes industriels. Je peux répondre à vos questions sur cette solution.",
+    followUps: ["Sage X3 vs Sage 100 ?", "Demander une démo", "Nous contacter"],
+  },
+  {
+    match: (p) => p.startsWith("/solutions/sage-100"),
+    text: "Bonjour ! 👋 Vous consultez **Sage 100**, notre solution ERP pour PME. Une question sur ses modules ou son déploiement ?",
+    followUps: ["Combien ça coûte ?", "Demander une démo", "Nous contacter"],
+  },
+  {
+    match: (p) => p.startsWith("/metiers/") || p.startsWith("/secteurs/"),
+    text: "Bonjour ! 👋 Je suis l'assistant virtuel de **Thalès Informatique**. Je peux vous orienter vers la solution la mieux adaptée à ce que vous consultez.",
+    followUps: ["Quelle solution pour moi ?", "Demander une démo", "Nous contacter"],
+  },
+  {
+    match: (p) => p.startsWith("/contact"),
+    text: "Bonjour ! 👋 Vous êtes sur la bonne page pour nous joindre. Je peux aussi répondre directement à vos questions pendant que vous patientez.",
+    followUps: ["Nos solutions ERP", "Support & assistance", "Combien coûte un ERP ?"],
+  },
+];
+
+const defaultGreeting = {
+  text: "Bonjour ! 👋 Je suis l'assistant virtuel de **Thalès Informatique**. Je suis là pour vous aider à trouver la solution ERP adaptée à votre entreprise.\n\nVous pouvez me poser n'importe quelle question sur nos solutions, services, secteurs, tarifs ou coordonnées. Comment puis-je vous aider ?",
+  followUps: quickReplies.slice(0, 3),
+};
+
+function getContextualGreeting(pathname: string) {
+  return contextualGreetings.find((g) => g.match(pathname)) ?? { text: defaultGreeting.text, followUps: defaultGreeting.followUps };
+}
+
+const botResponses: { keywords: string[]; response: string; followUps?: string[] }[] = [
   // Salutations
   {
     keywords: ["bonjour", "salut", "hello", "bonsoir", "hi", "coucou", "bonne journée"],
     response: "Bonjour ! 👋 Je suis l'assistant virtuel de **Thalès Informatique**. Je suis là pour vous aider à trouver la solution ERP adaptée à votre entreprise.\n\nVous pouvez me poser n'importe quelle question sur nos solutions, services, secteurs, tarifs ou coordonnées. Comment puis-je vous aider ?",
+    followUps: ["Nos solutions ERP", "Demander une démo", "Nous contacter"],
   },
   // Démo / essai
   {
     keywords: ["demo", "démonstration", "démo", "essai", "gratuit", "tester", "essayer", "voir en action"],
     response: "Excellente initiative ! 🎯 Nous proposons des démonstrations **gratuites et personnalisées** de nos solutions Sage. Contactez notre équipe :\n\n📞 **+212 5 22 54 87 80**\n✉️ **contact@thales.ma**\n\nOu rendez-vous sur notre page [Contact](/contact) pour planifier votre démo.",
+    followUps: ["Nos solutions ERP", "Combien ça coûte ?", "Nous contacter"],
+  },
+  // Sage 100 Expérience
+  {
+    keywords: ["sage 100 expérience", "sage 100 experience", "ask ai", "builder ai", "workflows sage", "nouvelle interface sage"],
+    response: "**Sage 100 Expérience** est la nouvelle interface de Sage 100 ! ✨\n\nElle intègre trois nouveautés :\n🔹 **Ask AI** — un agent IA qui répond à vos questions dans votre gestion\n🔹 **Builder AI** — personnalisez votre outil sans code\n🔹 **Workflows** — vos tâches s'enchaînent automatiquement\n\n[Découvrir Sage 100 Expérience](/solutions/sage-100-experience)",
+    followUps: ["Comment m'inscrire ?", "Demander une démo", "Nous contacter"],
   },
   // ERP / Sage X3
   {
     keywords: ["sage x3", "erp", "progiciel", "logiciel gestion", "solution gestion"],
     response: "Nous proposons plusieurs solutions ERP adaptées à votre taille et secteur :\n\n🔹 **Sage X3** — Pour les ETI et groupes industriels\n🔹 **Sage 100** — Idéal pour les PME\n🔹 **Sage FRP 1000** — Finance et comptabilité des groupes\n🔹 **DimoMaint GMAO** — Maintenance industrielle\n🔹 **Eloficash** — Trésorerie\n🔹 **Factorial** — RH & SIRH\n\nQuelle solution vous intéresse ?",
+    followUps: ["Sage 100 ou Sage X3 ?", "Demander une démo", "Combien ça coûte ?"],
   },
   // Prix / tarifs
   {
     keywords: ["prix", "tarif", "coût", "combien", "budget", "devis", "offre", "licences", "abonnement"],
     response: "Les tarifs de nos solutions varient selon la taille de votre entreprise et vos besoins spécifiques. 💡\n\nNous préférons vous proposer un **devis personnalisé** après avoir compris vos enjeux métiers.\n\nContactez-nous au **+212 5 22 54 87 80** ou via [notre formulaire de contact](/contact).",
+    followUps: ["Demander une démo", "Nos solutions ERP", "Nous contacter"],
   },
   // Support / assistance
   {
     keywords: ["support", "assistance", "aide", "problème", "hotline", "dépannage", "incident", "bug", "panne"],
     response: "Notre équipe support est disponible pour vous ! 🛠️\n\n📞 **Hotline : hotline@thales.ma**\n🕐 **Lun–Ven : 8h30 – 17h30**\n\nNous offrons :\n• Support téléphonique réactif\n• Assistance à distance\n• Interventions sur site\n\n[Support & Maintenance](/services/support-maintenance)",
+    followUps: ["Nous contacter", "Nos solutions ERP", "WhatsApp"],
   },
   // Contact
   {
     keywords: ["contact", "joindre", "appeler", "email", "adresse", "bureau", "téléphone", "numéro", "mail", "coordonnées"],
     response: "Voici nos coordonnées 📍\n\n📞 **+212 5 22 54 87 80**\n✉️ **contact@thales.ma**\n🏢 **310 Rue Hadj Omar Riffi, Casablanca 20120**\n\n🕐 Lun–Ven : 8h30 – 17h30\n\n[Voir sur Google Maps](https://maps.app.goo.gl/XK8BzRFH58aUSTnU6)",
+    followUps: ["Demander une démo", "Nos solutions ERP", "Support & assistance"],
   },
   // RH / Paie
   {
@@ -296,6 +349,7 @@ const botResponses: { keywords: string[]; response: string }[] = [
 
 const defaultResponse =
   "Je ne suis pas sûr d'avoir compris votre question. 🤔\n\nVous pouvez me demander des informations sur :\n• Nos **solutions ERP** (Sage X3, Sage 100, FRP 1000…)\n• Nos **services** (Intégration, Formation, Support, Infogérance)\n• Nos **secteurs d'activité**\n• Nos **tarifs** ou une **démo gratuite**\n• Nos **coordonnées**\n\n📞 **+212 5 22 54 87 80** — Lun–Ven 8h30–17h30";
+const defaultFollowUps = ["Nos solutions ERP", "Demander une démo", "Nous contacter"];
 
 function normalize(text: string): string {
   return text
@@ -305,11 +359,11 @@ function normalize(text: string): string {
     .replace(/['']/g, " ");
 }
 
-function getResponse(input: string): string {
+function getResponse(input: string): { response: string; followUps: string[] } {
   const lower = normalize(input);
   // Score-based matching: prefer entries with the most keyword hits
   let bestScore = 0;
-  let bestResponse = defaultResponse;
+  let best: { response: string; followUps?: string[] } = { response: defaultResponse };
   for (const entry of botResponses) {
     let score = 0;
     for (const kw of entry.keywords) {
@@ -317,10 +371,10 @@ function getResponse(input: string): string {
     }
     if (score > bestScore) {
       bestScore = score;
-      bestResponse = entry.response;
+      best = entry;
     }
   }
-  return bestResponse;
+  return { response: best.response, followUps: best.followUps ?? defaultFollowUps };
 }
 
 function getTime() {
@@ -344,15 +398,43 @@ function BotMessage({ text }: { text: string }) {
   );
 }
 
+function TypewriterText({ text, onDone }: { text: string; onDone?: () => void }) {
+  const [length, setLength] = useState(0);
+
+  useEffect(() => {
+    setLength(0);
+    if (!text) return;
+    const step = Math.max(1, Math.round(text.length / 60)); // messages longs = pas plus longs, pas plus lents
+    const interval = setInterval(() => {
+      setLength((prev) => {
+        const next = Math.min(text.length, prev + step);
+        if (next >= text.length) {
+          clearInterval(interval);
+          onDone?.();
+        }
+        return next;
+      });
+    }, 14);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text]);
+
+  return <BotMessage text={text.slice(0, length)} />;
+}
+
 export default function ChatBot() {
+  const pathname = usePathname();
+  const greeting = getContextualGreeting(pathname || "/");
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
       from: "bot",
-      text: "Bonjour ! 👋 Je suis **Thalès Informatique Assistant**, votre guide digital. Posez-moi vos questions sur nos solutions ERP, nos services ou nos coordonnées.",
+      text: greeting.text,
       time: getTime(),
+      followUps: greeting.followUps,
+      animate: true,
     },
   ]);
   const [input, setInput] = useState("");
@@ -373,6 +455,10 @@ export default function ChatBot() {
     if (open) setUnread(0);
   }, [open]);
 
+  const stopAnimating = (id: number) => {
+    setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, animate: false } : m)));
+  };
+
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
     if (!chatbotStartedRef.current) {
@@ -385,16 +471,22 @@ export default function ChatBot() {
     setTyping(true);
 
     setTimeout(() => {
+      const { response, followUps } = getResponse(text);
       const botMsg: Message = {
         id: Date.now() + 1,
         from: "bot",
-        text: getResponse(text),
+        text: response,
         time: getTime(),
+        followUps,
+        animate: true,
       };
       setMessages((prev) => [...prev, botMsg]);
       setTyping(false);
     }, 900 + Math.random() * 600);
   };
+
+  const lastBotMessage = [...messages].reverse().find((m) => m.from === "bot");
+  const activeQuickReplies = lastBotMessage?.followUps ?? quickReplies;
 
   if (hidden) return null;
 
@@ -489,7 +581,15 @@ export default function ChatBot() {
                         ? "bg-cta text-white rounded-tr-sm"
                         : "bg-white border border-border text-secondary rounded-tl-sm shadow-sm"
                     }`}>
-                      {msg.from === "bot" ? <BotMessage text={msg.text} /> : msg.text}
+                      {msg.from === "bot" ? (
+                        msg.animate ? (
+                          <TypewriterText text={msg.text} onDone={() => stopAnimating(msg.id)} />
+                        ) : (
+                          <BotMessage text={msg.text} />
+                        )
+                      ) : (
+                        msg.text
+                      )}
                     </div>
                     <span className="text-[10px] text-slate-400 px-1">{msg.time}</span>
                   </div>
@@ -517,9 +617,9 @@ export default function ChatBot() {
               <div ref={bottomRef} />
             </div>
 
-            {/* Quick replies */}
+            {/* Quick replies — contextuelles, dépendent de la dernière réponse du bot */}
             <div className="px-3 py-2 flex gap-1.5 flex-wrap border-t border-border bg-white shrink-0">
-              {quickReplies.map((reply) => (
+              {activeQuickReplies.map((reply) => (
                 <button
                   key={reply}
                   onClick={() => sendMessage(reply)}
