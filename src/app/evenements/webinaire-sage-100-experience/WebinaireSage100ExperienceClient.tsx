@@ -83,13 +83,15 @@ export default function WebinaireSage100ExperienceClient() {
             <span className="flex items-center gap-2"><Video size={16} className="text-accent" aria-hidden="true" /> En ligne</span>
             <span className="flex items-center gap-2"><Users size={16} className="text-accent" aria-hidden="true" /> Places limitées</span>
           </div>
-          <Link
-            href="/evenements/webinaire-sage-100-experience/inscription"
-            aria-label="S'inscrire au webinaire Sage 100 Expérience"
+          <a
+            href="https://register.gotowebinar.com/register/8450964475519129434"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="S'inscrire au webinaire Sage 100 Expérience (ouvre GoToWebinar dans un nouvel onglet)"
             className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
           >
             S&apos;inscrire au webinaire <ArrowRight size={18} aria-hidden="true" />
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -134,13 +136,15 @@ export default function WebinaireSage100ExperienceClient() {
           <motion.div variants={fadeUp} initial="hidden" animate={ctaInView ? "visible" : "hidden"}>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Réservez votre place dès maintenant</h2>
             <p className="text-white/70 mb-8">Places limitées — inscription gratuite et sans engagement.</p>
-            <Link
-              href="/evenements/webinaire-sage-100-experience/inscription"
-              aria-label="S'inscrire au webinaire Sage 100 Expérience"
+            <a
+              href="https://register.gotowebinar.com/register/8450964475519129434"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="S'inscrire au webinaire Sage 100 Expérience (ouvre GoToWebinar dans un nouvel onglet)"
               className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
             >
               S&apos;inscrire au webinaire <ArrowRight size={18} aria-hidden="true" />
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
