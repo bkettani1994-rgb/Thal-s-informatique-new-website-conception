@@ -34,6 +34,21 @@ const events = [
     href: "/evenements/strategie-rh-sirh-croissance",
   },
   {
+    date: { day: "05", month: "Aoû", year: "2026" },
+    title: "Sage 100 Expérience Édition : votre solution réinventée",
+    format: "Webinaire en ligne",
+    formatIcon: Video,
+    seats: "Places limitées",
+    location: "En ligne",
+    color: "bg-cta",
+    tag: "Nouveauté",
+    tagColor: "bg-blue-50 text-blue-700",
+    past: false,
+    partners: [],
+    reveal: true,
+    href: "/evenements/webinaire-sage-100-experience",
+  },
+  {
     date: { day: "18", month: "Jun", year: "2026" },
     title: "Webinaire : Optimisez votre clôture comptable avec l'IA",
     format: "Webinaire en ligne",
@@ -113,7 +128,7 @@ export default function Events() {
         {/* Event cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {events.slice(0, 3).map((event, i) => {
-            const teaser = !event.past;
+            const teaser = !event.past && !event.reveal;
             const Card = (
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
