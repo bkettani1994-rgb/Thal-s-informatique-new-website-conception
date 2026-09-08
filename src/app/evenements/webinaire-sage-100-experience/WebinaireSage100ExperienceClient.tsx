@@ -98,7 +98,7 @@ export default function WebinaireSage100ExperienceClient() {
       {/* Intro */}
       <section className="py-16" ref={introRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div variants={fadeUp} initial="hidden" animate={introInView ? "visible" : "hidden"} className="max-w-3xl">
+          <motion.div variants={fadeUp} initial="hidden" animate={introInView ? "visible" : "hidden"} className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-primary mb-5">Pourquoi participer ?</h2>
             <p className="text-secondary leading-relaxed">
               Vous connaissez et utilisez Sage 100 au quotidien pour piloter votre activité. Aujourd&apos;hui, nous franchissons une nouvelle étape pour vous faire gagner en simplicité, en agilité et en performance : <strong className="text-primary">Sage 100 Expérience Édition</strong>. Rejoignez ce webinaire pour découvrir en avant-première ce qui change concrètement pour vous.
@@ -110,10 +110,10 @@ export default function WebinaireSage100ExperienceClient() {
       {/* Ce qui change */}
       <section className="py-16 bg-white" ref={changesRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div variants={fadeUp} initial="hidden" animate={changesInView ? "visible" : "hidden"} className="mb-10">
+          <motion.div variants={fadeUp} initial="hidden" animate={changesInView ? "visible" : "hidden"} className="mb-10 text-center">
             <h2 className="text-2xl font-bold text-primary mb-2">Ce qui change concrètement pour vous</h2>
           </motion.div>
-          <motion.div variants={stagger} initial="hidden" animate={changesInView ? "visible" : "hidden"} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+          <motion.div variants={stagger} initial="hidden" animate={changesInView ? "visible" : "hidden"} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {changes.map((item) => (
               <motion.div key={item.title} variants={fadeUp} className="flex items-start gap-3 p-5 bg-bg-base rounded-xl border border-border">
                 <CheckCircle2 size={18} className="text-blue-600 mt-0.5 shrink-0" aria-hidden="true" />
@@ -124,7 +124,7 @@ export default function WebinaireSage100ExperienceClient() {
               </motion.div>
             ))}
           </motion.div>
-          <p data-ilink className="text-secondary text-sm mt-8 max-w-3xl">
+          <p data-ilink className="text-secondary text-sm mt-8 max-w-3xl mx-auto text-center">
             Envie d&apos;en savoir plus dès maintenant ? Découvrez <Link href="/solutions/sage-100-experience" className="text-cta font-semibold hover:underline">Sage 100 Expérience</Link>.
           </p>
         </div>
