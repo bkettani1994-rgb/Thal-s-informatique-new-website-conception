@@ -34,7 +34,7 @@ const events = [
     href: "/evenements/strategie-rh-sirh-croissance",
   },
   {
-    date: { day: "05", month: "Aoû", year: "2026" },
+    date: { day: "09", month: "Sep", year: "2026" },
     title: "Sage 100 Expérience Édition : votre solution réinventée",
     format: "Webinaire en ligne",
     formatIcon: Video,

@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Calendar, Video, Users, CheckCircle2, Sparkles } from "lucide-react";
+import { ChevronRight, Calendar, Video, Users, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -39,13 +39,10 @@ const changes = [
 export default function WebinaireSage100ExperienceClient() {
   const introRef = useRef(null);
   const changesRef = useRef(null);
-  const formRef = useRef(null);
+  const ctaRef = useRef(null);
   const introInView = useInView(introRef, { once: true, margin: "-100px" });
   const changesInView = useInView(changesRef, { once: true, margin: "-100px" });
-  const formInView = useInView(formRef, { once: true, margin: "-100px" });
-
-  const [form, setForm] = useState({ name: "", email: "", company: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
 
   return (
     <main className="overflow-x-hidden bg-bg">
@@ -81,11 +78,18 @@ export default function WebinaireSage100ExperienceClient() {
           >
             Nouvelle interface web et assistant IA embarqué : votre solution Sage 100 change. Découvrez ce qui évolue concrètement pour vous.
           </motion.p>
-          <div className="flex flex-wrap gap-6 text-sm text-white/60">
-            <span className="flex items-center gap-2"><Calendar size={16} className="text-accent" aria-hidden="true" /> 5 août 2026 — 10h00</span>
+          <div className="flex flex-wrap gap-6 text-sm text-white/60 mb-10">
+            <span className="flex items-center gap-2"><Calendar size={16} className="text-accent" aria-hidden="true" /> 9 septembre 2026 — 13h00 à 14h00</span>
             <span className="flex items-center gap-2"><Video size={16} className="text-accent" aria-hidden="true" /> En ligne</span>
             <span className="flex items-center gap-2"><Users size={16} className="text-accent" aria-hidden="true" /> Places limitées</span>
           </div>
+          <Link
+            href="/evenements/webinaire-sage-100-experience/inscription"
+            aria-label="S'inscrire au webinaire Sage 100 Expérience"
+            className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
+          >
+            S&apos;inscrire au webinaire <ArrowRight size={18} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
@@ -124,55 +128,19 @@ export default function WebinaireSage100ExperienceClient() {
         </div>
       </section>
 
-      {/* Registration form */}
-      <section className="py-20 bg-primary" ref={formRef}>
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div variants={fadeUp} initial="hidden" animate={formInView ? "visible" : "hidden"} className="bg-white rounded-2xl p-8 md:p-10">
-            <h2 className="text-2xl font-bold text-primary mb-2 text-center">Réservez votre place</h2>
-            <p className="text-secondary text-center mb-8">Places limitées — inscription gratuite et sans engagement</p>
-            {submitted ? (
-              <div className="text-center py-8">
-                <CheckCircle2 size={40} className="text-emerald-500 mx-auto mb-4" aria-hidden="true" />
-                <h3 className="text-lg font-bold text-primary mb-2">Inscription confirmée !</h3>
-                <p className="text-secondary">Vous recevrez le lien de connexion par email avant l&apos;événement.</p>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-                className="space-y-4"
-              >
-                <input
-                  type="text"
-                  required
-                  placeholder="Nom complet"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:border-cta text-sm"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Adresse email professionnelle"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:border-cta text-sm"
-                />
-                <input
-                  type="text"
-                  required
-                  placeholder="Entreprise"
-                  value={form.company}
-                  onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:border-cta text-sm"
-                />
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3.5 bg-cta text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
-                >
-                  S&apos;inscrire au webinaire
-                </button>
-              </form>
-            )}
+      {/* CTA */}
+      <section className="py-20 bg-primary" ref={ctaRef}>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div variants={fadeUp} initial="hidden" animate={ctaInView ? "visible" : "hidden"}>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Réservez votre place dès maintenant</h2>
+            <p className="text-white/70 mb-8">Places limitées — inscription gratuite et sans engagement.</p>
+            <Link
+              href="/evenements/webinaire-sage-100-experience/inscription"
+              aria-label="S'inscrire au webinaire Sage 100 Expérience"
+              className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
+            >
+              S&apos;inscrire au webinaire <ArrowRight size={18} aria-hidden="true" />
+            </Link>
           </motion.div>
         </div>
       </section>
