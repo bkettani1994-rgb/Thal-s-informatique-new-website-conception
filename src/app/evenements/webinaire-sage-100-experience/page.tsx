@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import WebinaireSage100ExperienceClient from "./WebinaireSage100ExperienceClient";
 
 export const metadata: Metadata = {
-  title: "Webinaire : Sage 100 Expérience, votre solution réinventée",
+  title: "Compte-rendu : Webinaire Sage 100 Expérience",
   description:
-    "Le 9 septembre 2026 de 13h à 14h en ligne : découvrez la nouvelle interface web et l'assistant IA embarqué de Sage 100 Expérience. Inscription gratuite, places limitées.",
+    "Retour sur le webinaire du 9 septembre 2026 : nouvelle interface web et assistant IA embarqué de Sage 100 Expérience. Découvrez le compte-rendu.",
   alternates: {
     canonical: "/evenements/webinaire-sage-100-experience",
   },

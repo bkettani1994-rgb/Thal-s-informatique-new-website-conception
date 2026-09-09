@@ -43,9 +43,8 @@ const events = [
     color: "bg-cta",
     tag: "Nouveauté",
     tagColor: "bg-blue-50 text-blue-700",
-    past: false,
+    past: true,
     partners: [],
-    reveal: true,
     href: "/evenements/webinaire-sage-100-experience",
   },
   {
@@ -128,7 +127,7 @@ export default function Events() {
         {/* Event cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {events.slice(0, 3).map((event, i) => {
-            const teaser = !event.past && !event.reveal;
+            const teaser = !event.past;
             const Card = (
               <motion.div
                 initial={{ opacity: 0, y: 24 }}

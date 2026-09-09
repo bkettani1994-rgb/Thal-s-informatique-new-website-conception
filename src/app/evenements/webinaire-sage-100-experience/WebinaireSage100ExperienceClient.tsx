@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ChevronRight, Calendar, Video, Users, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
+import { ChevronRight, Calendar, Video, Users, CheckCircle2, ArrowRight } from "lucide-react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 
@@ -36,12 +36,21 @@ const changes = [
   },
 ];
 
+const takeaways = [
+  "Une présentation en direct de la nouvelle interface web Sage 100 Expérience",
+  "Une démonstration de l'assistant IA conversationnel intégré",
+  "Les possibilités de personnalisation des tableaux de bord et workflows",
+  "Un temps d'échange avec l'équipe Thalès Informatique pour répondre aux questions",
+];
+
 export default function WebinaireSage100ExperienceClient() {
   const introRef = useRef(null);
   const changesRef = useRef(null);
+  const takeawaysRef = useRef(null);
   const ctaRef = useRef(null);
   const introInView = useInView(introRef, { once: true, margin: "-100px" });
   const changesInView = useInView(changesRef, { once: true, margin: "-100px" });
+  const takeawaysInView = useInView(takeawaysRef, { once: true, margin: "-100px" });
   const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
 
   return (
@@ -58,9 +67,8 @@ export default function WebinaireSage100ExperienceClient() {
             <ChevronRight size={14} aria-hidden="true" />
             <span aria-current="page" className="text-accent">Webinaire Sage 100 Expérience</span>
           </nav>
-          <span className="inline-flex items-center gap-2 bg-accent/20 text-accent text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full mb-4">
-            <Sparkles size={12} aria-hidden="true" />
-            Inscriptions ouvertes
+          <span className="inline-flex items-center gap-2 bg-white/10 text-white/70 text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full mb-4">
+            Événement terminé · Compte-rendu
           </span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -76,22 +84,13 @@ export default function WebinaireSage100ExperienceClient() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-lg text-white/70 max-w-2xl mb-8"
           >
-            Nouvelle interface web et assistant IA embarqué : votre solution Sage 100 change. Découvrez ce qui évolue concrètement pour vous.
+            Retour sur notre webinaire consacré à la nouvelle interface web et à l&apos;assistant IA embarqué de Sage 100.
           </motion.p>
-          <div className="flex flex-wrap gap-6 text-sm text-white/60 mb-10">
+          <div className="flex flex-wrap gap-6 text-sm text-white/60">
             <span className="flex items-center gap-2"><Calendar size={16} className="text-accent" aria-hidden="true" /> 9 septembre 2026 — 13h00 à 14h00</span>
             <span className="flex items-center gap-2"><Video size={16} className="text-accent" aria-hidden="true" /> En ligne</span>
-            <span className="flex items-center gap-2"><Users size={16} className="text-accent" aria-hidden="true" /> Places limitées</span>
+            <span className="flex items-center gap-2"><Users size={16} className="text-accent" aria-hidden="true" /> Webinaire</span>
           </div>
-          <a
-            href="https://register.gotowebinar.com/register/8450964475519129434"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="S'inscrire au webinaire Sage 100 Expérience (ouvre GoToWebinar dans un nouvel onglet)"
-            className="inline-flex items-center gap-2 bg-cta text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-600 transition-colors duration-200"
-          >
-            S&apos;inscrire au webinaire <ArrowRight size={18} aria-hidden="true" />
-          </a>
         </div>
       </section>
 
@@ -99,15 +98,15 @@ export default function WebinaireSage100ExperienceClient() {
       <section className="py-16" ref={introRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeUp} initial="hidden" animate={introInView ? "visible" : "hidden"} className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-primary mb-5">Pourquoi participer ?</h2>
+            <h2 className="text-2xl font-bold text-primary mb-5">Ce qu&apos;il fallait retenir</h2>
             <p className="text-secondary leading-relaxed">
-              Vous connaissez et utilisez Sage 100 au quotidien pour piloter votre activité. Aujourd&apos;hui, nous franchissons une nouvelle étape pour vous faire gagner en simplicité, en agilité et en performance : <strong className="text-primary">Sage 100 Expérience Édition</strong>. Rejoignez ce webinaire pour découvrir en avant-première ce qui change concrètement pour vous.
+              Vous connaissez et utilisez Sage 100 au quotidien pour piloter votre activité. Le 9 septembre 2026, Thalès Informatique a présenté <strong className="text-primary">Sage 100 Expérience Édition</strong>, une nouvelle étape pensée pour vous faire gagner en simplicité, en agilité et en performance.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Ce qui change */}
+      {/* Ce qui a été présenté */}
       <section className="py-16 bg-white" ref={changesRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeUp} initial="hidden" animate={changesInView ? "visible" : "hidden"} className="mb-10 text-center">
@@ -130,21 +129,45 @@ export default function WebinaireSage100ExperienceClient() {
         </div>
       </section>
 
+      {/* Ce qui a été abordé pendant le webinaire */}
+      <section className="py-16" ref={takeawaysRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div variants={fadeUp} initial="hidden" animate={takeawaysInView ? "visible" : "hidden"} className="mb-10 text-center">
+            <h2 className="text-2xl font-bold text-primary mb-2">Au programme du webinaire</h2>
+          </motion.div>
+          <motion.div variants={stagger} initial="hidden" animate={takeawaysInView ? "visible" : "hidden"} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {takeaways.map((item) => (
+              <motion.div key={item} variants={fadeUp} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-border">
+                <CheckCircle2 size={18} className="text-blue-600 mt-0.5 shrink-0" aria-hidden="true" />
+                <span className="text-sm text-secondary leading-relaxed">{item}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-primary" ref={ctaRef}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div variants={fadeUp} initial="hidden" animate={ctaInView ? "visible" : "hidden"}>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Réservez votre place dès maintenant</h2>
-            <p className="text-white/70 mb-8">Places limitées — inscription gratuite et sans engagement.</p>
-            <a
-              href="https://register.gotowebinar.com/register/8450964475519129434"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="S'inscrire au webinaire Sage 100 Expérience (ouvre GoToWebinar dans un nouvel onglet)"
-              className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
-            >
-              S&apos;inscrire au webinaire <ArrowRight size={18} aria-hidden="true" />
-            </a>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Vous avez manqué ce webinaire ?</h2>
+            <p className="text-white/70 mb-8 max-w-xl mx-auto">
+              Découvrez dès maintenant Sage 100 Expérience ou contactez nos équipes pour toute question.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/solutions/sage-100-experience"
+                className="inline-flex items-center gap-2 bg-white text-cta font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
+              >
+                Découvrir Sage 100 Expérience <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white font-semibold rounded-xl hover:border-white/50 transition-colors duration-200"
+              >
+                Nous contacter <ChevronRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
